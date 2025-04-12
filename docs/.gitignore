@@ -5,3 +5,6 @@
 **/images/diagrams/
 *.pdf
 *.html
+
+# VS Code
+.vs-code/
