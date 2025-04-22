@@ -1,5 +1,5 @@
 = UX-Konzept: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Patrick Eger <patrick.eger@stud.htw-dresden.de>;  Nicola Gadow <nicola.gadow@stud.htw-dresden.de>; Felix Prockl <felix.prockl@stud.htw-dresden.de>; Tristan Weiland <tristan.weiland2@stud.htw-dresden.de>; Monika Keil <monika.keil@stud.htw-dresden.de>; {localdatetime}
+Vorname Nachname <email@domain.org>; Martin-Lee Schubert <martinlee.schubert@stud.htw-dresden.de>; Patrick Eger <patrick.eger@stud.htw-dresden.de>;  Nicola Gadow <nicola.gadow@stud.htw-dresden.de>; Felix Prockl <felix.prockl@stud.htw-dresden.de>; Tristan Weiland <tristan.weiland2@stud.htw-dresden.de>; Monika Keil <monika.keil@stud.htw-dresden.de>; {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
