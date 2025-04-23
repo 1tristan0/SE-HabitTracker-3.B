@@ -1,1 +1,23 @@
+= Weekly-Meeting 22.04.2025
+Anwesend: Monika, Felix, Nicola, Patrick, Paul, Tristan, Martin (vollständig)
 
+== Review vergangener Woche
+- Alle ToDos wurden fristgerecht erledigt, diese waren:
+1. Mailadresse aus GitHub-Anmeldung an Tristan für Repo-Beitritt (jeder)
+2. Repo beitreten (jeder)
+3. im Repo an allen Stellen Namen und Mailadresse (Teammitglieder) eintragen (jeder)
+4. Miro-Board beitreten (jeder)
+5. freie Zeiten im Miro-Board (Kalender) kennzeichnen (jeder)
+6. ein "Persona" erstellen (jeder)
+7. erste Überlegungen für Vision (jeder)
+
+
+== Entscheidungen
+- Teamname = Gewohnheitstier
+- Teamaktivität wird aus Zeitgründen auf Mitte Mai verschoben
+
+== ToDos
+- konkrete Überlegungen für Vision, um Visions-Dokument nächste Woche fertigzustellen (jeder)
+- Stimmungs-Tabelle in Miro erstellen (Paul)
+- Mail an Prof, um Kriterien für Iteration zu erfragen (Monika)
+- Protokoll-Ordner erstellen und bisherige Protokolle darin festhalten (Felix)
