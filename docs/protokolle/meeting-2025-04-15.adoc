@@ -1,1 +1,36 @@
+= Weekly-Meeting 15.04.2025
+Monika, Felix, Nicola, Patrick, Paul, Tristan, Martin (vollständig)
 
+== Team aufbauen, Vereinbarungen über Zusammenarbeit, Zeiten und Termine für alle Srum-Meetings:
+- "planning": zu Beginn des Sprints
+- "weekly": jeden Dienstag nach der VL ab 15.30 Uhr
+- "backlog refinement": ca. Mitte des Sprints?
+- "review" / "retro": am Ende des Sprints
+
+== verwendete Tools:
+- Meeting-Protokolle und inoffizielle Doku: Discord
+- asynchrone Kommunikation: Discord, WhatsApp
+- Brainstorming und Info-Sammlung (z.B. Persona, freie Kapazitäten): Miro Board (https://miro.com/app/board/uXjVIEsUdgw=/?share_link_id=360581046878)
+- offizielle Dokumentation: Repository (https://github.com/1tristan0/SE-HabitTracker-3.B.git)
+
+== Team
+- Ansprechpartner für Dozent und Coach: Monika
+- SrumMaster: Felix
+- ProductOwner: Nicola
+- Dev.Team: Patrick, Paul, Tristan, Martin, Monika
+
+==TODOs:
+- Mailadresse aus GitHub-Anmeldung an Tristan für Repo-Beitritt (jeder)
+- Repo beitreten (jeder)
+- im Repo an allen Stellen Namen und Mailadresse (Teammitglieder) eintragen (jeder)
+- Miro-Board beitreten (jeder)
+- freie Zeiten im Miro-Board (Kalender) kennzeichnen (jeder)
+- ein "Persona" erstellen (jeder)
+- erste Überlegungen für Vision (jeder) => evtl. schon Doku in Datei "requirements/vision.adoc"
+
+==Offene Punkte für nächstes Treffen:
+- Termin für "planning" finden (möglichst zu Beginn eines Sprints) und festlegen (alle)
+- Termin für "refinement" (Mitte des Sprints?) besprechen und festlegen (alle)
+- Termin für "review"/"retro" besprechen und festlegen (alle)
+- Tasks entsprechend Protokoll im Repo anlegen (Tristan)
+- Festlegung Projektname" und "Teamname" (alle)
