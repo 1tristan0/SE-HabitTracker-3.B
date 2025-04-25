@@ -11,7 +11,24 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Projektorganisation
 //Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members. Introduce neighboring projects, relationships, and communication channels. If the project is introduced somewhere else, reference that location with a link.
+=== Projekt-Team / Rollen
+Product Owner: Nicola Gadow
+Scrum Master: Felix Prockl
+Ansprechpartner für Dozent und Coach: Monika Keil
+Dev.Team: Patrick Eger, Tristan Weiland, Paul Händler, Martin-Lee Schubert, Monika Keil
 
+=== Zeiten und Termine Scrum-Meetings
+Zeiten und Termine für alle Srum-Meetings
+"planning": zu Beginn des Sprints
+"weekly": jeden Dienstag nach der VL ab 15.30 Uhr
+"backlog refinement": ca. Mitte des Sprints?
+"review" / "retro": am Ende des Sprints
+
+=== Kommunikationskanäle
+inoffizielle Doku: Discord
+asynchrone Kommunikation: Discord, WhatsApp
+Brainstorming und Info-Sammlung (z.B. Persona, freie Kapazitäten): Miro Board (https://miro.com/app/board/uXjVIEsUdgw=/?share_link_id=360581046878)
+Meeting-Protokolle und offizielle Dokumentation: Repository (https://github.com/1tristan0/SE-HabitTracker-3.B.git)
 
 == Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
