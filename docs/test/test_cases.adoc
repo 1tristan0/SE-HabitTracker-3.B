@@ -1,5 +1,5 @@
 = Test Cases: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Patrick Eger <patrick.eger@stud.htw-dresden.de>;  Vorname4 Nachname4 <email4@domain.org>; Felix Prockl <felix.prockl@stud.htw-dresden.de>; Vorname6 Nachname6 <email6@domain.org>; Monika Keil <monika.keil@stud.htw-dresden.de>
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Patrick Eger <patrick.eger@stud.htw-dresden.de>;  Vorname4 Nachname4 <email4@domain.org>; Felix Prockl <felix.prockl@stud.htw-dresden.de>; Vorname6 Nachname6 <email6@domain.org>; Monika Keil <monika.keil@stud.htw-dresden.de>;  Paul Händler <paul.haendler@stud.htw-dresden.de>; 
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
