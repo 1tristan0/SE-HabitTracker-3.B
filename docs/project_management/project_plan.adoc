@@ -1,5 +1,5 @@
 = Projektplan: {project-name}
-Vorname Nachname <email@domain.org>; Martin-Lee Schubert <martinlee.schubert@stud.htw-dresden.de>; Patrick Eger <patrick.eger@stud.htw-dresden.de>;  Nicola Gadow <nicola.gadow@stud.htw-dresden.de>; Felix Prockl <felix.prockl@stud.htw-dresden.de>; Tristan Weiland <tristan.weiland2@stud.htw-dresden.de>; Monika Keil <monika.keil@stud.htw-dresden.de>;  Paul Händler <paul.haendler@stud.htw-dresden.de>; 
+include::../_includes/teammitglieder.adoc[]
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -20,7 +20,7 @@ Dev.Team: Patrick Eger, Tristan Weiland, Paul Händler, Martin-Lee Schubert, Mon
 === Zeiten und Termine Scrum-Meetings
 Zeiten und Termine für alle Srum-Meetings
 "planning": zu Beginn des Sprints
-"weekly": jeden Dienstag nach der VL ab 15.30 Uhr
+"weekly": jeden Dienstag nach der VL 15.30 Uhr bis 16.00 Uhr
 "backlog refinement": ca. Mitte des Sprints?
 "review" / "retro": am Ende des Sprints
 
