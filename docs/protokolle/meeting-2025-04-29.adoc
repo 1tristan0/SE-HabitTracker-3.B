@@ -1,26 +1,24 @@
-= Weekly-Meeting 22.04.2025
+= Weekly-Meeting 29.04.2025
 Anwesend: Monika, Felix, Nicola (Krank), Patrick, Paul (Krank), Tristan, Martin
 
 == Review vergangener Woche
 Done:
 
-- Stimmungs-Tabelle in Miro erstellen (Paul) => done
+- Stimmungs-Tabelle in Miro erstellen (Paul)
 - Prioritäten für Visionsnotizen (alle gemeinsam)
 - Protokoll-Ordner erstellen und bisherige Protokolle darin festhalten (Felix)
-- Mail an Prof, um Kriterien für Iteration zu erfragen (Monika)
-- konkrete Überlegungen für Vision, um Visions-Dokument nächste Woche fertigzustellen (jeder)
+- Mail an Prof, um Kriterien für Iteration zu erfragen (Monika) => persönlich erfragt
+- konkrete Überlegungen für Vision, um Visions-Dokument nächste Woche fertigzustellen (jeder) => Miro
 
 == Info: Abgabe / Bewertung der Iterationen
 Aussage Prof. Anke:
 
 - es wird morgen/übermorgen eine Info von ihm geben bzgl. Bewertungskriterien
-- es muss nichts separat abgegeben werden, Betreuer und Prof schauen zum Stichtag in Repo und Miro-Board rein
+- es muss nichts separat abgegeben werden, Betreuer und Prof schauen zum Stichtag (Iterationsende) in Repo und Miro-Board rein
 - wir bekommen nach jeder Iteration ein kurzes Feedback / kurze Einschätzung per Mail, wo wir stehen und was ggf. besser zu machen ist
 
-== ToDos
+== ToDo's
 - Legende für Stimmungsboard (Martin)
-- "Tabelle" für Produktvision in Miro übertragen, so dass jeder eine eigene Version schreiben kann (jeder)
+- "Tabelle" für Produktvision in Miro übertragen, so dass jeder eine eigene Version schreiben kann (Tristan)
+- eigene Version der Vision in Miro schreiben (jeder)
 - Zusammenführung der einzelnen "Visionsversionen" und Übertragung in Repo (vision.adoc) (PO)
-
-
-

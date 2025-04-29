@@ -1,7 +1,9 @@
 = Projektplan: {project-name}
-include::../_includes/teammitglieder.adoc[]
-{localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
+
+include::../_includes/teammitglieder.adoc[]
+
+{localdatetime}
 // Platzhalter für weitere Dokumenten-Attribute
 
 
