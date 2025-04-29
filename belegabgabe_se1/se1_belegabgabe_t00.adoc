@@ -1,7 +1,7 @@
 // --- 1. Projektthema -------------------------
 = SE I - Belegabgabe: {project-name}
 // --- 2. Teammitglieder -----------------------
-Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>
+Martin-Lee Schubert <martinlee.schubert@stud.htw-dresden.de>; Patrick Eger <patrick.eger@stud.htw-dresden.de>;  Nicola Gadow <nicola.gadow@stud.htw-dresden.de>; Felix Prockl <felix.prockl@stud.htw-dresden.de>; Tristan Weiland <tristan.weiland2@stud.htw-dresden.de>; Monika Keil <monika.keil@stud.htw-dresden.de>; Paul Händler <paul.haendler@stud.htw-dresden.de>; 
 // --- 3. Abgabedatum --------------------------
 01. Januar 2025
 // ---------------------------------------------
