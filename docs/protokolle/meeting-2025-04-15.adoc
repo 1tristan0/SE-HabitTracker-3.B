@@ -19,7 +19,7 @@ Monika, Felix, Nicola, Patrick, Paul, Tristan, Martin (vollständig)
 - ProductOwner: Nicola
 - Dev.Team: Patrick, Paul, Tristan, Martin, Monika
 
-==TODOs:
+== ToDo's
 - Mailadresse aus GitHub-Anmeldung an Tristan für Repo-Beitritt (jeder)
 - Repo beitreten (jeder)
 - im Repo an allen Stellen Namen und Mailadresse (Teammitglieder) eintragen (jeder)
@@ -28,7 +28,7 @@ Monika, Felix, Nicola, Patrick, Paul, Tristan, Martin (vollständig)
 - ein "Persona" erstellen (jeder)
 - erste Überlegungen für Vision (jeder) => evtl. schon Doku in Datei "requirements/vision.adoc"
 
-==Offene Punkte für nächstes Treffen:
+== Offene Punkte für nächstes Treffen
 - Termin für "planning" finden (möglichst zu Beginn eines Sprints) und festlegen (alle)
 - Termin für "refinement" (Mitte des Sprints?) besprechen und festlegen (alle)
 - Termin für "review"/"retro" besprechen und festlegen (alle)

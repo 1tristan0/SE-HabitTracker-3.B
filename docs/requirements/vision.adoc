@@ -36,7 +36,7 @@ Siehe <<#glossary, Glossar>>.
 |===
 | Für | [Zielkunde / Persona]
 | der / die | [Angabe des Bedarfs oder Chance]
-| ist das  | [Produktname]
+| ist das  | {project-system-name}
 | eine  | [Produktkategorie]
 | der / die | [Aussage zum Hauptvorteil / Alleinstellungsmerkmal]
 | anders als | [wesentliche Lösungsalternative]
