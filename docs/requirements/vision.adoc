@@ -14,7 +14,7 @@ Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäte
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
 === Gültigkeitsbereich (Scope)
-Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von <Team> entwickelt wird. Das System wird es <Zielkunde/Auftraggeber> erlauben, <Hauptfunktionen> zu nutzen, um damit <Vorteile> zu erreichen / <Aufgabe> zu erleichtern / <Problem> zu lösen.
+Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von HabitTracker-3.B entwickelt wird. Das System wird es Jugendlichen und Erwachsenen erlauben, spielerische und soziale Komponenten zu nutzen, um die Motivation während der Umstellung der Gewohnheiten nicht zu verlieren.
 
 === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
@@ -30,19 +30,27 @@ Siehe <<#glossary, Glossar>>.
 === Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
 
+Viele junge Erwachsene – insbesondere Studierende und Berufstätige – möchten ihre Alltagsroutinen verbessern, etwa durch regelmäßige Bewegung, strukturierte Tagesplanung oder gesündere Ernährung. Während die Zielsetzung meist klar ist, fehlt es an nachhaltiger Motivation, positiver Verstärkung und emotionaler Bindung zur Gewohnheitsbildung.
+
+Bestehende Habit-Tracker setzen meist auf Listen oder reine Zahlen, wodurch die emotionale Beteiligung gering bleibt und Nutzer:innen schnell das Interesse verlieren.
+
+„Gewohnheitstier“ begegnet diesem Problem mit einer spielerischen, emotional ansprechenden Komponente: einem digitalen Begleiter (Buddy) – einem Maskottchen, das die Nutzer:innen auf ihrer Gewohnheitsreise begleitet.
+
+Der Einsatz eines solchen Avatars schafft emotionale Bindung, stärkt das Verantwortungsgefühl und macht den Prozess der Verhaltensänderung positiv. Die Kombination aus Fortschritten und Gamification erhöht somit die langfristige Nutzungsdauer und Zielerreichung.
+
 === Produktvision
 //Eine Produktvision beschreibt das Einsatzziel der Anwendung und sorgt für ein gemeinsames Ziel und Verständnis für alle Beteiligten im Projekt. Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
 
 
 [cols="1,3"]
 |===
-| Für | [Zielkunde / Persona]
-| der / die | [Angabe des Bedarfs oder Chance]
-| ist das  | {project-system-name}
-| eine  | [Produktkategorie]
-| der / die | [Aussage zum Hauptvorteil / Alleinstellungsmerkmal]
-| anders als | [wesentliche Lösungsalternative]
-| kann unser Produkt | [Aussage zum Hauptunterschied]
+| Für | Jugendliche und Erwachsene (Studierende und Berufstätige)
+| die | ihre Gewohnheiten gezielt auf- oder abbauen wollen
+| ist das | Gewohnheitstier
+| eine | mobile App
+| der / die | eine spielerische und soziale Komponente enthält
+| anders als | bereits am Markt verfügbare Habit-Tracking-Apps
+| kann unser Produkt | die Motivation erhalten und gezielt verbessern, um langfristige Gewohnheitsänderungen zu ermöglichen
 |===
 
 
@@ -69,6 +77,12 @@ Siehe <<#glossary, Glossar>>.
 | [Benennung des Stakeholders (als Rolle)]
 | [Kurze Beschreibung des Stakeholders und seiner Ziele]
 | [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
+| Zielnutzer:in
+| Junge Erwachsene (studierend oder berufstätig), die ihre Gewohnheiten mit Hilfe eines motivierenden Systems verbessern möchten
+| Nutzen die App regelmäßig, geben Feedback zu Usability und Motivation, dienen als Grundlage für Personas und Tests
+| Entwicklungsteam
+| Interdisziplinäres Team aus Studierenden, die das System konzipieren, entwickeln und evaluieren
+| Verantwortlich für Anforderungsanalyse, Design, Implementierung, Testing und Dokumentation
 |===
 
 Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
@@ -82,7 +96,28 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 [%header, cols="4,1,4,1"]
 |===
 | Bedarf | Priorität | Features / Funktionen | Geplantes Release
-| xx | xx | xx | xx
+
+| Aufbau und Pflege täglicher Gewohnheiten | Hoch
+| Anlegen und Verwalten individueller Gewohnheiten mit Zielvorgaben, Wiederholungsintervallen und Erinnerungen |
+
+| Motivation durch emotionale Bindung | Hoch
+| Interaktives Maskottchen („Gewohnheitstier“), das sich je nach Fortschritt positiv oder negativ entwickelt |
+
+| Übersicht über Fortschritte | Hoch
+| Visuelles Tracking mit Kalender, Fortschrittsanzeige und Erfolgsstatistiken |
+
+| Soziale Interaktion und externe Motivation | Mittel
+| Möglichkeit, Fortschritte mit Freund:innen zu teilen, Challenges zu erstellen oder Erfolge öffentlich zu machen |
+
+| Flexibilität bei Routinen und Tagesplanung | Mittel
+| Anpassbare Wochenplanung inkl. Pausentagen und spontanen Änderungen |
+
+| Spielerische Langzeitmotivation | Mittel
+| Level-System, Belohnungen, Trophäen oder freischaltbare Inhalte durch regelmäßiges Erreichen von Zielen |
+
+| Einfache Bedienbarkeit auf mobilen Endgeräten | Hoch
+| Mobile App für Android und iOS mit intuitivem Interface |
+
 |===
 
 
