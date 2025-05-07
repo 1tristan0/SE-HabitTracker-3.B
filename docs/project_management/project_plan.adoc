@@ -65,9 +65,29 @@ include::../_includes/teammitglieder.adoc[]
 
 === Definition of Ready
 // Listen Sie hier die Kriterien auf, die ein Product Backlog Item (z.B. User Story) erfüllen muss, damit es bei der Sprint-Planung berücksichtigt werden kann
+- Klarer Titel & Beschreibung : Das Problem und der Nutzen sind verständlich formuliert.
+- Akzeptanzkriterien definiert
+- Abhängigkeiten identifiziert & aufgelöst : Externe Services, andere Teams, rechtliche Vorgaben o. Ä.
+- Business-Wert (Priorität) bekannt : Warum ist es wichtig, es jetzt zu erledigen?
+- Story-Point-Schätzung abgeschlossen : Aufwand (relativ) bewertet.
+Testbarkeit gewährleistet : Messbare Kriterien, Mock-Daten oder Testfälle vorhanden.
+- UI/UX-Artefakte verfügbar (falls relevant) : Wireframes, Designs oder API-Contracts liegen vor.
+- Technische Annahmen dokumentiert : Z. B. Framework-Version, Datenbankschema, Performance-Ziele.
+- Nicht-funktionale Anforderungen erfasst : Security, Performance, Accessibility, Logging
+- Kein offener Diskussionsbedarf : Alle Fragen im Refinement geklärt, Product Owner erreichbar.
 
 === Definition of Done
 // Listen Sie hier alle Kritierien auf, damit die Aufgabe eines bestimmten Typs (z.B. Task, User Story) als abgeschlossen gilt.
+- Code fertig implementiert und lokal erfolgreich gebaut.
+- Peer-Review / Pull-Request durchgeführt, alle Kommentare adressiert.
+- Automatisierte Unit- und Integrationstests geschrieben und grün.
+- Akzeptanzkriterien (Definition of Ready) durch Tester oder PO verifiziert.
+- Nicht-funktionale Anforderungen (Performance, Security, Accessibility) erfüllt.
+- Dokumentation (Code-Comments, Changelog, ggf. Benutzerhilfe) aktualisiert.
+- CI/CD-Pipeline durchlaufen; Artefakt in staging-ähnlicher Umgebung deployed.
+- Regressionstests bestanden, keine neuen kritischen Bugs.
+- Feature-Toggle / Konfiguration korrekt gesetzt (falls relevant).
+- PO bestätigt: „Akzeptiert“ im Sprint Review.
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.

@@ -1,0 +1,15 @@
+= Weekly-Meeting 07.05.2025
+Anwesend: Monika, Felix, Nicola, Patrick (1.Teil), Paul, Tristan, Martin
+
+== Review vergangener Woche
+Done:
+
+- "Tabelle" für Produktvision in Miro übertragen, so dass jeder eine eigene Version schreiben kann (Tristan)
+- eigene Version der Vision in Miro schreiben (jeder)
+- Zusammenführung der einzelnen "Visionsversionen" und Übertragung in Repo (vision.adoc) (PO)
+
+
+== ToDo's
+- Legende für Stimmungsboard + Tabelle überarbeiten (Martin)
+- 
+- Issue #21, #20, #19, #18, #17, #14
