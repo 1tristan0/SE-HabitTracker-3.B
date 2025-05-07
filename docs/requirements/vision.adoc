@@ -83,6 +83,12 @@ Der Einsatz eines solchen Avatars schafft emotionale Bindung, stärkt das Verant
 | Entwicklungsteam
 | Interdisziplinäres Team aus Studierenden, die das System konzipieren, entwickeln und evaluieren
 | Verantwortlich für Anforderungsanalyse, Design, Implementierung, Testing und Dokumentation
+| Wissenschaftler:innen
+| forschen auf dem Gebiet der Verhaltenspsychologie und Gewohnheitsbildung
+| publizierte Erkenntnisse und Ergebnisse können verwendet werden
+| Gesetzgeber, Datenschutzbeauftragte, IT-Sicherheit
+| Sicherheit der App und Nutzerdaten
+| Einhaltung aller Vorschriften und Vorgaben
 |===
 
 Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
