@@ -1,6 +1,6 @@
 // Meta
-:project-name: Habit Tracker (3.B)
-:project-system-name: Gewohnheitstier
+:project-name: "Habit Tracker (3.B)"
+:project-system-name: "Gewohnheitstier"
 // Settings:
 :toc:
 :toc-title: Inhaltsverzeichnis

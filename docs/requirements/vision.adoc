@@ -14,7 +14,7 @@ Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäte
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
 === Gültigkeitsbereich (Scope)
-Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von HabitTracker-3.B entwickelt wird. Das System wird es Jugendlichen und Erwachsenen erlauben, spielerische und soziale Komponenten zu nutzen, um die Motivation während der Umstellung der Gewohnheiten nicht zu verlieren.
+Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von {project-name} entwickelt wird. Das System wird es Jugendlichen und Erwachsenen erlauben, spielerische und soziale Komponenten zu nutzen, um die Motivation während der Umstellung der Gewohnheiten nicht zu verlieren.
 
 === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
@@ -46,11 +46,11 @@ Der Einsatz eines solchen Avatars schafft emotionale Bindung, stärkt das Verant
 |===
 | Für | Jugendliche und Erwachsene (Studierende und Berufstätige)
 | die | ihre Gewohnheiten gezielt auf- oder abbauen wollen
-| ist das | Gewohnheitstier
+| ist das | {project-system-name}
 | eine | mobile App
 | der / die | eine spielerische und soziale Komponente enthält
 | anders als | bereits am Markt verfügbare Habit-Tracking-Apps
-| kann unser Produkt | die Motivation erhalten und gezielt verbessern, um langfristige Gewohnheitsänderungen zu ermöglichen
+| kann unser Produkt | die Motivation erhalten und gezielt verbessern, um langfristige Gewohnheitsänderungen zu ermöglichen.
 |===
 
 
