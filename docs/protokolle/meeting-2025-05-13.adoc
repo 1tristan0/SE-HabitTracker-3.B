@@ -1,0 +1,28 @@
+= Weekly-Meeting 13.05.2025
+Anwesend: Monika, Felix, Nicola, Patrick, Paul, Tristan, Martin (vollständig)
+
+== Review vergangener Woche (Done)
+
+- Legende für Stimmungsboard + Tabelle überarbeiten (Martin)
+- Definition of Done
+- Definition of Ready
+- User Stories in separatem Dokument
+- Personas übertragen/ dokumentieren (#19)
+
+== ToDo's
+
+- Kontakt zu Team 4.B herstellen => Terminvorschlag für Review-Meeting am 03.06.25 15.30 Uhr (Monika)
+- Terminvorschlag für Meeting mit Coach => 20.05.25 um 15.30 Uhr oder 21.05.25 um 15.15 Uhr
+- User Stories in Repo übertragen (Nicola)
+- erstes Product Backlog anlegen (aus User Stories extrahieren) (Nicola)
+- erste Überlegungen zu technischen Rahmenbedingungen in Miro oder separater Datei (Paul, Tristan)
+- erste Ideen für Softwareentwurf  in Miro oder separater Datei (Context, Container, benötigte Querschnittsfunktionalitäten)
+- Referenzen sammeln (Felix) (#22)
+- Glossary ergänzen (alle, laufend) (#21)
+- Expo auf Tauglichkeit prüfen (Paul)
+- Wireframe prüfen (Paul) und diskutieren (alle) (#25)
+
+== Entscheidungen
+
+- im ersten Schritt: nur lokale Datenspeicherung
+- Leaderboad wird erst später gemacht, weil dafür Speicherung auf Serverseite nötig wird (inkl. Nutzerident usw.)
