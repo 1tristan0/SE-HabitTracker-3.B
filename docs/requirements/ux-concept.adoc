@@ -18,6 +18,133 @@ In diesem Dokument werden die Benutzeroberflächen des Systems {project-system-n
 
 == Personas
 // Fügen Sie hier als Tabelle oder Bild die Persons der wichtigsten Stakeholder ein
+=== Persona 1: Uwe Upgrade
+
+[quote]
+____
+„Ich will mein Bestes geben – körperlich, mental und beruflich.“
+____
+
+[cols="1,3"]
+|===
+| **Alter** | 32
+| **Geschlecht** | männlich
+| **Familienstand** | single
+| **Wohnort** | Dresden
+| **Beruf** | Mittleres Management im Konzern
+
+
+| **Technische Fähigkeiten / Technologie** | 
+iPhone, iPad, MacBook – fit im Umgang mit iOS, nutzt gerne digitale Tools
+
+| **Typische Gewohnheit** | 
+Scrollt abends stundenlang auf sozialen Medien – oft bis 2 oder 3 Uhr morgens
+
+| **Bedürfnisse / Ziele** | 
+• Möchte als harter Arbeiter und guter Manager wahrgenommen werden\
+• Möchte seine Routine optimieren, Fortschritte messen und visualisieren\  
+• Allgemein seine Performance steigern
+
+| **Hindernisse / Frustrationen** | 
+• Konkurrenzdruck\
+• Zeitmangel\  
+• Stress im Alltag\  
+• Nutzt gerne und auch mal zu viele Tools
+
+| **Motivation** | 
+• Möchte im Unternehmen aufsteigen\  
+• Möchte eine bessere Version seiner selbst werden\  
+• Glaube an Selbstverbesserung durch Technologie
+
+| **Wünsche an eine Habit-App** | 
+• Simple Handhabung und visuell gut aufbereitete Tagesübersicht (auf einen Blick)\  
+• Tieferer Einblick soll bei Bedarf möglich sein (z. B. Fortschrittsdiagramme)\  
+• Hilfe beim Optimieren des Tagesablaufs\  
+• Erinnerung der Einhaltung produktiver Gewohnheiten\
+• Simples UI
+|===
+
+.Verhaltensvariablen
+[%unnumbered]
+[cols="1,3"]
+|===
+| **Extraversion**     
+| +extrovertiert     ─●─────────── introvertiert+
+
+| **Risikoverhalten**  
+| +risikoscheu       ────────●──── risikobereit+
+
+| **Innovationsgrad** 
+| +innovativ         ──●────────── konservativ+
+
+| **Kontaktkanal**    
+| +Telefon/Chat      ─────────●─── E-Mail+
+|===
+
+---
+
+=== Persona 2: Leonie Lebenswandel
+
+[quote]
+____
+„Ich möchte zur Ruhe kommen und achtsamer leben.“
+____
+
+[cols="1,3"]
+|===
+| **Alter** | 26
+| **Geschlecht** | weiblich
+| **Familienstand** | in Partnerschaft
+| **Wohnort** | Dresden
+| **Beruf** | Bibliothekarin
+
+| **Technische Fähigkeiten / Technologie** | 
+Smartphone, Laptop – nutzt selektiv Apps, meist einfache; etwas überfordert von Technikvielfalt
+
+| **Typische Gewohnheit** | 
+Scrollt oft abends ziellos am Handy, möchte aber wieder mehr lesen und offline sein; leicht ablenkbar
+
+| **Bedürfnisse / Ziele** | 
+• Medienkonsum reduzieren\  
+• Mehr Struktur im Alltag\  
+• Bewusst leben und mehr Zeit für Offline-Aktivitäten\  
+• Klein anfangen, statt sich zu überfordern
+
+| **Hindernisse / Frustrationen** | 
+• Unsicherheit beim Start neuer Gewohnheiten\  
+• Mediengewohnheiten schwer zu durchbrechen\  
+• Fühlt sich schnell von Tools überfordert
+
+| **Motivation** | 
+• Will sich besser fühlen\  
+• Gesünder leben\  
+• Klarer denken\  
+• Wieder Kontrolle über ihren Alltag gewinnen\  
+• Routinen finden, die auch langfristig halten
+
+| **Wünsche an eine Habit-App** | 
+• Simples, übersichtliches Design\  
+• Positive Bestärkung statt Druck\  
+• Sanfte Erinnerungen und Reflexionsmöglichkeiten (auch für kleine Erfolge)
+|===
+
+.Verhaltensvariablen
+[%unnumbered]
+[cols="1,3"]
+|===
+| **Extraversion**    
+| +extrovertiert     ────────●─── introvertiert+
+
+| **Risikoverhalten** 
+| +risikoscheu       ───●──────── risikobereit+
+
+| **Innovationsgrad** 
+| +innovativ         ─────●────── konservativ+
+
+| **Kontaktkanal**    
+| +Telefon/Chat      ───●──────── E-Mail+
+
+|===
 
 == Nutzungskontext
 // Beschreiben Sie die Arbeitsaufgaben, Arbeitsmittel, physische und soziale Umgebung, in der das Produkt genutzt wird.
