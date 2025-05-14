@@ -115,26 +115,26 @@ Smartphone, Laptop – nutzt selektiv Apps, meist einfache; etwas überfordert v
 Scrollt oft abends ziellos am Handy, möchte aber wieder mehr lesen und offline sein; leicht ablenkbar
 
 .4+| **Bedürfnisse / Ziele**  
-|• Medienkonsum reduzieren\  
-|• Mehr Struktur im Alltag\  
-|• Bewusst leben und mehr Zeit für Offline-Aktivitäten\  
+|• Medienkonsum reduzieren  
+|• Mehr Struktur im Alltag  
+|• Bewusst leben und mehr Zeit für Offline-Aktivitäten 
 |• Klein anfangen, statt sich zu überfordern
 
 .3+| **Hindernisse / Frustrationen**  
-|• Unsicherheit beim Start neuer Gewohnheiten\  
-|• Mediengewohnheiten schwer zu durchbrechen\  
+|• Unsicherheit beim Start neuer Gewohnheiten  
+|• Mediengewohnheiten schwer zu durchbrechen  
 |• Fühlt sich schnell von Tools überfordert
 
 .5+| **Motivation** 
-|• Will sich besser fühlen\  
-|• Gesünder leben\  
-|• Klarer denken\  
-|• Wieder Kontrolle über ihren Alltag gewinnen\  
+|• Will sich besser fühlen  
+|• Gesünder leben  
+|• Klarer denken  
+|• Wieder Kontrolle über ihren Alltag gewinnen  
 |• Routinen finden, die auch langfristig halten
 
 .3+| **Wünsche an eine Habit-App** 
-|• Simples, übersichtliches Design\  
-|• Positive Bestärkung statt Druck\  
+|• Simples, übersichtliches Design  
+|• Positive Bestärkung statt Druck  
 |• Sanfte Erinnerungen und Reflexionsmöglichkeiten (auch für kleine Erfolge)
 |===
 
