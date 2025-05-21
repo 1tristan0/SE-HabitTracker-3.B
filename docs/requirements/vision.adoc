@@ -106,6 +106,8 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 | Aufbau und Pflege täglicher Gewohnheiten | Hoch
 | Anlegen und Verwalten individueller Gewohnheiten mit Zielvorgaben, Wiederholungsintervallen und Erinnerungen |
 
+| Sichern der persönlichen Daten und Fortschritte | Hoch | Registrierung und Nutzerkonto |
+
 | Motivation durch emotionale Bindung | Hoch
 | Interaktives Maskottchen („Gewohnheitstier“), das sich je nach Fortschritt positiv oder negativ entwickelt |
 
@@ -121,9 +123,7 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 | Spielerische Langzeitmotivation | Mittel
 | Level-System, Belohnungen, Trophäen oder freischaltbare Inhalte durch regelmäßiges Erreichen von Zielen |
 
-| Einfache Bedienbarkeit auf mobilen Endgeräten | Hoch
-| Mobile App für Android und iOS mit intuitivem Interface |
-
+| Dokumentation persönlicher Erfahrungen mit dem Gewohnheitsmanagement | Niedrig | Tagebuch für persönliche Doku |
 |===
 
 
@@ -140,5 +140,8 @@ Hinweise:
 [%header, cols="4,1,1"]
 |===
 | Anforderung | Priorität | Geplantes Release
-| xx | xx | xx
+| Einfache Bedienbarkeit auf mobilen Endgeräten | Hoch
+| 
+| DSGVO-konforme Datenspeicherung | Hoch | 
+| Systemfeedback erhalten (Usability) | Hoch |
 |===
