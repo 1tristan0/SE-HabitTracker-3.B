@@ -1,0 +1,12 @@
+= Bedarfs-Meeting 21.05.2025
+Anwesend: Monika, Felix, Nicola
+
+== ToDo's beim Treffen mit Nutzergruppe
+
+- Fragen an Nutzergruppe:
+1. Wissensbereich sinnvoll?
+2. Tagebuch notwendig?
+
+== ToDo's für nächstes Weekly-Meeting
+
+- Entscheidung treffen, ob in den Akzeptanzkriterien der User Stories Check-Boxen nötig sind oder Anstriche reichen

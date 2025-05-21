@@ -1,0 +1,77 @@
+= Habit Tracker – Literatur- und Quellenverzeichnis
+Autor: [Dein Name]
+Version: 1.0
+:toc:
+:icons: font
+:sectnums:
+
+Ein Überblick über zentrale Bücher, wissenschaftliche Paper, Videos und Tools zur Theorie und Praxis von Gewohnheiten sowie zum Design habitbildender Anwendungen.
+
+== 📚 Bücher
+
+* *James Clear – Atomic Habits*  
+Ein praxisnaher Bestseller zur schrittweisen Etablierung von Gewohnheiten durch Systemdenken.  
+Link: https://jamesclear.com/atomic-habits
+
+* *Charles Duhigg – The Power of Habit*  
+Einflussreiches Werk über die Habit-Loop (Cue – Routine – Reward).  
+ISBN: 978-0812981605
+
+* *BJ Fogg – Tiny Habits*  
+Forschungsgestützter Ansatz für nachhaltige Verhaltensänderung durch minimale Schritte.  
+Link: https://tinyhabits.com/book/
+
+* *Nir Eyal – Hooked: How to Build Habit-Forming Products*  
+Fokus auf UX und psychologische Trigger, wie Produkte langfristige Nutzung fördern können.  
+ISBN: 978-1591847786
+
+== 📄 Wissenschaftliche Paper und Artikel
+
+* Lally, P. et al. (2010): *How are habits formed: Modelling habit formation in the real world*.  
+European Journal of Social Psychology. DOI: https://doi.org/10.1002/ejsp.674
+
+* Gollwitzer, P. M. (1999): *Implementation Intentions*.  
+Einflussreiche Theorie zur Planung von Zielverhalten.  
+Wikipedia-Link: https://de.wikipedia.org/wiki/Implementation_Intentions
+
+* Wood, W. & Rünger, D. (2016): *Psychology of Habit*.  
+Review über die psychologischen Mechanismen von Gewohnheiten.  
+DOI: https://doi.org/10.1146/annurev-psych-122414-033417
+
+* Cleveland Clinic (o.J.): *Habit Stacking: How to Build New Habits by Piggybacking on Existing Ones*.  
+Artikel: https://health.clevelandclinic.org/habit-stacking
+
+== 🎥 Videos & Talks
+
+* *Atomic Habits in 30 Minutes – James Clear (YouTube)*  
+Video: https://www.youtube.com/watch?v=U_nzqnXWvSo
+
+* *BJ Fogg – Tiny Habits & Behavior Design (Stanford)*  
+Talk: https://www.youtube.com/watch?v=AdKUJxjn-R8
+
+* *Charles Duhigg – The Power of Habit (Google Talk)*  
+Talk: https://www.youtube.com/watch?v=OMbsGBlpP30
+
+== 🛠️ Inspirierende Tools & Apps
+
+* *Habitica*  
+Gamifizierter Habit Tracker mit Rollenspielmechanik.  
+Link: https://habitica.com
+
+* *Streaks (iOS)*  
+Fokus auf minimalistische Gewohnheitsverfolgung.  
+Link: https://streaksapp.com
+
+* Weitere Tools:  
+**Loop Habit Tracker**, **HabitBull**, **Productive (iOS)**, **Done**, **Coach.me**
+
+== 🔍 Weitere Empfehlungen
+
+* *Mind over Mood* – Kognitiv-behavioraler Ansatz zur Selbstregulation.  
+* *Thaler & Sunstein – Nudging* – Verhaltensökonomischer Klassiker über Entscheidungsarchitektur.
+
+== Quellen aus Projektbeschreibung (Thema3_HabitTracker.pdf)
+
+* Implementation Intentions: https://de.wikipedia.org/wiki/Implementation_Intentions  
+* Habit Stacking: https://health.clevelandclinic.org/habit-stacking
+
