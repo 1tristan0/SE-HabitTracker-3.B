@@ -1,0 +1,60 @@
+= Weekly-Meeting und Konsultation 20.05.2025
+Anwesend: Monika, Felix(online), Nicola, Patrick, Paul, Tristan, Martin (vollständig), Herr Zirkelbach (Konsultation)
+
+== Review vergangener Woche (Done)
+- Kontakt zu Team 4.B herstellen => Terminvorschlag für Review-Meeting am 27.05.2025 15.30 Uhr (Monika)
+- Terminvorschlag für Meeting mit Coach => 20.05.25 um 15.30 Uhr
+- User Stories in Repo übertragen (Nicola)
+- erste Ideen für Softwareentwurf  in Miro oder separater Datei (Context, Container, benötigte Querschnittsfunktionalitäten)
+- Referenzen sammeln (Felix) (#22)
+- erstes Product Backlog anlegen (aus User Stories extrahieren) (Nicola)
+- erste Ideen für Softwareentwurf  in Miro / separater Datei
+
+== ToDo's
+
+- Glossary ergänzen (alle, laufend) (#21)
+- Bedarfsmeeting User Stories (Felix, Monika, Nicola 21.05.2025)
+- Bedarfsmeeting erste Überlegungen zu technischen Rahmenbedingungen in Miro oder separater Datei (Paul, Tristan, Patrick, Martin 26.05.2025)
+- restliche Konsultationsinhalte mit Ergebnissen der Bedarfsmeetings abgleichen und restliche Aufgaben langfristig ungefähr planen
+ 
+
+
+== Entscheidungen und Ergebnis Konsultation
+- Sinn Konsultation: für (Inhaltsverständnis-)Probleme
+- Sind wirklich alle Aufgaben mindestens im nötigen Umfang erfüllt?
+- Review-Meeting Feedbacks beherzigen, da die Gruppen die selbe Aufgabe haben (als Orientierung)
+- im Review Meeting: nur Stand der Dinge zeigen, kein konkretes Ergebnis notwendig
+- Bewertungskriterien SE1: Frage wird später noch beantwortet
+- vertikaler Prototyp durch alle Technikschichten soll zum Ende des Semesters präsentierbar sein, oder etwas ähnliches
+- !! NICHT ENTSCHEIDEND !! wie viel am Ende fertig ist, sondern wie sauber, vollständig und getestet vorhandenes ist, im Notfall weniger bearbeiten
+- User Stories – Hinweise zur Strukturierung
+* User Stories müssen **priorisiert unterteilt** werden
+** Achtung: _User Story Name_ ≠ _ausformulierte User Story_
+* Es muss eine **klare Unterscheidung zwischen Haupt- und Nebenanforderungen** erfolgen
+** Vorschlag: Zwei zusätzliche Spalten im Backlog
+* User Stories **gruppieren und zusammenfassen**
+** Lieber 2–3 grundlegende User Stories als viele kleine
+** Denkanstoß: Wenn eine User Story fehlt – fehlt eine Hauptfunktion?
+* Wenn eine User Story **implementiert und DONE** ist → zugehöriger Issue kann **geschlossen** werden
+- Auf DSGVO achten 
+- Dehnbarkeit der Optik: erstmal als Zusatzaufgabe betrachten
+- Allgemeiner Tipp – Unbedingt vor Abgabe prüfen!
+* Alles **nochmal genau durchlesen** und systematisch überprüfen:
+** 1. Haben wir Informationen weggelassen, die wir für selbstverständlich halten, die aber für andere zu Verständnisproblemen führen könnten?
+*** Beispiel-Fragen:
+**** Sind wir die App-Betreiber oder bloß Ideengeber?
+**** Wer ist der konkrete Akteur in der Nutzung?
+**** Was ist an unserer App besonders im Vergleich zu anderen?
+** 2. Haben wir **alle Aufgaben der Aufgabenstellung vollständig erfüllt**?
+*** Beispiel-Fragen:
+**** Ist das Visionsdokument zu allgemein oder zu vage?
+**** Sind alle Stakeholder wirklich benannt und differenziert?
+**** Wen genau adressiert die App (Zielgruppe, Nutzergruppen, Partner)?
+
+
+
+
+
+
+
+
