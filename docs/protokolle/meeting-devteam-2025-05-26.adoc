@@ -1,0 +1,13 @@
+= Dev-Meeting 26.05.2025
+Anwesend: Paul, Patrick, Martin, Tristan
+
+== Entscheidungen bzgl. Frameworks
+
+- Frontend: React.js + Bootstrap/Tailwind
+- Backend: Node.js + E.js (?)
+- Server mit Linux VM
+- Datenbank: realtionale Algebra, SQL
+
+== Noch offen
+
+- Datenbankframework

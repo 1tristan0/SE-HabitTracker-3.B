@@ -10,3 +10,38 @@ Anwesend: Monika, Felix, Nicola
 == ToDo's für nächstes Weekly-Meeting
 
 - Entscheidung treffen, ob in den Akzeptanzkriterien der User Stories Check-Boxen nötig sind oder Anstriche reichen
+
+
+== Notizen (27.05.2025)
+- Anwesend von Team 4.B: Pierre, 
+
+.Wissensbereich: 
+- Jein, aber Interesse an Wissen/Fakten
+-> stark runterbrechen, verlinken, Quellen angeben
+- angeben nach welchen Konzepten/Prinzipien die App arbeitet
+
+
+.Tagebuch:
+- minimal halten
+- Wie war dein tag? (Abfrage mit Emojis)
+- optional: Textfeld
+
+.Offline:
+- Nein, eventuell am Ende (SPA)
+
+=== Fragen der Anderen
+
+- Wie negative Habits realisieren? (nicht-tun oder tun eintragen?) -> Rückfall eintragen oder Abstinenz (Rauchen)
+
+
+=== Anmerkung der Anderen
+
+- Persona für andere Stakeholder anlegen ?
+- Lo-Fi Wireframes erstellen vor Hi-Fi (App auf Miro), handschriftlich, klick auf button muss verständlich dargestellt werden (Slideshow)
+
+- Bilder von Wireframes ins Repo
+
+- UserStories als *ready* markieren im Project, im refinement sagt PO was wichtig ist, alle besprochene User-Tasks (Sub-Issues der UserStories) kommen ins Sprintbacklog
+
+- Sprint-Review durchführen
+
