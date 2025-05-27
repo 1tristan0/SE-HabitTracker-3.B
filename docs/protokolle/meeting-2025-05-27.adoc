@@ -1,0 +1,55 @@
+= Weekly-Meeting und Review 27.05.2025
+Anwesend: Monika, Felix, Nicola (online), Patrick, Paul, Tristan, Martin (vollständig)
+
+== Review durch Team 4.B
+- Anwesend von Team 4.B: Pierre und zwei Weitere
+
+.Wissensbereich: 
+- Jein, aber Interesse an Wissen/Fakten
+-> stark runterbrechen, verlinken, Quellen angeben
+- angeben nach welchen Konzepten/Prinzipien die App arbeitet
+
+
+.Tagebuch:
+- minimal halten
+- Wie war dein tag? (Abfrage mit Emojis)
+- optional: Textfeld
+
+.Offline:
+- Nein, eventuell am Ende (SPA)
+
+=== Fragen von Team 4.B
+
+- Wie negative Habits realisieren? (nicht-tun oder tun eintragen?) -> Rückfall eintragen oder Abstinenz (Rauchen)
+
+
+=== Anmerkungen von Team 4.B
+
+- Persona für andere Stakeholder anlegen ?
+- Lo-Fi Wireframes erstellen vor Hi-Fi (App auf Miro), handschriftlich, klick auf button muss verständlich dargestellt werden (Slideshow)
+
+- Bilder von Wireframes ins Repo
+
+- UserStories als *ready* markieren im Project, im refinement sagt PO was wichtig ist, alle besprochene User-Tasks (Sub-Issues der UserStories) kommen ins Sprintbacklog
+
+- Sprint-Review durchführen
+
+== Weekly-Meeting
+
+- UserStories gemeinsam besprechen/aktualisieren
+- MoSCow Labels aktualisieren
+- technische Entscheidungen (von Dev-Team) vorgestellt, siehe Protokoll "meeting-devteam-2025-05-26.adoc"
+
+=== Review vergangener Woche (Done)
+
+- Bedarfsmeeting User Stories (Felix, Monika, Nicola 21.05.2025) 
+- Bedarfsmeeting erste Überlegungen zu technischen Rahmenbedingungen in Miro oder separater Datei (Paul, Tristan, Patrick, Martin 26.05.2025)
+- Review durch Gruppe 4.B
+
+=== To Do's
+- Wireframes: Online-Treffen, Lo-Fi Version "zeichnen"
+- Retro-Meeting durchführen
+
+
+=== Nächstes Meeting
+- Dienstag 15:15 Uhr Z107 03.06.2025 (Retro und Sprintplanning)
