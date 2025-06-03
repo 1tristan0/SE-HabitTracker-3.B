@@ -1,4 +1,4 @@
-= Vision: {project-name}
+= Vision: Gewohnheitstier
 include::../_includes/default-attributes.inc.adoc[]
 
 include::../_includes/teammitglieder.adoc[]
