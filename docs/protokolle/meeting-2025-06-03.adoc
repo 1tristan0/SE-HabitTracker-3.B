@@ -1,0 +1,36 @@
+= Weekly-Meeting und Retro 03.06.2025
+Anwesend: Monika, Felix, Nicola, Patrick, Paul, Tristan, Martin (vollständig)
+
+== To Do's
+- Wireframes: Lo-Fi vor Hi-Fi (App auf Miro), handschriftlich, klick auf button muss verständlich dargestellt werden (Slideshow) (Patrick in Miro)
+- C4-Modell Level 2 (Paul, Patrick)
+- Folie Produktkonzept, Zielgruppe, Positionierung, Features
+- evtl. Fragen vor Präsi an Kommilitonen verteilen ;-)
+- Vorbereitung für Domänenmodell im Miro
+  => Brainstorming in Miro (jeder)
+  => Gruppierung beim nächsten Meeting gemeinsam
+  => Erstellung UML-Klassendiagramm (eine/r)
+  => Abstimmung/ Diskussion gemeinsam anschließend
+- Dokumentation Methoden und Praktiken für Präsi (Felix)
+- Auswahl Design für Präsi (Monika)
+- Emoticons für "glücklich" / "traurig" zeichnen (Nicola)
+- individuelle Reflexion fertigstellen bis 23.06. (jeder)
+- Absprache und Doku über "lessons learned" am 24.06. (gemeinsam)
+- Risiken ergänzen (jeder)
+- Sprint-Backlogs => Rückfrage Coach (Monika)
+- zusätzliches Dokument Sprint-Backlog im Repo anlegen (Ziel, ausgewählte Einträge aus Product Backlog, Liefertermine)
+- Überarbeitung der Akzeptanzkriterien der User-Stories, die als nächstes dran sind
+- Ergänzung aller User Stories mit Label "must" und Prio "1" durch Dev-Team => Einschätzung Aufwand / Schwierigkeit für Umsetzung (Martin, Tristan)
+- Nachfrage Zuteilung VM (Patrick)
+- Glossary überarbeiten / ergänzen (Nicola, evtl. später)
+- Erstellen von Issues aus Protokoll-ToDos (Martin, Tristan)
+- Architektur-Entscheidungen in architecture-notebook eintragen (Paul, Patrick)
+
+== Done
+- Persona für andere Stakeholder anlegen => nein
+- UserStories gemeinsam besprechen/aktualisieren
+- MoSCow Labels aktualisieren
+- technische Entscheidungen (von Dev-Team) vorgestellt, siehe Protokoll "meeting-devteam-2025-05-26.adoc"
+
+=== Nächstes Meeting
+- nächsten Dienstag (10.06.) 13.45 Uhr per discord

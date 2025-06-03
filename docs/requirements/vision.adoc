@@ -140,8 +140,7 @@ Hinweise:
 [%header, cols="4,1,1"]
 |===
 | Anforderung | Priorität | Geplantes Release
-| Einfache Bedienbarkeit auf mobilen Endgeräten | Hoch
-| 
+| Einfache Bedienbarkeit auf mobilen Endgeräten | Hoch | 
 | DSGVO-konforme Datenspeicherung | Hoch | 
 | Systemfeedback erhalten (Usability) | Hoch |
 |===
