@@ -8,3 +8,6 @@
 
 # VS Code
 .vs-code/
+
+# github
+.gitconfig
