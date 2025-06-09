@@ -1,0 +1,25 @@
+@startuml example-c4-modell-diagram
+' source: https://github.com/plantuml-stdlib/C4-PlantUML
+' C4 Model
+!include <c4/C4_Context.puml>
+
+' Images
+!include <office/Users/user.puml>
+!include <office/Users/mobile_user.puml>
+
+' Diagram title
+title \nSystem Context diagram for Internet Banking System\n
+
+' Diagram syntax
+Person(customer, Customer, "<$user> <$mobile_user>\n A customer of the bank, with personal bank accounts")
+
+Enterprise_Boundary(c0, "Big Bank plc") {
+  Container(webApp, "Gewohnheitstier\n - Habit Tracker", "Software System",  "Erlaubt Nutzern ihre Habits zu erstellen, anzeigen zu lassen, zu bearbeiten und zu löschen. ")
+  ContainerDb_Ext(db,    "Supabase",  "Datenbank Provider", "Datenhaltung: Enthält User, Habits, Streaks und User-Beziehungen")
+
+
+  Rel(customer, webApp, "Erstellt und trackt Habits\nInteragiert mit anderen Usern\nüber die Webanwendung")
+
+  Rel_R(webApp, db,     "UserManagement, Authentfication, Datenhaltung")
+}
+@enduml

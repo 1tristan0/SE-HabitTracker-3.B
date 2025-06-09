@@ -1,10 +1,13 @@
 = Architecture Notebook: {project-name}
-include::../_includes/default-attributes.inc.adoc[]
+include::attributes.inc.adoc[]
 
 include::../_includes/teammitglieder.adoc[]
 
 {localdatetime}
 // Platzhalter für weitere Dokumenten-Attribute
+:imagesdir: images 
+:diagramsdir: diagrams 
+:plantumlsdir: plantuml 
 
 
 == Zweck
@@ -45,7 +48,27 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 === Kontextabgrenzung
 //Level 1 im C4-Modell
+[plantuml, "../../plantuml/context", svg]
+....
 
+Person(customer, "Nutzer")
+  System(webApp, "Gewohnheitstier\n - Habit Tracker",  "Erlaubt Nutzern ihre Habits zu erstellen, anzeigen zu lassen, zu bearbeiten und zu löschen. ")
+
+
+
+  ContainerDb_Ext(db,    "Supabase",  "Datenbank Provider", "Datenhaltung: Enthält User, Habits, Streaks und User-Beziehungen")
+
+
+Rel(customer, webApp, "Erstellt und trackt Habits \n Intergiert mit anderen Usern \n durch ")
+
+Rel_R(webApp, db,     "UserManagement, Authentfication, Datenhaltung")
+
+....
+// Kontextdiagramm für das System
+[plantuml, "{diagramsdir}/c4", svg]
+....
+include::{plantumlsdir}/c4.puml[]
+....
 === Container
 //Level 2 im C4-Modell
 
