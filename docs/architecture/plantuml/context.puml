@@ -1,15 +1,22 @@
 @startuml
-' source: https://github.com/plantuml-stdlib/C4-PlantUML
-' C4 Model
 !include <c4/C4_Context.puml>
-Person(customer, "Nutzer")
-Enterprise_Boundary("c0", "Gewohnheitstier") {
-    Container(webApp, "Gewohnheitstier\n - Habit Tracker", "Software System",  "Erlaubt Nutzern ihre Habits zu erstellen, anzeigen zu lassen, zu bearbeiten und zu löschen. ")
-    ContainerDb_Ext(db,    "Supabase",  "Datenbank Provider", "Datenhaltung: Enthält User, Habits, Streaks und User-Beziehungen")
+!include <C4/C4>  
+!include <C4/C4_Container> 
 
-
-    Rel(customer, webApp, "Erstellt und trackt Habits\nInteragiert mit anderen Usern\nüber die Webanwendung")
-
-    Rel_R(webApp, db,     "UserManagement, Authentfication, Datenhaltung")
+Person(user, "Nutzer", "Möchte seine Habits tracken")
+System_Boundary(gewohnheitstier, "Gewohnheitstier") {
+  Container(webApp, "Web-Frontend", "React", "UI für Nutzerinteraktion")
+  Container(api,    "Backend API", "Node.js/Express.js", "Verarbeitet Anfragen und führt Logik aus")
+  
+  Container(mobileApp, "Mobile App(Optional)", "JavaScript/Expo", "Mobile UI für Nutzerinteraktion")
 }
+
+ContainerDb_Ext(db,    "Database(Supabase)",  "PostgreSQL", "Datenspeicherung")
+
+Rel(user, webApp, "nutzt")
+Rel(user, mobileApp, "nutzt")
+Rel(webApp,    api,    "REST-Calls")
+Rel(mobileApp, api, "REST-Calls")
+Rel_R(api,       db,     "SQL-CRUD")
+
 @enduml
