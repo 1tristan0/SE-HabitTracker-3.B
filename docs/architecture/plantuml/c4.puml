@@ -11,7 +11,7 @@ Person(customer, "Nutzer")
   ContainerDb_Ext(db,    "Supabase",  "Datenbank Provider", "Datenhaltung: Enthält User, Habits, Streaks und User-Beziehungen")
 
 
-Rel(customer, webApp, "Erstellt und trackt Habits \n Intergiert mit anderen Usern \n durch ")
+Rel(customer, webApp, "Erstellt und trackt Habits \n Interagiert mit anderen Usern \n durch ")
 
 Rel_R(webApp, db,     "UserManagement, Authentfication, Datenhaltung")
 

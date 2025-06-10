@@ -17,7 +17,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 //| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
 | Nutzer:in | Person, die {project-system-name} benutzt | User, Kunde
 | Gewohnheit | Regelmäßig wiederholte Handlung, die automatisiert und ohne hohe Willenskraft ausgeführt wird. | Habit
-| Avatar | Icon eines Tieres, das Emotionen zeigt und zum Durchhalten motiviert | Gewohnheitstier
+| Gewohnheitstier | Icon eines Tieres, das Emotionen zeigt und zum Durchhalten motiviert | Avatar
 | Buddy | Person, die den Nutzer regelmäßig nach Fortschritten fragt und so für Verbindlichkeit sorgt. | Accountability Partner
 | Badge | Virtuelle Auszeichnung, die nach definierten Erfolgen (z. B. 7-Tage-Serie) vergeben wird, um Motivation zu steigern. |
 | Calendar View | Kalenderansicht, in der tägliche Erledigungen (Check-ins) als farbige Markierungen erscheinen. |
