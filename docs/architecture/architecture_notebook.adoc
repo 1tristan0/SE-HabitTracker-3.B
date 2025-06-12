@@ -20,23 +20,51 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 == Architekturziele
 //Hinweise: Beschreiben Sie den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
+Die Applikation basiert auf einer klassischen Client-Server-Architektur und soll auf verschiedensten Endgeräten (Desktop und Mobil) über den Browser bedienbar sein. Dafür wird ein leichtgewichtiges und responsives Frontend mit React entwickelt, das mit Tailwind CSS und Bootstrap gestaltet wird.
 
+Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwischen Frontend und Backend erfolgt über eine RESTful API. Als Datenbank nutzen wir Supabase (PostgreSQL) mit eingebautem Authentifizierungsdienst.
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
+* **Plattformunabhängigkeit**: Die Anwendung muss sowohl auf mobilen Geräten als auch auf Desktop-Browsern voll funktionsfähig sein.
+* **Erweiterbarkeit**: Die Struktur soll zukünftige Erweiterungen (z. B. Gruppenfunktionen oder Gamification) einfach ermöglichen.
+* **Schnelle Entwicklungszyklen**: Durch Nutzung moderner Web-Technologien sollen Entwicklungs- und Deployment-Prozesse effizient gehalten werden.
+* **Datensicherheit und Benutzerverwaltung**: Supabase übernimmt die Authentifizierung sowie Speicherung personenbezogener Daten.
+* **Geringe Einstiegshürde für Entwickler**: Vertraute Frameworks wie React und Express.js ermöglichen eine einfache Einarbeitung.
+
 
 
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
-
+* Das Projekt wird von einem studentischen Team mit begrenzter Erfahrung im Bereich Webentwicklung umgesetzt.
+* Supabase wird als externer Dienst verwendet, inklusive Authentifizierungs- und Datenbankfunktionalität.
+* Die Nutzer benötigen ein internetfähiges Gerät mit aktuellem Browser.
+* Die Deployment-Umgebung wird voraussichtlich ein von der HTW Dresden bereitgestellter Server (z. B. iseproject02.informatik.htw-dresden.de) sein.
+* Es gibt keine Abhängigkeiten zu Legacy-Systemen.
+* Zeitliche Ressourcen sind begrenzt.
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
-
+* Nutzerregistrierung und -anmeldung
+* Erstellen, Bearbeiten und Löschen von Habits
+* Anzeige von Habit-Statistiken
+* Datenpersistenz (Cloud-Datenbank)
+* Responsives Design
 
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
-
-. Entscheidung oder Einschränkung oder Begründung 1
-. Entscheidung oder Einschränkung oder Begründung 2
+. **Verwendung von React im Frontend**  
+  → Ermöglicht komponentenbasiertes UI-Design und hohe Wiederverwendbarkeit. 2 Teammitglieder haben bereits erste Vorerfahrungen mit der Verwendung von React in der Webentwicklung
+  
+. **Einsatz von Tailwind CSS und Bootstrap**  
+  → Ermöglicht schnelles Prototyping und konsistente Gestaltung mit geringem CSS-Overhead.
+  
+. **Backend mit Node.js und Express.js**  
+  → Einfache Integration mit JavaScript-basiertem Frontend, große Entwickler-Community.
+  
+. **Nutzung von Supabase (PostgreSQL)**  
+  → Spart Zeit durch fertige Authentifizierungslösungen und Datenbankverwaltung in der Cloud. 
+  
+. **Client-Server-Modell**  
+  → Getrennte Verantwortlichkeiten, einfache Skalierung, klare Trennung zwischen UI und Logik.
 
 
 == Schichten oder Architektur-Framework
@@ -45,6 +73,14 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 == Architektursichten (Views)
 //[Describe the architectural views that you will use to describe the software architecture. This illustrates the different perspectives that you will make available to review and to document architectural decisions.]
+Die Architektur folgt einem **dreischichtigen Aufbau**:
+
+* **Präsentationsschicht (Frontend)**: React, Tailwind CSS, Bootstrap – Darstellung der Benutzeroberfläche und UX.
+* **Logikschicht (Backend)**: Node.js mit Express.js – Verarbeitung von Geschäftslogik, Validierung, API-Endpunkte.
+* **Datenhaltungsschicht**: Supabase/PostgreSQL – Speicherung und Abruf aller Nutzerdaten, Habits und Metadaten.
+
+Der Austausch zwischen den Schichten erfolgt über eine klar definierte REST-API. Die Architektur ist bewusst modular aufgebaut, um spätere Komponenten wie Push-Benachrichtigungen, Kalenderintegration o. ä. ergänzen zu können.
+
 
 === Kontextabgrenzung
 //Level 1 im C4-Modell
