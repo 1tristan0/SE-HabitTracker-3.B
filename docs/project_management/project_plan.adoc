@@ -1,4 +1,4 @@
-= Projektplan: {project-name}
+= Projektplan: {Habit Tracker (3.B)}
 include::../_includes/default-attributes.inc.adoc[]
 
 include::../_includes/teammitglieder.adoc[]
