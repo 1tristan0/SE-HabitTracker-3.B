@@ -79,7 +79,39 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
+**ENTWURF DER ARCHITEKTUR:**
+Die Anwendung nutzt ein klassisches Dreischichten-Framework (Three-Tier-Architektur): Presentation, Logic und Data.
 
+[cols="1,3",options="header"]
+|===
+|Schicht                       |Beschreibung
+
+|Präsentationsschicht (Client)
+|• Leichtgewichtiges, responsives Frontend in React  
+• Styling mit Tailwind CSS & Bootstrap  
+• Kommuniziert per HTTP/REST mit der Logikschicht  
+
+|Logikschicht (Server)
+|• Node.js + Express.js als API-Backend  
+• Implementierung aller Geschäftsprozesse (Use Cases)  
+• Authentifizierung via Supabase Auth über Middleware  
+• Mapping von HTTP-Requests auf Domänen-Services  
+
+|Datenhaltungsschicht (Database)
+|• Supabase (PostgreSQL) für persistente Datenspeicherung  
+• PostgreSQL für CRUD-Operationen  
+• Supabase Auth und Policies zur Zugriffskontrolle  
+
+|===
+  
+. **Kommunikation:**  
+  – RESTful API zwischen Präsentations- und Logikschicht  
+  – SQL/JSON-API-Aufrufe von der Logik- zu Datenhaltungsschicht  
+
+. **Prinzipien:**  
+  – Jede Schicht nur über wohldefinierte Schnittstellen (Top-Down).  
+  – Domänenschicht (innerhalb der Logikschicht) bleibt Framework-unabhängig.  
+  – Querschnittsfunktionen (Logging, Fehler­behandlung, Konfiguration) werden zentral in der Logikschicht bereitgestellt.
 
 == Architektursichten (Views)
 //[Describe the architectural views that you will use to describe the software architecture. This illustrates the different perspectives that you will make available to review and to document architectural decisions.]
