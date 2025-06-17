@@ -24,11 +24,13 @@ Die Applikation basiert auf einer klassischen Client-Server-Architektur und soll
 
 Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwischen Frontend und Backend erfolgt über eine RESTful API. Als Datenbank nutzen wir Supabase (PostgreSQL) mit eingebautem Authentifizierungsdienst.
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
-* **Plattformunabhängigkeit**: Die Anwendung muss sowohl auf mobilen Geräten als auch auf Desktop-Browsern voll funktionsfähig sein.
-* **Erweiterbarkeit**: Die Struktur soll zukünftige Erweiterungen (z. B. Gruppenfunktionen oder Gamification) einfach ermöglichen.
-* **Schnelle Entwicklungszyklen**: Durch Nutzung moderner Web-Technologien sollen Entwicklungs- und Deployment-Prozesse effizient gehalten werden.
-* **Datensicherheit und Benutzerverwaltung**: Supabase übernimmt die Authentifizierung sowie Speicherung personenbezogener Daten.
-* **Geringe Einstiegshürde für Entwickler**: Vertraute Frameworks wie React und Express.js ermöglichen eine einfache Einarbeitung.
+
+:Ziele:
+ -  **Plattformunabhängigkeit**: Die Anwendung muss sowohl auf mobilen Geräten als auch auf Desktop-Browsern voll funktionsfähig sein.
+ -  **Erweiterbarkeit**: Die Struktur soll zukünftige Erweiterungen (z. B. Gruppenfunktionen oder Gamification) einfach ermöglichen.
+ -  **Schnelle Entwicklungszyklen**: Durch Nutzung moderner Web-Technologien sollen Entwicklungs- und Deployment-Prozesse effizient gehalten werden.
+ -  **Datensicherheit und Benutzerverwaltung**: Supabase übernimmt die Authentifizierung sowie Speicherung personenbezogener Daten.
+ -  **Geringe Einstiegshürde für Entwickler**: Vertraute Frameworks wie React und Express.js ermöglichen eine einfache Einarbeitung.
 
 
 
@@ -106,8 +108,8 @@ include::{plantumlsdir}/context.puml[]
 ....
 === Components
 //Level 3 im C4-Modell
-
+Level 3 im C4-Modell folgt in späteren Iterationen
 
 === Verteilungsdiagramm (Deployment Diagramm)
 //Beschreibt die physischen Knoten (Rechner) des Systems und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
-
+Verteilungsdiagramm (Deployment Diagramm) folgt in späteren Iterationen
