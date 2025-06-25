@@ -95,3 +95,21 @@ Testbarkeit gewährleistet : Messbare Kriterien, Mock-Daten oder Testfälle vorh
 
 == Erkenntnisse (Lessons learned)
 // Führen Sie hier die wesentlichen Erkenntnisse auf, die Sie in den Retrospektiven gewonnen haben. Legen Sie besonderen Fokus auf die Maßnahmen, die Sie getroffen haben um Verbesserungen in den verschiedenen Aspekten des Projekts zu erzielen, z.B. dem Entwicklungsprozess, der technischen und organisatorischen Umgebung oder der Zusammenarbeit im Team.
+- Einstieg in Scrum war zunächst schwierig, mit der Zeit wuchs das Verständnis für Rollen, Abläufe und Prinzipien
+- Iteratives Arbeiten in Sprints ermöglichte laufende Selbstkontrolle und Qualitätsverbesserung
+- Gute Zusammenarbeit braucht Planung – z. B. bei Terminfindung und Koordination
+- Planung anhand verfügbarer Zeit und Ressourcen ist effektiver als starres Festhalten am Umfang
+- Frühe Planung und Dokumentation (z. B. Risk Board, Architecture Notebook) lohnen sich im Projektverlauf
+- Nutzerzentrierte Perspektive erwies sich als hilfreich für klare Entscheidungen => durch User Stories methodisch greifbar gemacht
+- Stakeholder früh zu identifizieren half beim Ableiten sinnvoller User Stories
+- Aufbereitung der Stories war zentral, um einen strukturierten Backlog zu erstellen
+- Anforderungen, Qualitätskriterien, Randbedingungen und User Story-Elemente sauber zu trennen war anspruchsvoll
+- Nicht in Details verlieren, aber den Gesamtüberblick behalten
+- Regelmäßige Retrospektiven verbesserten Aufgabenverteilung, Zielklarheit und Kommunikation
+- Kleingruppenarbeit zwischen den wöchentlichen Treffs steigerte Effizienz, "Weekly" diente als Austauschpunkt
+- Offenes Miteinander und Feedbackkultur förderten Motivation und Teamdynamik
+- Teamarbeit lebt von klarer Rollenverteilung und dem Einsatz individueller Stärken
+- Eigener Arbeitsstil wurde reflektiert, Verständnis für andere Herangehensweisen wuchs
+- Feedback von außen hilft, Qualität zu steigern und blinde Flecken zu vermeiden
+- Tools wie GitHub, Miro, Discord wurden produktiv eingesetzt
+- Technische Umsetzung mit Node.js, React und Supabase war fordernd, aber lehrreich.
