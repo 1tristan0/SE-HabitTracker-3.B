@@ -132,12 +132,36 @@ Der Austausch zwischen den Schichten erfolgt über eine klar definierte REST-API
 ....
 include::{plantumlsdir}/c4.puml[]
 ....
+==== Erklärung:
+Unsere App „Gewohnheitstier“ ist ein einfacher Habit-Tracker:
+
+* **Nutzer**: Legt in der App neue Gewohnheiten (Habits) an und trackt deren Fortschritt.  
+* **Gewohnheitstier (System)**: Bietet Funktionen zum Erstellen, Anzeigen, Bearbeiten und Löschen von Habits.  
+* **Supabase (externer Container)**: Übernimmt User-Management, Authentifizierung und persistente Datenhaltung (Nutzer, Habits, Streaks, Nutzer-Beziehungen).
+
 === Container
 //Level 2 im C4-Modell
 [plantuml, "{diagramsdir}/context", svg]
 ....
 include::{plantumlsdir}/context.puml[]
 ....
+==== Erklärung:
+
+* **Nutzer**:  
+  Möchte seine Habits über Browser oder Mobile App verwalten.
+
+* **Web-Frontend** (React):  
+  Browser-UI für Nutzerinteraktion; kommuniziert per REST mit der Backend API.
+
+* **Mobile App** (JavaScript/Expo, optional):  
+  Mobile UI-Variante; ebenfalls REST-Calls an die Backend API.
+
+* **Backend API** (Node.js/Express):  
+  Verarbeitet HTTP/HTTPS-Anfragen, enthält Geschäftslogik und führt SQL-CRUD-Operationen gegen die Datenbank aus.
+
+* **Database **(Supabase/PostgreSQL) : 
+ Übernimmt Authentifizierung, User-Management und persistente Speicherung von Nutzern, Habits, Streaks und Beziehungen.
+
 === Components
 //Level 3 im C4-Modell
 Level 3 im C4-Modell folgt in späteren Iterationen
