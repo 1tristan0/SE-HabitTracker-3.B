@@ -26,7 +26,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Eintrag | Manuelle oder automatische Bestätigung, dass eine Gewohnheit an einem Tag ausgeführt wurde. | Check-in 
 | Erinnerung | Zeit- oder ortsbasierte Benachrichtigung, die den Nutzer zum Check-in auffordert. | Push Notification
 | Fortschrittsbalken | Balken, der den prozentualen Fortschritt einer Gewohnheit oder eines Ziels visualisiert. | Progress Bar
-| Frequency (Frequenz) | Anzahl der benötigten Ausführungen einer Gewohnheit pro Zeitraum (z. B. „3×/Woche“).| 
+| Frequency | Anzahl der benötigten Ausführungen einer Gewohnheit pro Zeitraum (z. B. „3×/Woche“).| Frequenz 
 | Gamification | Einsatz spieltypischer Elemente (Badges, Level, Ranglisten) zur Steigerung von Engagement und Motivation. |
 | Gewohnheit | Regelmäßig wiederholte Handlung, die automatisiert und ohne hohe Willenskraft ausgeführt wird. | Habit
 | Gewohnheitsreise | Eine Gewohnheitsreise ist der persönliche Entwicklungsprozess, bei dem bestehende Verhaltensmuster reflektiert, gezielt verändert und neue, nachhaltige Gewohnheiten aufgebaut werden. |
