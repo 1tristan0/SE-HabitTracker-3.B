@@ -46,10 +46,10 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
-* Nutzerregistrierung und -anmeldung
+* Nutzerregistrierung und -anmeldung (Supabase Auth)
 * Erstellen, Bearbeiten und Löschen von Habits
 * Anzeige von Habit-Statistiken
-* Datenpersistenz (Cloud-Datenbank)
+* Datenpersistenz (Supabase PostgreSQL)
 * Responsives Design
 
 == Entscheidungen, Nebenbedingungen und Begründungen
