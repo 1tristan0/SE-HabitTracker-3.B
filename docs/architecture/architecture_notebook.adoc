@@ -20,31 +20,109 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 == Architekturziele
 //Hinweise: Beschreiben Sie den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
+Die Applikation basiert auf einer klassischen Client-Server-Architektur und soll auf verschiedensten Endgeräten (Desktop und Mobil) über den Browser bedienbar sein. Dafür wird ein leichtgewichtiges und responsives Frontend mit React entwickelt, das mit Tailwind CSS und Bootstrap gestaltet wird.
 
+Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwischen Frontend und Backend erfolgt über eine RESTful API. Als Datenbank nutzen wir Supabase (PostgreSQL) mit eingebautem Authentifizierungsdienst.
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
+
+:Ziele:
+ -  **Plattformunabhängigkeit**: Die Anwendung muss sowohl auf mobilen Geräten als auch auf Desktop-Browsern voll funktionsfähig sein.
+ -  **Erweiterbarkeit**: Die Struktur soll zukünftige Erweiterungen (z. B. Gruppenfunktionen oder Gamification) einfach ermöglichen.
+ -  **Schnelle Entwicklungszyklen**: Durch Nutzung moderner Web-Technologien sollen Entwicklungs- und Deployment-Prozesse effizient gehalten werden.
+ -  **Datensicherheit und Benutzerverwaltung**: Supabase übernimmt die Authentifizierung sowie Speicherung personenbezogener Daten.
+ -  **Geringe Einstiegshürde für Entwickler**: Vertraute Frameworks wie React und Express.js ermöglichen eine einfache Einarbeitung.
+
 
 
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
-
+* Das Projekt wird von einem studentischen Team mit begrenzter Erfahrung im Bereich Webentwicklung umgesetzt.
+* Supabase wird als externer Dienst verwendet, inklusive Authentifizierungs- und Datenbankfunktionalität.
+* Die Nutzer benötigen ein internetfähiges Gerät mit aktuellem Browser.
+* Die Deployment-Umgebung wird voraussichtlich ein von der HTW Dresden bereitgestellter Server (z. B. iseproject02.informatik.htw-dresden.de) sein.
+* Es gibt keine Abhängigkeiten zu Legacy-Systemen.
+* Zeitliche Ressourcen sind begrenzt.
+* Das Budget ist auf Open-Source-Technologien und kostenlose Dienste beschränkt. 
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
-
+* Nutzerregistrierung und -anmeldung
+* Erstellen, Bearbeiten und Löschen von Habits
+* Anzeige von Habit-Statistiken
+* Datenpersistenz (Cloud-Datenbank)
+* Responsives Design
 
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
+. **Verwendung von React im Frontend**  
+  → Ermöglicht komponentenbasiertes UI-Design und hohe Wiederverwendbarkeit. 2 Teammitglieder haben bereits erste Vorerfahrungen mit der Verwendung von React in der Webentwicklung
+  → Gängige Wahl für moderne Webanwendungen, große Community und viele Ressourcen verfügbar.
+  
+. **Einsatz von Tailwind CSS und Bootstrap**  
+  → Ermöglicht schnelles Prototyping und konsistente Gestaltung mit geringem CSS-Overhead.
+  → Ermöglicht responsives Design und einfache Anpassung an verschiedene Bildschirmgrößen. (App soll auf Desktop und Mobil funktionieren)
 
-. Entscheidung oder Einschränkung oder Begründung 1
-. Entscheidung oder Einschränkung oder Begründung 2
+  
+. **Backend mit Node.js und Express.js**  
+  → Einfache Integration mit JavaScript-basiertem Frontend, große Entwickler-Community.
+  → Hohe Performance und Skalierbarkeit.
+  → Vorerfahrung der Team-Mitglieder mit Node.JS und Express.js
+  
+  
+. **Nutzung von Supabase (PostgreSQL)**  
+  → Spart Zeit durch fertige Authentifizierungslösungen und Datenbankverwaltung in der Cloud. 
+  → Team muss keinen eigenen Lösung zum Hosting einer Datenbank finden.
+  
+. **Client-Server-Modell**  
+  → Getrennte Verantwortlichkeiten, einfache Skalierung, klare Trennung zwischen UI und Logik.
 
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
+**ENTWURF DER ARCHITEKTUR:**
+Die Anwendung nutzt ein klassisches Dreischichten-Framework (Three-Tier-Architektur): Presentation, Logic und Data.
 
+[cols="1,3",options="header"]
+|===
+|Schicht                       |Beschreibung
+
+|Präsentationsschicht (Client)
+|• Leichtgewichtiges, responsives Frontend in React  
+• Styling mit Tailwind CSS & Bootstrap  
+• Kommuniziert per HTTP/REST mit der Logikschicht  
+
+|Logikschicht (Server)
+|• Node.js + Express.js als API-Backend  
+• Implementierung aller Geschäftsprozesse (Use Cases)  
+• Authentifizierung via Supabase Auth über Middleware  
+• Mapping von HTTP-Requests auf Domänen-Services  
+
+|Datenhaltungsschicht (Database)
+|• Supabase (PostgreSQL) für persistente Datenspeicherung  
+• PostgreSQL für CRUD-Operationen  
+• Supabase Auth und Policies zur Zugriffskontrolle  
+
+|===
+  
+. **Kommunikation:**  
+  – RESTful API zwischen Präsentations- und Logikschicht  
+  – SQL/JSON-API-Aufrufe von der Logik- zu Datenhaltungsschicht  
+
+. **Prinzipien:**  
+  – Jede Schicht nur über wohldefinierte Schnittstellen (Top-Down).  
+  – Domänenschicht (innerhalb der Logikschicht) bleibt Framework-unabhängig.  
+  – Querschnittsfunktionen (Logging, Fehler­behandlung, Konfiguration) werden zentral in der Logikschicht bereitgestellt.
 
 == Architektursichten (Views)
 //[Describe the architectural views that you will use to describe the software architecture. This illustrates the different perspectives that you will make available to review and to document architectural decisions.]
+Die Architektur folgt einem **dreischichtigen Aufbau**:
+
+* **Präsentationsschicht (Frontend)**: React, Tailwind CSS, Bootstrap – Darstellung der Benutzeroberfläche und UX.
+* **Logikschicht (Backend)**: Node.js mit Express.js – Verarbeitung von Geschäftslogik, Validierung, API-Endpunkte.
+* **Datenhaltungsschicht**: Supabase/PostgreSQL – Speicherung und Abruf aller Nutzerdaten, Habits und Metadaten.
+
+Der Austausch zwischen den Schichten erfolgt über eine klar definierte REST-API. Die Architektur ist bewusst modular aufgebaut, um spätere Komponenten wie Push-Benachrichtigungen, Kalenderintegration o. ä. ergänzen zu können.
+
 
 === Kontextabgrenzung
 //Level 1 im C4-Modell
@@ -54,16 +132,40 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 ....
 include::{plantumlsdir}/c4.puml[]
 ....
+==== Erklärung:
+Unsere App „Gewohnheitstier“ ist ein einfacher Habit-Tracker:
+
+* **Nutzer**: Legt in der App neue Gewohnheiten (Habits) an und trackt deren Fortschritt.  
+* **Gewohnheitstier (System)**: Bietet Funktionen zum Erstellen, Anzeigen, Bearbeiten und Löschen von Habits.  
+* **Supabase (externer Container)**: Übernimmt User-Management, Authentifizierung und persistente Datenhaltung (Nutzer, Habits, Streaks, Nutzer-Beziehungen).
+
 === Container
 //Level 2 im C4-Modell
 [plantuml, "{diagramsdir}/context", svg]
 ....
 include::{plantumlsdir}/context.puml[]
 ....
+==== Erklärung:
+
+* **Nutzer**:  
+  Möchte seine Habits über Browser oder Mobile App verwalten.
+
+* **Web-Frontend** (React):  
+  Browser-UI für Nutzerinteraktion; kommuniziert per REST mit der Backend API.
+
+* **Mobile App** (JavaScript/Expo, optional):  
+  Mobile UI-Variante; ebenfalls REST-Calls an die Backend API.
+
+* **Backend API** (Node.js/Express):  
+  Verarbeitet HTTP/HTTPS-Anfragen, enthält Geschäftslogik und führt SQL-CRUD-Operationen gegen die Datenbank aus.
+
+* **Database **(Supabase/PostgreSQL) : 
+ Übernimmt Authentifizierung, User-Management und persistente Speicherung von Nutzern, Habits, Streaks und Beziehungen.
+
 === Components
 //Level 3 im C4-Modell
-
+Level 3 im C4-Modell folgt in späteren Iterationen
 
 === Verteilungsdiagramm (Deployment Diagramm)
 //Beschreibt die physischen Knoten (Rechner) des Systems und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
-
+Verteilungsdiagramm (Deployment Diagramm) folgt in späteren Iterationen

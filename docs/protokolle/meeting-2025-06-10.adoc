@@ -1,0 +1,20 @@
+= Weekly-Meeting 10.06.2025
+Anwesend: Monika, Felix, Nicola, Patrick, Paul, Tristan, Martin (vollständig)
+
+== To Do's
+-	C4 Model+ Wireframe Zirkelbach fertig aber fragen obs passt (Patrick)
+-	Mit VM auseinandersetzen (Patrick, Paul)
+--> Node-Installation & Supabase-Connection (fortläufig)
+-	Design für Präsentation (Canva) (jeder der möchte)
+-	Sprint-Backlogs => Rückfrage Coach (Patrick, Monika)
+-	Überarbeitung der Akzeptanzkriterien der User-Stories (Nicola, Tristan, Martin)
+-	Architektur-Entscheidungen in architecture-notebook eintragen (Dev-Team)
+-	Miro Colorhunt&Dribble Screenshot+Link (jeder)
+-	Risiken ausarbeiten (Tristan)
+-	Domänenmodell (Monika, Nicola, Martin)
+-	Dokumentation-Rohversion (Felix)
+- Architektur-Entscheidungen in architecture-notebook eintragen (Dev-Team)
+
+== Done
+- Emoticons fertig
+Rückmeldung Zirkelbach zu VM

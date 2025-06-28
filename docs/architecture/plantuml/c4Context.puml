@@ -40,9 +40,10 @@ System_Boundary(gewohnheitstier, "Gewohnheitstier") {
   Container(api,    "Backend API", "Node.js/Express.js", "Verarbeitet Anfragen und führt Logik aus")
   
   Container(mobileApp, "Mobile App(Optional)", "JavaScript/Expo", "Mobile UI für Nutzerinteraktion")
-}
 
-ContainerDb_Ext(db,    "Database(Supabase)",  "PostgreSQL", "Datenspeicherung")
+
+ContainerDb(db,    "Database(Supabase)",  "PostgreSQL", "Datenspeicherung")
+}
 
 Rel(user, webApp, "nutzt")
 Rel(user, mobileApp, "nutzt")

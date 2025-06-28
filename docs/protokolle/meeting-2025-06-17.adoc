@@ -1,0 +1,18 @@
+= Weekly-Meeting 17.06.2025
+Anwesend: Monika, Felix, Nicola, Patrick, Paul, Tristan, Martin (vollständig)
+
+== To Do's
+-	Rücksprache Risiken mit Coach Zirkelbach (Tristan)
+- Restliche Risiken ausformulieren (Patrick)
+- Individuelle Reflexion ferrtigstellen bis 23.06 (jeder)
+- Domänenmodell überarbeiten Sonntag, 22.06 auf Discord (Martin, Nicola, Monika + wer Zeit hat)
+- Nächstes Meeting: Dienstag, 24.06 14:30 Uhr auf Discord
+
+== Done
+- C4-Modelle nach Absprache mit Prof Anke fertig
+
+== Learnings
+- Sprint backlogs: product backlog als Grundlage. Alle Sachsen die aus prdouct backlog konkretisiert sind, dass man sie bearbeiten kann und einer Iteration zugeordnet sind bilden sprint in backlog
+- Farben und Design der App noch nicht relevant
+- Domänenmodell soll nur aus "must" bestehen
+

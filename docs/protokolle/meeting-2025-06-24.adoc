@@ -1,0 +1,19 @@
+= Weekly-Meeting 24.06.2025
+Anwesend: Monika, Felix, Nicola, Patrick, Paul, Tristan, Martin (vollständig)
+
+== To Do's
+-	Restliche Risiken ausformulieren (Patrick, Tristan)
+-	Präsentation vorbereiten und halten (Felix, Martin)
+-	Dokumentation überfliegen und fertigstellen (Monika, Nicola, Patrick, Paul, Tristan)
+-	Product backlog (Tristan, Nicola)
+-	Lessons learned + Domänenmodell (Monika)
+-	Architecture notebook + C4 (Paul, Patrick)
+-	Stichpunkte Prototypen, Hochladen in Github Quellcode (Paul)
+-	Glossary (Nicola)
+
+
+== Done
+-	Lessons learned wurden zusammengetragen
+-	Alle haben individuelle Reflexion fristgerecht fertiggestellt
+
+=> Nächstes Meeting: Samstag, den 28.06 um 12 Uhr online auf Discord

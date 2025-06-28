@@ -1,4 +1,5 @@
 == Teammitglieder
+
 - Martin-Lee Schubert <martinlee.schubert@stud.htw-dresden.de>;
 - Patrick Eger <patrick.eger@stud.htw-dresden.de>;
 - Nicola Gadow <nicola.gadow@stud.htw-dresden.de>;

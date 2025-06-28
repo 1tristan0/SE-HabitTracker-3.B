@@ -15,35 +15,37 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Begriff | Definition und Erläuterung | Synonyme
 //| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
-| Nutzer:in | Person, die {project-system-name} benutzt | User, Kunde
-| Gewohnheit | Regelmäßig wiederholte Handlung, die automatisiert und ohne hohe Willenskraft ausgeführt wird. | Habit
-| Gewohnheitstier | Icon eines Tieres, das Emotionen zeigt und zum Durchhalten motiviert | Avatar
-| Buddy | Person, die den Nutzer regelmäßig nach Fortschritten fragt und so für Verbindlichkeit sorgt. | Accountability Partner
-| Badge | Virtuelle Auszeichnung, die nach definierten Erfolgen (z. B. 7-Tage-Serie) vergeben wird, um Motivation zu steigern. |
-| Calendar View | Kalenderansicht, in der tägliche Erledigungen (Check-ins) als farbige Markierungen erscheinen. |
-| Eintrag | Manuelle oder automatische Bestätigung, dass eine Gewohnheit an einem Tag ausgeführt wurde. | Check-in 
-| Cloud Backup | Automatische Sicherung der Habit-Daten in einer Cloud, um Gerätewechsel oder Datenverlust abzufangen. |
-| Trigger | Auslösereiz im Habit-Loop, der den Nutzer an die Ausführung der Gewohnheit erinnert. | Cue
-| Dashboard | Übersicht mit Kennzahlen (Streak-Länge, Erfolgsquote, Heatmap) zur Fortschrittskontrolle. |  Analytics
-| Dark Mode | Farbschema mit dunklem Hintergrund zur besseren Lesbarkeit bei wenig Umgebungslicht. |
-| Data Sync | Abgleich der Habit-Daten zwischen mehreren Geräten oder Diensten in Echtzeit. |
-| Frequency (Frequenz) | Anzahl der benötigten Ausführungen einer Gewohnheit pro Zeitraum (z. B. „3×/Woche“). |
-| Gamification | Einsatz spieltypischer Elemente (Badges, Level, Ranglisten) zur Steigerung von Engagement und Motivation. |
-| Challenge | |
-| Habit Loop | Modell aus Cue → Routine → Reward, das den Entstehungs- und Verstärkungsprozess einer Gewohnheit beschreibt. |
-| Habit Stacking | Methode, bei der eine neue Gewohnheit direkt an eine bestehende gekoppelt wird („nach dem Zähneputzen meditieren“). |
-| Heatmap | Farb¬kodierte Matrix, die zeigt, an welchen Tagen/Wochen eine Gewohnheit erfüllt wurde (je dunkler, desto häufiger). |
-| Leaderboard | Vergleichende Darstellung der Fortschritte mehrerer Nutzer zur Förderung eines Wettkampfeffekts. | Rangliste
-| Micro-interaction | Kleine, zielgerichtete Interaktion (z. B. Tipp auf ein Häkchen-Icon), die unmittelbares Feedback liefert. |
-| Onboarding | Geführter Erst-Setup-Prozess, in dem der Nutzer Gewohnheiten anlegt und App-Funktionen kennenlernt. |
-| Datenschutzeinstellungen | Optionen zur Steuerung, welche Gewohnheiten, Erinnerungen oder Statistiken gespeichert, geteilt oder anonymisiert werden. | Privacy Settings
-| Fortschrittsbalken | Balken, der den prozentualen Fortschritt einer Gewohnheit oder eines Ziels visualisiert. | Progress Bar
-| Erinnerung | Zeit- oder ortsbasierte Benachrichtigung, die den Nutzer zum Check-in auffordert. | Push Notification
+| Alltagsroutine | Alltagsroutine ist eine regelmäßig wiederkehrende Abfolge von Handlungen, die den Tagesablauf strukturieren und Orientierung sowie Stabilität im Alltag geben. | Routine 
+| Badge | Virtuelle Auszeichnung, die nach definierten Erfolgen (z. B. 7-Tage-Serie) vergeben wird, um Motivation zu steigern.| 
 | Belohnung | Positive Verstärkung (z. B. visuelles Feuerwerk, Badge, eigene Erlaubnis), die nach Ausführung folgt. | Reward
-| SMART Goal | Ziel, das Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert formuliert ist; Grundlage vieler Habit-Formulierungen. |
+| Bewusst Leben | Bewusst leben bedeutet beim Habit-Tracking, Gewohnheiten gezielt wahrzunehmen, zu steuern und kontinuierlich zu verbessern.|
+| Buddy | Person, die den Nutzer regelmäßig nach Fortschritten fragt und so für Verbindlichkeit sorgt. | Accountability Partner
+| Calendar View | Kalenderansicht, in der tägliche Erledigungen (Check-ins) als farbige Markierungen erscheinen. |
+| Challenge |Vorgegebene Ziele die in einem festen zeiltichen Rahmen gegen Belohnungen abgeschlossen werden können.|Quests 
+| Dashboard | Übersicht mit Kennzahlen (Streak-Länge, Erfolgsquote, Heatmap) zur Fortschrittskontrolle. |  Analytics
+| Eintrag | Manuelle oder automatische Bestätigung, dass eine Gewohnheit an einem Tag ausgeführt wurde. | Check-in 
+| Erinnerung | Zeit- oder ortsbasierte Benachrichtigung, die den Nutzer zum Check-in auffordert. | Push Notification
+| Fortschrittsbalken | Balken, der den prozentualen Fortschritt einer Gewohnheit oder eines Ziels visualisiert. | Progress Bar
+| Frequency | Anzahl der benötigten Ausführungen einer Gewohnheit pro Zeitraum (z. B. „3×/Woche“).| Frequenz 
+| Gamification | Einsatz spieltypischer Elemente (Badges, Level, Ranglisten) zur Steigerung von Engagement und Motivation. |
+| Gewohnheit | Regelmäßig wiederholte Handlung, die automatisiert und ohne hohe Willenskraft ausgeführt wird. | Habit
+| Gewohnheitsreise | Eine Gewohnheitsreise ist der persönliche Entwicklungsprozess, bei dem bestehende Verhaltensmuster reflektiert, gezielt verändert und neue, nachhaltige Gewohnheiten aufgebaut werden. |
+| Gewohnheitstier | Icon eines Tieres, das Emotionen zeigt und zum Durchhalten motiviert | Avatar, Maskottchen 
+| Habit Loop | Modell aus Cue → Routine → Reward, das den Entstehungs- und Verstärkungsprozess einer Gewohnheit beschreibt.| 
+| Habit Stacking | Methode, bei der eine neue Gewohnheit direkt an eine bestehende gekoppelt wird („nach dem Zähneputzen meditieren“).| 
+| Habit-Statistiken | Grafisch aufbreitete Übersicht der gesammelten Daten über abgeschlossene Habits.| Statistik
+| Heatmap | Farbkodierte Matrix, die zeigt, an welchen Tagen/Wochen eine Gewohnheit erfüllt wurde (je dunkler, desto häufiger).|
+| Leaderboard | Vergleichende Darstellung der Fortschritte mehrerer Nutzer zur Förderung eines Wettkampfeffekts. | Rangliste
+| Mediengewohnheiten | Mediengewohnheiten sind individuelle, regelmäßig ablaufende Verhaltensmuster im Umgang mit analogen und digitalen Medien. |
+| Offline-Aktivitäten | Offline-Aktivitäten sind regelmäßig ausgeführte Handlungen oder Beschäftigungen, die ohne die Nutzung digitaler Medien stattfinden. |
+| Performance | Performance bezeichnet die messbare Leistung oder das sichtbare Verhalten einer Person in Bezug auf bestimmte Aufgaben, Ziele oder Anforderungen.|
+| Positive Verstärkung | Positive Bestärkung ist eine Methode, bei der erwünschtes Verhalten durch angenehme Reize oder Belohnungen gefördert und somit langfristig gefestigt wird. |
+| Psychischer Druck | Psychischer Druck ist ein innerer Spannungszustand, der durch hohe Erwartungen, Stress oder selbst auferlegte Verpflichtungen entsteht und das Denken, Fühlen und Handeln beeinflusst. |
+| Selbstverbesserung | Selbstverbesserung ist der bewusste Prozess, eigene Fähigkeiten, Verhaltensweisen oder Lebensumstände kontinuierlich weiterzuentwickeln und zu optimieren.| Selbstoptimierung
 | Streak | Ununterbrochene Abfolge erfolgreicher Check-ins; gilt als wichtiger Motivationsfaktor. | Serie
-| Streak Freeze | Feature, das erlaubt, eine Streak bei einmaligem Verpassen (z. B. Krankheit) „einzufrieren“, um Demotivation zu verhindern. |
-| Widget | Mini-Ansicht (z. B. auf dem Homescreen), die schnelle Check-ins oder Fortschrittsanzeigen ermöglicht. |
+| Streak Freeze | Feature, das erlaubt, eine Streak bei einmaligem Verpassen (z. B. Krankheit) „einzufrieren“, um Demotivation zu verhindern.| 
+| Tools | Tools sind unterstützende Mittel oder Anwendungen, die dabei helfen, Gewohnheiten zu planen, zu verfolgen und langfristig zu etablieren. |
+| Trigger | Auslösereiz im Habit-Loop, der den Nutzer an die Ausführung der Gewohnheit erinnert. | Cue
 |===
 
 
@@ -52,6 +54,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Abkürzung | Bedeutung | Erläuterung
 //| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
+| SMART Goal | Ziel, das Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert formuliert ist. | Grundlage vieler Habit-Formulierungen.|
 | xx | xx | xx
 |===
 
@@ -60,18 +63,14 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Bezeichnung | Definition | Format | Gültigkeitsregeln | Aliase
 
-| Anmeldedaten
-| Zusammensetzung von Benutzername und Passwort.
-| String
-| Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.
-| Login
-
-| xx
-| xx
-| xx
-| xx
-| xx
+| Anmeldedaten| Zusammensetzung von Benutzername und Passwort.| String| Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.| Login
+| Cloud Backup | Automatische Sicherung der Habit-Daten in einer Cloud, um Gerätewechsel oder Datenverlust abzufangen. |
+| xx| xx| xx| xx| xx
 |===
 
 == Domänenmodell
 // Fügen Sie hier eine Abbildung mit ihrem Domänenmodell ein
+// lokale Einbindung klappt => 
+image::../images/domaenenmodell.drawio.png[]
+// Einbindung für Abgabedokument klappt nicht => image::../docs/requirements/images/domaenenmodell.drawio.png[]
+

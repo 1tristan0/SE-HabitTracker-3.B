@@ -1,12 +1,13 @@
+include::../docs/_includes/default-attributes.inc.adoc[]
 // --- 1. Projektthema -------------------------
-= SE I - Belegabgabe: {Habit Tracker (3.B)}
+= SE I - Belegabgabe: {project-name}
 // --- 2. Teammitglieder -----------------------
-Martin-Lee Schubert <martinlee.schubert@stud.htw-dresden.de>; Patrick Eger <patrick.eger@stud.htw-dresden.de>;  Nicola Gadow <nicola.gadow@stud.htw-dresden.de>; Felix Prockl <felix.prockl@stud.htw-dresden.de>; Tristan Weiland <tristan.weiland2@stud.htw-dresden.de>; Monika Keil <monika.keil@stud.htw-dresden.de>; Paul Händler <paul.haendler@stud.htw-dresden.de>; 
+:docs: ../docs
+include::{docs}/_includes/teammitglieder.adoc[lines=2..-1]
 // --- 3. Abgabedatum --------------------------
 04. Juli 2025
 // ---------------------------------------------
-:docs: ../docs
-include::{docs}/_includes/default-attributes.inc.adoc[]
+
 // ---
 :doctype: book
 :toc:
@@ -45,7 +46,8 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 :imagesdir: {docs-project-management}/images
 
 // Projektplan
-include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
+//include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::{docs-project-management}/project_plan.adoc[lines=1..2;14..-1,leveloffset=+1]
 <<<
 
 // --- Technische Spezifikation ---
@@ -57,14 +59,15 @@ include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffse
 :imagesdir: {docs-requirements}/images
 
 // Produktvision
-include::{docs-requirements}/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::{docs-requirements}/vision.adoc[lines=1..2;28..-1,leveloffset=+1]
 <<<
 // Glossar und Domänenmodell
-[#glossary]
-include::{docs-requirements}/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
+//[#glossary]
+include::{docs-requirements}/glossary.adoc[lines=1..2;13..-1,leveloffset=+1]
+
 <<<
 // UX-Konzept
-include::{docs-requirements}/ux-concept.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::{docs-requirements}/ux-concept.adoc[lines=1..2;19..-1,leveloffset=+1]
 <<<
 
 // --- Entwurfsdokumentation ---
@@ -74,7 +77,7 @@ include::{docs-requirements}/ux-concept.adoc[lines=1..1;4..-1,leveloffset=+1]
 
 // Architektur-Notizbuch
 :imagesdir: {docs-architecture}/images
-include::{docs-architecture}/architecture_notebook.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::{docs-architecture}/architecture_notebook.adoc[lines=1..2;7-10;21..-1,leveloffset=+1]
 <<<
 // Test Cases
 :imagesdir: {docs-test}/images

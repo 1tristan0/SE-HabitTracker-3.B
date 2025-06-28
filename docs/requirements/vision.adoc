@@ -34,9 +34,9 @@ Viele junge Erwachsene – insbesondere Studierende und Berufstätige – möcht
 
 Bestehende Habit-Tracker setzen meist auf Listen oder reine Zahlen, wodurch die emotionale Beteiligung gering bleibt und Nutzer:innen schnell das Interesse verlieren.
 
-„Gewohnheitstier“ begegnet diesem Problem mit einer spielerischen, emotional ansprechenden Komponente: einem digitalen Begleiter (Buddy) – einem Maskottchen, das die Nutzer:innen auf ihrer Gewohnheitsreise begleitet.
+{project-system-name} begegnet diesem Problem mit einer spielerischen, emotional ansprechenden Komponente: einem digitalen Begleiter in Form eines Maskottchens (Tier), das die Nutzer:innen auf ihrer Gewohnheitsreise begleitet.
 
-Der Einsatz eines solchen Avatars schafft emotionale Bindung, stärkt das Verantwortungsgefühl und macht den Prozess der Verhaltensänderung positiv. Die Kombination aus Fortschritten und Gamification erhöht somit die langfristige Nutzungsdauer und Zielerreichung.
+Der Einsatz eines solchen Begleiters schafft emotionale Bindung, stärkt das Verantwortungsgefühl und macht den Prozess der Verhaltensänderung positiv. Die Kombination aus Fortschritten und Gamification erhöht somit die langfristige Nutzungsdauer und Zielerreichung.
 
 === Produktvision
 //Eine Produktvision beschreibt das Einsatzziel der Anwendung und sorgt für ein gemeinsames Ziel und Verständnis für alle Beteiligten im Projekt. Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
@@ -47,7 +47,7 @@ Der Einsatz eines solchen Avatars schafft emotionale Bindung, stärkt das Verant
 | Für | Jugendliche und Erwachsene (Studierende und Berufstätige)
 | die | ihre Gewohnheiten gezielt auf- oder abbauen wollen
 | ist das | {project-system-name}
-| eine | mobile App
+| eine | mobile (Web)App
 | der / die | eine spielerische und soziale Komponente enthält
 | anders als | bereits am Markt verfügbare Habit-Tracking-Apps
 | kann unser Produkt | die Motivation erhalten und gezielt verbessern, um langfristige Gewohnheitsänderungen zu ermöglichen.
@@ -74,9 +74,9 @@ Der Einsatz eines solchen Avatars schafft emotionale Bindung, stärkt das Verant
 |===
 | Name | Beschreibung | Verantwortlichkeiten
 
-| [Benennung des Stakeholders (als Rolle)]
-| [Kurze Beschreibung des Stakeholders und seiner Ziele]
-| [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
+// | [Benennung des Stakeholders (als Rolle)]
+// | [Kurze Beschreibung des Stakeholders und seiner Ziele]
+// | [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
 | Zielnutzer:in
 | Junge Erwachsene (studierend oder berufstätig), die ihre Gewohnheiten mit Hilfe eines motivierenden Systems verbessern möchten
 | Nutzen die App regelmäßig, geben Feedback zu Usability und Motivation, dienen als Grundlage für Personas und Tests
@@ -129,13 +129,13 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 
 === Zusätzliche Produktanforderungen
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
-Hinweise:
+// Hinweise:
 
-. Führen Sie die wesentlichen anzuwendenden Standards, Hardware oder andere Plattformanforderungen, Leistungsanforderungen und Umgebungsanforderungen auf
-. Definieren Sie grob die Qualitätsanforderungen für Leistung, Robustheit, Ausfalltoleranz, Benutzbarkeit und ähnliche Merkmale, die Qualitätsanforderungen an das geplante Produkt beschreiben.
-. Notieren Sie alle Entwurfseinschränkungen, externe Einschränkungen, Annahmen oder andere Abhängigkeiten, die wenn Sie geändert werden, das Visions-Dokument beeinflussen. Ein Beispiel wäre die Annahme, dass ein bestimmtes Betriebssystem für die vom System erforderliche Hardware verfügbar ist. Ist das Betriebssystem nicht verfügbar, muss das Visions-Dokument angepasst werden.
-. Definieren Sie alle Dokumentationsanforderugen, inkl. Benutzerhandbücher, Onlinehilfe, Installations-, Kennzeichnungs- und Auslieferungsanforderungen.
-. Definieren Sie die Priorität für diese zusätzlichen Produktanforderungen. Ergänzen Sie, falls sinnvoll, Angaben zu Stabilität, Nutzen, Aufwand und Risiko für diese Anforderungen.
+//. Führen Sie die wesentlichen anzuwendenden Standards, Hardware oder andere Plattformanforderungen, Leistungsanforderungen und Umgebungsanforderungen auf
+//. Definieren Sie grob die Qualitätsanforderungen für Leistung, Robustheit, Ausfalltoleranz, Benutzbarkeit und ähnliche Merkmale, die Qualitätsanforderungen an das geplante Produkt beschreiben.
+//. Notieren Sie alle Entwurfseinschränkungen, externe Einschränkungen, Annahmen oder andere Abhängigkeiten, die wenn Sie geändert werden, das Visions-Dokument beeinflussen. Ein Beispiel wäre die Annahme, dass ein bestimmtes Betriebssystem für die vom System erforderliche Hardware verfügbar ist. Ist das Betriebssystem nicht verfügbar, muss das Visions-Dokument angepasst werden.
+//. Definieren Sie alle Dokumentationsanforderugen, inkl. Benutzerhandbücher, Onlinehilfe, Installations-, Kennzeichnungs- und Auslieferungsanforderungen.
+//. Definieren Sie die Priorität für diese zusätzlichen Produktanforderungen. Ergänzen Sie, falls sinnvoll, Angaben zu Stabilität, Nutzen, Aufwand und Risiko für diese Anforderungen.
 
 [%header, cols="4,1,1"]
 |===
