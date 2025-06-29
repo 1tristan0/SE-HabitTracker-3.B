@@ -181,4 +181,7 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 
 == Wireframes und Wireflow
 // Fügen Sie Wireframes als Bilder oder als Link (z.B. zu einem Miroboard) ein
+
+image::wireframes.png[Wireframe]
+https://miro.com/app/board/uXjVIEsUdgw=/?moveToWidget=3458764631230741708&cot=14[Wireframes + Wireflow in Miro]
 // Beziehen Sie ihre Wireframes auf konkrete User Stories oder Epics.

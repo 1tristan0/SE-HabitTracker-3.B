@@ -20,7 +20,7 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 == Architekturziele
 //Hinweise: Beschreiben Sie den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
-Die Applikation basiert auf einer klassischen Client-Server-Architektur und soll auf verschiedensten Endgeräten (Desktop und Mobil) über den Browser bedienbar sein. Dafür wird ein leichtgewichtiges und responsives Frontend mit React entwickelt, das mit Tailwind CSS und Bootstrap gestaltet wird.
+Die Applikation basiert auf einer klassischen Dreischicht-Architektur(Client, Logik, Datenspeicherung) und soll auf verschiedensten Endgeräten (Desktop und Mobil) über den Browser bedienbar sein. Dafür wird ein leichtgewichtiges und responsives Frontend mit React entwickelt, das mit Tailwind CSS und Bootstrap gestaltet wird.
 
 Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwischen Frontend und Backend erfolgt über eine RESTful API. Als Datenbank nutzen wir Supabase (PostgreSQL) mit eingebautem Authentifizierungsdienst.
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
@@ -39,7 +39,7 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
 * Das Projekt wird von einem studentischen Team mit begrenzter Erfahrung im Bereich Webentwicklung umgesetzt.
 * Supabase wird als externer Dienst verwendet, inklusive Authentifizierungs- und Datenbankfunktionalität.
 * Die Nutzer benötigen ein internetfähiges Gerät mit aktuellem Browser.
-* Die Deployment-Umgebung wird voraussichtlich ein von der HTW Dresden bereitgestellter Server (z. B. iseproject02.informatik.htw-dresden.de) sein.
+* Die Deployment-Umgebung ist ein von der HTW Dresden bereitgestellter Server (z. B. iseproject02.informatik.htw-dresden.de) sein.
 * Es gibt keine Abhängigkeiten zu Legacy-Systemen.
 * Zeitliche Ressourcen sind begrenzt.
 * Das Budget ist auf Open-Source-Technologien und kostenlose Dienste beschränkt. 
@@ -59,7 +59,7 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
   → Gängige Wahl für moderne Webanwendungen, große Community und viele Ressourcen verfügbar.
   
 . **Einsatz von Tailwind CSS und Bootstrap**  
-  → Ermöglicht schnelles Prototyping und konsistente Gestaltung mit geringem CSS-Overhead.
+  → Ermöglicht schnelles Prototyping und konsistente Gestaltung mit geringem Designaufwand.
   → Ermöglicht responsives Design und einfache Anpassung an verschiedene Bildschirmgrößen. (App soll auf Desktop und Mobil funktionieren)
 
   
@@ -73,8 +73,8 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
   → Spart Zeit durch fertige Authentifizierungslösungen und Datenbankverwaltung in der Cloud. 
   → Team muss keinen eigenen Lösung zum Hosting einer Datenbank finden.
   
-. **Client-Server-Modell**  
-  → Getrennte Verantwortlichkeiten, einfache Skalierung, klare Trennung zwischen UI und Logik.
+. **Dreischicht-Modell**  
+  → Getrennte Verantwortlichkeiten, einfache Skalierung, klare Trennung zwischen UI, Logik und Datenspeicherung.
 
 
 == Schichten oder Architektur-Framework
@@ -137,7 +137,7 @@ Unsere App „Gewohnheitstier“ ist ein einfacher Habit-Tracker:
 
 * **Nutzer**: Legt in der App neue Gewohnheiten (Habits) an und trackt deren Fortschritt.  
 * **Gewohnheitstier (System)**: Bietet Funktionen zum Erstellen, Anzeigen, Bearbeiten und Löschen von Habits.  
-* **Supabase (externer Container)**: Übernimmt User-Management, Authentifizierung und persistente Datenhaltung (Nutzer, Habits, Streaks, Nutzer-Beziehungen).
+* **Supabase (externer Container)**: Übernimmt User-Management, Authentifizierung und persistente Datenspeicherung (Nutzer, Habits, Streaks, Nutzer-Beziehungen).
 
 === Container
 //Level 2 im C4-Modell
@@ -157,10 +157,10 @@ include::{plantumlsdir}/context.puml[]
   Mobile UI-Variante; ebenfalls REST-Calls an die Backend API.
 
 * **Backend API** (Node.js/Express):  
-  Verarbeitet HTTP/HTTPS-Anfragen, enthält Geschäftslogik und führt SQL-CRUD-Operationen gegen die Datenbank aus.
+  Verarbeitet HTTP/HTTPS-Anfragen, enthält Geschäftslogik und führt SQL-CRUD-Operationen auf die Datenbank aus.
 
 * **Database **(Supabase/PostgreSQL) : 
- Übernimmt Authentifizierung, User-Management und persistente Speicherung von Nutzern, Habits, Streaks und Beziehungen.
+ Übernimmt Authentifizierung, User-Management und persistente Datenspeicherung von Nutzern, Habits, Streaks und Beziehungen.
 
 === Components
 //Level 3 im C4-Modell
