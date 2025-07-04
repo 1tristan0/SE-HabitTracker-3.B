@@ -171,13 +171,16 @@ Scrollt oft abends ziellos am Handy, möchte aber wieder mehr lesen und offline 
 //Hier sind einige Anregungen:
 
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
-. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
-. Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
-. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
-. Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
-. Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
+//. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
+//. Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
+//. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
+//. Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
+//. Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
 
-Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
+{project-system-name} ist als webbasiertes Habit-Tracking-System konzipiert und wird in der Regel von einer/einem einzelnen Nutzer/in verwendet. Zusätzlich besteht die Möglichkeit, Buddys (Freund/innen) hinzuzufügen, die eigenständig mit der App interagieren und zur sozialen Motivation beitragen. Die Aufgaben innerhalb der Anwendung sind zeitlich gering aufwändig. Das Anlegen neuer Gewohnheiten sowie der tägliche Check-in nehmen jeweils weniger als eine Minute in Anspruch. Die Einsicht in Statistiken, Streaks oder den Verlauf kann je nach Interesse unterschiedlich lange dauern. Die Nutzung erfolgt überwiegend auf mobilen Endgeräten, teilweise auch unterwegs, aber ebenso über Desktop-Computer. Eine Touchbedienung ergibt sich aus der mobilen Nutzung, eine Offline-Nutzung ist nicht vorgesehen. Die Anwendung ist plattformunabhängig über gängige Webbrowser zugänglich und benötigt keine Installation. Es bestehen keine funktionalen Abhängigkeiten zu anderen Anwendungen oder Systemen.
+
+
+//Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
 == Wireframes und Wireflow
 // Fügen Sie Wireframes als Bilder oder als Link (z.B. zu einem Miroboard) ein

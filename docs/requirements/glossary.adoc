@@ -15,36 +15,36 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Begriff | Definition und Erläuterung | Synonyme
 //| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
-| Alltagsroutine | Alltagsroutine ist eine regelmäßig wiederkehrende Abfolge von Handlungen, die den Tagesablauf strukturieren und Orientierung sowie Stabilität im Alltag geben. | Routine 
+| Alltagsroutine | regelmäßig wiederkehrende Abfolge von Handlungen, die den Tagesablauf strukturieren und Orientierung sowie Stabilität im Alltag geben. | Routine 
 | Badge | Virtuelle Auszeichnung, die nach definierten Erfolgen (z. B. 7-Tage-Serie) vergeben wird, um Motivation zu steigern.| 
 | Belohnung | Positive Verstärkung (z. B. visuelles Feuerwerk, Badge, eigene Erlaubnis), die nach Ausführung folgt. | Reward
-| Bewusst Leben | Bewusst leben bedeutet beim Habit-Tracking, Gewohnheiten gezielt wahrzunehmen, zu steuern und kontinuierlich zu verbessern.|
+| Bewusst Leben | Gewohnheiten gezielt wahrnehmen, steuern und kontinuierlich verbessern.|
 | Buddy | Person, die den Nutzer regelmäßig nach Fortschritten fragt und so für Verbindlichkeit sorgt. | Accountability Partner
 | Calendar View | Kalenderansicht, in der tägliche Erledigungen (Check-ins) als farbige Markierungen erscheinen. |
-| Challenge |Vorgegebene Ziele die in einem festen zeiltichen Rahmen gegen Belohnungen abgeschlossen werden können.|Quests 
+| Challenge | Vorgegebene Ziele, die in einem festen zeiltichen Rahmen gegen Belohnungen abgeschlossen werden können.| Quests 
 | Dashboard | Übersicht mit Kennzahlen (Streak-Länge, Erfolgsquote, Heatmap) zur Fortschrittskontrolle. |  Analytics
 | Eintrag | Manuelle oder automatische Bestätigung, dass eine Gewohnheit an einem Tag ausgeführt wurde. | Check-in 
-| Erinnerung | Zeit- oder ortsbasierte Benachrichtigung, die den Nutzer zum Check-in auffordert. | Push Notification
+| Erinnerung | zeit- oder ortsbasierte Benachrichtigung, die den Nutzer zum Check-in auffordert. | Push Notification
 | Fortschrittsbalken | Balken, der den prozentualen Fortschritt einer Gewohnheit oder eines Ziels visualisiert. | Progress Bar
 | Frequency | Anzahl der benötigten Ausführungen einer Gewohnheit pro Zeitraum (z. B. „3×/Woche“).| Frequenz 
 | Gamification | Einsatz spieltypischer Elemente (Badges, Level, Ranglisten) zur Steigerung von Engagement und Motivation. |
-| Gewohnheit | Regelmäßig wiederholte Handlung, die automatisiert und ohne hohe Willenskraft ausgeführt wird. | Habit
-| Gewohnheitsreise | Eine Gewohnheitsreise ist der persönliche Entwicklungsprozess, bei dem bestehende Verhaltensmuster reflektiert, gezielt verändert und neue, nachhaltige Gewohnheiten aufgebaut werden. |
-| Gewohnheitstier | Icon eines Tieres, das Emotionen zeigt und zum Durchhalten motiviert | Avatar, Maskottchen 
+| Gewohnheit | regelmäßig wiederholte Handlung, die automatisiert und ohne hohe Willenskraft ausgeführt wird. | Habit
+| Gewohnheitsreise | persönlicher Entwicklungsprozess, bei dem bestehende Verhaltensmuster reflektiert, gezielt verändert und neue, nachhaltige Gewohnheiten aufgebaut werden. |
+| Gewohnheitstier | Icon eines Tieres, das Emotionen zeigt und zum Durchhalten motiviert | Maskottchen, Avatar
 | Habit Loop | Modell aus Cue → Routine → Reward, das den Entstehungs- und Verstärkungsprozess einer Gewohnheit beschreibt.| 
 | Habit Stacking | Methode, bei der eine neue Gewohnheit direkt an eine bestehende gekoppelt wird („nach dem Zähneputzen meditieren“).| 
-| Habit-Statistiken | Grafisch aufbreitete Übersicht der gesammelten Daten über abgeschlossene Habits.| Statistik
-| Heatmap | Farbkodierte Matrix, die zeigt, an welchen Tagen/Wochen eine Gewohnheit erfüllt wurde (je dunkler, desto häufiger).|
+| Habit-Statistiken | grafisch aufbreitete Übersicht der gesammelten Daten über abgeschlossene Habits. | Statistik
+| Heatmap | Farbkodierte Matrix, die zeigt, an welchen Tagen/Wochen eine Gewohnheit erfüllt wurde (je dunkler, desto häufiger). |
 | Leaderboard | Vergleichende Darstellung der Fortschritte mehrerer Nutzer zur Förderung eines Wettkampfeffekts. | Rangliste
-| Mediengewohnheiten | Mediengewohnheiten sind individuelle, regelmäßig ablaufende Verhaltensmuster im Umgang mit analogen und digitalen Medien. |
-| Offline-Aktivitäten | Offline-Aktivitäten sind regelmäßig ausgeführte Handlungen oder Beschäftigungen, die ohne die Nutzung digitaler Medien stattfinden. |
-| Performance | Performance bezeichnet die messbare Leistung oder das sichtbare Verhalten einer Person in Bezug auf bestimmte Aufgaben, Ziele oder Anforderungen.|
-| Positive Verstärkung | Positive Bestärkung ist eine Methode, bei der erwünschtes Verhalten durch angenehme Reize oder Belohnungen gefördert und somit langfristig gefestigt wird. |
-| Psychischer Druck | Psychischer Druck ist ein innerer Spannungszustand, der durch hohe Erwartungen, Stress oder selbst auferlegte Verpflichtungen entsteht und das Denken, Fühlen und Handeln beeinflusst. |
-| Selbstverbesserung | Selbstverbesserung ist der bewusste Prozess, eigene Fähigkeiten, Verhaltensweisen oder Lebensumstände kontinuierlich weiterzuentwickeln und zu optimieren.| Selbstoptimierung
+| Mediengewohnheiten | individuelle, regelmäßig ablaufende Verhaltensmuster im Umgang mit analogen und digitalen Medien. |
+| Offline-Aktivitäten | regelmäßig ausgeführte Handlungen oder Beschäftigungen, die ohne die Nutzung digitaler Medien stattfinden. |
+| Performance | messbare Leistung oder das sichtbare Verhalten einer Person in Bezug auf bestimmte Aufgaben, Ziele oder Anforderungen.|
+| Positive Verstärkung | Methode, bei der erwünschtes Verhalten durch angenehme Reize oder Belohnungen gefördert und somit langfristig gefestigt wird. |
+| Psychischer Druck | innerer Spannungszustand, der durch hohe Erwartungen, Stress oder selbst auferlegte Verpflichtungen entsteht und das Denken, Fühlen und Handeln beeinflusst. |
+| Selbstverbesserung | bewusster Prozess, die eigenen Fähigkeiten, Verhaltensweisen oder Lebensumstände kontinuierlich weiterzuentwickeln und zu optimieren.| Selbstoptimierung
 | Streak | Ununterbrochene Abfolge erfolgreicher Check-ins; gilt als wichtiger Motivationsfaktor. | Serie
 | Streak Freeze | Feature, das erlaubt, eine Streak bei einmaligem Verpassen (z. B. Krankheit) „einzufrieren“, um Demotivation zu verhindern.| 
-| Tools | Tools sind unterstützende Mittel oder Anwendungen, die dabei helfen, Gewohnheiten zu planen, zu verfolgen und langfristig zu etablieren. |
+| Tools | unterstützende Mittel oder Anwendungen, die dabei helfen, Gewohnheiten zu planen, zu verfolgen und langfristig zu etablieren. |
 | Trigger | Auslösereiz im Habit-Loop, der den Nutzer an die Ausführung der Gewohnheit erinnert. | Cue
 |===
 

@@ -39,7 +39,7 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
 * Das Projekt wird von einem studentischen Team mit begrenzter Erfahrung im Bereich Webentwicklung umgesetzt.
 * Supabase wird als externer Dienst verwendet, inklusive Authentifizierungs- und Datenbankfunktionalität.
 * Die Nutzer benötigen ein internetfähiges Gerät mit aktuellem Browser.
-* Die Deployment-Umgebung ist ein von der HTW Dresden bereitgestellter Server (z. B. iseproject02.informatik.htw-dresden.de) sein.
+* Die Deployment-Umgebung ist ein von der HTW Dresden bereitgestellter Server (z. B. iseproject02.informatik.htw-dresden.de).
 * Es gibt keine Abhängigkeiten zu Legacy-Systemen.
 * Zeitliche Ressourcen sind begrenzt.
 * Das Budget ist auf Open-Source-Technologien und kostenlose Dienste beschränkt. 
