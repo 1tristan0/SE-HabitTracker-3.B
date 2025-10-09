@@ -43,7 +43,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Psychischer Druck | innerer Spannungszustand, der durch hohe Erwartungen, Stress oder selbst auferlegte Verpflichtungen entsteht und das Denken, Fühlen und Handeln beeinflusst. |
 | Selbstverbesserung | bewusster Prozess, die eigenen Fähigkeiten, Verhaltensweisen oder Lebensumstände kontinuierlich weiterzuentwickeln und zu optimieren.| Selbstoptimierung
 | Streak | Ununterbrochene Abfolge erfolgreicher Check-ins; gilt als wichtiger Motivationsfaktor. | Serie
-| Streak Freeze | Feature, das erlaubt, eine Streak bei einmaligem Verpassen (z. B. Krankheit) „einzufrieren“, um Demotivation zu verhindern.| 
+| Streak Freeze | Feature, das erlaubt, eine Streak bei einmaligem Verpassen (z. B. Krankheit) „einzufrieren“, um Demotivation zu verhindern. | 
 | Tools | unterstützende Mittel oder Anwendungen, die dabei helfen, Gewohnheiten zu planen, zu verfolgen und langfristig zu etablieren. |
 | Trigger | Auslösereiz im Habit-Loop, der den Nutzer an die Ausführung der Gewohnheit erinnert. | Cue
 |===
