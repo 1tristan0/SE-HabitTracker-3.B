@@ -1,0 +1,64 @@
+= Konsultation 20.10.2025
+Anwesend: Monika, Nicola, Patrick, Tristan, Martin, Paul (online)
+
+== Auswertung Feedback von Prof. Anke zu SE 1
+=== Projektmanagement
+-   "keine Aussagen zu Managementpraktiken und technischen Praktiken"
+    => nachtragen: Happy-Index, Tool für Terminfindung (evtl. Link bzw. Screenshot), Lernschritte
+-   "Arbeitsverteilung", "Dokumentation", "Abstimmung"
+    => nachtragen: Tabelle mit Meeting-Terminen inkl. Links zu Protokollen, Erläuterung zu Abstimmung (wie kamen wir zu Entscheidungen), Benennung Arbeitsgruppen-Organisation inkl. Links zu AG-Protokollen
+-   "keine Angaben Deployment"
+    => im Abgabedokument war Überschrift ohne Zusatz-Info
+    => Verweis auf folgende Infos oder Überschrift raus
+    => oder: erste Infos, wo welche Software-Teile liegen und "Anleitung", wie System nach Crash wieder neue aufgesetzt werden kann (Risiko, wenn nur ein Teammitglied das weiß)
+-   "keine Links zu Backlog und Riskboard"
+    => Links und kurze Hinführung als Textblock ergänzen
+
+=== Vision
+-   "zusätzliche Produktanforderungen etwas dünn"
+    => Ergänzung von z.B.: Client-Server-Aufbau, evtl. erfülltem Standard, kurze Bedienzeiten, schnelle Navigation, verschlüsselte Kommunikation
+    => "Systemfeedback" (Mail an Dev-Team, wenn Probleme) als Funktion setzen
+    => "Cloud-Backup" (Sicherung der Daten in persönliche Cloud für Gerätewechsel und als Backup) als Funktion setzen
+    => "Client-Server-Anwendung" als Produktanforderung
+
+=== Glossar
+-   "Datenstrukturen unklar"
+    => nachtragen: alle vorhandenen Objekte (Datenbank-Tabellen / Spalten) auflisten und kurz beschreiben
+
+=== Architecture Notebook
+-   "Entwurfsentscheidungen / Ziele"
+    => korrigieren: Inhalt der beiden Textabschnitte mit Zielen (weiter unten) abgleichen bzw. ergänzen
+    => nachtragen: z.B. schnelle Entwicklungszyklen, leichter Ersatz von Systembestandteilen (lose Kopplung)
+    => entscheiden: Kommentar-Standard (docstring, annotations, ??) - Ziel: automatisierte Programmdoku zum Projektende
+
+=== UX-Konzept
+-   "Nutzungskontext"
+    => korrigieren: Kontext aus Personas ausführlicher und konkreter beschreiben (was ist die Ausgangssituation, wann und warum wird unsere App genutzt)
+-   "Wireframes"
+    => nachtragen: Erläuterungstext / Kurzbeschreibung vor den Links
+    => korrigieren: echte Daten statt Platzhaltertexte
+
+== Rücksprache mit Prof. Anke
+-   Termin vereinbaren, möglichst am Dienstag, 28.10. nach der VL (ab 15.15 Uhr)
+-   Rückfrage Deployment (war eigentlich nicht gefordert)
+-   Verknüpfung User Stories - Tasks vorhanden (z.B. B011, B023, B030)
+-   Links zu Riskboard und Backlog (nicht explizit gefordert)
+-   Abgabeform Beleg SE2 (einzelne Dokumente zu Benutzerhandbuch u.ä.?, technische Grundlage vorgegeben?)
+-   Beispiel-Belege für "so sollte das aussehen" oder Bewertungspunkte?
+
+
+=> Nächstes Meeting: Dienstag, den 21.10. um 12.55 Uhr in Z 136c (Bib-Gruppenarbeitsraum)
+
+
+== To Do's aus letztem Meeting (heute nicht besprochen)
+-	Restliche Risiken ausformulieren (Patrick, Tristan)
+-	Präsentation vorbereiten und halten (Felix, Martin)
+-	Dokumentation überfliegen und fertigstellen (Monika, Nicola, Patrick, Paul, Tristan)
+-	Product backlog (Tristan, Nicola)
+-	Lessons learned + Domänenmodell (Monika)
+-	Architecture notebook + C4 (Paul, Patrick)
+-	Stichpunkte Prototypen, Hochladen in Github Quellcode (Paul)
+-	Glossary (Nicola)
+
+
+
