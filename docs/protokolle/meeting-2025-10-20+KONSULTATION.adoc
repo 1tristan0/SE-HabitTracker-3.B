@@ -10,38 +10,47 @@ Anwesend: Monika, Nicola, Patrick, Tristan, Martin, Paul (online)
 -   "keine Angaben Deployment"
     => im Abgabedokument war Überschrift ohne Zusatz-Info
     => Verweis auf folgende Infos oder Überschrift raus
-    => oder: erste Infos, wo welche Software-Teile liegen und "Anleitung", wie System nach Crash wieder neue aufgesetzt werden kann (Risiko, wenn nur ein Teammitglied das weiß)
+    => oder: erste Infos, wo welche Software-Teile liegen und "Anleitung" bzw. Tutorial, wie System nach Crash wieder neue aufgesetzt werden kann (Risiko, wenn nur ein Teammitglied das weiß)
 -   "keine Links zu Backlog und Riskboard"
     => Links und kurze Hinführung als Textblock ergänzen
+-   "Lessons Learned überarbeiten"
+    => in Kategorien unterteilen (technische Aspekte, Teamarbeit, ...)
+
 
 === Vision
+-  Hinweis: "... ist erstes Dokument des Projekts, alle späteren Details müssen in irgendeiner Weise Rückbezug auf vision.adoc haben / daraus abgeleitet worden sein"
 -   "zusätzliche Produktanforderungen etwas dünn"
-    => Ergänzung von z.B.: Client-Server-Aufbau, evtl. erfülltem Standard, kurze Bedienzeiten, schnelle Navigation, verschlüsselte Kommunikation
-    => "Systemfeedback" (Mail an Dev-Team, wenn Probleme) als Funktion setzen
-    => "Cloud-Backup" (Sicherung der Daten in persönliche Cloud für Gerätewechsel und als Backup) als Funktion setzen
+    => Ergänzung von z.B.: Client-Server-Aufbau (muss aus Visionsdokument entnehmbar sein), evtl. erfülltem Standard, kurze Bedienzeiten, schnelle Navigation, verschlüsselte Kommunikation
+    => "Systemfeedback" (Mail an Dev-Team, wenn Probleme) ist eine Funktion (keine Produktanforderung)
+    => "Cloud-Backup" (Sicherung der Daten in persönliche Cloud für Gerätewechsel und als Backup) ebenso Funktion 
     => "Client-Server-Anwendung" als Produktanforderung
 
 === Glossar
 -   "Datenstrukturen unklar"
-    => nachtragen: alle vorhandenen Objekte (Datenbank-Tabellen / Spalten) auflisten und kurz beschreiben
+    => nachtragen: alle vorhandenen Objekte (Datenbank-Tabellen / Spalten) und deren Struktur auflisten und kurz beschreiben
+    => Backup gehört hier nicht rein
 
 === Architecture Notebook
 -   "Entwurfsentscheidungen / Ziele"
     => korrigieren: Inhalt der beiden Textabschnitte mit Zielen (weiter unten) abgleichen bzw. ergänzen
+                    Entwurfsentscheidungen aus dem Abschnitt Architekturziele entfernen
     => nachtragen: z.B. schnelle Entwicklungszyklen, leichter Ersatz von Systembestandteilen (lose Kopplung)
     => entscheiden: Kommentar-Standard (docstring, annotations, ??) - Ziel: automatisierte Programmdoku zum Projektende
 
 === UX-Konzept
 -   "Nutzungskontext"
-    => korrigieren: Kontext aus Personas ausführlicher und konkreter beschreiben (was ist die Ausgangssituation, wann und warum wird unsere App genutzt)
+    => korrigieren: Kontext aus Personas ausführlicher und konkreter beschreiben (was ist die Ausgangssituation, wann/wo und warum wird unsere App genutzt)
+    => mehr von den Personas ausgehend beschreiben
 -   "Wireframes"
     => nachtragen: Erläuterungstext / Kurzbeschreibung vor den Links
-    => korrigieren: echte Daten statt Platzhaltertexte
+    => oder: Abbildung/Bild in Doku einfügen + Link zum funktionalen Miro-Wireframe
+    => korrigieren: echte Daten statt Platzhaltertexte (siehe "Header oder "Kalender" im Miroboard-Wireframe)
 
 == Rücksprache mit Prof. Anke
 -   Termin vereinbaren, möglichst am Dienstag, 28.10. nach der VL (ab 15.15 Uhr)
 -   Rückfrage Deployment (war eigentlich nicht gefordert)
 -   Verknüpfung User Stories - Tasks vorhanden (z.B. B011, B023, B030)
+-   "Wireframes rudimentär" - Was genau, sind "Header"/"Kalender" gemeint?
 -   Links zu Riskboard und Backlog (nicht explizit gefordert)
 -   Abgabeform Beleg SE2 (einzelne Dokumente zu Benutzerhandbuch u.ä.?, technische Grundlage vorgegeben?)
 -   Beispiel-Belege für "so sollte das aussehen" oder Bewertungspunkte?
