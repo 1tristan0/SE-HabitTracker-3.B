@@ -9,13 +9,11 @@ include::../_includes/teammitglieder.adoc[]
 
 == Einführung
 //Kurze Beschreibung und Überblick zum Dokument.
-Übersicht zu Rollenverteilung, Management- und technischen Praktiken
+
 
 == Projektorganisation
 //Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members. Introduce neighboring projects, relationships, and communication channels. If the project is introduced somewhere else, reference that location with a link.
 === Projekt-Team / Rollen
-Im Rahmen des ersten Team-Meetings zu Beginn des neuen Semesters wurde die bestehende Rollenverteilung überprüft und leicht angepasst. Felix Prockl unterstützt fortan das Development-Team, während Monika Keil neben ihrer Funktion als Ansprechpartnerin die Rolle der Scrum Masterin übernimmt. Ziel dieser Änderung ist eine ausgewogenere Verteilung der Aufgaben sowie eine verbesserte Abstimmung innerhalb des Teams.
-
 [cols="2,2"]
 |===
 |Rolle |Name
@@ -23,7 +21,10 @@ Im Rahmen des ersten Team-Meetings zu Beginn des neuen Semesters wurde die beste
 |*Product Owner*
 |Nicola Gadow
 
-|*Scrum Master / Ansprechpartnerin*
+|*Scrum Master*
+|Felix Prockl
+
+|*Ansprechpartnerin*
 |Monika Keil
 
 .6+|*Dev. Team*
@@ -31,21 +32,15 @@ Im Rahmen des ersten Team-Meetings zu Beginn des neuen Semesters wurde die beste
 |Tristan Weiland
 |Paul Händler
 |Martin-Lee Schubert
-|Felix Prockl 
+|Monika Keil 
 |===
 
 === Zeiten und Termine Scrum-Meetings
 .Zeiten und Termine für alle Srum-Meetings
 * *planning*: zu Beginn des Sprints
-* *weekly*: jeden Dienstag vor der VL (13.00-13.40 Uhr)
-* *backlog refinement*: ca. Mitte des Sprints
+* *weekly*: jeden Dienstag nach der VL ab 15.30 Uhr
+* *backlog refinement*: ca. Mitte des Sprints?
 * *review / retro*: am Ende des Sprints
-
-Die Protokolle der einzelnen Meetings werden im Repository unter doc/protokolle abgelegt. Jedes Meeting dient der Besprechung der aktuellen Aufgaben und der Vergabe neuer To-Dos. Zu Beginn des darauffolgenden Treffens wird der Fortschritt überprüft und der Erfüllungsgrad der zuvor vereinbarten Aufgaben gemeinsam besprochen.
-
-Mit Beginn des Wintersemesters wurde der Termin für das wöchentliche Treffen an die veränderten Stundenpläne der Team-Mitglieder angepasst.
-
-Die Termine für die einmaligen Treffen pro Sprint (planning, review, retro, backlog refinement) werden mit Hilfe des Tools "timeful" (https://timeful.app/e/bcCd3C) festgelegt. Darin wird die Verfügbarkeit aller Team-Mitglieder datumsgenau erfasst, um auch wechselnde persönliche Verpflichtungen berücksichtigen zu können.
 
 === Kommunikationskanäle
 [cols="2,2"]
@@ -64,19 +59,9 @@ Die Termine für die einmaligen Treffen pro Sprint (planning, review, retro, bac
 |Meeting-Protokolle und offizielle Dokumentation
 |Repository (https://github.com/1tristan0/SE-HabitTracker-3.B.git)
 |===
-
 == Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 
-Das Projektteam arbeitet iterativ nach dem Scrum-Framework. Die Aufgaben werden in Sprints organisiert und im Rahmen der wöchentlichen Team-Meetings regelmäßig überprüft. Dabei wird der aktuelle Fortschritt besprochen, Aufgaben werden bei Bedarf neu zugewiesen und ihr Status im Sprint-Backlog (https://github.com/users/1tristan0/projects/6/views/3) aktualisiert. Jede Aufgabe ist dort einem der Zustände "ToDo", "In Progress" oder "Done" zugeordnet.
-
-Zur Beobachtung der Teamzufriedenheit und der Zusammenarbeit wird auf dem Miro-Board ein sogenannter Happy-Index geführt und regelmäßig aktualisiert. Dieser dient als qualitativer Indikator für das Arbeitsklima im Team und hilft, mögliche Probleme frühzeitig zu erkennen.
-
-Die Versionsverwaltung erfolgt über GitHub, das zugleich als Plattform für Aufgaben- und Issue-Tracking dient. Pull Requests und Branches werden genutzt, um Änderungen nachvollziehbar und konfliktfrei in das Projekt zu integrieren. Darüber hinaus werden automatisierte Tests vorbereitet, um die technische Qualität der Anwendung langfristig sicherzustellen. Perspektivisch ist die Einrichtung einer Continuous-Integration-Pipeline vorgesehen, um Builds und Tests automatisiert auszuführen und so frühzeitig Fehler im Entwicklungsprozess zu erkennen.
-
-Alle Artefakte wie Backlogs und Protokolle sowie das Risk-Board (https://github.com/users/1tristan0/projects/6/views/5) werden fortlaufend im gemeinsamen Repository gepflegt. Der Fortschritt wird durch den Vergleich der erledigten Aufgaben zwischen den Weeklies sowie durch Reflexionen im Rahmen der Sprint-Reviews nachvollzogen und dokumentiert.
-
-TODO: Wie sind wir zu Entscheidungen gekommen?
 
 === Definition of Ready
 // Listen Sie hier die Kriterien auf, die ein Product Backlog Item (z.B. User Story) erfüllen muss, damit es bei der Sprint-Planung berücksichtigt werden kann
@@ -106,30 +91,25 @@ Testbarkeit gewährleistet : Messbare Kriterien, Mock-Daten oder Testfälle vorh
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
-TODO: Wo liegen welche Software-Teile (siehe auch C4-Modell)
-TODO: "Anleitung", wie System nach Crash wieder hergestellt werden kann
+
 
 == Erkenntnisse (Lessons learned)
 // Führen Sie hier die wesentlichen Erkenntnisse auf, die Sie in den Retrospektiven gewonnen haben. Legen Sie besonderen Fokus auf die Maßnahmen, die Sie getroffen haben um Verbesserungen in den verschiedenen Aspekten des Projekts zu erzielen, z.B. dem Entwicklungsprozess, der technischen und organisatorischen Umgebung oder der Zusammenarbeit im Team.
-
-=== Arbeitsweise / Teamarbeit
 - Einstieg in Scrum war zunächst schwierig, mit der Zeit wuchs das Verständnis für Rollen, Abläufe und Prinzipien
 - Iteratives Arbeiten in Sprints ermöglichte laufende Selbstkontrolle und Qualitätsverbesserung
-- Planung anhand verfügbarer Zeit und Ressourcen war effektiver als starres Festhalten am Umfang
-- Frühe Planung und Dokumentation (z.B. Risk Board, Architecture Notebook) lohnten sich im Projektverlauf
+- Gute Zusammenarbeit braucht Planung – z. B. bei Terminfindung und Koordination
+- Planung anhand verfügbarer Zeit und Ressourcen ist effektiver als starres Festhalten am Umfang
+- Frühe Planung und Dokumentation (z. B. Risk Board, Architecture Notebook) lohnen sich im Projektverlauf
 - Nutzerzentrierte Perspektive erwies sich als hilfreich für klare Entscheidungen => durch User Stories methodisch greifbar gemacht
 - Stakeholder früh zu identifizieren half beim Ableiten sinnvoller User Stories
-- Aufbereitung der Stories war zentral, um ein strukturiertes Backlog zu erstellen
+- Aufbereitung der Stories war zentral, um einen strukturierten Backlog zu erstellen
 - Anforderungen, Qualitätskriterien, Randbedingungen und User Story-Elemente sauber zu trennen war anspruchsvoll
-- es war herausfordernd, sich nicht in Details verlieren, sondern den Gesamtüberblick zu behalten
+- Nicht in Details verlieren, aber den Gesamtüberblick behalten
 - Regelmäßige Retrospektiven verbesserten Aufgabenverteilung, Zielklarheit und Kommunikation
 - Kleingruppenarbeit zwischen den wöchentlichen Treffs steigerte Effizienz, "Weekly" diente als Austauschpunkt
 - Offenes Miteinander und Feedbackkultur förderten Motivation und Teamdynamik
-- Teamarbeit lebte von klarer Rollenverteilung und dem Einsatz individueller Stärken
+- Teamarbeit lebt von klarer Rollenverteilung und dem Einsatz individueller Stärken
 - Eigener Arbeitsstil wurde reflektiert, Verständnis für andere Herangehensweisen wuchs
-- Feedback von außen half, Qualität zu steigern und blinde Flecken zu vermeiden
-
-=== technische Aspekte
-- Gute Zusammenarbeit brauchte Planung => Tool zur Terminfindung und Koordination muss im nächsten Semester geändert werden, um unregelmäßige Verpflichtungen besser berücksichtigen zu können
+- Feedback von außen hilft, Qualität zu steigern und blinde Flecken zu vermeiden
 - Tools wie GitHub, Miro, Discord wurden produktiv eingesetzt
 - Technische Umsetzung mit Node.js, React und Supabase war fordernd, aber lehrreich.
