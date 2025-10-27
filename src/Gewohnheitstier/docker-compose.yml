@@ -1,0 +1,42 @@
+services:
+  server:
+    build:
+      context: ./project/server
+      dockerfile: ../../Dockerfile.dev
+    container_name: gewohnheitstier-server
+    working_dir: /app
+    # Install beim Start (füllt /app/node_modules-Volume), dann dev ODER start
+    command: sh -c "npm install && (npm run dev || npm start)"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - PORT=3001
+      - HOST=0.0.0.0
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./project/server:/app
+      - /app/node_modules
+
+  client:
+    build:
+      context: ./project/client
+      dockerfile: ../../Dockerfile.dev
+    container_name: gewohnheitstier-client
+    working_dir: /app
+    # Vite: --host nötig; bei CRA greift 'npm start'
+    command: sh -c "npm install && (npm run dev -- --host || npm start)"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - PORT=5173
+      - HOST=0.0.0.0
+    # beide gängigen Dev-Ports freigeben; der ungenutzte bleibt halt leer
+    ports:
+      - "5173:5173"   # Vite
+      - "3000:3000"   # CRA
+    volumes:
+      - ./project/client:/app
+      - /app/node_modules
+    depends_on:
+      - server
