@@ -31,6 +31,15 @@ export default function HabitsPage({ userId, onLogout }) {
       .delete().eq('id', id).eq('user_id', userId);
     if (!error) load();
   };
+  const check = async (id) => {
+  const today = new Date().toISOString().slice(0,10);
+  const { error } = await supabase
+    .from('habits_table')
+    .update({ last_checked: today })
+    .eq('id', id)
+    .eq('user_id', userId);
+  if (!error) load();
+};
 
   useEffect(() => { if (userId) load(); }, [userId]);
 
@@ -45,8 +54,9 @@ export default function HabitsPage({ userId, onLogout }) {
       <HabitForm onAdd={add} />
 
       {habits.map(h => (
-        <HabitCard key={h.id} habit={h} onDelete={remove} />
+        <HabitCard key={h.id} habit={h} onDelete={remove} onCheck={check} />
       ))}
+      
     </div>
   );
 }
