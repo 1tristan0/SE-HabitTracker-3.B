@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
 import HabitForm from '../components/HabitForm';
 import HabitCard from '../components/HabitCard';
+import Navbar from '../components/Navbar';
 
 export default function HabitsPage({ userId, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -46,8 +47,8 @@ export default function HabitsPage({ userId, onLogout }) {
   return (
     <div className="container py-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h1>Gewohnheitstier</h1>
-        <button className="btn btn-outline-secondary" onClick={onLogout}>Logout</button>
+        <Navbar onLogout={onLogout} />
+        
       </div>
 
       {/* <- Das ist das fehlende Eingabeformular */}
