@@ -1,0 +1,115 @@
+= Docker-Setup Dokumentation: Gewohnheitstier
+:author: Paul Händler
+:module: SE2 – Software Engineering II
+:toc: left
+:sectnums:
+
+== Zielsetzung
+Ziel dieses Dokuments ist die Containerisierung des Projekts *Gewohnheitstier*, bestehend aus einem Node.js-Server und einem React-Client, um die Entwicklungsumgebung unabhängig von Hostsystemen bereitzustellen.  
+Dadurch wird eine einheitliche und portable Laufzeitumgebung für alle Teammitglieder geschaffen.
+
+== Architekturübersicht
+
+[plantuml, target="docker-arch", format=svg]
+....
+@startuml
+node "Docker Host" {
+  frame "Docker Compose" {
+    [Server Container\n(Node.js API)] --> [Client Container\n(React Frontend)]
+  }
+}
+@enduml
+....
+
+== Containerstruktur
+
+* **Server-Container**
+  - Basierend auf `node:20-bullseye`
+  - Enthält Express-Server, REST-API und Business-Logik
+  - Startbefehl: `npm run dev` (über Nodemon)
+
+* **Client-Container**
+  - Basierend auf `node:20-bullseye`
+  - Enthält React-Anwendung (Vite/CRA)
+  - Startbefehl: `npm run dev`
+
+== Dockerfile.dev
+
+[source,dockerfile]
+----
+FROM node:20-bullseye
+WORKDIR /app
+
+COPY package*.json ./
+RUN apt-get update && apt-get install -y --no-install-recommends tini \
+    && npm install && rm -rf /var/lib/apt/lists/*
+
+COPY . .
+RUN useradd -m appuser && chown -R appuser:appuser /app
+USER appuser
+
+CMD ["npm", "run", "dev"]
+----
+
+== docker-compose.yml
+
+[source,yaml]
+----
+version: "3.9"
+services:
+  server:
+    build:
+      context: ./test/server
+      dockerfile: ../../Dockerfile.dev
+    container_name: gewohnheitstier-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./test/server:/app
+    command: npm run dev
+
+  client:
+    build:
+      context: ./test/client
+      dockerfile: ../../Dockerfile.dev
+    container_name: gewohnheitstier-client
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./test/client:/app
+    command: npm run dev
+----
+
+== Nutzung
+
+=== Projekt starten
+[source,bash]
+----
+docker compose up --build
+----
+
+Dadurch werden beide Container gebaut und gestartet.  
+Der Client ist anschließend unter `http://localhost:5173` und der Server unter `http://localhost:5000` erreichbar.
+
+=== Projekt stoppen
+[source,bash]
+----
+docker compose down
+----
+
+=== Logs anzeigen
+[source,bash]
+----
+docker compose logs -f
+----
+
+== Vorteile
+
+* Einheitliche Entwicklungsumgebung für alle Teammitglieder
+* Keine lokale Node-Installation nötig
+* Leicht portierbar auf andere Rechner oder CI/CD-Pipelines
+* Isolation der Abhängigkeiten
+
+== Fazit
+Durch die Dockerisierung ist das Projekt *Gewohnheitstier* plattformunabhängig, reproduzierbar und teamfähig.  
+Alle Entwickler können ohne komplexe Setups sofort starten.
