@@ -94,7 +94,7 @@ Diese Meetings sind ausschließlich für das **Devteam** vorgesehen und dienen d
 
 | 1
 | Unklarheit B011
-| "bereits erledigt visuell unterscheidbar" - wie umsetzen? (detailiertere Beschreibung). Wo sollen solche "Designentscheidungen" dokumentiert werden?
+| "bereits erledigt visuell unterscheidbar" - wie umsetzen? (detailiertere Beschreibung). Eventuell Refinement nötig?
 | Tristan
 | offen
 
@@ -115,7 +115,7 @@ Diese Meetings sind ausschließlich für das **Devteam** vorgesehen und dienen d
 | Devteam ist sich unsicher wie/wo feine technische Entscheidungen (neben Kommentare in Codebase) dokumentiert werden sollen? *Beispiel, B033:* "Checkbox aktualsiert über call/request _last_checked_ in DB, wenn _last_checked_ >= _value_ wird _streak_ zurückgesetzt" ---
 VL04: Design-Dokument oder neuer Abschnitt in ArchitectureNotebook...
 | Tristan
-| offen
+| erledigt (VL04 + Gespräch Prof.Anke)
 
 | 5
 | Definition of Ready 
