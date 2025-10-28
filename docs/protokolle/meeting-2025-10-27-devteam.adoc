@@ -1,4 +1,4 @@
-= Entwicklungs-Team Meeting-Protokoll
+= Development-Team Meeting-Protokoll
 :doctype: book
 :revdate: 2025-10-27
 :revnumber: 1.1
@@ -118,8 +118,8 @@ VL04: Design-Dokument oder neuer Abschnitt in ArchitectureNotebook...
 | offen
 
 | 5
-| Definition of Ready (xref:../project_management/project_plan.adoc#dor[ProjectPlan.adoc -> 4.1 Definiton of Ready])
-| Arbeiten wir tatsächlich nach DOR, ist DOR eventuell anzupassen? Insbesondere die letzten 5 Punkte von 
+| Definition of Ready 
+| Arbeiten wir tatsächlich nach DOR, ist DOR eventuell anzupassen? Insbesondere die letzten 5 Punkte hier: xref:../project_management/project_plan.adoc#dor[ProjectPlan.adoc -> 4.1 Definiton of Ready]
 | Tristan
 | offen
 
@@ -137,7 +137,7 @@ VL04: Design-Dokument oder neuer Abschnitt in ArchitectureNotebook...
 | 17.11.2025
 
 | 2
-| Überlegungen zu Änderungen der DB für kommende Features (B006 und B029)
+| Überlegungen/Ausarbeitungen zu Änderungen der DB für kommende Features (B006 und B029)
 | Martin
 | in Arbeit
 | 17.11.2025

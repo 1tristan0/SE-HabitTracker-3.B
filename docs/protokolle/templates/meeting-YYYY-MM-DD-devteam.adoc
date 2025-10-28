@@ -1,4 +1,4 @@
-= Entwicklungs-Team Meeting-Protokoll
+= Development-Team Meeting-Protokoll
 :doctype: book
 :revdate: 2025-10-27
 :revnumber: 1.1
@@ -9,13 +9,13 @@
 == Meeting-Informationen
 
 *Meeting-Typ:* Development Team Sync  
-*Datum:* 27.10.2025  
-*Uhrzeit:* 18:00–19:45 Uhr  
+*Datum:* DD.MM.YYYY  
+*Uhrzeit:* 
 *Ort / Plattform:* Discord  
 *Mod:* Verteilt  
-*Protokoll:* Tristan  
-*Iteration:* Iteration 05 (21.10.–17.11.2025)  
-*Teilnehmende:* Felix, Paul, Patrick, Martin, Tristan
+*Protokoll:*   
+*Iteration:* Iteration xx (DD.MM.–DD.MM.YYYY)  
+*Teilnehmende:* 
 
 == Zweck
 
@@ -31,27 +31,33 @@ Diese Meetings sind ausschließlich für das **Devteam** vorgesehen und dienen d
 == Agenda
 
 . Kurzes Check-in
-. Deployment in Docker  
-. Aktuelle technische Themen, Aufteilung Tasks 
-. Code Review & Testing  
-. Fragen / Infos an die PO  
+. this
+. that
+.  
+.  
 
 == Umsetzungen / Änderungen
 
 |===
 | Thema/US/Task | Beschreibung | Entscheidungen / Aktionen | Verantwortlich | Bemerkungen
 
-| Projektstruktur
-| Projektstruktur überarbeitet
-| - new Branch Komponentenkapselung - Unterteilung in Experiment, Hauptprojekt und Prototyp Login
-| Paul
-| -
+| Thema 1
+| ---
+| ---
+| ---
+| ---
 
-| Deployment für Entwicklung 
-| Einbindung Dockercontainer für erleichtertes Testen 
-| - Dockercontainer umgesetzt - Dokumentation/Tutorial unter /docu/Doku-Docker.adoc 
-| Paul
-| -
+| US xxx
+| ---
+| ---
+| ---
+| ---
+
+| Dokumentation
+| ---
+| ---
+| ---
+| ---
 |===
 
 == Diskussionszusammenfassung
@@ -59,32 +65,33 @@ Diese Meetings sind ausschließlich für das **Devteam** vorgesehen und dienen d
 |===
 | Thema/US/Task | Diskussionspunkte | Entscheidungen / Aktionen | Fällig am
 
-| B033 Markierung erfüllter Habits
-| Akzeptanzkriterien, Aufwand, Verantwortliche, Task
-| Subissue für Task ausgearbeitet (Tristan), Umsetzung nicht auf Frontend, Backend aufteilen, da Schichten zu eng gekoppelt -> Umsetzung in Pairprogramming (Patrick, Paul)
-| 17.11.
+| Thema 1
+| ---
+| ---
+| ---
 
-| B011 Übersicht anstehende Habits
-| Unklarheiten: Akzeptanzkriterien, Umsetzung
-| Anpassung der AK, Subissue ausgearbeitet (Patrick) -> Navbar, eventuelle Ausarbeitung durch PO gefordert
-| 17.11.
+| US xxx
+| ---
+| ---
+| ---
 
-| Code Praktiken
-| Branches, Pull-Requests
-| Entwicklung, Fixes auf getrennten Branches, für Merge in Main-Branch min. 2 "Reviews" nötig
-| -
-
-| Weitere User-Storys für Iter. 05
-| B006 Tracking, B029 Habits mit Parametern, B016 Habit Stacking
-| B006 und B029 - Überlegungen zu DB nötig; B016 - eventuell neuer feature-branch für prototyping/experimentieren  
-| 28.10. Weekly
+| Dokumentation
+| ---
+| ---
+| ---
 |===
 
 == Technische Notizen [[technischeNotizen]]
 
 * Code / Architektur-Updates:  
-** neuer Branch -> *Komponentenkapselung* für Umsetzung der in VL vorgestellten Praktiken wie  bspw. _Information Hiding_ (siehe Kapitel 1: Grundlagen und Prinzipen des Softwaredesigns)
-** Docker Container für lokales Deployment eingerichtet, Dokumentation in Projekt unter src/Gewohnheitstier/docu/Doku-Docker.adoc (xref:../src/Gewohnheitstier/docu/Doku-Docker.adoc#praktiken[Doku-Docker.adoc])
+** tolle Änderung der Komponente xyz (xref:../src/Gewohnheitstier/docu/Doku-Docker.adoc#praktiken[irgendein Link zu Dokument])
+** --- 
+
+* Datenbank:  
+
+* Server:  
+
+* ---
 
 
 == Fragen / Infos an den Product Owner
@@ -93,36 +100,34 @@ Diese Meetings sind ausschließlich für das **Devteam** vorgesehen und dienen d
 | # | Thema / Frage | Kontext / Beschreibung | Verantwortlich für Weitergabe | Status
 
 | 1
-| Unklarheit B011
-| "bereits erledigt visuell unterscheidbar" - wie umsetzen? (detailiertere Beschreibung). Wo sollen solche "Designentscheidungen" dokumentiert werden?
-| Tristan
-| offen
+| 
+| 
+| 
+| 
 
 | 2
-| Weitere User Story nötig 
-| Aus B011 geht Menü mit Navbar hervor -> einziges Element ist dort "Übersicht" wird aktuell bearbeitet => neue User Story für weitere Seite, erreichbar über Menüeintrag, speziell für "Habiterstellung"
-| Tristan
-| offen/geklärt
+| 
+| 
+| 
+| 
 
 | 3
-| Refinement nächster User Storys
-| Devteam benötigt nächste US fein ausgearbeitet, um unterbrechungsfrei weiterarbeiten zu können (Vorschlag: B006, B029 und B016)
-| Tristan
-| offen
+| 
+| 
+| 
+| 
 
 | 4
-| Wo technische Entscheidungen/Begründungen zu Features dokumentieren?
-| Devteam ist sich unsicher wie/wo feine technische Entscheidungen (neben Kommentare in Codebase) dokumentiert werden sollen? *Beispiel, B033:* "Checkbox aktualsiert über call/request _last_checked_ in DB, wenn _last_checked_ >= _value_ wird _streak_ zurückgesetzt" ---
-VL04: Design-Dokument oder neuer Abschnitt in ArchitectureNotebook...
-| Tristan
-| offen
+| 
+| 
+| 
+| 
 
 | 5
-| Definition of Ready (xref:../project_management/project_plan.adoc#dor[ProjectPlan.adoc -> 4.1 Definiton of Ready])
-| Arbeiten wir tatsächlich nach DOR, ist DOR eventuell anzupassen? Insbesondere die letzten 5 Punkte von 
-| Tristan
-| offen
-
+| 
+| 
+| 
+| 
 |===
 
 == To-Do / Action Items
@@ -131,49 +136,52 @@ VL04: Design-Dokument oder neuer Abschnitt in ArchitectureNotebook...
 | # | Aktion | Verantwortlich | Status | Fällig am
 
 | 1
-| Dokumentation der technischen Details/Entscheidungen der Feature Umsetzung von *B033*
-| Paul, Patrick
-| in Arbeit
-| 17.11.2025
+| 
+| 
+| 
+| 
 
 | 2
-| Überlegungen zu Änderungen der DB für kommende Features (B006 und B029)
-| Martin
-| in Arbeit
-| 17.11.2025
+| 
+| 
+| 
+| 
 
 | 3
-| Dokumentation der Inhalte aus <<entscheidungen>> und <<technischeNotizen>>
-| Tristan + offen
-| in Arbeit
-| 17.11.2025
+| 
+| 
+| 
+| 
 
 
 | 4
-| Komponententrennung/Seperation of Concerns, Information Hiding ausarbeiten/implementieren
-| Tristan
-| geplant
-| 17.11.2025
+| 
+| 
+| 
+| 
 |===
 
 == Entscheidungen [[entscheidungen]]
 
-. Entwicklung und Fixes auf separaten Branches durchführen, Naming Convention: feature/Bxxx-optional_detail/developer oder fix/Bxxx/developer (Beispiele: feature/B033-Checkbox/Paul, fix/B011/Patrick) - Doku in: xref:../project_management/project_plan.adoc#praktiken[ProjectPlan.adoc -> 4.Praktiken und Bewertung]
-. Pull-Requests nutzen für Merge in Main: 1. Experten erwähnen in Kommentar 2. zwei Devs müssen zustimmen (branch switchen und austesten) dann kann PR freigegeben werden - Doku in: xref:../project_management/project_plan.adoc#praktiken[ProjectPlan.adoc -> 4.Praktiken und Bewertung]
+. tolle Entscheidung zu xyz bitte hier dokumentieren:(xref:../src/Gewohnheitstier/docu/Doku-Docker.adoc#praktiken[irgendein Link zu Dokument])
+. tolle Entscheidung zu abc bitte hier dokumentieren: (xref:../src/Gewohnheitstier/docu/Doku-Docker.adoc#praktiken[irgendein Link zu Dokument])
 
 == Learnings / Verbesserungen
 
 * Was gut funktioniert hat:  
-** (nicht besprochen)
+** dies
+** das
 
 * Was verbessert werden kann:  
- ** (nicht besprochen)
+** jenes
+** dieses
 
 * Folgeaktionen:  
-** (nicht besprochen)
+** abc
+** xyz
 
 == Nächste Schritte
 
-* Nächstes Meeting: offen  
-* Erwartete Themen: Auswertung B033/B011, Feedback von PO, **Umsetzung/Erarbeitung** folgender **User Stories nach aktuellen Vorgaben** (Domänen, Sequenzdiagramm, usw.) 
+* Nächstes Meeting: DD.MM.YYYY / Offen
+* Erwartete Themen: 
 
