@@ -1,0 +1,187 @@
+= Development-Team Meeting-Protokoll
+:doctype: book
+:revdate: 2025-10-27
+:revnumber: 1.1
+:toc: left
+:toclevels: 2
+:icons: font
+
+== Meeting-Informationen
+
+*Meeting-Typ:* Development Team Sync  
+*Datum:* DD.MM.YYYY  
+*Uhrzeit:* 
+*Ort / Plattform:* Discord  
+*Mod:* Verteilt  
+*Protokoll:*   
+*Iteration:* Iteration xx (DD.MM.–DD.MM.YYYY)  
+*Teilnehmende:* 
+
+== Zweck
+
+Diese Meetings sind ausschließlich für das **Devteam** vorgesehen und dienen der Absprache bzw. sind für u.A. folgende Zwecke gedacht:
+
+- Austausch über technischen Fortschritt in Iteration  
+- Identifizierung und Lösung aktueller Blocker  
+- Abstimmung zu Architektur- und Tooling-Themen
+- interne Verteilung von technischen Tasks
+- Absprache über Coding-Practices / Reviews  
+- Vorbereitung von Fragen an den PO für das nächste Refinement
+
+== Agenda
+
+. Kurzes Check-in
+. this
+. that
+.  
+.  
+
+== Umsetzungen / Änderungen
+
+|===
+| Thema/US/Task | Beschreibung | Entscheidungen / Aktionen | Verantwortlich | Bemerkungen
+
+| Thema 1
+| ---
+| ---
+| ---
+| ---
+
+| US xxx
+| ---
+| ---
+| ---
+| ---
+
+| Dokumentation
+| ---
+| ---
+| ---
+| ---
+|===
+
+== Diskussionszusammenfassung
+
+|===
+| Thema/US/Task | Diskussionspunkte | Entscheidungen / Aktionen | Fällig am
+
+| Thema 1
+| ---
+| ---
+| ---
+
+| US xxx
+| ---
+| ---
+| ---
+
+| Dokumentation
+| ---
+| ---
+| ---
+|===
+
+== Technische Notizen [[technischeNotizen]]
+
+* Code / Architektur-Updates:  
+** tolle Änderung der Komponente xyz (xref:../src/Gewohnheitstier/docu/Doku-Docker.adoc#praktiken[irgendein Link zu Dokument])
+** --- 
+
+* Datenbank:  
+
+* Server:  
+
+* ---
+
+
+== Fragen / Infos an den Product Owner
+
+|===
+| # | Thema / Frage | Kontext / Beschreibung | Verantwortlich für Weitergabe | Status
+
+| 1
+| 
+| 
+| 
+| 
+
+| 2
+| 
+| 
+| 
+| 
+
+| 3
+| 
+| 
+| 
+| 
+
+| 4
+| 
+| 
+| 
+| 
+
+| 5
+| 
+| 
+| 
+| 
+|===
+
+== To-Do / Action Items
+
+|===
+| # | Aktion | Verantwortlich | Status | Fällig am
+
+| 1
+| 
+| 
+| 
+| 
+
+| 2
+| 
+| 
+| 
+| 
+
+| 3
+| 
+| 
+| 
+| 
+
+
+| 4
+| 
+| 
+| 
+| 
+|===
+
+== Entscheidungen [[entscheidungen]]
+
+. tolle Entscheidung zu xyz bitte hier dokumentieren:(xref:../src/Gewohnheitstier/docu/Doku-Docker.adoc#praktiken[irgendein Link zu Dokument])
+. tolle Entscheidung zu abc bitte hier dokumentieren: (xref:../src/Gewohnheitstier/docu/Doku-Docker.adoc#praktiken[irgendein Link zu Dokument])
+
+== Learnings / Verbesserungen
+
+* Was gut funktioniert hat:  
+** dies
+** das
+
+* Was verbessert werden kann:  
+** jenes
+** dieses
+
+* Folgeaktionen:  
+** abc
+** xyz
+
+== Nächste Schritte
+
+* Nächstes Meeting: DD.MM.YYYY / Offen
+* Erwartete Themen: 
+
