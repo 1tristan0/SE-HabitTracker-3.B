@@ -65,7 +65,7 @@ Die Termine für die einmaligen Treffen pro Sprint (planning, review, retro, bac
 |Repository (https://github.com/1tristan0/SE-HabitTracker-3.B.git)
 |===
 
-== Praktiken und Bewertung
+== Praktiken und Bewertung [[praktiken]]
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
 
 Das Projektteam arbeitet iterativ nach dem Scrum-Framework. Die Aufgaben werden in Sprints organisiert und im Rahmen der wöchentlichen Team-Meetings regelmäßig überprüft. Dabei wird der aktuelle Fortschritt besprochen, Aufgaben werden bei Bedarf neu zugewiesen und ihr Status im Sprint-Backlog (https://github.com/users/1tristan0/projects/6/views/3) aktualisiert. Jede Aufgabe ist dort einem der Zustände "ToDo", "In Progress" oder "Done" zugeordnet.
@@ -78,7 +78,8 @@ Alle Artefakte wie Backlogs und Protokolle sowie das Risk-Board (https://github.
 
 TODO: Wie sind wir zu Entscheidungen gekommen?
 
-=== Definition of Ready
+=== Definition of Ready 
+[[dor]]
 // Listen Sie hier die Kriterien auf, die ein Product Backlog Item (z.B. User Story) erfüllen muss, damit es bei der Sprint-Planung berücksichtigt werden kann
 - Klarer Titel & Beschreibung : Das Problem und der Nutzen sind verständlich formuliert.
 - Akzeptanzkriterien definiert
