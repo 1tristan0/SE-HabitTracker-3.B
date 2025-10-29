@@ -1,0 +1,43 @@
+= Meeting 04.11.2025
+Anwesend: 
+
+== To Do's vom 28.11.
+-   Übertragen der Architektur-Entscheidungen aus Dev-Team-Meeting in Doku (Deployment und Architecture Notebook?) (Tristan) => Infos aus Doku Container mit dazu?
+-   zusätzliche Produktanforderungen ergänzen (Vision?) (Felix)
+-   Datenstrukturen (DB-Tabellen) ergänzen (Glossar?) (Martin)
+-   B033 und B011 (Subissues) fertigmachen (Patrick, Paul)
+-   Rücksprache mit PO:
+    => könnten schon andere Tasks oder UserStories angefangen werden?
+    => Refinement vor Beginn Sprint 6 (17.11.)
+    => neue UserStory: mehrere Einträge neben "Übersicht"?
+    => Menü-Eintrag "Habit-Erstellung" (separates Fenster) (B011 Übersicht) in Bearbeitung (Patrick)
+-   Timeful ausfüllen bis 20.11. (alle)
+-   HappyIndex wegen fehlendem Nutzen abgeschafft (Doku Managementpraktik: Monika)
+
+== Done
+-	Präsentation vorbereiten und halten (Felix, Martin)
+-	Dokumentation überfliegen und fertigstellen (Monika, Nicola, Patrick, Paul, Tristan)
+-	Lessons learned + Domänenmodell (Monika)
+-	Architecture notebook + C4 (Paul, Patrick)
+-	Stichpunkte Prototypen, Hochladen in Github Quellcode (Paul)
+-	Glossary (Nicola)
+-	Restliche Risiken ausformulieren (Patrick, Tristan)
+-	Product backlog (Tristan, Nicola)
+
+== Rücksprache mit Prof. Anke
+-   Termin vereinbaren, möglichst am Dienstag, 28.10. nach der VL (ab 15.15 Uhr)
+-   Rückfrage Deployment (war eigentlich nicht gefordert)
+-   Verknüpfung User Stories - Tasks vorhanden (z.B. B011, B023, B030)
+-   "Wireframes rudimentär" - Was genau, sind "Header"/"Kalender" gemeint?
+-   Links zu Riskboard und Backlog (nicht explizit gefordert)
+-   Abgabeform Beleg SE2 (einzelne Dokumente zu Benutzerhandbuch u.ä.?, technische Grundlage vorgegeben?)
+-   Beispiel-Belege für "so sollte das aussehen" oder Bewertungspunkte?
+
+
+=> Nächstes Meeting: Dienstag, den 04.11. um 12.55 Uhr in Z 136c (Bib-Gruppenarbeitsraum)
+=> Retro / Planning: KW 46/47 (spätestens 18.11.) oder auch 16.11. online
+
+
+
+
+

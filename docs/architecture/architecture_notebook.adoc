@@ -27,7 +27,7 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
 
 :Ziele:
  -  **Plattformunabhängigkeit**: Die Anwendung muss sowohl auf mobilen Geräten als auch auf Desktop-Browsern voll funktionsfähig sein.
- -  **Erweiterbarkeit**: Die Struktur soll zukünftige Erweiterungen (z. B. Gruppenfunktionen oder Gamification) einfach ermöglichen.
+ -  **Erweiterbarkeit**: Die Struktur soll zukünftige Erweiterungen (z.B. Gruppenfunktionen oder Gamification) einfach ermöglichen.
  -  **Schnelle Entwicklungszyklen**: Durch Nutzung moderner Web-Technologien sollen Entwicklungs- und Deployment-Prozesse effizient gehalten werden.
  -  **Datensicherheit und Benutzerverwaltung**: Supabase übernimmt die Authentifizierung sowie Speicherung personenbezogener Daten.
  -  **Geringe Einstiegshürde für Entwickler**: Vertraute Frameworks wie React und Express.js ermöglichen eine einfache Einarbeitung.
@@ -39,7 +39,7 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
 * Das Projekt wird von einem studentischen Team mit begrenzter Erfahrung im Bereich Webentwicklung umgesetzt.
 * Supabase wird als externer Dienst verwendet, inklusive Authentifizierungs- und Datenbankfunktionalität.
 * Die Nutzer benötigen ein internetfähiges Gerät mit aktuellem Browser.
-* Die Deployment-Umgebung ist ein von der HTW Dresden bereitgestellter Server (z. B. iseproject02.informatik.htw-dresden.de).
+* Die Deployment-Umgebung ist ein von der HTW Dresden bereitgestellter Server (z.B. iseproject02.informatik.htw-dresden.de).
 * Es gibt keine Abhängigkeiten zu Legacy-Systemen.
 * Zeitliche Ressourcen sind begrenzt.
 * Das Budget ist auf Open-Source-Technologien und kostenlose Dienste beschränkt. 

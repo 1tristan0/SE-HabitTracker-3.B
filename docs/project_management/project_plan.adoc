@@ -14,7 +14,7 @@ include::../_includes/teammitglieder.adoc[]
 == Projektorganisation
 //Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members. Introduce neighboring projects, relationships, and communication channels. If the project is introduced somewhere else, reference that location with a link.
 === Projekt-Team / Rollen
-Im Rahmen des ersten Team-Meetings zu Beginn des neuen Semesters wurde die bestehende Rollenverteilung überprüft und leicht angepasst. Felix Prockl unterstützt fortan das Development-Team, während Monika Keil neben ihrer Funktion als Ansprechpartnerin die Rolle der Scrum Masterin übernimmt. Ziel dieser Änderung ist eine ausgewogenere Verteilung der Aufgaben sowie eine verbesserte Abstimmung innerhalb des Teams.
+Im Rahmen des ersten Team-Meetings zu Beginn des neuen Semesters wurde die bestehende Rollenverteilung überprüft und leicht angepasst. Felix Prockl unterstützt fortan das Development-Team, während Monika Keil neben ihrer Funktion als Ansprechpartnerin die Rolle des Scrum Masters übernimmt. Ziel dieser Änderung ist eine ausgewogenere Verteilung der Aufgaben sowie eine verbesserte Abstimmung innerhalb des Teams.
 
 [cols="2,2"]
 |===

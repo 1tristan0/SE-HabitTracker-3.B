@@ -1,0 +1,63 @@
+= Meeting und Konsultation 28.10.2025
+Anwesend: Monika, Patrick, Tristan, Martin, Paul (online nur Meeting)
+
+== Dev-Meeting vom 27.10.25
+-   ==> separates Protokoll beachten
+
+== To Do's
+-   Übertragen der Architektur-Entscheidungen aus Dev-Team-Meeting in Doku (Deployment und Architecture Notebook?) (Tristan)
+-   zusätzliche Produktanforderungen ergänzen (Vision?) (Felix)
+-   Datenstrukturen (DB-Tabellen) ergänzen (Glossar?) (Martin)
+-   B033 und B011 (Subissues) fertigmachen (Patrick, Paul)
+-   Rücksprache mit PO:
+    => könnten schon andere Tasks oder UserStories angefangen werden?
+    => Refinement vor Beginn Sprint 6 (17.11.)
+    => neue UserStory: mehrere Einträge neben "Übersicht"?
+    => Menü-Eintrag "Habit-Erstellung" (separates Fenster) (B011 Übersicht) in Bearbeitung (Patrick)
+-   Timeful ausfüllen bis 20.11. (alle)
+-   HappyIndex wegen fehlendem Nutzen abgeschafft (Doku Managementpraktik + Top/Flop: Monika)
+
+== Done
+-	Präsentation vorbereiten und halten (Felix, Martin)
+-	Dokumentation überfliegen und fertigstellen (Monika, Nicola, Patrick, Paul, Tristan)
+-	Lessons learned + Domänenmodell (Monika)
+-	Architecture notebook + C4 (Paul, Patrick)
+-	Stichpunkte Prototypen, Hochladen in Github Quellcode (Paul)
+-	Glossary (Nicola)
+-	Restliche Risiken ausformulieren (Patrick, Tristan)
+-	Product backlog (Tristan, Nicola)
+
+== Rücksprache mit Prof. Anke, Dienstag, 28.10. nach der VL (ab 15.15 Uhr)
+-   Rückfrage Deployment (war eigentlich nicht gefordert)
+    => "Wie kommt der Kunde an die Anwendung?"
+    => wie und wann wird ausgeliefert
+    => wann ist Projektabschluss
+-   Verknüpfung User Stories - Tasks vorhanden (z.B. B011, B023, B030)
+    => möglichst alle Tasks sollen einer (oder mehreren) UserStories zugeordnet sein, d.h. keine Issues ohne Bezug zu UserStory
+-   "Wireframes rudimentär" - Was genau, sind "Header"/"Kalender" gemeint?
+    => zu abstrakt
+    => keine Platzhalter-Bezeichnungen ("ToDo1"), sondern konkrete Werte, Bezeichnungen
+-   Links zu Riskboard und Backlog (nicht explizit gefordert) => doch, siehe PowerPoint
+    => einfügen
+-   Abgabeform Beleg SE2 (einzelne Dokumente zu Benutzerhandbuch u.ä.?, technische Grundlage vorgegeben?)
+    => vgl. VL SE2_0_..
+    => nähere Infos folgen
+    => voraussichtlich:
+        * Entwicklerdoku (Systemaufbau)
+        * Admindoku (Installation)
+        * Benutzerdoku (Handling)
+        * Gruppenreflexion (3 Tops / 3 Flops)
+        * Einzelreflexion (welchen Anteil am Gesamtprojekt habe ich, was habe ich für Erkenntnisse gewonnen, vgl. später folgende Leitfragen)
+-   Beispiel-Belege für "so sollte das aussehen" oder Bewertungspunkte?
+    => gibt es nicht, "es muss für Sie passen"
+-   Rollen PO / SM / DevTeam
+    => alle Team-Mitglieder sollen (wenigstens was kleines) programmieren
+    => möglicherweise Testfälle schreiben oder "ein bisschen Frontend-Programmieren"
+
+=> Nächstes Meeting: Dienstag, den 04.11. um 12.55 Uhr in Z 136c (Bib-Gruppenarbeitsraum)
+=> Retro / Planning: KW 46/47 (spätestens 18.11.) oder auch 16.11. online
+
+
+
+
+
