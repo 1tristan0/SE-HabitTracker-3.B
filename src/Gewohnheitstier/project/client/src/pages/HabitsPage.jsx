@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
 import HabitForm from '../components/HabitForm';
-import HabitCard from '../components/HabitCard';
 import Navbar from '../components/Navbar';
+import HabitGrid from '../components/HabitGrid';
 
 export default function HabitsPage({ userId, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -11,7 +11,7 @@ export default function HabitsPage({ userId, onLogout }) {
   const load = async () => {
     const { data, error } = await supabase
       .from('habits_table')
-      .select('id, habit_name, description, start_date')
+      .select('id, habit_name, description, start_date, last_checked')
       .eq('user_id', userId)
       .order('start_date', { ascending: false });
     if (!error) setHabits(data || []);
@@ -40,6 +40,7 @@ export default function HabitsPage({ userId, onLogout }) {
     .eq('id', id)
     .eq('user_id', userId);
   if (!error) load();
+  if(error) console.log("Error checking habit:", error);
 };
 
   useEffect(() => { if (userId) load(); }, [userId]);
@@ -54,10 +55,10 @@ export default function HabitsPage({ userId, onLogout }) {
       {/* <- Das ist das fehlende Eingabeformular */}
       <HabitForm onAdd={add} />
 
-      {habits.map(h => (
+      {/*{habits.map(h => (
         <HabitCard key={h.id} habit={h} onDelete={remove} onCheck={check} />
-      ))}
-      
+      ))}*/}
+      <HabitGrid habits={habits} onDelete={remove} onCheck={check} />
     </div>
   );
 }
