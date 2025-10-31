@@ -137,10 +137,54 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 //. Definieren Sie alle Dokumentationsanforderugen, inkl. Benutzerhandbücher, Onlinehilfe, Installations-, Kennzeichnungs- und Auslieferungsanforderungen.
 //. Definieren Sie die Priorität für diese zusätzlichen Produktanforderungen. Ergänzen Sie, falls sinnvoll, Angaben zu Stabilität, Nutzen, Aufwand und Risiko für diese Anforderungen.
 
-[%header, cols="4,1,1"]
+=== Zusätzliche Produktanforderungen
+
+[%header, cols="2,1,4,1"]
 |===
-| Anforderung | Priorität | Geplantes Release
-| Einfache Bedienbarkeit auf mobilen Endgeräten | Hoch | 
-| DSGVO-konforme Datenspeicherung | Hoch | 
-| Systemfeedback erhalten (Usability) | Hoch |
+| Anforderung | Priorität | Beschreibung | Geplantes Release
+
+| Einfache Bedienbarkeit auf mobilen Endgeräten 
+| Hoch 
+| Das System muss vollständig responsive sein und auf Smartphones (iOS, Android) sowie Tablets intuitiv bedienbar bleiben. Layout und Interaktion sollen sich automatisch an Displaygröße und Eingabemethode (Touch) anpassen.
+| 
+
+| DSGVO-konforme Datenspeicherung
+| Hoch
+| Alle personenbezogenen Daten (z. B. E-Mail, Fortschritte, Nutzungsverhalten) müssen gemäß der Datenschutz-Grundverordnung verarbeitet und gespeichert werden. Nutzer:innen müssen aktiv in die Datennutzung einwilligen können.
+| 
+
+| Systemfeedback (Usability)
+| Hoch
+| Das System soll durchgehend Rückmeldung über Nutzeraktionen geben – etwa durch visuelle Bestätigung, Ladeindikatoren oder Erfolgsmeldungen. Außerdem wird ein kontinuierlicher Usability-Testprozess etabliert, um die Nutzerfreundlichkeit sicherzustellen.
+| 
+
+| Plattformunabhängigkeit
+| Mittel
+| Das System soll als Progressive Web App (PWA) konzipiert sein, um plattformübergreifend (Browser, Android, iOS) verfügbar zu sein, ohne separate native Apps zu erfordern.
+| 
+
+| Performance und Skalierbarkeit
+| Mittel
+| Ladezeiten sollen unter drei Sekunden bleiben, selbst bei steigender Nutzerzahl. Das Backend (z. B. Supabase) muss so ausgelegt sein, dass zukünftige Skalierung ohne Funktionsverlust möglich ist.
+| 
+
+| Offline-Funktionalität
+| Mittel
+| Nutzer:innen sollen ihre Gewohnheiten auch ohne Internetverbindung erfassen können; Daten werden bei der nächsten Verbindung automatisch synchronisiert.
+| 
+
+| Barrierefreiheit
+| Mittel
+| Das System soll grundlegende WCAG-Richtlinien erfüllen (z. B. ausreichende Kontraste, Screenreader-Kompatibilität, große Klickflächen).
+| 
+
+| Wartbarkeit und Erweiterbarkeit
+| Niedrig
+| Der Quellcode soll modular aufgebaut und dokumentiert werden, um zukünftige Feature-Erweiterungen (z. B. zusätzliche Maskottchen oder Social-Features) zu erleichtern.
+| 
+
+| Dokumentation
+| Niedrig
+| Es soll eine kurze Onlinehilfe (Onboarding-Tutorial + FAQ) bereitgestellt werden, die den Einstieg für neue Nutzer:innen erleichtert. Für Entwickler:innen wird eine interne technische Dokumentation gepflegt.
+| 
 |===
