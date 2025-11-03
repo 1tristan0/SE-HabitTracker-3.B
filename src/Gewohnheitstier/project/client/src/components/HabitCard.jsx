@@ -27,6 +27,12 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {} }) {
             Letztmalig erledigt: {habit.last_checked ? dateOnly(habit.last_checked) : "—"}
           </small>
         </p>
+        {/* Anzeige der Streak) */}
+        <p className="card-text">
+          <small className="text-muted">
+            Streak: {habit.streak || 0}
+          </small>
+        </p>
 
         {/* Button zum Löschen der Gewohnheit */}
         <button
@@ -38,29 +44,17 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {} }) {
 
         {/* Schalter (Switch) zum Markieren, ob die Gewohnheit heute erledigt wurde */}
         <div className="form-check form-switch d-inline-block">
-          {/* Prüft, ob die Gewohnheit bereits heute erledigt wurde */}
-          {dateOnly(habit.last_checked) === today ? (
-            // Wenn ja → Checkbox ist bereits aktiviert
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id={`check-${habit.id}`}
-              onChange={() => onCheck(habit.id)} // Event beim Umschalten
-              checked
-            />
-          ) : (
-            // Wenn nein → Checkbox ist deaktiviert
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id={`check-${habit.id}`}
-              onChange={() => onCheck(habit.id)} // setzt „last_checked“ auf heute
-            />
-          )}
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id={`check-${habit.id}`}
+            checked={dateOnly(habit.last_checked) === today}
+            onChange={(e) => onCheck(habit.id, e.target.checked)}
+          />
 
           {/* Label neben der Checkbox */}
           <label className="form-check-label" htmlFor={`check-${habit.id}`}>
-            Erledigt heute
+            Erledigt!
           </label>
         </div>
       </div>
