@@ -72,7 +72,20 @@ Das Projektteam arbeitet iterativ nach dem Scrum-Framework. Die Aufgaben werden 
 
 Zur Beobachtung der Teamzufriedenheit und der Zusammenarbeit wird auf dem Miro-Board ein sogenannter Happy-Index geführt und regelmäßig aktualisiert. Dieser dient als qualitativer Indikator für das Arbeitsklima im Team und hilft, mögliche Probleme frühzeitig zu erkennen.
 
-Die Versionsverwaltung erfolgt über GitHub, das zugleich als Plattform für Aufgaben- und Issue-Tracking dient. Pull Requests und Branches werden genutzt, um Änderungen nachvollziehbar und konfliktfrei in das Projekt zu integrieren. Darüber hinaus werden automatisierte Tests vorbereitet, um die technische Qualität der Anwendung langfristig sicherzustellen. Perspektivisch ist die Einrichtung einer Continuous-Integration-Pipeline vorgesehen, um Builds und Tests automatisiert auszuführen und so frühzeitig Fehler im Entwicklungsprozess zu erkennen.
+=== Versionierung
+Die Versionsverwaltung erfolgt über GitHub, das zugleich als Plattform für Aufgaben- und Issue-Tracking dient. Das Development Team hat sich darauf geeinigt Pull-Requests und Branches nutzen, um Änderungen nachvollziehbar und konfliktfrei in das Projekt zu integrieren. 
+
+Das Entwickeln neuer Features sowie Fehlerbehebungen werden hinsichtlich der Vermeidung von Konflikten auf *separaten Branches* betrieben. Um Missverständnisse zu vermeiden werden sollen Branches der Namenskonvention folgen, welche vom Development-Team erarbeitet wurde. Das Format sieht wie folgt aus:
+
+----
+type / UserStory or Issue - optional detail / developer
+----
+Beispiele: `_feature/B033-Checkbox/Paul_` oder `_fix/B011/Patrick_`
+
+Um einen *Fix- oder Feature-Branch* in den *Main-Branch mitaufzunehmen* muss der jeweilige Branch vom Developer dem Remote-Repository hinzugefügt werden. Damit Änderungen in den Main-Branch aufgenommen werden *muss vom Developer über GitHub ein Pull-Request ausgeführt werden*. In der Beschreibung werden sog. _Experten_ (Developer die mit den veränderten Teilen des Codes besonders vertraut sind) verlinkt, anderenfalls betrifft ein Pull-Request das gesamte Team. Damit die vorgeschlagenen Änderungen aufgenommen werden dürfen, *müssen mindestens zwei Teammitglieder* den betreffenden Branch *lokal testen* und optional ein Codereview durchführen. Sind Änderungen nötig werden diese von den Testern in Form eines Kommentar vorgeschlagen, anderenfalls soll eine Bestätigung hinzugefügt werden. *Die zweite zustimmende Person kann den Pull-Request freigeben*, sonst tut dies der Branch-Owner. *Inaktive Branches* werden anschließend gelöscht.
+
+=== Tests
+Darüber hinaus werden automatisierte Tests vorbereitet, um die technische Qualität der Anwendung langfristig sicherzustellen. Perspektivisch ist die Einrichtung einer Continuous-Integration-Pipeline vorgesehen, um Builds und Tests automatisiert auszuführen und so frühzeitig Fehler im Entwicklungsprozess zu erkennen.
 
 Alle Artefakte wie Backlogs und Protokolle sowie das Risk-Board (https://github.com/users/1tristan0/projects/6/views/5) werden fortlaufend im gemeinsamen Repository gepflegt. Der Fortschritt wird durch den Vergleich der erledigten Aufgaben zwischen den Weeklies sowie durch Reflexionen im Rahmen der Sprint-Reviews nachvollzogen und dokumentiert.
 
