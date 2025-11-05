@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   server:
     build:
@@ -14,9 +16,11 @@ services:
       - HOST=0.0.0.0
     ports:
       - "3001:3001"
+      # NUR subfolders mounten, nicht /app -> hindert ueberschreiben der file permissions 
     volumes:
-      - ./project/server:/app
-      - /app/node_modules
+      - ./project/server/src:/app/src
+      - ./project/server/package.json:/app/package.json
+      - node_modules_server:/app/node_modules
 
   client:
     build:
@@ -31,12 +35,17 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - PORT=5173
       - HOST=0.0.0.0
-    # beide gängigen Dev-Ports freigeben; der ungenutzte bleibt halt leer
     ports:
-      - "5173:5173"   # Vite
-      - "3000:3000"   # CRA
+      - "5173:5173" # Vite
+      - "3000:3000" # CRA
+      # NUR subfolders mounten, nicht /app -> hindert ueberschreiben der file permissions 
     volumes:
-      - ./project/client:/app
-      - /app/node_modules
+      - ./project/client/src:/app/src
+      - ./project/client/package.json:/app/package.json
+      - node_modules_client:/app/node_modules
     depends_on:
       - server
+
+volumes:
+  node_modules_server:
+  node_modules_client:
