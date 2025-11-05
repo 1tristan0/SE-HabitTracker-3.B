@@ -1,11 +1,18 @@
+// client/src/App.jsx
 import React, { useState, useEffect } from 'react';
-import { supabase } from './supabaseClient';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import HabitsPage from './pages/HabitsPage';  //  Hauptseite
+import HabitsPage from './pages/HabitsPage';
+import {
+  getSession,
+  onAuthStateChange,
+  login,
+  register,
+  logout,
+} from './api/authApi';
 
-function App() {
+export default function App() {
   const [session, setSession] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,31 +20,44 @@ function App() {
 
   // ==== Auth-Initialisierung ====
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => setSession(session));
-    const { data: subscription } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
+    // Session beim Start laden
+    getSession()
+      .then((s) => setSession(s))
+      .catch((err) => console.error('Session-Fehler:', err.message));
+
+    // Realtime-Listener auf Login/Logout
+    const subscription = onAuthStateChange((session) => setSession(session));
     return () => subscription.subscription.unsubscribe();
   }, []);
 
   // ==== Login ====
   const handleLogin = async (e) => {
     e.preventDefault();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) alert('Login fehlgeschlagen: ' + error.message);
+    try {
+      await login(email, password);
+    } catch (err) {
+      alert('Login fehlgeschlagen: ' + err.message);
+    }
   };
 
   // ==== Registrierung ====
   const handleRegister = async (e) => {
     e.preventDefault();
-    const { error } = await supabase.auth.signUp({ email, password });
-    if (error) alert('Registrierung fehlgeschlagen: ' + error.message);
-    else alert('Bestätigungslink wurde an deine E-Mail geschickt.');
+    try {
+      await register(email, password);
+      alert('Bestätigungslink wurde an deine E-Mail geschickt.');
+    } catch (err) {
+      alert('Registrierung fehlgeschlagen: ' + err.message);
+    }
   };
 
   // ==== Logout ====
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    try {
+      await logout();
+    } catch (err) {
+      console.error('Logout-Fehler:', err.message);
+    }
   };
 
   // ==== Login/Registrierung ====
@@ -89,12 +109,5 @@ function App() {
   }
 
   // ==== Authentifizierte Ansicht ====
-  return (
-    <HabitsPage
-      userId={session.user.id}
-      onLogout={handleLogout}
-    />
-  );
+  return <HabitsPage userId={session.user.id} onLogout={handleLogout} />;
 }
-
-export default App;
