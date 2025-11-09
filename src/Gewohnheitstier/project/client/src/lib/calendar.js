@@ -43,42 +43,48 @@ export function getMonthMatrix(year, month) {
   return matrix;
 }
 export function isEveryHabitChecked(habits, day) {
-  if (!Array.isArray(habits) || habits.length === 0) return false;
-  if (!day) return false;
+  // Returns `true` if all habits were checked on `day` (YYYY-MM-DD).
+  // If not all are checked, returns the percentage (integer 0-99) of habits completed.
+  // If input is invalid or `day` missing, returns 0.
+  if (!Array.isArray(habits) || habits.length === 0) return 0;
+  if (!day) return 0;
 
-  return habits.every((habit) => {
-    // Match last_checked
-    if (dateOnly(habit.last_checked) === day) return true;
+  const isHabitCheckedOn = (habit, d) => {
+    if (dateOnly(habit.last_checked) === d) return true;
 
     const prev = habit.prev_last_checked;
     if (!prev) return false;
 
-    // If array
     if (Array.isArray(prev)) {
-      return prev.some((ts) => dateOnly(ts) === day);
+      return prev.some((ts) => dateOnly(ts) === d);
     }
 
-    // If string - try JSON parse (array), then comma-split
     if (typeof prev === "string") {
       try {
         const parsed = JSON.parse(prev);
-        if (Array.isArray(parsed)) return parsed.some((ts) => dateOnly(ts) === day);
+        if (Array.isArray(parsed)) return parsed.some((ts) => dateOnly(ts) === d);
       } catch (e) {
-        // ignore
+        // ignore parse error and fall back to comma split
       }
       const parts = prev.split(",").map((s) => s.trim()).filter(Boolean);
-      if (parts.length) return parts.some((ts) => dateOnly(ts) === day);
+      if (parts.length) return parts.some((ts) => dateOnly(ts) === d);
     }
 
-    // If object-like, check values
     if (typeof prev === "object") {
       try {
-        return Object.values(prev).some((ts) => dateOnly(ts) === day);
+        return Object.values(prev).some((ts) => dateOnly(ts) === d);
       } catch (e) {
         return false;
       }
     }
 
     return false;
-  });
+  };
+
+  const completedCount = habits.reduce((acc, habit) => acc + (isHabitCheckedOn(habit, day) ? 1 : 0), 0);
+
+  if (completedCount === habits.length) return true;
+
+  // return percentage rounded to nearest integer
+  return Math.round((completedCount / habits.length) * 100);
 }

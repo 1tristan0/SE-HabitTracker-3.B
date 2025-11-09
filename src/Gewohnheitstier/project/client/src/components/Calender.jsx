@@ -54,7 +54,8 @@ export default function Calender({ habits }) {
             const dateStr = cell.date.toISOString().slice(0,10);
             const isToday = dateStr === todayStr;
             const isSelected = selected === dateStr;
-            const allChecked = isEveryHabitChecked(habits, dateStr);
+            const completion = isEveryHabitChecked(habits, dateStr); // true or percent number
+            const percent = typeof completion === "number" ? completion : 0;
             return (
               <button
                 key={`${wi}-${di}`}
@@ -62,25 +63,57 @@ export default function Calender({ habits }) {
                   `py-3 border rounded-md focus:outline-none transition-colors ` +
                   `${cell.inMonth ? "bg-white" : "bg-gray-50 text-gray-400"} ` +
                   `${isToday ? "ring-2 ring-blue-400" : ""} ` +
-                  `${allChecked ? "bg-green-600 " : ""}`
+                  `${completion === true ? "bg-green-600 text-white" : ""}`
                 }
                 aria-pressed={isSelected}
                 title={cell.date.toLocaleDateString()}
               >
                 <div className="text-sm">{cell.day}</div>
-                {allChecked ? (
+                {completion === true ? (
                   <div className="mt-1 w-5 h-5 mx-auto bg-green-500 rounded-full"></div>
-                ) : null}
+                ) : (
+                  <div className="mt-1 w-5 h-5 mx-auto">
+                    {percent > 0 ? (
+                      <svg width="20" height="20" viewBox="0 0 20 20" className="mx-auto">
+                        <circle cx="10" cy="10" r="8" stroke="#e5e7eb" strokeWidth="2" fill="none" />
+                        <circle
+                          cx="10"
+                          cy="10"
+                          r="8"
+                          stroke="#FFFF00"
+                          strokeWidth="2"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeDasharray={`${(2 * Math.PI * 8 * percent) / 100} ${2 * Math.PI * 8}`}
+                          transform="rotate(-90 10 10)"
+                        />
+                      </svg>
+                    ) : (
+                      <div className="w-5 h-5"></div>
+                    )}
+                  </div>
+                )}
               </button>
             );
           })
         ))}
       </div>
         <div className="mt-4 text-sm text-gray-600">
-            {isEveryHabitChecked(habits, todayStr) && (
-              <div>Alle Gewohnheiten für heute erledigt!</div>
-            )}
+          {isEveryHabitChecked(habits, todayStr) === true ? (
+            <div>Alle Gewohnheiten für heute erledigt!</div>
+          ) : (
+            <div>
+              {(() => {
+                const c = isEveryHabitChecked(habits, todayStr);
+                return typeof c === "number" && c > 0 ? (
+                  <div>{`Heute erledigt: ${c}%`}</div>
+                ) : (
+                  <div>Noch nichts erledigt heute.</div>
+                );
+              })()}
             </div>
+          )}
+        </div>
 
     </div>
   );
