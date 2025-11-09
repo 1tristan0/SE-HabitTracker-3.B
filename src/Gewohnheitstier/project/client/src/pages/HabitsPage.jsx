@@ -10,6 +10,7 @@ import {
   deleteHabit as apiDeleteHabit,
   toggleHabitToday,
 } from '../api/habitsApi';
+import Calender from '../components/Calender';
 
 export default function HabitsPage({ userId, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -65,6 +66,7 @@ export default function HabitsPage({ userId, onLogout }) {
       <HabitForm onAdd={add} />
 
       <HabitGrid habits={habits} onDelete={remove} onCheck={check} />
+      <Calender habits={habits} />
     </div>
   );
 }
