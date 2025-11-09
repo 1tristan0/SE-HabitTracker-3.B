@@ -35,11 +35,12 @@ export default function Calender({ habits }) {
   return (
     <div className="mx-auto max-w-3xl p-4">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-semibold text-gray-800">{monthAndYear(view.year, view.month)}</h2>
+        
 
-        <div className="flex gap-2">
-          <button onClick={prevMonth} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">&lt;</button>
-          <button onClick={nextMonth} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">&gt;</button>
+        <div className="flex justify-between items-center w-full">
+          <button onClick={prevMonth} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">vorheriger Monat</button>
+          <h2 className="text-2xl font-semibold text-gray-800">{monthAndYear(view.year, view.month)}</h2>
+          <button onClick={nextMonth} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">nächster Monat</button>
         </div>
       </div>
 
