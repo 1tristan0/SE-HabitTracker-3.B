@@ -1,0 +1,26 @@
+= Meeting 11.11.2025
+Anwesend: Monika, Felix, Patrick, Tristan, Martin, Paul, Nicola (online) (vollständig)
+
+== To Do's
+-   Infos aus Doku Container in Doku (Doku Deployment: Martin)
+-   HappyIndex wegen fehlendem Nutzen abgeschafft (Doku Managementpraktik: Monika)
+-   Beispiel-Belege vergangenes Jahr ins Discord (Monika)
+-   Anpassung "Definition of Ready" / "Definition of Done" => nur das drinlassen, was wir auch tun (Tristan)
+-   Überlegung / Beschreibung der Anwendung von Methoden, die gut bzw. nicht gut funktioniert haben (Team-Tops/Team-Flops) (alle)
+-   Aufgabenübersicht in Miro (=> Input von anderer Gruppe, wir probieren das aus)
+    => Vorlage im Miro anlegen (Nikola)
+    => Übersicht "Wer macht gerade was"
+    => im Meeting direkt Aufgaben ins Miro-Board schreiben
+
+zurückstellen bis Testergebnis von Tristan
+-   Datenstrukturen (DB-Tabellen) ergänzen (Glossar?) (Martin)
+
+== Done
+-   Rücksprache mit PO:
+    => könnten schon andere Tasks oder UserStories angefangen werden?
+    => Refinement vor Beginn Sprint 6 (09.11.)
+    => neue UserStory: mehrere Einträge neben "Übersicht"?
+    => Menü-Eintrag "Habit-Erstellung" (separates Fenster) (B011 Übersicht) in Bearbeitung (Patrick)
+
+=> Retro / Planning / Weekly: 18.11. nach der VL um 15.15 Uhr in Z 136c (Bib-Gruppenarbeitsraum)
+=> Nutzertreffen erfragen für 02.12. ab 15.30 Uhr (Nachtrag: Anfrage ist heute abend raus)
