@@ -63,7 +63,7 @@ export default function Calender({ habits }) {
                   `py-3 border rounded-md focus:outline-none transition-colors ` +
                   `${cell.inMonth ? "bg-white" : "bg-gray-50 text-gray-400"} ` +
                   `${isToday ? "ring-2 ring-blue-400" : ""} ` +
-                  `${completion === true ? "bg-green-600 text-white" : ""}`
+                  `${completion === true ? "bg-green-600 " : ""}`
                 }
                 aria-pressed={isSelected}
                 title={cell.date.toLocaleDateString()}
