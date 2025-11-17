@@ -80,7 +80,7 @@ export default function Calender({ habits }) {
                           cx="10"
                           cy="10"
                           r="8"
-                          stroke="#FFFF00"
+                          stroke="#FF6803"
                           strokeWidth="2"
                           fill="none"
                           strokeLinecap="round"

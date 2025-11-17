@@ -9,7 +9,7 @@ export function getMonthMatrix(year, month) {
   const prevMonthDays = new Date(year, month, 0).getDate();
 
   const matrix = [];
-  // start from Monday of the first week
+  // starte am Montag der ersten Woche
   let dayCounter = 1 - firstWeekday;
   for (let week = 0; week < 6; week++) {
     const weekRow = [];
@@ -19,11 +19,11 @@ export function getMonthMatrix(year, month) {
       let dateObj;
       if (!inMonth) {
         if (dayCounter < 1) {
-          // previous month
+          // vorheriger Monat
           dayNumber = prevMonthDays + dayCounter;
           dateObj = new Date(year, month - 1, dayNumber);
         } else {
-          // next month
+          // nächster Monat
           dayNumber = dayCounter - daysInMonth;
           dateObj = new Date(year, month + 1, dayNumber);
         }
@@ -43,11 +43,9 @@ export function getMonthMatrix(year, month) {
   return matrix;
 }
 export function isEveryHabitChecked(habits, day) {
-  // Returns `true` if all habits were checked on `day` (YYYY-MM-DD).
-  // If not all are checked, returns the percentage (integer 0-99) of habits completed.
-  // If input is invalid or `day` missing, returns 0.
-  if (!Array.isArray(habits) || habits.length === 0) return 0;
-  if (!day) return 0;
+
+  if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
+  if (!day) return 0; // kein Datum angegeben
 
   const isHabitCheckedOn = (habit, d) => {
     if (dateOnly(habit.last_checked) === d) return true;
