@@ -1,0 +1,87 @@
+= Refactor Meeting – Zusammenfassung
+:doctype: book
+:revdate: 2025-11-17
+:revnumber: 1.1
+:toc: left
+:toclevels: 2
+:icons: font
+
+== Meeting-Informationen
+
+*Meeting-Typ:* Refactor Meeting
+*Datum:* 17.11.2025  
+*Uhrzeit:* 
+*Ort / Plattform:* Discord  
+*Teilnehmer:* Patrick Eger, Tristan Weiland, Paul Händler  
+*Ziel:* Bereinigung und Vereinfachung der Branch-Struktur sowie Zusammenführung relevanter Arbeitsstände.
+
+== Ausgangsproblem
+Die vorhandenen Branches waren unübersichtlich und enthielten mehrere parallele Entwicklungsstände. Ziel war es, die Branches eindeutig zusammenzuführen und veraltete Branches/Verzeichnisse zu entfernen.
+
+== Durchgeführte Maßnahmen
+
+. *seperations-of-concerns*  grundliegenden Arbeitsstand identifiziert.
+. *Habitunterscheidung* (veraltet) gelöscht.
+. *seperations-of-concerns* in *main* gemerged.
+. Branch *seperations-of-concerns* anschließend gelöscht.
+. Branch *calender* in *main* überführt.
+. Branch *calender* gelöscht.
+. Branch *dev* wurde auf Grundlage von *main* erstellt
+. Branch *backend\PrismaORM\tristan* konnte aufgrundlage von abweichender Projektstruktur nicht direkt in *dev* gemerged werden
+. Features aus Branch *backend\PrismaORM\tristan* manuell in *dev* integriert.
+. Branch *backend\PrismaORM\tristan* gelöscht.
+
+
+
+== Bereinigung der Projektstruktur
+
+*Folgende veraltete Verzeichnisse werden entfernt:*
+- `Experiment React aufsetzen`
+- `Prototyp mit Login`
+
+*Umbenennung der Hauptverzeichnisse:*
+- `Client` → `frontend`
+- `Server` → `backend`
+
+== Neue Struktur
+
+=== Backend  
+- APIs  
+- Routes  
+
+=== Frontend  
+- hooks  
+- lib  
+- pages  
+
+== Weitere Löschungen
+- Datei: `Appalt.js`
+
+== Learnings / Verbesserungen
+
+* Was gut funktioniert hat:  
+** Zusammenarbeit im kleinen Team
+** Gute Kommunikation hat zu schneller Lösung geführt
+
+* Was verbessert werden kann:  
+** Besserer Umgang mit Branches und Prjektstruktur in Zukunft
+** Klare Namenskonventionen für Branches etablieren
+
+* Folgeaktionen:  
+** Dokumentation der neuen Branch- und Projektstruktur im Team-Repository
+
+== Fazit:
+Ein einheitlicher Arbeitsstand wurde geschaffen, veraltete Branches und Verzeichnisse entfernt, und die Projektstruktur wurde klarer definiert. Dies erleichtert zukünftige Entwicklungen und Wartungen erheblich.
+
+Es wird in zukunft einen dev Branch geben, in dem alle neuen Features entwickelt werden, bevor sie in main gemerged werden.
+Die Namenskonvention für Branches lauten ab jetzt 
+
+`feature/<user story>/<feature-name>/<entwicklername>`    für neue Features und 
+
+
+`fix/<user story>/<bugfix-name>/<entwicklername>` für Bugfixes. 
+
+Siehe (xref:../project_management/project_plan.adoc#Versionierung[`docs/project_management/project_plan.adoc`]) für weitere Details.
+
+
+Beispiele: `feature/B033/Checkbox/Paul` oder `fix/B033/Unterscheidungsfehler/Patrick`
