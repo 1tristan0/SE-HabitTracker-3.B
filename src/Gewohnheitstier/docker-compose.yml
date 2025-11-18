@@ -12,11 +12,13 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - PORT=3001
       - HOST=0.0.0.0
+    env_file:
+      - project/server/.env
     ports:
       - "3001:3001"
-    volumes:
-      - ./project/server:/app
-      - /app/node_modules
+    #volumes:
+     # - ./project/server:/app
+     # - /app/node_modules
 
   client:
     build:
@@ -35,8 +37,8 @@ services:
     ports:
       - "5173:5173"   # Vite
       - "3000:3000"   # CRA
-    volumes:
-      - ./project/client:/app
-      - /app/node_modules
+    #volumes:
+     # - ./project/client:/app
+     # - /app/node_modules
     depends_on:
       - server
