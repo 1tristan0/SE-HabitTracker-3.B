@@ -1,0 +1,73 @@
+=== Testbibliotheken und Einsatzgebiete
+
+* **Jest** (https://jestjs.io/)
+** Art: JavaScript/TypeScript-Testframework
+** Einsatz: Unit- und Integrationstests für Node.js- und Frontend-Code (z.B. React), inklusive Mocking, Snapshot-Tests und Code-Coverage. 
+
+* **Supabase Testing** (https://supabase.com/docs/guides/database/testing)
+** Art: Datenbanktests für Postgres/Supabase
+** Einsatz: Testen von Datenbankschemata, Funktionen, Policies (v.a. RLS) und Migrations mittels Supabase CLI und z.B. pgTAP; kann in CI (z.B. GitHub Actions) integriert werden.  
+
+* **Prisma Client Testing** (https://www.prisma.io/docs/orm/prisma-client/testing/unit-testing)
+** Art: Testen von Applikationscode mit Prisma ORM
+** Einsatz: Unit-Tests von Services/Repos, die Prisma Client nutzen; typischerweise mit gemocktem Prisma Client, um Logik ohne echte Datenbank zu testen.
+
+* **Playwright** (https://playwright.dev/docs/writing-tests)
+** Art: End-to-End-/Browser-Testframework
+** Einsatz: E2E-Tests für moderne Webanwendungen im echten Browser (Chromium, Firefox, WebKit), inkl. Test-Runner, Assertions, Parallelisierung und Cross-Browser-/Cross-Platform-Tests. 
+
+* **Puppeteer** (https://pptr.dev/guides/what-is-puppeteer)
+** Art: Browser-Automation (Headless/Headful Chrome/Chromium/Firefox)
+** Einsatz: Skriptgesteuerte Browser-Steuerung für UI-Tests, Web-Scraping, PDF-/Screenshot-Generierung und andere automatisierte Web-Interaktionen.  
+
+* **Postman** (https://www.postman.com/)
+** Art: API-Entwicklungs- und Testplattform
+** Einsatz: Testen von REST- und GraphQL-APIs, automatisierte Testskripte mit JavaScript, Environment-Variablen, Collections für CI/CD, Mock-Server, Monitoring von Endpunkten und End-to-End-API-Workflows.
+
+=== Testplan: Modul-, Integrations-, System- und Abnahmetests
+
+==== Modultests (Unit Tests)
+Ziel: Einzelne Funktionen/Klassen isoliert prüfen.
+
+* Backend-Logik (z.B. Services/Use-Cases) mit Jest
+** Business-Logik für Habits: Erstellen, Aktualisieren von Streaks, Validierung von Eingaben.
+** Fehlerfälle: Ungültige Daten, fehlende Felder, Exceptions.
+* Datenzugriffsschicht mit Prisma Client Testing
+** Repositories/DAOs mit gemocktem Prisma Client testen (kein echter DB-Zugriff).
+** Korrekte Verwendung von Filtern, Sortierungen und Transaktionen.
+* Frontend-Logik (React-Komponenten/Hooks) mit Jest
+** Rendering-Logik, State-Updates, Helper-Funktionen (z.B. Datumsformatierung).
+
+==== Integrationstests
+Ziel: Zusammenspiel mehrerer Komponenten/Layer prüfen.
+
+* Backend + echte Datenbank (Supabase/Postgres)
+** Supabase-Testing: Migrationen, Tabellen, Constraints, RLS-Policies.
+** Integration Express/Prisma/Supabase: Endpunkte gegen Test-Datenbank ausführen.
+* API-Integration mit Postman
+** Collections für zentrale Endpunkte (Login, Habits CRUD, Statistiken).
+** Testskripte für Statuscodes, Response-Schema und typische Fehlerfälle.
+* Frontend + Backend (API) mit Jest/Supertest oder Postman
+** Endpunkte im Test-Backend aufrufen und End-to-End-Flows auf API-Ebene prüfen.
+
+==== Systemtests (End-to-End)
+Ziel: Gesamtsystem aus Sicht des Benutzers im Browser testen.
+
+* E2E-Tests mit Playwright
+** Happy-Path-Szenarien: Registrierung/Login, Habit anlegen, abhaken, Streak-Anzeige.
+** Negativ-Szenarien: Falsche Logins, Validierungsfehler, abgelaufene Sessions.
+** Cross-Browser-Checks (Chromium/Firefox/WebKit).
+* Ergänzend: Puppeteer
+** Technische UI-Checks (Screenshots, PDF-Export, spezielle Browser-Automatismen).
+** Smoke-Tests für kritische Seiten (Dashboard, Detailseiten).
+
+==== Abnahmetests (User Acceptance Tests, UAT)
+Ziel: Fachliche Abnahme durch Product Owner/Stakeholder.
+
+* Fachliche Testfälle in natürlicher Sprache (Checklisten)
+** Z.B. „User kann täglich ein Habit abhaken und sieht seine aktuelle Streak korrekt.“
+** „Fehlende Berechtigungen führen zu verständlichen Fehlermeldungen.“
+* Durchführung mit produktnahem System (Staging) im Browser
+** Manuelle Tests auf Basis der E2E-Szenarien (Playwright-Skripte können als Vorlage dienen).
+* Dokumentation in Postman/Confluence/Asciidoc
+** Liste der abgenommenen Use-Cases, bekannte Einschränkungen, Screenshots bei Bedarf.
