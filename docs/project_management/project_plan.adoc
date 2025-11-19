@@ -75,7 +75,7 @@ Zur Beobachtung der Teamzufriedenheit und der Zusammenarbeit wird auf dem Miro-B
 === Versionierung
 Die Versionsverwaltung erfolgt über GitHub, das zugleich als Plattform für Aufgaben- und Issue-Tracking dient. Das Development Team hat sich darauf geeinigt Pull-Requests und Branches nutzen, um Änderungen nachvollziehbar und konfliktfrei in das Projekt zu integrieren. 
 
-Das Entwickeln neuer Features sowie Fehlerbehebungen werden hinsichtlich der Vermeidung von Konflikten auf *separaten Branches* betrieben. Um Missverständnisse zu vermeiden werden sollen Branches der Namenskonvention folgen, welche vom Development-Team erarbeitet wurde. Das Format sieht wie folgt aus:
+Das Entwickeln neuer Features sowie Fehlerbehebungen werden hinsichtlich der Vermeidung von Konflikten auf *separaten Branches* betrieben. Um Missverständnisse zu vermeiden, sollen Branches der Namenskonvention folgen, welche vom Development-Team erarbeitet wurde. Das Format sieht wie folgt aus:
 
 ----
 type / UserStory or Issue - optional detail / developer
