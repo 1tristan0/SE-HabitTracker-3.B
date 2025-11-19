@@ -1,0 +1,46 @@
+= Meeting-Protokoll Retro
+:doctype: book
+:revdate: 2025-11-18
+:revnumber: 1.1
+:toc: left
+:toclevels: 2
+:icons: font
+
+== Meeting-Informationen
+
+*Meeting-Typ:* Retrospektive  
+*Datum:* 18.11.2025  
+*Uhrzeit:* 
+*Ort / Plattform:* persönlich, online
+*Mod:* Verteilt  
+*Protokoll:*   
+*Iteration:* Iteration 5 (DD.MM.–DD.MM.YYYY)  
+*Teilnehmende:* Monika, Felix, Patrick (online), Tristan, Martin, Paul, Nicola
+
+== Zweck
+Retro Team-Meeting
+
+== Agenda
+
+. gut
+-   Kommunikation im Team
+-   positiver wertschätzender Umgang
+-   keine festen Zuständigkeiten im Dev-Team, sondern Mini-Teams entsprechend Tasks
+
+. Probleme
+-   1) Projektstruktur unübersichtlich / uneinheitlich
+-   2) jeder programmiert alleine
+-   3) UserStories zu wenig detailliert, deshalb Ableitung der Tasks schwierig
+-   4) Umsetzung der in der VL vorgestellten Prinzipien noch nicht umgesetzt (Architektur, Entwurf, Design)
+-   5) wenig Erfahrung mit Einschätzung des Aufwands von User Stories
+-   6) organisatorische Aufgaben geraten in Vergessenheit, weil sie nur im Protokoll stehen
+
+. Lösung
+-   zu 1) Refactoring
+-   zu 1) Namenskonventionen einführen
+-   zu 2) Pair programming bzw. gleichzeitig programmieren zwecks Rückfragemöglichkeit
+-   zu 2) Verfügbarkeit auf Discord zeigen ("available") + Sprachchat betreten (ohne feste Termine)
+-   zu 3) im Miro: Refinement für UserStories gemeinsam mit Dev-Team
+-   zu 4) VL nacharbeiten und Tasks ableiten (Monika, evtl. Felix, evtl. Martin)
+-   zu 5) Einschätzung Aufwand für Tasks als Rückschau (Vergleich "Schätzung"/"Realität")
+-   zu 6) ToDo-Liste für Management-Aufgaben im Miro anlegen und führen (jede Woche neue Spalten)
