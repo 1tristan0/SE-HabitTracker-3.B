@@ -1,0 +1,133 @@
+= Development-Team Meeting-Protokoll
+:doctype: book
+:revdate: 2025-11-28
+:revnumber: 1.1
+:toc: left
+:toclevels: 2
+:icons: font
+
+== Meeting-Informationen
+
+*Meeting-Typ:* Development Team Sync  
+*Datum:* 18.11.2025  
+*Uhrzeit:* 13:00 - 13:45 
+*Ort / Plattform:* In Person / Discord  
+*Mod:* Verteilt  
+*Protokoll:*  Paul Händler  
+*Iteration:* Iteration xx (DD.MM.–DD.MM.YYYY)  
+*Teilnehmende:* Patrick, Felix, Martin, Tristan, Paul
+
+== Zweck
+
+Diese Meetings sind ausschließlich für das **Devteam** vorgesehen und dienen der Absprache bzw. sind für u.A. folgende Zwecke gedacht:
+
+- Austausch über technischen Fortschritt in Iteration  
+- Identifizierung und Lösung aktueller Blocker  
+- Abstimmung zu Architektur- und Tooling-Themen
+- interne Verteilung von technischen Tasks
+- Absprache über Coding-Practices / Reviews  
+- Vorbereitung von Fragen an den PO für das nächste Refinement
+
+== Agenda
+
+. Kurzes Check-in
+. Änderungen aus Refactoring vorstellen
+. Zwischenstand vorstellen
+. Arbeitsaufwand schätzen und Aufgabenverteilung Brainstorming
+. New Way of working etabliert
+
+
+== Umsetzungen / Änderungen
+
+|===
+| Thema/US/Task | Beschreibung | Entscheidungen / Aktionen | Verantwortlich | Bemerkungen
+
+| Änderungen aus Refactoring vorstellen
+| Die Änderuzngen aus dem Refactoring wurden vorgestellt und besprochen.
+| Neue Namenskonventionen für Branches und  neue Projektstrukturen wurden eingeführt.
+| Alle Teammitglieder
+| ---
+
+| Arbeitsaufwand schätzen und Aufgabenverteilung Brainstorming
+| Dev-Team hat den Arbeitsaufwand für die anstehenden Aufgaben der nächsten Iteration geschätzt und eine vorläufige Aufgabenverteilung besprochen.
+| Teammitglieder haben Ihre Notizen im Miro hinterlegt
+| Alle Teammitglieder
+| ---
+
+| New way of working etabliert
+| Team Mitglieder haben sich auf einen neuen Arbeitsprozess geeinigt, der umsetzung der Issue in kleinen Teams (2-3 Personen) vorsieht. Hierbei sollen Teammitglieder die Issues gemeinsam bearbeiten und sich gegenseitig unterstützen (Pair-Programming). Eine Trennung in Frontend und Design / Backend und Datenbanken wurde von Teammitgliedern gewünscht.
+| Kleine Teams für die nächsten Issues wurden abgesprochen. (xref:https://miro.com/app/board/uXjVIEsUdgw=/[Miro])
+| Alle Teammitglieder
+| ---
+|===
+
+== Diskussionszusammenfassung
+
+|===
+| Thema/US/Task | Diskussionspunkte | Entscheidungen / Aktionen | Fällig am
+
+| Unzufriedenheit mit bisherigen Fortschritten
+| * Wie können die Anforderungen besser umgesetzt werden? Welche Hindernisse gibt es?
+  * Wie können unterschiedliche Wissensstände und Erfahrungen im Team besser genutzt werden?
+| Team hat beschlossen, den New Way of Working einzuführen, inklusive Pair-Programming in kleinen Teams.
+| Sofort
+|===
+
+
+== Technische Notizen [[technischeNotizen]]
+
+* Code / Architektur-Updates:  
+** Siehe (xref:../docs/protokolle/refactor-meeting-zusammenfassung.adoc#praktiken[Refactor Meeting Zusammenfassung])
+** (xref:https://miro.com/app/board/uXjVIEsUdgw=/[Miro])
+
+
+
+== To-Do / Action Items
+
+|===
+| # | Aktion | Verantwortlich | Status | Fällig am
+
+| 1 
+| Bisherige Datenbankabfragen durch Prisma-Abfragen ersezten
+| Tristan, Patrick, Paul
+| In Bearbeitung
+| 01.12.2025
+
+| 2
+| Datenbankschema in Supabase anpassen
+| Tristan, Patrick, Paul
+| In Bearbeitung
+| 01.12.2025
+
+| 3
+| Besprechung mit externen Entwicklern um Feedback zum Projekt und der Vorgehensweise einzuholen
+| Tristan, Paul
+| Beendet
+| 19.10.2025
+
+
+|===
+
+
+== Learnings / Verbesserungen
+
+* Was gut funktioniert hat:  
+** Kommunikation im Team 
+** Effektive Nutzung von Miro für die Zusammenarbeit
+** Einhaltung von Deadlines
+
+* Was verbessert werden kann:  
+** Einhaltung von Namenskonventionen
+** bessere Verteilung der Aufgaben im Team ((xref:https://miro.com/app/board/uXjVIEsUdgw=/[Miro]))
+** gemeinsamer way of working
+
+* Folgeaktionen:  
+** Namenskonventionen benutzen
+** New way of working einhalten
+** Regelmäßige Check-ins in den kleinen Pair-Programming-Teams
+
+== Nächste Schritte
+
+* Nächstes Meeting: 18.11.2025 / In Person / 15:15
+
+
