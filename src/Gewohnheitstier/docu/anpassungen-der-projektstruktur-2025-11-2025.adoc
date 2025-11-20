@@ -1,0 +1,178 @@
+= Verzeichnisstruktur vor und nach dem Refactoring #144
+Paul Händler 
+2025-11-20
+:toc:
+
+== Ausgangszustand (vor dem Refactoring)
+
+[listing]
+----
+src
+└── Gewohnheitstier
+    ├── docker-compose.yml
+    ├── Dockerfile.dev
+    ├── docu
+    │   ├── Doku-Docker.adoc
+    │   └── Doku-Gewohnheitstier.adoc
+    ├── project
+    │   ├── client
+    │   │   ├── package-lock.json
+    │   │   ├── package.json
+    │   │   ├── public
+    │   │   │   ├── favicon.ico
+    │   │   │   ├── index.html
+    │   │   │   ├── logo192.png
+    │   │   │   ├── logo512.png
+    │   │   │   ├── manifest.json
+    │   │   │   └── robots.txt
+    │   │   ├── README.md
+    │   │   ├── src
+    │   │   │   ├── api
+    │   │   │   │   ├── authApi.js
+    │   │   │   │   └── habitsApi.js
+    │   │   │   ├── App.css
+    │   │   │   ├── App.jsx
+    │   │   │   ├── App.test.js
+    │   │   │   ├── Appalt.js
+    │   │   │   ├── components
+    │   │   │   │   ├── Calender.jsx
+    │   │   │   │   ├── HabitCard.jsx
+    │   │   │   │   ├── HabitForm.jsx
+    │   │   │   │   ├── HabitGrid.jsx
+    │   │   │   │   ├── HabitList.jsx
+    │   │   │   │   └── Navbar.jsx
+    │   │   │   ├── hooks
+    │   │   │   │   └── useHabits.js
+    │   │   │   ├── index.css
+    │   │   │   ├── index.js
+    │   │   │   ├── lib
+    │   │   │   │   ├── calendar.js
+    │   │   │   │   └── convert.js
+    │   │   │   ├── logo.svg
+    │   │   │   ├── pages
+    │   │   │   │   └── HabitsPage.jsx
+    │   │   │   ├── reportWebVitals.js
+    │   │   │   ├── setupTests.js
+    │   │   │   └── supabaseClient.js
+    │   │   └── tailwind.config.js
+    │   ├── frontend
+    │   │   └── node_modules
+    │   │       ├── detect-port-alt
+    │   │       ├── postcss-initial
+    │   │       │   └── ~
+    │   │       └── rollup-plugin-terser
+    │   │           └── node_modules
+    │   │               └── serialize-javascript
+    │   └── server
+    │       ├── index.js
+    │       ├── package-lock.json
+    │       ├── package.json
+    │       ├── prisma
+    │       │   └── schema.prisma
+    │       ├── prisma.config.ts
+    │       └── src
+    │           └── prisma.js
+    └── readme.txt
+----
+
+== Istzustand (nach dem Refactoring)
+
+[listing]
+----
+src
+└── Gewohnheitstier
+    ├── backend
+    │   ├── index.js
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   ├── prisma
+    │   │   └── schema.prisma
+    │   ├── prisma.config.js
+    │   └── src
+    │       └── prisma.js
+    ├── docker-compose.yml
+    ├── Dockerfile.dev
+    ├── docu
+    │   ├── Doku-Docker.adoc
+    │   └── Doku-Gewohnheitstier.adoc
+    ├── frontend
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   ├── public
+    │   │   ├── favicon.ico
+    │   │   ├── index.html
+    │   │   ├── logo192.png
+    │   │   ├── logo512.png
+    │   │   ├── manifest.json
+    │   │   └── robots.txt
+    │   ├── README.md
+    │   ├── src
+    │   │   ├── api
+    │   │   │   ├── authApi.js
+    │   │   │   └── habitsApi.js
+    │   │   ├── App.css
+    │   │   ├── App.jsx
+    │   │   ├── App.test.js
+    │   │   ├── components
+    │   │   │   ├── Calender.jsx
+    │   │   │   ├── HabitCard.jsx
+    │   │   │   ├── HabitForm.jsx
+    │   │   │   ├── HabitGrid.jsx
+    │   │   │   ├── HabitList.jsx
+    │   │   │   └── Navbar.jsx
+    │   │   ├── hooks
+    │   │   │   └── useHabits.js
+    │   │   ├── index.css
+    │   │   ├── index.js
+    │   │   ├── lib
+    │   │   │   ├── calendar.js
+    │   │   │   └── convert.js
+    │   │   ├── logo.svg
+    │   │   ├── pages
+    │   │   │   └── HabitsPage.jsx
+    │   │   ├── reportWebVitals.js
+    │   │   ├── setupTests.js
+    │   │   └── supabaseClient.js
+    │   └── tailwind.config.js
+    └── readme.txt
+----
+
+== Wesentliche Unterschiede
+
+=== 1. Projekt-Root und Wrapper-Verzeichnisse
+
+* *Vorher*: Projekt lag unter `src/Gewohnheitstier/project/...`.
+* *Nachher*: Projekt liegt direkt unter `src/Gewohnheitstier/...` ohne  `project/`-Wrapper.
+
+Vorteil: kürzere Pfade & weniger Verschachtelung.
+
+=== 2. Trennung von Frontend und Backend
+
+* *Vorher*:
+** Frontend-Code unter `project/client/...`
+** Backend-Code unter `project/server/...`
+** Zusätzlich ein verwaistes `project/frontend/node_modules/...`
+
+* *Nachher*:
+** Frontend liegt konsistent unter `frontend/...`
+** Backend liegt konsistent unter `backend/...`
+** Zusätzlich verwaistes `project/frontend/node_modules/...` gelöscht.
+
+
+=== 3. Backend-Konfiguration (Prisma)
+
+* *Vorher*: `project/server/prisma.config.ts`
+* *Nachher*: `backend/prisma.config.js`
+
+Damit ist die Prisma-Konfiguration jetzt als `.js`-Datei im neuen `backend`-Verzeichnis abgelegt.
+
+=== 4. Frontend-Struktur
+
+* Dateiinhalte des Frontends (React-Komponenten, Hooks, lib, Supabase-Client, Tests) bleiben inhaltlich gleich.
+* Pfadanpassung:
+** *Vorher*: `project/client/src/...`
+** *Nachher*: `frontend/src/...`
+* Die Datei `Appalt.js` ist in der neuen Struktur nicht mehr vorhanden.
+
+
+
