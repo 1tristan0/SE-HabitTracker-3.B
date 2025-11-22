@@ -4,6 +4,6 @@ const prisma = new PrismaClient({
   log: ['query', 'info', 'warn', 'error'],
 })
 
-console.log(prisma);
+//console.log(prisma);
 
 module.exports = prisma;
