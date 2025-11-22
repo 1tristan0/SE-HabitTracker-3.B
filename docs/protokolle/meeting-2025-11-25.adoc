@@ -1,0 +1,28 @@
+= Meeting 25.11.2025
+Anwesend: 
+
+== To Do's
+-   DB-Abfragen durch Prisma-Funktionen ersetzen
+-   DB-Schema ändern
+-   Domänen-Modell ändern / anpassen für neue Funktionen (Futter usw.)
+
+-   HappyIndex wegen fehlendem Nutzen abgeschafft (Doku Managementpraktik: Monika)
+-   Anpassung "Definition of Ready" / "Definition of Done" => nur das drinlassen, was wir auch tun (Tristan)
+-   Überlegung / Beschreibung der Anwendung von Methoden, die gut bzw. nicht gut funktioniert haben (Team-Tops/Team-Flops) (alle)
+
+zurückstellen bis Testergebnis von Tristan
+-   Datenstrukturen (DB-Tabellen) ergänzen (Doku Glossar: Martin)
+-   Infos aus Doku Container in Doku (Doku Deployment: Martin)
+
+== Done
+-   Mitschrift aus Praktikum ins Whatsapp (Monika)
+-   Vorbereitung Folien für Fachaustausch (Patrick)
+-   Vortrag halten (Tristan)
+-   paralleles Programmieren / Pair Programming => new Way of working => siehe Dev.Protokoll
+-   main-branch protected => Protokolle auf Dev-branch pushen
+-   Übersicht Testbibliotheken erstellt (Paul) => gespeichert unter /docs/test/testbibliotheken.adoc
+-   Beispiel-Belege vergangenes Jahr ins Discord (Monika)
+-   Nutzertreffen erfragen für 02.12. ab 15.30 Uhr (Nachtrag: beide Teams haben zugesagt)
+
+=> Weekly:  vor der VL um 13.00 Uhr in Z 136c (Bib-Gruppenarbeitsraum)
+=> Review:  02.12. nach der VL ab ca. 15.30/45 Uhr ; Raum folgt

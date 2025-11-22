@@ -43,8 +43,8 @@ Diese Meetings sind ausschließlich für das **Devteam** vorgesehen und dienen d
 | Thema/US/Task | Beschreibung | Entscheidungen / Aktionen | Verantwortlich | Bemerkungen
 
 | Änderungen aus Refactoring vorstellen
-| Die Änderuzngen aus dem Refactoring wurden vorgestellt und besprochen.
-| Neue Namenskonventionen für Branches und  neue Projektstrukturen wurden eingeführt.
+| Die Änderungen aus dem Refactoring wurden vorgestellt und besprochen.
+| Neue Namenskonventionen für Branches und neue Projektstrukturen wurden eingeführt.
 | Alle Teammitglieder
 | ---
 
