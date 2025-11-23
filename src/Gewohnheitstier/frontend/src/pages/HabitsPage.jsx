@@ -12,6 +12,7 @@ import {
 } from '../api/habitsApi';
 import Calender from '../components/Calender';
 import HabitInfoModal from '../components/HabitInfoModal';
+import HabitCreateContent from '../components/HabitCreateContent';
 
 export default function HabitsPage({ userId, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -66,7 +67,7 @@ export default function HabitsPage({ userId, onLogout }) {
 
       <HabitForm onAdd={add} />
       
-<HabitInfoModal
+<HabitCreateContent
 
 />
 
