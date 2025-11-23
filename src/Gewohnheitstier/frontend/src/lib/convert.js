@@ -19,3 +19,8 @@ export const monthAndYear = (year, month) => {
 export const todayAsString = () => {
     return new Date().toISOString().slice(0,10);
 };
+
+export const convertToGermanDateString = (dateStr) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
+}

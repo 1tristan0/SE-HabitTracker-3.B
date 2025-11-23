@@ -86,3 +86,64 @@ export function isEveryHabitChecked(habits, day) {
   // return percentage rounded to nearest integer
   return Math.round((completedCount / habits.length) * 100);
 }
+
+export function getCheckedHabiitsFromDay(habits, day) {
+  if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
+  if (!day) return 0; // kein Datum angegeben
+  return habits.filter((habit) => {
+    if (dateOnly(habit.last_checked) === day) return true;
+    const prev = habit.prev_last_checked;
+    if (!prev) return false;
+    if (Array.isArray(prev)) {
+      return prev.some((ts) => dateOnly(ts) === day);
+    }
+    if (typeof prev === "string") {
+      try {
+        const parsed = JSON.parse(prev);
+        if (Array.isArray(parsed)) return parsed.some((ts) => dateOnly(ts) === day);
+      } catch (e) {
+        // ignore parse error and fall back to comma split
+      }
+      const parts = prev.split(",").map((s) => s.trim()).filter(Boolean);
+      if (parts.length) return parts.some((ts) => dateOnly(ts) === day);
+    }
+    if (typeof prev === "object") {
+      try {
+        return Object.values(prev).some((ts) => dateOnly(ts) === day);
+      } catch (e) {
+        return false;
+      }
+    }
+    return false;
+});
+}
+export function getUncheckedHabitsFromDay(habits, day) {
+  if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
+  if (!day) return 0; // kein Datum angegeben
+  return habits.filter((habit) => {
+    if (dateOnly(habit.last_checked) === day) return false;
+    const prev = habit.prev_last_checked;
+    if (!prev) return true;
+    if (Array.isArray(prev)) {
+      return !prev.some((ts) => dateOnly(ts) === day);
+    }
+    if (typeof prev === "string") {
+      try {
+        const parsed = JSON.parse(prev);
+        if (Array.isArray(parsed)) return !parsed.some((ts) => dateOnly(ts) === day);
+      } catch (e) {
+        // ignore parse error and fall back to comma split
+      }
+      const parts = prev.split(",").map((s) => s.trim()).filter(Boolean);
+      if (parts.length) return !parts.some((ts) => dateOnly(ts) === day);
+    }
+    if (typeof prev === "object") {
+      try {
+        return !Object.values(prev).some((ts) => dateOnly(ts) === day);
+      } catch (e) {
+        return true;
+      }
+    }
+    return true;
+  });
+}

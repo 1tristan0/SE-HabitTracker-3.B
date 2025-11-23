@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
-import { getMonthMatrix, isEveryHabitChecked } from "../lib/calendar";
+import { getCheckedHabiitsFromDay, getMonthMatrix, getUncheckedHabitsFromDay, isEveryHabitChecked } from "../lib/calendar";
 import { monthAndYear, todayAsString } from "../lib/convert";
+import CalendarModal from "./CalendarModal";
 
 const WEEKDAYS = ["Mo","Di","Mi","Do","Fr","Sa","So"];
 
@@ -10,6 +11,9 @@ export default function Calender({ habits }) {
   const now = new Date();
   const [view, setView] = useState({ year: now.getFullYear(), month: now.getMonth() });
   const [selected, setSelected] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+  const [checkedHabits, setCheckedHabits] = useState([]);
+  const [uncheckedHabits, setUncheckedHabits] = useState([]);
 
   const todayStr = todayAsString();
 
@@ -30,6 +34,12 @@ export default function Calender({ habits }) {
       return { year: v.year, month: m };
     });
   };
+  function onDaySelected(dateStr){
+    console.log("day selected", dateStr);
+    setOpenModal(true);
+    setCheckedHabits(getCheckedHabiitsFromDay(habits, dateStr));
+    setUncheckedHabits(getUncheckedHabitsFromDay(habits, dateStr));
+  };
 
 
   return (
@@ -43,7 +53,9 @@ export default function Calender({ habits }) {
           <button onClick={nextMonth} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">nächster Monat</button>
         </div>
       </div>
-
+      {openModal && (
+        <CalendarModal selected={selected} checkedHabits={checkedHabits} uncheckedHabits={uncheckedHabits} setOpenModal={setOpenModal} />
+      )}
       <div className="grid grid-cols-7 gap-1 text-center">
         {WEEKDAYS.map((w) => (
           <div key={w} className="text-sm font-medium text-gray-600 py-2">{w}</div>
@@ -66,6 +78,10 @@ export default function Calender({ habits }) {
                   `${completion === true ? "bg-green-600 " : ""}`
                 }
                 aria-pressed={isSelected}
+                onClick={() => {
+                  setSelected(dateStr);
+                  onDaySelected(dateStr);
+                }}
                 title={cell.date.toLocaleDateString()}
               >
                 <div className="text-sm">{cell.day}</div>
