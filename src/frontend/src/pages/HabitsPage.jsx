@@ -6,6 +6,7 @@ import HabitGrid from '../components/HabitGrid';
 
 import { fetchHabits, addHabit as apiAddHabit, deleteHabit as apiDeleteHabit, toggleHabitToday } from '../api/habitsApi';
 import Calender from '../components/Calender';
+import HabitInfoModal from '../components/HabitInfoModal';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -61,6 +62,11 @@ export default function HabitsPage({ session, onLogout }) {
       </div>
 
       <HabitForm onAdd={add} />
+      
+<HabitInfoModal
+
+/>
+
 
       <HabitGrid habits={habits} onDelete={remove} onCheck={check} />
       <Calender habits={habits} />
