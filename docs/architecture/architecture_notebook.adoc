@@ -20,7 +20,7 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 == Architekturziele
 //Hinweise: Beschreiben Sie den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
-Die Applikation basiert auf einer klassischen Dreischicht-Architektur(Client, Logik, Datenspeicherung) und soll auf verschiedensten Endgeräten (Desktop und Mobil) über den Browser bedienbar sein. Dafür wird ein leichtgewichtiges und responsives Frontend mit React entwickelt, das mit Tailwind CSS und Bootstrap gestaltet wird.
+Die Applikation basiert auf einer klassischen Dreischicht-Architektur (Client, Logik, Datenspeicherung) und soll auf verschiedensten Endgeräten (Desktop und Mobil) über den Browser bedienbar sein. Dafür wird ein leichtgewichtiges und responsives Frontend mit React entwickelt, das mit Tailwind CSS und Bootstrap gestaltet wird.
 
 Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwischen Frontend und Backend erfolgt über eine RESTful API. Als Datenbank nutzen wir Supabase (PostgreSQL) mit eingebautem Authentifizierungsdienst.
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
@@ -42,7 +42,9 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
 * Die Deployment-Umgebung ist ein von der HTW Dresden bereitgestellter Server (z.B. iseproject02.informatik.htw-dresden.de).
 * Es gibt keine Abhängigkeiten zu Legacy-Systemen.
 * Zeitliche Ressourcen sind begrenzt.
-* Das Budget ist auf Open-Source-Technologien und kostenlose Dienste beschränkt. 
+* Das Budget ist auf Open-Source-Technologien und kostenlose Dienste beschränkt.
+// Prisma-Integration?
+// Docker-Umgebung?
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
@@ -51,31 +53,30 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
 * Anzeige von Habit-Statistiken
 * Datenpersistenz (Supabase PostgreSQL)
 * Responsives Design
+// ?
 
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
 . **Verwendung von React im Frontend**  
-  → Ermöglicht komponentenbasiertes UI-Design und hohe Wiederverwendbarkeit. 2 Teammitglieder haben bereits erste Vorerfahrungen mit der Verwendung von React in der Webentwicklung
-  → Gängige Wahl für moderne Webanwendungen, große Community und viele Ressourcen verfügbar.
+- Ermöglicht komponentenbasiertes UI-Design und hohe Wiederverwendbarkeit. 2 Teammitglieder haben bereits erste Vorerfahrungen mit der Verwendung von React in der Webentwicklung
+- Gängige Wahl für moderne Webanwendungen, große Community und viele Ressourcen verfügbar.
   
 . **Einsatz von Tailwind CSS und Bootstrap**  
-  → Ermöglicht schnelles Prototyping und konsistente Gestaltung mit geringem Designaufwand.
-  → Ermöglicht responsives Design und einfache Anpassung an verschiedene Bildschirmgrößen. (App soll auf Desktop und Mobil funktionieren)
-
+- Ermöglicht schnelles Prototyping und konsistente Gestaltung mit geringem Designaufwand.
+- Ermöglicht responsives Design und einfache Anpassung an verschiedene Bildschirmgrößen. (App soll auf Desktop und Mobil funktionieren)
   
 . **Backend mit Node.js und Express.js**  
-  → Einfache Integration mit JavaScript-basiertem Frontend, große Entwickler-Community.
-  → Hohe Performance und Skalierbarkeit.
-  → Vorerfahrung der Team-Mitglieder mit Node.JS und Express.js
-  
-  
+- Einfache Integration mit JavaScript-basiertem Frontend, große Entwickler-Community.
+- Hohe Performance und Skalierbarkeit.
+- Vorerfahrung der Team-Mitglieder mit Node.JS und Express.js
+    
 . **Nutzung von Supabase (PostgreSQL)**  
-  → Spart Zeit durch fertige Authentifizierungslösungen und Datenbankverwaltung in der Cloud. 
-  → Team muss keinen eigenen Lösung zum Hosting einer Datenbank finden.
-  
-. **Dreischicht-Modell**  
-  → Getrennte Verantwortlichkeiten, einfache Skalierung, klare Trennung zwischen UI, Logik und Datenspeicherung.
+- Spart Zeit durch fertige Authentifizierungslösungen und Datenbankverwaltung in der Cloud. 
+- Team muss keinen eigenen Lösung zum Hosting einer Datenbank finden.
 
+. **Dreischicht-Modell**  
+- Getrennte Verantwortlichkeiten, einfache Skalierung, klare Trennung zwischen UI, Logik und Datenspeicherung.
+// Haben wir noch 3 Schichten oder eigentlich schon 4? Wo integriert sich Prisma?
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
@@ -121,7 +122,7 @@ Die Architektur folgt einem **dreischichtigen Aufbau**:
 * **Logikschicht (Backend)**: Node.js mit Express.js – Verarbeitung von Geschäftslogik, Validierung, API-Endpunkte.
 * **Datenhaltungsschicht**: Supabase/PostgreSQL – Speicherung und Abruf aller Nutzerdaten, Habits und Metadaten.
 
-Der Austausch zwischen den Schichten erfolgt über eine klar definierte REST-API. Die Architektur ist bewusst modular aufgebaut, um spätere Komponenten wie Push-Benachrichtigungen, Kalenderintegration o. ä. ergänzen zu können.
+Der Austausch zwischen den Schichten erfolgt über eine klar definierte REST-API. Die Architektur ist bewusst modular aufgebaut, um spätere Komponenten wie Push-Benachrichtigungen, Kalenderintegration o.ä. ergänzen zu können.
 
 
 === Kontextabgrenzung

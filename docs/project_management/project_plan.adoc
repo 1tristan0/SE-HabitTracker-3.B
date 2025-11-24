@@ -70,10 +70,10 @@ Die Termine für die einmaligen Treffen pro Sprint (planning, review, retro, bac
 
 Das Projektteam arbeitet iterativ nach dem Scrum-Framework. Die Aufgaben werden in Sprints organisiert und im Rahmen der wöchentlichen Team-Meetings regelmäßig überprüft. Dabei wird der aktuelle Fortschritt besprochen, Aufgaben werden bei Bedarf neu zugewiesen und ihr Status im Sprint-Backlog (https://github.com/users/1tristan0/projects/6/views/3) aktualisiert. Jede Aufgabe ist dort einem der Zustände "ToDo", "In Progress" oder "Done" zugeordnet.
 
-Zur Beobachtung der Teamzufriedenheit und der Zusammenarbeit wird auf dem Miro-Board ein sogenannter Happy-Index geführt und regelmäßig aktualisiert. Dieser dient als qualitativer Indikator für das Arbeitsklima im Team und hilft, mögliche Probleme frühzeitig zu erkennen.
+Zur Beobachtung der Teamzufriedenheit und der Zusammenarbeit wurde im ersten Semester auf dem Miro-Board ein sogenannter Happy-Index geführt. Dieser sollte als qualitativer Indikator für das Arbeitsklima im Team dienen und helfen, mögliche Probleme frühzeitig zu erkennen. Im Laufe des Semesters wurde in einem Retro-Meeting festgestellt, dass  der Happy-Index nicht mehr gepflegt wird, da daraus keine Schlüsse gezogen werden. Deshalb wurde beschlossen, diesen Index nicht mehr weiterzuführen. Zu Beginn jedes Weekly-Meetings werden Befindlichkeiten der einzelnen Team-Mitglieder abgefragt bzw. angesprochen. Dies wird inzwischen durch das freundliche und wertschätzende Miteinander gern genutzt, so dass kleinere Probleme schnell aus der Welt geschafft werden können.
 
 === Versionierung
-Die Versionsverwaltung erfolgt über GitHub, das zugleich als Plattform für Aufgaben- und Issue-Tracking dient. Das Development Team hat sich darauf geeinigt Pull-Requests und Branches nutzen, um Änderungen nachvollziehbar und konfliktfrei in das Projekt zu integrieren. 
+Die Versionsverwaltung erfolgt über GitHub, das zugleich als Plattform für Aufgaben- und Issue-Tracking dient. Das Development-Team hat sich darauf geeinigt, Pull-Requests und Branches zu nutzen, um Änderungen nachvollziehbar und konfliktfrei in das Projekt zu integrieren. 
 
 Das Entwickeln neuer Features sowie Fehlerbehebungen werden hinsichtlich der Vermeidung von Konflikten auf *separaten Branches* betrieben. Um Missverständnisse zu vermeiden, sollen Branches der Namenskonvention folgen, welche vom Development-Team erarbeitet wurde. Das Format sieht wie folgt aus:
 

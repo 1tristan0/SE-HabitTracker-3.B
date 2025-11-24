@@ -1,12 +1,20 @@
 = Meeting 25.11.2025
 Anwesend: 
 
+== Besprechen - Änderungen / Ergänzungen Doku:
+-   Architecture-Notebook:
+    * Annahmen/Abhängigkeiten: Prisma + Docker
+    * Arch.-relevante Anforderungen: Responsives Design?
+    * Entscheidungen und Schichten-Beschreibung: 3-Schicht-Modell? Mit Prisma auch oder dann 4?
+-   Project-Plan:
+    * Praktiken: Happy-Index abgeschafft
+    
+
 == To Do's
 -   DB-Abfragen durch Prisma-Funktionen ersetzen
 -   DB-Schema ändern
 -   Domänen-Modell ändern / anpassen für neue Funktionen (Futter usw.)
 
--   HappyIndex wegen fehlendem Nutzen abgeschafft (Doku Managementpraktik: Monika)
 -   Anpassung "Definition of Ready" / "Definition of Done" => nur das drinlassen, was wir auch tun (Tristan)
 -   Überlegung / Beschreibung der Anwendung von Methoden, die gut bzw. nicht gut funktioniert haben (Team-Tops/Team-Flops) (alle)
 
@@ -15,6 +23,7 @@ zurückstellen bis Testergebnis von Tristan
 -   Infos aus Doku Container in Doku (Doku Deployment: Martin)
 
 == Done
+-   HappyIndex wegen fehlendem Nutzen abgeschafft (Doku Managementpraktik: Monika)
 -   Mitschrift aus Praktikum ins Whatsapp (Monika)
 -   Vorbereitung Folien für Fachaustausch (Patrick)
 -   Vortrag halten (Tristan)
