@@ -1,6 +1,7 @@
 // client/src/pages/HabitsPage.jsx
 import { useEffect, useState } from 'react';
 import HabitGrid from '../components/HabitGrid';
+import HabitInfoModal from '../components/HabitInfoModal';
 
 import {
   fetchHabits,
