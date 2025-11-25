@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { getCheckedHabiitsFromDay, getMonthMatrix, getUncheckedHabitsFromDay, isEveryHabitChecked } from "../lib/calendar";
-import { monthAndYear, todayAsString } from "../lib/convert";
+import { monthAndYear, todayAsStringBerlin, dateOnlyBerlin } from "../lib/convert";
 import CalendarModal from "./CalendarModal";
 
 const WEEKDAYS = ["Mo","Di","Mi","Do","Fr","Sa","So"];
@@ -15,7 +15,8 @@ export default function Calender({ habits }) {
   const [checkedHabits, setCheckedHabits] = useState([]);
   const [uncheckedHabits, setUncheckedHabits] = useState([]);
 
-  const todayStr = todayAsString();
+  const todayStr = todayAsStringBerlin();
+  console.log("todayStr", todayStr);
 
   const matrix = useMemo(() => getMonthMatrix(view.year, view.month), [view]);
 
@@ -63,8 +64,10 @@ export default function Calender({ habits }) {
 
         {matrix.map((week, wi) => (
           week.map((cell, di) => {
-            const dateStr = cell.date.toISOString().slice(0,10);
+            const dateStr = dateOnlyBerlin(cell.date);
             const isToday = dateStr === todayStr;
+            console.log("dateStr", dateStr, "todayStr", todayStr);
+            console.log("isToday", isToday);
             const isSelected = selected === dateStr;
             const completion = isEveryHabitChecked(habits, dateStr); // true or percent number
             const percent = typeof completion === "number" ? completion : 0;
