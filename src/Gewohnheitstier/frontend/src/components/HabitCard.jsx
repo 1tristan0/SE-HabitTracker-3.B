@@ -3,12 +3,12 @@
 import { dateOnly } from "../lib/convert";
 
 // React-Komponente zur Darstellung einer einzelnen Gewohnheit (Habit)
-export default function HabitCard({ habit, onDelete, onCheck = () => {} }) {
+export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick = () => {}, onClose = () => {} }) {
   // Heutiges Datum im Format YYYY-MM-DD (zum Vergleich mit last_checked)
   const today = new Date().toISOString().slice(0, 10);
 
   return (
-    <div className="card mb-3">
+    <div className="card mb-3" onClick={() => onClick(habit)}>
       <div className="card-body">
         {/* Titel der Gewohnheit */}
         <h5 className="card-title">{habit.habit_name}</h5>
@@ -37,7 +37,7 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {} }) {
         {/* Button zum Löschen der Gewohnheit */}
         <button
           className="btn btn-danger btn-sm me-2"
-          onClick={() => onDelete(habit.id)} // ruft die Löschfunktion aus dem Elternkomponenten auf
+          onClick={(e) => { e.stopPropagation(); onDelete(habit.id); }} // prevent card click
         >
           Löschen
         </button>
@@ -49,7 +49,7 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {} }) {
             className="form-check-input"
             id={`check-${habit.id}`}
             checked={dateOnly(habit.last_checked) === today}
-            onChange={(e) => onCheck(habit.id, e.target.checked)}
+            onChange={(e) => { e.stopPropagation(); onCheck(habit.id, e.target.checked); }}
           />
 
           {/* Label neben der Checkbox */}
