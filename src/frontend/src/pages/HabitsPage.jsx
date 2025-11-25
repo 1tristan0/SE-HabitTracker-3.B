@@ -1,13 +1,13 @@
 // client/src/pages/HabitsPage.jsx
 import { useEffect, useState } from 'react';
-import HabitForm from '../components/HabitForm';
-import Navbar from '../components/Navbar';
 import HabitGrid from '../components/HabitGrid';
 
-import { fetchHabits, addHabit as apiAddHabit, deleteHabit as apiDeleteHabit, toggleHabitToday } from '../api/habitsApi';
+import {
+  fetchHabits,
+  deleteHabit as apiDeleteHabit,
+  toggleHabitToday,
+} from '../api/habitsApi';
 import Calender from '../components/Calender';
-import HabitInfoModal from '../components/HabitInfoModal';
-import HabitCreateContent from '../components/HabitCreateContent';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -70,11 +70,6 @@ export default function HabitsPage({ session, onLogout }) {
 
   return (
     <div className="container py-5">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <Navbar onLogout={onLogout} />
-      </div>
-
-      <HabitForm onAdd={add} />
 
 
       <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} />
