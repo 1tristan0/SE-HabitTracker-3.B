@@ -1,28 +1,36 @@
 = Meeting 25.11.2025
-Anwesend: 
+Anwesend: Monika, Felix (online), Patrick, Tristan (online), Martin, Paul, Nicola (online) (vollständig)
 
 == Besprechen - Änderungen / Ergänzungen Doku:
 -   Architecture-Notebook:
-    * Annahmen/Abhängigkeiten: Prisma + Docker
+    * Annahmen/Abhängigkeiten: Prisma + Docker (stattdessen mpm?)
     * Arch.-relevante Anforderungen: Responsives Design?
-    * Entscheidungen und Schichten-Beschreibung: 3-Schicht-Modell? Mit Prisma auch oder dann 4?
+    * Entscheidungen und Schichten-Beschreibung: 3-Schicht-Modell
 -   Project-Plan:
     * Praktiken: Happy-Index abgeschafft
-    
+    * Deployment: Beschreibung, wie Client/Server gestartet wird (Paul, Tristan)
 
 == To Do's
--   DB-Abfragen durch Prisma-Funktionen ersetzen
--   DB-Schema ändern
--   Domänen-Modell ändern / anpassen für neue Funktionen (Futter usw.)
+-   Timeful ausfüllen bis Jahresende (alle)
+-   Plan mit Beschreibung für Refactoring (Paul, Tristan, Martin)
+-   DB-Abfragen durch Prisma-Funktionen ersetzen (Tristan)
+-   Einlesen in API (Paul, Tristan, Martin) für Refactoring
+-   Domänen-Modell ändern / anpassen für neue Funktionen (Futter usw.) => nur aktuellen Stand darstellen (zukünftige Planungen raus) (Nicola)
+-   Farben mittels CSS benennen, um Farbkonzept später einführen bzw. ändern zu können (Patrick, Felix)
 
--   Anpassung "Definition of Ready" / "Definition of Done" => nur das drinlassen, was wir auch tun (Tristan)
 -   Überlegung / Beschreibung der Anwendung von Methoden, die gut bzw. nicht gut funktioniert haben (Team-Tops/Team-Flops) (alle)
+-   VL nacharbeiten und wichtige Infos zusammenfassen => ?? (Monika)
+
+-   Vorbereitung Vortrag Fachaustausch Tests (Martin), z.B. Protokoll für explorative Tests
+-   Frontend-Tests implementieren (Patrick)
 
 zurückstellen bis Testergebnis von Tristan
 -   Datenstrukturen (DB-Tabellen) ergänzen (Doku Glossar: Martin)
 -   Infos aus Doku Container in Doku (Doku Deployment: Martin)
+-   DB-Schema ändern
 
 == Done
+-   Anpassung "Definition of Ready" / "Definition of Done" => nur das drinlassen, was wir auch tun (Tristan)
 -   HappyIndex wegen fehlendem Nutzen abgeschafft (Doku Managementpraktik: Monika)
 -   Mitschrift aus Praktikum ins Whatsapp (Monika)
 -   Vorbereitung Folien für Fachaustausch (Patrick)
@@ -33,5 +41,5 @@ zurückstellen bis Testergebnis von Tristan
 -   Beispiel-Belege vergangenes Jahr ins Discord (Monika)
 -   Nutzertreffen erfragen für 02.12. ab 15.30 Uhr (Nachtrag: beide Teams haben zugesagt)
 
-=> Weekly:  vor der VL um 13.00 Uhr in Z 136c (Bib-Gruppenarbeitsraum)
-=> Review:  02.12. nach der VL ab ca. 15.30/45 Uhr ; Raum folgt
+=> Weekly:  02.12. vor der VL um 13.00 Uhr in Z 136c (Bib-Gruppenarbeitsraum)
+=> Review:  02.12. nach der VL ab ca. 15.30/45 Uhr in S 308b
