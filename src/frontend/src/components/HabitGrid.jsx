@@ -8,7 +8,7 @@ import HabitCard from "./HabitCard";         // Einzelkomponente zur Darstellung
 //  - habits: Array aller Gewohnheiten
 //  - onDelete: Callback zum Löschen einer Gewohnheit
 //  - onCheck: Callback zum Markieren als erledigt
-export default function HabitGrid({ habits, onDelete, onCheck }) {
+export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose }) {
 
     // Heutiges Datum im Format YYYY-MM-DD
     const today = new Date().toISOString().slice(0, 10);
@@ -29,6 +29,8 @@ export default function HabitGrid({ habits, onDelete, onCheck }) {
                     habit={h}               // Gewohnheit als Prop
                     onDelete={onDelete}     // Löschen-Callback weiterreichen
                     onCheck={onCheck}       // Erledigt-Callback weiterreichen
+                    onClick={onClick}       // Klick-Callback weiterreichen
+                    onClose={onClose}       // Schließen-Callback weiterreichen
                 />
             ))}
 
@@ -46,6 +48,8 @@ export default function HabitGrid({ habits, onDelete, onCheck }) {
                         habit={h}
                         onDelete={onDelete}
                         onCheck={onCheck}
+                        onClick={onClick}
+                        onClose={onClose}
                     />
                 ))
             ) : (

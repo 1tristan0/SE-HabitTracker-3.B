@@ -147,3 +147,29 @@ export function getUncheckedHabitsFromDay(habits, day) {
     return true;
   });
 }
+/**
+ * Calculates the number of days between two dates.
+ * Both date1 and date2 can be Date objects or date strings in 'YYYY-MM-DD' format.
+ * @param {*} date1 
+ * @param {*} date2 
+ * @returns 
+ */
+export function daysBetween(date1, date2) {
+    try {
+        const d1 = new Date(date1);
+        const d2 = new Date(date2);
+
+        if (isNaN(d1) || isNaN(d2)) {
+            throw new Error("Invalid date format. Use 'YYYY-MM-DD' or a valid Date object.");
+        }
+
+        const utc1 = Date.UTC(d1.getFullYear(), d1.getMonth(), d1.getDate());
+        const utc2 = Date.UTC(d2.getFullYear(), d2.getMonth(), d2.getDate());
+
+        const msPerDay = 1000 * 60 * 60 * 24;
+        return Math.floor((utc2 - utc1) / msPerDay);
+    } catch (err) {
+        console.error(err.message);
+        return null;
+    }
+}

@@ -12,6 +12,8 @@ export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
   const userId = session.user.id;
   const token = session.accessToken;
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedHabit, setSelectedHabit] = useState(null);
 
   const load = async () => {
     try {
@@ -55,6 +57,16 @@ export default function HabitsPage({ session, onLogout }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, token]);
 
+  const opennModal = (habit) => {
+    setSelectedHabit(habit);
+    setOpenModal(true);
+    
+  }
+  const closeModal = () => {
+    setOpenModal(false);
+  }
+
+
   return (
     <div className="container py-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
@@ -62,13 +74,10 @@ export default function HabitsPage({ session, onLogout }) {
       </div>
 
       <HabitForm onAdd={add} />
-      
-<HabitInfoModal
-
-/>
 
 
-      <HabitGrid habits={habits} onDelete={remove} onCheck={check} />
+      <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} />
+      { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
       <Calender habits={habits} />
     </div>
   );
