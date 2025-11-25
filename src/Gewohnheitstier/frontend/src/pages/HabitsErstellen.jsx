@@ -1,10 +1,17 @@
 // HabitsErstellen.jsx
-import HabitCreateContent from "../HabitCreateContent";
+import React from "react";
+import {
+  addHabit as apiAddHabit,
+} from "../api/habitsApi";
+import HabitCreateContent from "../components/HabitCreateContent";
 
-export default function HabitsErstellen() {
-  const handleCreateHabit = (habitData) => {
-    // hier Habit speichern (API-Call / Zustand aktualisieren)
-    // und anschließend z. B. zurück auf die Übersicht navigieren
+export default function HabitsErstellen({userId}) {
+  const add = async (name, desc) => {
+      try {
+        await apiAddHabit({ userId, name, desc });
+      } catch (err) {
+        console.error('Anlegen fehlgeschlagen:', err.message);
+      }
   };
 
   const handleCancel = () => {
@@ -13,7 +20,7 @@ export default function HabitsErstellen() {
 
   return (
     <HabitCreateContent
-      onSubmit={handleCreateHabit}
+      onSubmit={add}
       onCancel={handleCancel}
     />
   );

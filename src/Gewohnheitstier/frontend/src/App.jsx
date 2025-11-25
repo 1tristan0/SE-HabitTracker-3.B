@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import HabitsPage from './pages/HabitsPage';
+import HabitsErstellen from './pages/HabitsErstellen';
 import {
   getSession,
   onAuthStateChange,
@@ -11,6 +12,8 @@ import {
   register,
   logout,
 } from './api/authApi';
+import Navbar from './components/Navbar';
+import { Route, Routes } from 'react-router-dom';
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -109,5 +112,19 @@ export default function App() {
   }
 
   // ==== Authentifizierte Ansicht ====
-  return <HabitsPage userId={session.user.id} onLogout={handleLogout} />;
+  return (
+    <>
+      <Navbar onLogout={handleLogout} />
+      <Routes>
+        <Route
+          path="/"
+          element={<HabitsPage userId={session.user.id} view="overview" />}
+        />
+        <Route
+          path="/add"
+          element={<HabitsErstellen userId={session.user.id} view="add" />}
+        />
+      </Routes>
+    </>
+  );
 }

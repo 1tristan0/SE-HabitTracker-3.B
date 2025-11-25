@@ -1,18 +1,13 @@
 // client/src/pages/HabitsPage.jsx
 import { useEffect, useState } from 'react';
-import HabitForm from '../components/HabitForm';
-import Navbar from '../components/Navbar';
 import HabitGrid from '../components/HabitGrid';
 
 import {
   fetchHabits,
-  addHabit as apiAddHabit,
   deleteHabit as apiDeleteHabit,
   toggleHabitToday,
 } from '../api/habitsApi';
 import Calender from '../components/Calender';
-import HabitInfoModal from '../components/HabitInfoModal';
-import HabitCreateContent from '../components/HabitCreateContent';
 
 export default function HabitsPage({ userId, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -23,15 +18,6 @@ export default function HabitsPage({ userId, onLogout }) {
       setHabits(data);
     } catch (err) {
       console.error('Laden fehlgeschlagen:', err.message);
-    }
-  };
-
-  const add = async (name, desc) => {
-    try {
-      await apiAddHabit({ userId, name, desc });
-      await load();
-    } catch (err) {
-      console.error('Anlegen fehlgeschlagen:', err.message);
     }
   };
 
@@ -61,15 +47,6 @@ export default function HabitsPage({ userId, onLogout }) {
 
   return (
     <div className="container py-5">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <Navbar onLogout={onLogout} />
-      </div>
-
-      <HabitForm onAdd={add} />
-      
-<HabitCreateContent
-
-/>
 
 
       <HabitGrid habits={habits} onDelete={remove} onCheck={check} />

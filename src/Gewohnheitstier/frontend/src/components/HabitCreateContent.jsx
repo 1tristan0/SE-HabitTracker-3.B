@@ -10,16 +10,16 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
     if (!name.trim()) return; // simple Validation
 
     if (onSubmit) {
-      onSubmit({
-        name: name.trim(),
-        description: description.trim(),
-      });
+      onSubmit(
+        name.trim(),
+        description.trim()
+      );
     }
+    window.location.href = "/"; // Zurück zur Übersicht navigieren
   };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
-      {/* Optional: Navbar-Höhe freilassen, falls ihr eine habt */}
       <main className="flex-1 flex items-start justify-center px-4 py-10">
         <div className="w-full max-w-4xl">
           {/* Kopfbereich */}
@@ -32,16 +32,6 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
                 Gib deiner Gewohnheit einen klaren Namen und eine kurze Beschreibung.
               </p>
             </div>
-
-            {onCancel && (
-              <button
-                type="button"
-                onClick={onCancel}
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-600 hover:bg-slate-100 transition"
-              >
-                ⟵ Zurück zur Übersicht
-              </button>
-            )}
           </div>
 
           {/* Inhalt */}
@@ -101,15 +91,6 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
                   Felder mit <span className="text-red-500">*</span> sind erforderlich.
                 </p>
                 <div className="flex gap-2">
-                  {onCancel && (
-                    <button
-                      type="button"
-                      onClick={onCancel}
-                      className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 transition"
-                    >
-                      Abbrechen
-                    </button>
-                  )}
                   <button
                     type="submit"
                     disabled={!name.trim()}
