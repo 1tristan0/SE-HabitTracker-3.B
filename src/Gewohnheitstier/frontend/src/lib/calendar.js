@@ -1,4 +1,16 @@
-import { dateOnly } from "./convert";
+import { dateOnlyBerlin as dateOnly } from "./convert";
+
+// helper: whether a habit existed on a given day (based on start_date)
+const habitExistedOnDay = (habit, day) => {
+  // if no start_date provided, assume it existed
+  if (!habit?.start_date) return true;
+  try {
+    const start = dateOnly(habit.start_date);
+    return start <= day;
+  } catch (e) {
+    return true;
+  }
+};
 
 export function getMonthMatrix(year, month) {
   // month: 0-11
@@ -47,6 +59,10 @@ export function isEveryHabitChecked(habits, day) {
   if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
   if (!day) return 0; // kein Datum angegeben
 
+  // only consider habits that existed on that day
+  const applicable = habits.filter((h) => habitExistedOnDay(h, day));
+  if (applicable.length === 0) return 0;
+
   const isHabitCheckedOn = (habit, d) => {
     if (dateOnly(habit.last_checked) === d) return true;
 
@@ -79,18 +95,21 @@ export function isEveryHabitChecked(habits, day) {
     return false;
   };
 
-  const completedCount = habits.reduce((acc, habit) => acc + (isHabitCheckedOn(habit, day) ? 1 : 0), 0);
+  const completedCount = applicable.reduce((acc, habit) => acc + (isHabitCheckedOn(habit, day) ? 1 : 0), 0);
 
-  if (completedCount === habits.length) return true;
+  if (completedCount === applicable.length) return true;
 
   // return percentage rounded to nearest integer
-  return Math.round((completedCount / habits.length) * 100);
+  return Math.round((completedCount / applicable.length) * 100);
 }
 
 export function getCheckedHabiitsFromDay(habits, day) {
-  if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
-  if (!day) return 0; // kein Datum angegeben
-  return habits.filter((habit) => {
+  if (!Array.isArray(habits) || habits.length === 0) return [];
+  if (!day) return [];
+  // only consider habits that existed on that day
+  const applicable = habits.filter((h) => habitExistedOnDay(h, day));
+  if (applicable.length === 0) return [];
+  return applicable.filter((habit) => {
     if (dateOnly(habit.last_checked) === day) return true;
     const prev = habit.prev_last_checked;
     if (!prev) return false;
@@ -115,12 +134,14 @@ export function getCheckedHabiitsFromDay(habits, day) {
       }
     }
     return false;
-});
+  });
 }
 export function getUncheckedHabitsFromDay(habits, day) {
-  if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
-  if (!day) return 0; // kein Datum angegeben
-  return habits.filter((habit) => {
+  if (!Array.isArray(habits) || habits.length === 0) return [];
+  if (!day) return [];
+  const applicable = habits.filter((h) => habitExistedOnDay(h, day));
+  if (applicable.length === 0) return [];
+  return applicable.filter((habit) => {
     if (dateOnly(habit.last_checked) === day) return false;
     const prev = habit.prev_last_checked;
     if (!prev) return true;
