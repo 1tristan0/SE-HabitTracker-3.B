@@ -1,6 +1,7 @@
 = Verzeichnisstruktur vor und nach dem Refactoring #144
 Paul Händler 
-2025-11-20
+2025-11-20 
+Updated 2025-11-28
 :toc:
 
 == Ausgangszustand (vor dem Refactoring)
@@ -75,12 +76,11 @@ src
     └── readme.txt
 ----
 
-== Istzustand (nach dem Refactoring)
+== Istzustand (nach dem Refactoring inkl. Änderungen 2025-11-28)
 
 [listing]
 ----
-src
-└── Gewohnheitstier
+    src
     ├── backend
     │   ├── index.js
     │   ├── package-lock.json
@@ -173,6 +173,13 @@ Damit ist die Prisma-Konfiguration jetzt als `.js`-Datei im neuen `backend`-Verz
 ** *Vorher*: `project/client/src/...`
 ** *Nachher*: `frontend/src/...`
 * Die Datei `Appalt.js` ist in der neuen Struktur nicht mehr vorhanden.
+
+=== Update 2025-11-28
+* Verzeichnis 'Gewohnheitstier' wurde entfernt
+* Pfadanpassung:
+** *Vorher*: `/src/Gewohnheitstier/frontend` & `/src/Gewohnheitstier/backend`
+** *Nachher*: `/src/frontend` & `/src/backend`
+
 
 
 
