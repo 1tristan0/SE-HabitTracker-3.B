@@ -1,0 +1,74 @@
+= Code & Struktur Audit
+:toc:
+:toclevels: 2
+
+Überblick über Verzeichnisstruktur, Aufgaben der Dateien, aktuelle Abweichungen von Best Practices/Separation of Concerns, Testideen und ein sinnvoller Zielzustand.
+
+== Verzeichnis & Dateien (kurz)
+* Root-Doku: link:../../README.md[README.md] – Vorlagehinweise (AsciiDoc).
+* Projekt-Docs: link:../../docs[docs] – SE-Dokumente, Projektplan etc.
+* App-Code: link:../../src[src] – enthält Backend, Frontend, Docker-Setup.
+** link:../../src/docker-compose.yml[docker-compose.yml] – Dev-Compose, startet Backend (Express/Prisma) und Frontend (CRA/Vite-Ports).
+** link:../../src/Dockerfile.dev[Dockerfile.dev] – Basis-Dockerfile für beide Services.
+** link:../../src/backend[backend] – Node/Express + Prisma.
+*** link:../../src/backend/package.json[package.json] – Dependencies (`express`, `@prisma/client`, `cors`, `nodemon`), Skripte (`dev`, `start`, `prisma:generate`).
+*** link:../../src/backend/index.js[index.js] – Express-Server, Routen `/`, `/api/hello`, `/api/habits` (Prisma-Query + BigInt→String).
+*** link:../../src/backend/.env[.env] – `DATABASE_URL` (Supabase-Postgres).
+*** link:../../src/backend/prisma/schema.prisma[schema.prisma] – Prisma-Schema (Modelle `habits_table`, `users`).
+*** link:../../src/backend/prisma.config.js[prisma.config.js] – Prisma-Konfiguration (Schema, Migrationspfad, Engine).
+*** link:../../src/backend/src/prisma.js[src/prisma.js] – PrismaClient-Factory mit Logging.
+** link:../../src/frontend[frontend] – React (Create React App) + Supabase.
+*** link:../../src/frontend/package.json[package.json] – CRA-Skripte, Supabase/Bootstrap, Tests mit react-scripts.
+*** link:../../src/frontend/tailwind.config.js[tailwind.config.js] – minimale Tailwind-Konfiguration (derzeit kaum genutzt).
+*** link:../../src/frontend/src/supabaseClient.js[supabaseClient.js] – Supabase-Client aus Env-Variablen.
+*** link:../../src/frontend/src/api/authApi.js[api/authApi.js] – Auth-Funktionen (Session, Login, Register, Logout).
+*** link:../../src/frontend/src/api/habitsApi.js[api/habitsApi.js] – CRUD/Toggle auf `habits_table` via Supabase.
+*** link:../../src/frontend/src/App.jsx[App.jsx] – Auth-Flow, rendert Login/Registrierung oder HabitsPage.
+*** link:../../src/frontend/src/pages/HabitsPage.jsx[pages/HabitsPage.jsx] – Daten laden und an UI-Komponenten weiterreichen.
+*** link:../../src/frontend/src/components/*[components] – UI (Navbar, HabitForm, HabitGrid/Card, Calender, HabitList-Demos).
+*** link:../../src/frontend/src/lib/*[lib] – Hilfen (Datum/Monatsformat, Kalendermatrix).
+
+== Auffälligkeiten / Verstöße gegen Best Practices & SoC
+* Backend/Frontend Kopplung: Frontend greift direkt via Supabase auf DB, Backend existiert parallel (Express/Prisma) ohne Verwendung durch Frontend → doppelte Zugriffswege, keine klare API-Grenze.
+* Auth/DB im Client: Business-Logik (Toggle, Streak-Pflege) liegt im Browser (`habitsApi.js`), nicht serverseitig; Policies müssen streng sein, sonst Sicherheitsrisiko.
+* BigInt-Handling: Manuelles String-Casting im Route-Handler (`/api/habits`); fehlende zentrale Serializer-Middleware.
+* Fehlende Fehlerbehandlung/Logging: Express-Routen minimal, kein zentrales Error-Handling, keine Health/Ready-Checks.
+* Prisma-Client-Pfad: Output im Quellordner (`src/generated/prisma`) statt im Standard `.prisma/client` → unüblich, aber funktional.
+* Env-Handling: Supabase Keys nicht dokumentiert für Frontend (.env.sample fehlt); DB-URL liegt unverschlüsselt im Repo.
+* Tests: Keine Tests im Backend; Frontend hat CRA-Test-Setup, aber keine fachlichen Tests. Keine End-to-End-Tests.
+* UI-State/Navigation: Hash-Navigation in Navbar ohne Router; mögliche Inkonsistenzen bei Refresh.
+* Kalender-Logik: Toggle-Logik akzeptiert unterschiedliche Formate von `prev_last_checked`, aber keine Normalisierung beim Laden/Speichern → potenziell inkonsistent.
+* Docker: Volumes auskommentiert → Hot-Reload in Containern nicht aktiv; `npm install` bei jedem Start (langsamer).
+
+== Testideen
+* Backend (Jest/Supertest):
+** Unit: Serializer für BigInt, Helper zum Mapping Prisma→JSON.
+** Integration: `/api/habits` gegen Mock-DB (sqlite) mit Prisma-Test-Client.
+* Frontend (React Testing Library):
+** Auth-Flow Mock (Supabase-Client mocken): zeigt Login vs. HabitsPage.
+** HabitsPage: Add/Delete/Toggle mit mock `habitsApi`.
+** Komponenten: HabitCard (checked state), Calender (Prozentanzeige).
+* E2E (Playwright/Cypress):
+** Login, Habit anlegen, Toggle, Anzeige im Kalender.
+* Contract Tests:
+** Falls Frontend auf eigenes API umgestellt wird: Pact/Schema-Tests zwischen Frontend-Client und Backend.
+
+== Sinnvoller Zielzustand (Software-Engineering-Prinzipien)
+* Klare Schichtentrennung:
+** Option A: Frontend über eigenes REST/GraphQL-Backend (Express/Prisma) → Supabase nur als Postgres; alle Daten- und Business-Logik serverseitig, Frontend ruft nur Backend an.
+** Option B: Voller Supabase-Stack (Auth + DB + Edge Functions/RPC) → Express entfallen lassen; Logik in Supabase Functions/SQL-RPC kapseln.
+* Konsistenter Datenzugriff: Eine Quelle der Wahrheit (kein Parallelzugriff via Prisma + Supabase-Client).
+* Sicherheit: RLS-Policies vollständig, kein anon-Key für sensible Operationen; Service-Role nur serverseitig.
+* Fehlerbehandlung/Observability: Zentrales Error-Handling im Backend, Logging (HTTP + DB), Health-/Ready-Endpunkte.
+* Config/Env: `.env.example` für Frontend/Backend, Secrets nicht einchecken; klar dokumentierte Variablen.
+* Tests: Mindestabdeckung durch Unit/Integration + wenige E2E-Flows; CI-Pipeline mit Lint/Test/Build.
+* DX/Build: Prisma-Client an Standardort `.prisma/client`, Scripts für Migrationslauf, Seed-Script; Docker mit Volumes für Dev, schnelle Installs (pnpm/yarn cache).
+* UI-Routing: React Router statt Hash-Links, State-Management klar (Query-Client oder Context für Habits).
+* Daten-Normalisierung: Einheitliches Format für `prev_last_checked` (Array von ISO-Strings) und Normalisierung an einer Stelle (Backend oder RPC).
+
+== Empfohlene erste Schritte
+1. Entscheide dich für Backend-API vs. reines Supabase-RPC/Edge-Functions und entferne den nicht genutzten Pfad.
+2. Füge `.env.example` (Frontend/Backend) hinzu; DB-URL nicht committen.
+3. Richte Basis-Tests ein (Backend: Supertest; Frontend: RTL) für Auth/Todo-Habits-Flows.
+4. Normalisiere Datenzugriff (eine Logik-Schicht), ergänze RLS-Policies oder Server-Guards.
+5. Optional: React Router für Navigation, Volume-Mounts im Docker-Dev für Hot-Reload.

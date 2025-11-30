@@ -1,0 +1,66 @@
+= Supabase Guide
+:toc:
+:toclevels: 2
+
+Kurzer Überblick, wie Supabase hier genutzt wird (Auth + Datenzugriff aus dem React-Frontend, Postgres-URL im Backend).
+
+== Clients & Umgebungsvariablen
+* Frontend-Client: link:../../src/frontend/src/supabaseClient.js[supabaseClient.js] erstellt Supabase-Client aus `REACT_APP_SUPABASE_URL` und `REACT_APP_SUPABASE_ANON_KEY`.
+* Env-Datei für CRA: `.env` im Frontend (nicht eingecheckt) mit:
+** `REACT_APP_SUPABASE_URL=<https://...supabase.co>`
+** `REACT_APP_SUPABASE_ANON_KEY=<anon key>`
+* Backend-Datenquelle: `DATABASE_URL` in link:../../src/backend/.env[backend/.env] (Supabase-Postgres) wird von Prisma genutzt.
+* Docker: `docker-compose.yml` lädt `backend/.env` in den Backend-Container; Frontend-Env musst du lokal setzen oder per Compose ergänzen.
+
+== Auth-Flow (Frontend)
+* API-Kapsel: link:../../src/frontend/src/api/authApi.js[authApi.js]
+** `getSession()` – liest aktuelle Session.
+** `onAuthStateChange(cb)` – Listener für Login/Logout/Token-Refresh.
+** `login(email, password)`, `register(email, password)`, `logout()`.
+* App-Integration: link:../../src/frontend/src/App.jsx[App.jsx]
+** Lädt Session on mount, abonniert Auth-Events.
+** Zeigt Login/Register-Formulare, danach `HabitsPage` mit `session.user.id`.
+
+== Datenmodell (Supabase Tabellen)
+* Tabelle: `habits_table` (siehe Prisma-Schema link:../../src/backend/prisma/schema.prisma[schema.prisma]) mit Feldern `id (bigint)`, `habit_name`, `description`, `start_date`, `streak`, `last_checked`, `prev_last_checked` (array/timestamptz), `user_id (uuid)`.
+* Tabelle: `users` (Basisfelder für Nutzer/Streak-Infos).
+* Erwartung: `user_id` in `habits_table` entspricht Supabase-Auth-User-ID (`session.user.id`).
+
+== Datenzugriff im Frontend
+* API-Layer: link:../../src/frontend/src/api/habitsApi.js[habitsApi.js] – alle Aufrufe direkt gegen Supabase:
+** `fetchHabits(userId)` – select mit Filter `user_id = userId`, sortiert nach `start_date`.
+** `addHabit({ userId, name, desc })` – insert mit Startdatum heute, `streak = 0`, `prev_last_checked = []`.
+** `deleteHabit({ userId, id })` – delete mit `id` und `user_id` Guard.
+** `toggleHabitToday({ habitId, userId })` – liest Habit, prüft ob `last_checked` == heute, setzt/entfernt `last_checked`, pflegt `prev_last_checked`, erhöht/verringert `streak`, gibt aktualisierte Zeile zurück.
+* UI-Verbrauch: link:../../src/frontend/src/pages/HabitsPage.jsx[HabitsPage.jsx] ruft obige Funktionen auf (Laden, Hinzufügen, Löschen, Toggle) und reicht Daten an Komponenten weiter.
+
+== Komponenten mit Supabase-Daten
+* Habits-Ansichten: link:../../src/frontend/src/components/HabitGrid.jsx[HabitGrid.jsx], link:../../src/frontend/src/components/HabitCard.jsx[HabitCard.jsx] – darstellen, löschen, toggle heute.
+* Kalender: link:../../src/frontend/src/components/Calender.jsx[Calender.jsx] – nutzt `habits` inkl. `last_checked`/`prev_last_checked` zur Tageserledigung/Prozentanzeige.
+
+== Sicherheit / RLS
+* Falls Supabase Row Level Security aktiv ist, stelle sicher:
+** Policies erlauben Zugriff nur, wenn `user_id = auth.uid()` für `select/insert/update/delete` auf `habits_table`.
+** Policies für `users` nach Bedarf anlegen oder Tabelle ungeschützt lassen.
+* Die aktuelle Codebasis filtert clientseitig nach `user_id`, Policies sollten serverseitig enforced werden.
+
+== Typische Fehlerquellen & Checks
+* 401/403 bei Supabase-Calls: Prüfe, ob Session existiert und Policies korrekt sind.
+* Leere Daten nach Login: `user_id` in Tabelle muss mit Auth-User-ID übereinstimmen.
+* BigInt im Backend: Prisma wandelt BigInt zu JS-BigInt; bei JSON-Ausgabe werden sie in link:../../src/backend/index.js[index.js] in Strings konvertiert.
+* Toggle-Fehler: Bei älteren Daten prüfen, ob `prev_last_checked` als Array vorliegt; `habitsApi` versucht Strings/Objekte tolerant zu parsen.
+
+== Nützliche CLI-Snippets
+* Supabase SQL-Konsole: Policies definieren, z.B.:
++
+[source,sql]
+----
+create policy "habits_select_own"
+  on public.habits_table
+  for select using (user_id = auth.uid());
+-- ähnliche Policies für insert/update/delete
+----
+
+== ToDos (falls erweitert werden soll)
+* Service-Role-Key nicht im Client verwenden; Admin-Operationen serverseitig halten.
+* Optionale RPCs für Toggle/Insert statt Client-Logik, um Logik in der DB zu zentralisieren.
