@@ -12,29 +12,28 @@
 ** link:../../src/Dockerfile.dev[Dockerfile.dev] – Basis-Dockerfile für beide Services.
 ** link:../../src/backend[backend] – Node/Express + Prisma.
 *** link:../../src/backend/package.json[package.json] – Dependencies (`express`, `@prisma/client`, `cors`, `nodemon`), Skripte (`dev`, `start`, `prisma:generate`).
-*** link:../../src/backend/index.js[index.js] – Express-Server, Routen `/`, `/api/hello`, `/api/habits` (Prisma-Query + BigInt→String).
+*** link:../../src/backend/index.js[index.js] – Express-Server, bindet Auth-/Habit-Routen ein.
 *** link:../../src/backend/.env[.env] – `DATABASE_URL` (Supabase-Postgres).
 *** link:../../src/backend/prisma/schema.prisma[schema.prisma] – Prisma-Schema (Modelle `habits_table`, `users`).
 *** link:../../src/backend/prisma.config.js[prisma.config.js] – Prisma-Konfiguration (Schema, Migrationspfad, Engine).
 *** link:../../src/backend/src/prisma.js[src/prisma.js] – PrismaClient-Factory mit Logging.
-** link:../../src/frontend[frontend] – React (Create React App) + Supabase.
-*** link:../../src/frontend/package.json[package.json] – CRA-Skripte, Supabase/Bootstrap, Tests mit react-scripts.
+*** link:../../src/backend/src/routes[ routes] – REST-API (`/api/auth`, `/api/habits`) + Auth-Middleware gegen Supabase.
+** link:../../src/frontend[frontend] – React (Create React App).
+*** link:../../src/frontend/package.json[package.json] – CRA-Skripte, Bootstrap, Tests mit react-scripts.
 *** link:../../src/frontend/tailwind.config.js[tailwind.config.js] – minimale Tailwind-Konfiguration (derzeit kaum genutzt).
-*** link:../../src/frontend/src/supabaseClient.js[supabaseClient.js] – Supabase-Client aus Env-Variablen.
-*** link:../../src/frontend/src/api/authApi.js[api/authApi.js] – Auth-Funktionen (Session, Login, Register, Logout).
-*** link:../../src/frontend/src/api/habitsApi.js[api/habitsApi.js] – CRUD/Toggle auf `habits_table` via Supabase.
+*** link:../../src/frontend/src/api/httpClient.js[api/httpClient.js] – HTTP-Wrapper zum Backend (Bearer-Token).
+*** link:../../src/frontend/src/api/authApi.js[api/authApi.js] – Auth-Funktionen (Login, Register, Logout, Session) via Backend.
+*** link:../../src/frontend/src/api/habitsApi.js[api/habitsApi.js] – CRUD/Toggle auf `habits_table` via Backend.
 *** link:../../src/frontend/src/App.jsx[App.jsx] – Auth-Flow, rendert Login/Registrierung oder HabitsPage.
 *** link:../../src/frontend/src/pages/HabitsPage.jsx[pages/HabitsPage.jsx] – Daten laden und an UI-Komponenten weiterreichen.
 *** link:../../src/frontend/src/components/*[components] – UI (Navbar, HabitForm, HabitGrid/Card, Calender, HabitList-Demos).
 *** link:../../src/frontend/src/lib/*[lib] – Hilfen (Datum/Monatsformat, Kalendermatrix).
 
 == Auffälligkeiten / Verstöße gegen Best Practices & SoC
-* Backend/Frontend Kopplung: Frontend greift direkt via Supabase auf DB, Backend existiert parallel (Express/Prisma) ohne Verwendung durch Frontend → doppelte Zugriffswege, keine klare API-Grenze.
-* Auth/DB im Client: Business-Logik (Toggle, Streak-Pflege) liegt im Browser (`habitsApi.js`), nicht serverseitig; Policies müssen streng sein, sonst Sicherheitsrisiko.
-* BigInt-Handling: Manuelles String-Casting im Route-Handler (`/api/habits`); fehlende zentrale Serializer-Middleware.
-* Fehlende Fehlerbehandlung/Logging: Express-Routen minimal, kein zentrales Error-Handling, keine Health/Ready-Checks.
+* Auth/Token-Handling: Backend validiert jeden Request live gegen Supabase (`/auth/v1/user`), aber es gibt kein Refresh-Handling/Token-Rotation und keine Rate-Limits.
+* Fehlerbehandlung/Logging: Express-Routen haben kein zentrales Error-Handling, keine Health/Ready-Checks.
 * Prisma-Client-Pfad: Output im Quellordner (`src/generated/prisma`) statt im Standard `.prisma/client` → unüblich, aber funktional.
-* Env-Handling: Supabase Keys nicht dokumentiert für Frontend (.env.sample fehlt); DB-URL liegt unverschlüsselt im Repo.
+* Env-Handling: Supabase-Keys gehören ins Backend, aber `.env.example` fehlt weiterhin; DB-URL liegt unverschlüsselt im Repo.
 * Tests: Keine Tests im Backend; Frontend hat CRA-Test-Setup, aber keine fachlichen Tests. Keine End-to-End-Tests.
 * UI-State/Navigation: Hash-Navigation in Navbar ohne Router; mögliche Inkonsistenzen bei Refresh.
 * Kalender-Logik: Toggle-Logik akzeptiert unterschiedliche Formate von `prev_last_checked`, aber keine Normalisierung beim Laden/Speichern → potenziell inkonsistent.
@@ -67,8 +66,7 @@
 * Daten-Normalisierung: Einheitliches Format für `prev_last_checked` (Array von ISO-Strings) und Normalisierung an einer Stelle (Backend oder RPC).
 
 == Empfohlene erste Schritte
-1. Entscheide dich für Backend-API vs. reines Supabase-RPC/Edge-Functions und entferne den nicht genutzten Pfad.
-2. Füge `.env.example` (Frontend/Backend) hinzu; DB-URL nicht committen.
-3. Richte Basis-Tests ein (Backend: Supertest; Frontend: RTL) für Auth/Todo-Habits-Flows.
-4. Normalisiere Datenzugriff (eine Logik-Schicht), ergänze RLS-Policies oder Server-Guards.
-5. Optional: React Router für Navigation, Volume-Mounts im Docker-Dev für Hot-Reload.
+1. `.env.example` nachziehen (Backend: `DATABASE_URL`, `SUPABASE_URL`, `SUPABASE_ANON_KEY`; Frontend: `REACT_APP_API_BASE_URL`).
+2. Token-Handling härten (Refresh/Rotation, Caching von User-Infos statt pro Request gegen Supabase zu callen).
+3. Tests ergänzen (Backend: Supertest für `/api/auth` und `/api/habits`; Frontend: RTL-Mocks für API-Client).
+4. Optional: React Router für Navigation, Volume-Mounts im Docker-Dev für Hot-Reload.

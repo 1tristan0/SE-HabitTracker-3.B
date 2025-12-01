@@ -5,11 +5,13 @@ import './App.css';
 
 import HabitsPage from './pages/HabitsPage';
 import {
-  getSession,
-  onAuthStateChange,
   login,
   register,
   logout,
+  fetchSession,
+  persistSession,
+  loadSession,
+  clearSession,
 } from './api/authApi';
 
 export default function App() {
@@ -18,49 +20,64 @@ export default function App() {
   const [password, setPassword] = useState('');
   const [isLoginView, setIsLoginView] = useState(true);
 
-  // ==== Auth-Initialisierung ====
   useEffect(() => {
-    // Session beim Start laden
-    getSession()
-      .then((s) => setSession(s))
-      .catch((err) => console.error('Session-Fehler:', err.message));
+    const cached = loadSession();
+    if (!cached?.accessToken) return;
 
-    // Realtime-Listener auf Login/Logout
-    const subscription = onAuthStateChange((session) => setSession(session));
-    return () => subscription.subscription.unsubscribe();
+    fetchSession(cached.accessToken)
+      .then(({ user }) => setSession({ ...cached, user }))
+      .catch(() => clearSession());
   }, []);
 
-  // ==== Login ====
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await login(email, password);
+      const result = await login(email, password);
+      const next = {
+        accessToken: result.accessToken,
+        refreshToken: result.refreshToken,
+        user: result.user,
+      };
+      persistSession(next);
+      setSession(next);
     } catch (err) {
       alert('Login fehlgeschlagen: ' + err.message);
     }
   };
 
-  // ==== Registrierung ====
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await register(email, password);
-      alert('Bestätigungslink wurde an deine E-Mail geschickt.');
+      const result = await register(email, password);
+      if (result.session?.accessToken) {
+        const next = {
+          accessToken: result.session.accessToken,
+          refreshToken: result.session.refreshToken,
+          user: result.user,
+        };
+        persistSession(next);
+        setSession(next);
+      } else {
+        alert('Bestätigungslink wurde an deine E-Mail geschickt.');
+      }
     } catch (err) {
       alert('Registrierung fehlgeschlagen: ' + err.message);
     }
   };
 
-  // ==== Logout ====
   const handleLogout = async () => {
     try {
-      await logout();
+      if (session?.accessToken) {
+        await logout(session.accessToken);
+      }
     } catch (err) {
       console.error('Logout-Fehler:', err.message);
+    } finally {
+      clearSession();
+      setSession(null);
     }
   };
 
-  // ==== Login/Registrierung ====
   if (!session) {
     return (
       <div className="container py-5" style={{ maxWidth: 400 }}>
@@ -108,6 +125,5 @@ export default function App() {
     );
   }
 
-  // ==== Authentifizierte Ansicht ====
-  return <HabitsPage userId={session.user.id} onLogout={handleLogout} />;
+  return <HabitsPage session={session} onLogout={handleLogout} />;
 }

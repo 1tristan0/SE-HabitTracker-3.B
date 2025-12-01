@@ -6,15 +6,15 @@ Kurzer, klickbarer Überblick über Struktur und Funktionen des Projekts (Backen
 
 == Struktur
 * Backend (Express + Prisma): link:../../src/backend[index.js, Prisma-Setup]
-* Frontend (React + Supabase): link:../../src/frontend/src[React-App mit Auth und Habits-UI]
+* Frontend (React + API-Layer): link:../../src/frontend/src[React-App mit Auth und Habits-UI]
 * Container/Dev: link:../../src/docker-compose.yml[docker-compose], link:../../src/Dockerfile.dev[Dockerfile]
 
 == Backend (Express + Prisma)
 === link:../../src/backend/index.js[index.js]
-- Init: Express, CORS, JSON-Parsing; Prisma-Client-Import.
+- Init: Express, CORS, JSON-Parsing; bindet Auth-/Habit-Router.
 - `GET /` liefert kurzen Hello-Text.
-- `GET /api/hello` liefert JSON `{ msg }`.
-- `GET /api/habits` holt alle `habits_table`-Zeilen, wandelt BigInt-Felder in Strings und liefert JSON.
+- `POST /api/auth/*` – Login/Register/Session/Logout via Supabase Auth REST (siehe link:../../src/backend/src/routes/auth.js[auth.js]).
+- `GET/POST/DELETE /api/habits` – CRUD + Toggle mit Prisma inkl. Auth-Middleware (siehe link:../../src/backend/src/routes/habits.js[habits.js]).
 - Serverstart auf `PORT` (Default 5000) und `0.0.0.0`.
 
 === Prisma
@@ -25,19 +25,21 @@ Kurzer, klickbarer Überblick über Struktur und Funktionen des Projekts (Backen
 * link:../../src/backend/prisma.config.js[prisma.config.js] – Prisma-Konfiguration (Schema-Pfad, Migrationspfad, Engine „classic“, Datasource aus `DATABASE_URL`).
 * link:../../src/backend/.env[.env] – `DATABASE_URL` (Supabase-Postgres).
 * link:../../src/backend/package.json[package.json] – Skripte: `dev` (nodemon), `start` (node), `prisma:generate`.
+* link:../../src/backend/src/supabaseAuth.js[src/supabaseAuth.js] – REST-Client für Supabase Auth (URL + anon Key).
+* link:../../src/backend/src/middleware/authenticate.js[middleware/authenticate.js] – validiert Bearer-Token über Supabase.
 
-== Frontend (React + Supabase)
+== Frontend (React + API)
 === App und Auth
-* link:../../src/frontend/src/App.jsx[App.jsx] – Lädt Supabase-Session, Login/Registrierung/Logout; zeigt Login-Form oder `HabitsPage` nach Auth.
-* link:../../src/frontend/src/supabaseClient.js[supabaseClient.js] – erstellt Supabase-Client aus `REACT_APP_SUPABASE_URL`/`REACT_APP_SUPABASE_ANON_KEY`.
-* link:../../src/frontend/src/api/authApi.js[api/authApi.js] – Auth-Funktionen: `getSession`, `onAuthStateChange`, `login`, `register`, `logout`.
+* link:../../src/frontend/src/App.jsx[App.jsx] – Lädt gespeicherten Token, Login/Registrierung/Logout; zeigt Login-Form oder `HabitsPage` nach Auth.
+* link:../../src/frontend/src/api/httpClient.js[api/httpClient.js] – Backend-HTTP-Client mit optionalem Bearer-Token.
+* link:../../src/frontend/src/api/authApi.js[api/authApi.js] – Auth-Funktionen: `login`, `register`, `logout`, `fetchSession` + Persistierung in `localStorage`.
 
 === Habits-API-Layer
 * link:../../src/frontend/src/api/habitsApi.js[api/habitsApi.js]
-** `fetchHabits(userId)` – liest Habits des Users, sortiert nach Startdatum.
-** `addHabit({ userId, name, desc })` – legt Habit mit heutigem Startdatum an.
-** `deleteHabit({ userId, id })` – löscht Habit des Users.
-** `toggleHabitToday({ habitId, userId })` – holt Habit, prüft ob heute erledigt; setzt/entfernt `last_checked`, pflegt `prev_last_checked`, passt `streak` an und gibt aktualisierte Zeile zurück.
+** `fetchHabits(token)` – liest Habits des Users, sortiert nach Startdatum.
+** `addHabit(token, { name, desc })` – legt Habit mit heutigem Startdatum an.
+** `deleteHabit(token, id)` – löscht Habit des Users.
+** `toggleHabitToday(token, habitId)` – Toggle/Uncheck-Logik liegt im Backend; Endpoint liefert aktualisierte Zeile zurück.
 
 === Seiten & Komponenten
 * link:../../src/frontend/src/pages/HabitsPage.jsx[HabitsPage.jsx] – lädt Habits, delegiert Add/Delete/Check an API, rendert Navbar, HabitForm, HabitGrid, Calender.
