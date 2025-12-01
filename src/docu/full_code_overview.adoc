@@ -2,7 +2,7 @@
 :toc:
 :toclevels: 3
 
-Diese Beschreibung soll ohne Fachchinesisch auskommen. Kerngedanke: Der Browser spricht nur mit unserem eigenen Server. Der Server regelt Anmeldung und Datenbankzugriffe; die Datenbank liegt bei Supabase. Supabase selbst nutzen wir nur für Authentifizierung, nicht direkt aus dem Browser.
+Kerngedanke: Der Browser spricht nur mit unserem eigenen Server. Der Server regelt Anmeldung und Datenbankzugriffe; die Datenbank liegt bei Supabase. Supabase selbst nutzen wir nur für Authentifizierung, nicht direkt aus dem Browser.
 
 == Verzeichnisstruktur (kurz)
 ----
