@@ -36,3 +36,13 @@ export const dateOnlyBerlin = (ts) => {
 export const todayAsStringBerlin = () => {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' }).format(new Date());
 };
+/**
+ * Ist das übergebene Datum in der Zukunft?
+ * @param {*} dateStr istt ein Datum im Format YYYY-MM-DD
+ * @returns 
+ */
+export const isInFuture = (dateStr) => {
+  const today = new Date();
+  const date = new Date(dateStr);
+  return date > today;
+}
