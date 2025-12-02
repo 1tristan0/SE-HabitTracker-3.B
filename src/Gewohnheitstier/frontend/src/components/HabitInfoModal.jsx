@@ -10,9 +10,6 @@ export default function HabitInfoModal({ habit, onClose }) {
       <div className="w-full max-w-2xl mx-4 rounded-2xl bg-slate-900 text-slate-100 shadow-2xl border border-slate-700">
         <div className="flex items-center justify-between border-b border-slate-700 px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-400 text-2xl">
-              
-            </div>
             <div>
               <h1 className="text-lg font-semibold leading-tight">
                 {habit ? habit.habit_name : "Habit Name"}

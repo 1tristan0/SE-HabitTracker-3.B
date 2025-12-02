@@ -9,6 +9,7 @@ export default function HabitsErstellen({userId}) {
   const add = async (name, desc) => {
       try {
         await apiAddHabit({ userId, name, desc });
+        console.log("Habit successfully added.");
       } catch (err) {
         console.error('Anlegen fehlgeschlagen:', err.message);
       }

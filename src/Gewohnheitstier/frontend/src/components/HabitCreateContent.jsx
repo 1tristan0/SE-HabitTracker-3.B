@@ -14,6 +14,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
         name.trim(),
         description.trim()
       );
+      console.log("Habit created:", { name, description });
     }
     window.location.href = "/"; // Zurück zur Übersicht navigieren
   };
