@@ -1,6 +1,6 @@
 // client/src/components/HabitCard.jsx
 // Hilfsfunktion zum Formatieren von Datumswerten (z. B. Entfernen von Uhrzeit)
-import { dateOnly } from "../lib/convert";
+import { convertToGermanDateString, dateOnly } from "../lib/convert";
 
 // React-Komponente zur Darstellung einer einzelnen Gewohnheit (Habit)
 export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick = () => {}, onClose = () => {} }) {
@@ -18,13 +18,13 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick
 
         {/* Anzeige des Startdatums */}
         <p className="card-text">
-          <small className="text-muted">Gestartet: {habit.start_date}</small>
+          <small className="text-muted">Gestartet: {convertToGermanDateString(habit.start_date)}</small>
         </p>
 
         {/* Anzeige des letzten Erledigungsdatums (oder „—“, falls noch nie erledigt) */}
         <p className="card-text">
           <small className="text-muted">
-            Letztmalig erledigt: {habit.last_checked ? dateOnly(habit.last_checked) : "—"}
+            Letztmalig erledigt: {habit.last_checked ? convertToGermanDateString(dateOnly(habit.last_checked)) : "—"}
           </small>
         </p>
         {/* Anzeige der Streak) */}
@@ -49,6 +49,8 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick
             className="form-check-input"
             id={`check-${habit.id}`}
             checked={dateOnly(habit.last_checked) === today}
+            onClick={(e) => e.stopPropagation()}
+            onMouseDown={(e) => e.stopPropagation()}
             onChange={(e) => { e.stopPropagation(); onCheck(habit.id, e.target.checked); }}
           />
 
