@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { getCheckedHabiitsFromDay, getMonthMatrix, getUncheckedHabitsFromDay, isEveryHabitChecked } from "../lib/calendar";
-import { monthAndYear, todayAsStringBerlin, dateOnlyBerlin } from "../lib/convert";
+import { monthAndYear, todayAsStringBerlin, dateOnlyBerlin, isInFuture } from "../lib/convert";
 import CalendarModal from "./CalendarModal";
 
 const WEEKDAYS = ["Mo","Di","Mi","Do","Fr","Sa","So"];
@@ -78,6 +78,7 @@ export default function Calender({ habits }) {
                   `py-3 border rounded-md focus:outline-none transition-colors ` +
                   `${cell.inMonth ? "bg-white" : "bg-gray-50 text-gray-400"} ` +
                   `${isToday ? "ring-2 ring-blue-400" : ""} ` +
+                  `${isInFuture(cell.date) ? "cursor-not-allowed bg-gray-600" : "hover:bg-gray-100 cursor-pointer"} ` +
                   {/*}`${completion === true ? "bg-green-600 " : ""}`*/}
                 }
                 aria-pressed={isSelected}
