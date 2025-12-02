@@ -82,6 +82,7 @@ export default function Calender({ habits }) {
                   {/*}`${completion === true ? "bg-green-600 " : ""}`*/}
                 }
                 aria-pressed={isSelected}
+                disabled={isInFuture(cell.date)}
                 onClick={() => {
                   setSelected(dateStr);
                   onDaySelected(dateStr);
