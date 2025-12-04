@@ -1,0 +1,54 @@
+= Meeting 02.12.2025 (weekly)
+Anwesend: Monika, Felix, Tristan (online), Martin, Paul, Nicola (online)
+= Meeting 02.12.2025 (review)
+Anwesend: Monika, Felix, Patrick, Martin, Paul, Nicola (online)
+
+== Besprechen
+-   "Review-Fahrplan"
+    => Laptop Patrick: Login, Registrierung, Habit anlegen, Habit ausfüllen, Habit löschen, Kalenderfunktion
+-   abzugebende Dokumente für Beleg
+-   Konsultation
+
+== Besprechen - Änderungen / Ergänzungen Doku:
+-   Architecture-Notebook:
+    * Annahmen/Abhängigkeiten: Prisma + Docker (stattdessen mpm?)
+    * Arch.-relevante Anforderungen: Responsives Design?
+    
+-   Project-Plan:
+    * Deployment: Beschreibung, wie Client/Server gestartet wird (Paul, Tristan)
+
+== To Do's
+-   Überlegung / Beschreibung der Anwendung von Methoden, die gut bzw. nicht gut funktioniert haben (Team-Tops/Team-Flops) (alle => Miro)
+-   VL nacharbeiten und wichtige Infos zusammenfassen => ?? (Monika => Miro)
+-   Wissensaufbau automatische Doku (Software, UML, Klassen/Methoden) => (Tristan, Paul)
+-   Timeful ausfüllen bis Jahresende (Tristan)
+
+-   Domänen-Modell ändern / anpassen für neue Funktionen (Futter usw.) => nur aktuellen Stand darstellen (zukünftige Planungen raus) (Nicola)
+-   Farben mittels CSS benennen, um Farbkonzept später einführen bzw. ändern zu können (Patrick, Felix)
+
+-   Beginn Anwenderdoku (Felix, Martin)
+-   Planung/Vorbereitung Unit-Tests (Martin, Paul)
+-   Vorbereitung Vortrag Fachaustausch Tests (Martin), z.B. Protokoll für explorative Tests
+-   Frontend-Tests implementieren (Patrick)
+-   Datenstrukturen (DB-Tabellen) ergänzen (Doku Glossar: Martin)
+-   Infos aus Doku Container in Doku (Doku Deployment: Martin)
+
+== Done
+-   Refactoring abgeschlossen, Speicherung über Prisma, Splitten in Front-/Backend
+-   Plan mit Beschreibung für Refactoring (Paul, Tristan)
+-   DB-Abfragen durch Prisma-Funktionen ersetzen (Tristan)
+-   Einlesen in API (Paul, Tristan, Martin) für Refactoring
+-   DB-Schema ändern
+
+== Review
+zu verbessern
+-   abgeschlossene Gewohnheiten Anzahl
+-   Anzeige neu erstellter Habits
+-   Anzeige Anteil abgeschlossener Gewohnheiten nicht sinnvoll, wenn 1x nicht gemacht => nie wieder 100% erreichbar, evtl. nur auf letzten Monat beziehen oder wechselbar (gesamt/letzter Monat)
+-   Kalender als separate Ansicht oder andere Anordnung
+-   evtl. Nachtragen bis 12 Uhr nächster Tag
+-   evtl. Auswahlfeld für Dauer / Wiederholfrequenz
+-   Wochenauswertung und/oder Hervorheben, wenn ein Habit länger nicht gemacht
+
+=> Weekly:  09.12. vor der VL um 13.00 Uhr in Z 136c (Bib-Gruppenarbeitsraum)
+

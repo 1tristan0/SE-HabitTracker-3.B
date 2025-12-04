@@ -1,0 +1,55 @@
+= Review-Moderation (extern)
+
+== 1. Begrüßung & Rahmen
+
+--
+* Kurze Vorstellung der Agenda
+* Ziel: Anwendungen zeigen, Feedback sammeln, gemeinsamer Fachaustausch
+* Rollen der Teilnehmenden kurz nennen
+--
+
+
+== 2. Ablauf pro Team
+
+=== 2.1 Vorstellung (Team)
+
+--
+* 2–3 Minuten Kontext
+* Kurz: Ziel (Vision), wichtigste Funktionen, aktueller Stand
+--
+
+
+=== 2.2 Live-Test (externer Nutzer)
+
+--
+* Externer Nutzer klickt sich durch Anwendung
+* Team sagt nichts außer bei Fragen
+* Beobachtung durch alle anderen
+--
+
+
+=== 2.3 Feedbackrunde
+
+--
+* direktes, kurzes Feedback mit Stärken + Verbesserungen + Fragen  (max. 10 Minuten)
+* Team hört zu, notiert sich Feedback
+* Rechtfertigung nur in geringen Maßen, Fokus auf Zuhören
+--
+
+
+== 3. Mini-Fachaustausch
+
+--
+* Aufteilung nach Rollen: PO / SM / Architekt / Dev (je nach Anzahl in Frontend/Backend teilen)  / Tester
+* 20 Minuten Austausch in Rolle:
+** Was lief gut?
+** Herausforderungen?
+** Tipps für die anderen Teams?
+** Gemeinsame Probleme identifizieren
+--
+
+
+== 4. Abschluss
+
+Wichtigste Erkenntnisse hervorheben
+
