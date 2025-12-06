@@ -54,7 +54,8 @@ src
     │   │   │   │   └── HabitsPage.jsx
     │   │   │   ├── reportWebVitals.js
     │   │   │   ├── setupTests.js
-    │   │   │   └── supabaseClient.js
+    │   │   │   └── api
+    │   │   │       └── httpClient.js
     │   │   └── tailwind.config.js
     │   ├── frontend
     │   │   └── node_modules
@@ -132,7 +133,8 @@ src
     │   │   │   └── HabitsPage.jsx
     │   │   ├── reportWebVitals.js
     │   │   ├── setupTests.js
-    │   │   └── supabaseClient.js
+    │   │   └── api
+    │   │       └── httpClient.js
     │   └── tailwind.config.js
     └── readme.txt
 ----
@@ -179,7 +181,5 @@ Damit ist die Prisma-Konfiguration jetzt als `.js`-Datei im neuen `backend`-Verz
 * Pfadanpassung:
 ** *Vorher*: `/src/Gewohnheitstier/frontend` & `/src/Gewohnheitstier/backend`
 ** *Nachher*: `/src/frontend` & `/src/backend`
-
-
 
 

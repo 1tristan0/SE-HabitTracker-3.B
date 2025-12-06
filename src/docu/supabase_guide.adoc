@@ -1,0 +1,39 @@
+= Supabase Guide
+:toc:
+:toclevels: 2
+
+Kurzer Überblick, wie Supabase jetzt genutzt wird: Auth läuft weiterhin über Supabase, aber nur noch serverseitig. Das Frontend spricht ausschließlich die Express-API, die DB-Zugriffe übernimmt Prisma.
+
+== Clients & Umgebungsvariablen
+* Backend: `SUPABASE_URL` und `SUPABASE_ANON_KEY` werden in link:../../src/backend/src/supabaseAuth.js[supabaseAuth.js] genutzt, um gegen die Supabase Auth-REST-API zu authentifizieren. `DATABASE_URL` (Supabase-Postgres) bleibt für Prisma.
+* Frontend: Kein Supabase-Client mehr. API-Basis per `REACT_APP_API_BASE_URL` (Fallback `http://localhost:5000`).
+* Docker: `docker-compose.yml` zieht wie gehabt `backend/.env`; ergänze dort SUPABASE-Variablen, damit Auth funktioniert.
+
+== Auth-Flow (Backend-first)
+* Auth-Endpunkte: link:../../src/backend/src/routes/auth.js[auth.js] kapselt `login`, `register`, `session` (Token-Validierung) und `logout` per Supabase-REST.
+* Middleware: link:../../src/backend/src/middleware/authenticate.js[authenticate.js] validiert `Authorization: Bearer <token>` gegen Supabase und hängt `req.auth.user` an.
+* Frontend-Integration: link:../../src/frontend/src/api/authApi.js[authApi.js] ruft nur Backend-Endpoints auf, persistiert Token/User in `localStorage`. `App.jsx` lädt eine gespeicherte Session und reicht `session` an `HabitsPage` weiter.
+
+== Datenmodell (Supabase Tabellen)
+* Tabelle: `habits_table` (siehe Prisma-Schema link:../../src/backend/prisma/schema.prisma[schema.prisma]) mit Feldern `id (bigint)`, `habit_name`, `description`, `start_date`, `streak`, `last_checked`, `prev_last_checked` (array/timestamptz), `user_id (uuid)`.
+* Tabelle: `users` (Basisfelder für Nutzer/Streak-Infos).
+* Erwartung: `user_id` in `habits_table` entspricht Supabase-Auth-User-ID (`req.auth.user.id`).
+
+== Datenzugriff über das Backend
+* Habit-Routen: link:../../src/backend/src/routes/habits.js[habits.js] implementiert `GET /api/habits`, `POST /api/habits`, `DELETE /api/habits/:id`, `POST /api/habits/:id/toggle` auf Basis von Prisma. Business-Logik (Toggle, Streak) liegt jetzt hier und nicht mehr im Browser.
+* API-Client im Frontend: link:../../src/frontend/src/api/httpClient.js[httpClient.js] baut Requests mit optionalem Bearer-Token; link:../../src/frontend/src/api/habitsApi.js[habitsApi.js] konsumiert die Habit-Routen.
+* UI-Verbrauch: link:../../src/frontend/src/pages/HabitsPage.jsx[HabitsPage.jsx] ruft die neuen API-Funktionen auf und reicht Daten an Grid/Kalender weiter.
+
+== Sicherheit / RLS
+* Supabase Row Level Security weiterhin sinnvoll: Policies sollten `user_id = auth.uid()` erzwingen.
+* Token-Verifikation passiert serverseitig; der Browser sieht keine DB-Credentials oder Supabase-Keys mehr.
+
+== Typische Fehlerquellen & Checks
+* 401/403: Prüfe gültiges `Authorization`-Header zum Backend; Backend meldet Supabase-Fehler in `detail`.
+* Leere Daten nach Login: `user_id` der Zeilen muss mit Supabase-Auth-User übereinstimmen.
+* BigInt im Backend: Serialisierung erledigt `serializeHabit` in link:../../src/backend/src/routes/habits.js[habits.js]; Felder werden als Strings/Numbers zurückgegeben.
+* Toggle-Logik läuft jetzt im Backend; falls alte Daten `prev_last_checked` nicht als Array vorliegen, prüfe DB-Einträge auf gültige Arrays.
+
+== Nützliche Hinweise
+* Supabase-Keys nur im Backend hinterlegen, nicht mehr im Frontend.
+* Frontend-Env für Backend-URL: `.env` mit `REACT_APP_API_BASE_URL=http://localhost:5000` falls der Port abweicht.
