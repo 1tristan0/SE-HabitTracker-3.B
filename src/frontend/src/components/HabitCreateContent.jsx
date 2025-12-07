@@ -20,16 +20,16 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-primary3 flex flex-col">
       <main className="flex-1 flex items-start justify-center px-4 py-10">
         <div className="w-full max-w-4xl">
           {/* Kopfbereich */}
           <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-semibold text-slate-900">
+              <h1 className="text-2xl font-semibold text-primary1">
                 Neue Gewohnheit erstellen
               </h1>
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-primary1">
                 Gib deiner Gewohnheit einen klaren Namen und eine kurze Beschreibung.
               </p>
             </div>
@@ -40,13 +40,13 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
             {/* Formular-Card */}
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl bg-white shadow-sm border border-slate-200 px-6 py-6 space-y-6"
+              className="rounded-2xl bg-primary2 shadow-sm border border-slate-200 px-6 py-6 space-y-6"
             >
               {/* Name */}
               <div className="space-y-2">
                 <label
                   htmlFor="habit-name"
-                  className="block text-sm font-medium text-slate-800"
+                  className="block text-sm font-medium text-black"
                 >
                   Name der Gewohnheit
                   <span className="ml-1 text-red-500">*</span>
@@ -104,7 +104,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
             </form>
 
             {/* Tipp- / Info-Card (rechte Seite) */}
-            <aside className="rounded-2xl border border-slate-200 bg-slate-50/80 px-5 py-5 space-y-3 text-sm text-slate-700">
+            <aside className="rounded-2xl border border-slate-200 bg-primary2 px-5 py-5 space-y-3 text-sm text-slate-700">
               <h2 className="text-sm font-semibold text-slate-800">
                 Tipps für gute Gewohnheiten
               </h2>

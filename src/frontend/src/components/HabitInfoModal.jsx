@@ -7,8 +7,8 @@ export default function HabitInfoModal({ habit, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-      <div className="w-full max-w-2xl mx-4 rounded-2xl bg-slate-900 text-slate-100 shadow-2xl border border-slate-700">
-        <div className="flex items-center justify-between border-b border-slate-700 px-6 py-4">
+      <div className="w-full max-w-2xl mx-4 rounded-2xl bg-primary4 text-primary1 shadow-2xl border border-slate-700">
+        <div className="flex items-center justify-between border-b border-primary1 px-6 py-4">
           <div className="flex items-center gap-3">
             <div>
               <h1 className="text-lg font-semibold leading-tight">
@@ -20,7 +20,7 @@ export default function HabitInfoModal({ habit, onClose }) {
 
           <button
             
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-600/80 text-slate-300 text-sm hover:bg-slate-800 hover:text-white transition"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-600/80 text-primary1 text-sm hover:bg-slate-800 hover:text-white transition"
             aria-label="Schließen"
             onClick={onClose}
           >
@@ -33,7 +33,7 @@ export default function HabitInfoModal({ habit, onClose }) {
           {/* Beschreibung */}
            
             <div>
-              <p className="text-sm text-slate-200">
+              <p className="text-sm text-primary1">
                 {habit ? habit.description : "Beschreibung"}
               </p>
             </div>
@@ -55,7 +55,7 @@ export default function HabitInfoModal({ habit, onClose }) {
           {/* Timeline-Infos */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div className="rounded-xl border border-slate-700 bg-slate-900/60 px-4 py-3">
-              <p className="text-slate-400 text-xs mb-1">
+              <p className="text-primary1 text-xs mb-1">
                 Gestartet am
               </p>
               <p className="font-medium">
@@ -63,7 +63,7 @@ export default function HabitInfoModal({ habit, onClose }) {
               </p>
             </div>
             <div className="rounded-xl border border-slate-700 bg-slate-900/60 px-4 py-3">
-              <p className="text-slate-400 text-xs mb-1">
+              <p className="text-primary1 text-xs mb-1">
                 Zuletzt erledigt
               </p>
               <p className="font-medium">
@@ -84,7 +84,7 @@ export default function HabitInfoModal({ habit, onClose }) {
 function StatCard({name, value}) {
   return (
     <div className="rounded-xl border border-slate-700 bg-slate-900/60 px-4 py-3">
-      <p className="text-xs text-slate-400 mb-1">
+      <p className="text-xs text-primary1 mb-1">
         {name}
       </p>
       <p className="text-xl font-semibold leading-tight">
