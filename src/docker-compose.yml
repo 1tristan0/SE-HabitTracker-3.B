@@ -14,7 +14,7 @@ services:
       - PORT=3001
       - HOST=0.0.0.0
     env_file:
-      - backend/.env
+      - backend/.env.local
     ports:
       - "3001:3001"
     #volumes:
@@ -34,6 +34,8 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - PORT=5173
       - HOST=0.0.0.0
+    env_file:
+      - frontend/.env
     # beide gängigen Dev-Ports freigeben; der ungenutzte bleibt halt leer
     ports:
       - "5173:5173"   # Vite

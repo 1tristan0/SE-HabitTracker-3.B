@@ -1,6 +1,15 @@
 const express = require('express');
 const prisma = require('../prisma');
-const { authenticate } = require('../middleware/authenticate');
+
+let authenticate;
+
+if (process.env.NODE_ENV === 'development') {
+  console.log("[AUTH] Running in DEVELOPMENT mode → fakeAuth enabled");
+  authenticate = require('../middleware/fakeAuth').fakeAuth;
+} else {
+  console.log("[AUTH] Running in PRODUCTION mode → Supabase authenticate enabled");
+  authenticate = require('../middleware/authenticate').authenticate;
+}
 
 const router = express.Router();
 
