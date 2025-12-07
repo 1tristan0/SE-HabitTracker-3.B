@@ -35,7 +35,7 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose 
             ))}
 
             {/* Abschnitt für heute bereits erledigte Gewohnheiten */}
-            <h1 className="text-2xl mb-3 font-bold text-center text-gray-500 mt-5">
+            <h1 className="text-2xl mb-3 font-bold text-center text-primary3 mt-5">
                 Bereits heute erledigt
             </h1>
 

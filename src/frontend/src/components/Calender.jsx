@@ -49,9 +49,9 @@ export default function Calender({ habits }) {
         
 
         <div className="flex justify-between items-center w-full">
-          <button onClick={prevMonth} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">vorheriger Monat</button>
-          <h2 className="text-2xl font-semibold text-gray-800">{monthAndYear(view.year, view.month)}</h2>
-          <button onClick={nextMonth} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">nächster Monat</button>
+          <button onClick={prevMonth} className="px-3 py-1 rounded bg-primary3 hover:bg-primary4 text-primary1">vorheriger Monat</button>
+          <h2 className="text-2xl font-semibold text-primary3">{monthAndYear(view.year, view.month)}</h2>
+          <button onClick={nextMonth} className="px-3 py-1 rounded bg-primary3 hover:bg-primary4 text-primary1">nächster Monat</button>
         </div>
       </div>
       {openModal && (
@@ -59,7 +59,7 @@ export default function Calender({ habits }) {
       )}
       <div className="grid grid-cols-7 gap-1 text-center">
         {WEEKDAYS.map((w) => (
-          <div key={w} className="text-sm font-medium text-gray-600 py-2">{w}</div>
+          <div key={w} className="text-sm font-medium text-primary3 py-2 ">{w}</div>
         ))}
 
         {matrix.map((week, wi) => (
@@ -75,10 +75,10 @@ export default function Calender({ habits }) {
               <button
                 key={`${wi}-${di}`}
                 className={
-                  `py-3 border rounded-md focus:outline-none transition-colors ` +
-                  `${cell.inMonth ? "bg-white" : "bg-gray-50 text-gray-400"} ` +
-                  `${isToday ? "ring-2 ring-blue-400" : ""} ` +
-                  `${isInFuture(cell.date) ? "cursor-not-allowed bg-gray-600" : "hover:bg-gray-100 cursor-pointer"} ` +
+                  `py-3 border rounded-md focus:outline-none transition-colors hover:bg-primary2` +
+                  `${cell.inMonth ? "bg-white " : "bg-gray-50 text-gray-400"} ` +
+                  `${isToday ? "ring-2 ring-primary3" : ""} ` +
+                  `${isInFuture(cell.date) ? "cursor-not-allowed bg-gray-300" : "hover:bg-primary2 cursor-pointer text-primary3"} ` +
                   {/*}`${completion === true ? "bg-green-600 " : ""}`*/}
                 }
                 aria-pressed={isSelected}

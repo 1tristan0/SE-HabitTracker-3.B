@@ -10,9 +10,10 @@ module.exports = {
         primary2: '#E3F0AF',
         primary3: '#5DB996',
         primary4: '#118B50',
+        primaryRed: '#FF6B6B',
 
+      },
     },
-  },
   plugins: [],
 }
 }
