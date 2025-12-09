@@ -54,14 +54,14 @@ describe('Calender Component', () => {
 
   /**
    * Test: Monatstage-Rendering
-   * Überprüft, dass alle Kalender-Tagnummern korrekt angezeigt werden (1., 7., 31.).
+   * Überprüft, dass alle Kalender-Tagnummern korrekt angezeigt werden (17., 21., 31.).
    * Erwartet: Dezember 2025 sollte die Tage 1 bis 31 an den korrekten Grid-Positionen anzeigen.
    */
   it('renders days of the month', () => {
     render(<Calender habits={mockHabits} />);
 
-    expect(screen.getByText('1')).toBeInTheDocument();
-    expect(screen.getByText('7')).toBeInTheDocument();
+    expect(screen.getByText('17')).toBeInTheDocument();
+    expect(screen.getByText('21')).toBeInTheDocument();
     expect(screen.getByText('31')).toBeInTheDocument();
   });
 
@@ -101,8 +101,8 @@ describe('Calender Component', () => {
   it('opens modal when a day is clicked', async () => {
     const { rerender } = render(<Calender habits={mockHabits} />);
 
-    // Find a day button (e.g., the 7th)
-    const dayButton = screen.getByText('7').closest('button');
+    // Find a day button (e.g., the 17th)
+    const dayButton = screen.getByText('17').closest('button');
     await userEvent.click(dayButton);
 
     // Modal should open - check for modal-specific content
@@ -121,7 +121,7 @@ describe('Calender Component', () => {
     // Check for visual indicators (percentage text or green dot)
     // The exact selectors depend on your implementation
     // This is a general example - adjust based on your SVG/div structure
-    const dayElements = container.querySelectorAll('[class*="flex-col"]');
+    const dayElements = container.querySelectorAll('[class*="dayButton"]');
     expect(dayElements.length).toBeGreaterThan(0);
   });
 
@@ -157,7 +157,6 @@ describe('Calender Component', () => {
 
     rerender(<Calender habits={newHabits} />);
 
-    // Component should re-render with new habits
     expect(screen.getByText(/Dezember 2025/)).toBeInTheDocument();
   });
 
@@ -170,26 +169,6 @@ describe('Calender Component', () => {
     render(<Calender habits={[]} />);
 
     expect(screen.getByText(/Dezember 2025/)).toBeInTheDocument();
-    // All days should render but with no completion indicators
-    expect(screen.getByText('1')).toBeInTheDocument();
-  });
-
-  /**
-   * Test: Modal-Datums-Anzeige
-   * Überprüft, dass das CalendarModal das richtige Datum anzeigt, wenn ein bestimmter Tag angeklickt wird.
-   * Erwartet: Das Modal sollte Details für den angeklickten Tag anzeigen (z. B. "15. Dezember 2025").
-   */
-  it('displays modal with correct date when day is clicked', async () => {
-    const { rerender } = render(<Calender habits={mockHabits} />);
-
-    const dayButton = screen.getByText('15').closest('button');
-    if (dayButton) {
-      await userEvent.click(dayButton);
-
-      rerender(<Calender habits={mockHabits} />);
-
-      // Modal should show the selected date
-      // Exact assertion depends on your modal implementation
-    }
+    expect(screen.getByText('17')).toBeInTheDocument();
   });
 });

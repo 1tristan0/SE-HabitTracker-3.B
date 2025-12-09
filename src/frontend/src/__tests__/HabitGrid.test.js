@@ -38,9 +38,8 @@ describe('HabitGrid', () => {
     render(
       <HabitGrid
         habits={mockHabits}
-        todayAsString={mockToday}
-        onHabitCheck={() => {}}
-        onHabitDelete={() => {}}
+        onDelete={() => {}}
+        onCheck={() => {}}
       />
     );
 
@@ -56,9 +55,8 @@ describe('HabitGrid', () => {
     render(
       <HabitGrid
         habits={mockHabits}
-        todayAsString={mockToday}
-        onHabitCheck={() => {}}
-        onHabitDelete={() => {}}
+        onDelete={() => {}}
+        onCheck={() => {}}
       />
     );
 
@@ -79,9 +77,8 @@ describe('HabitGrid', () => {
     render(
       <HabitGrid
         habits={mockHabits}
-        todayAsString={mockToday}
-        onHabitCheck={() => {}}
-        onHabitDelete={() => {}}
+        onDelete={() => {}}
+        onCheck={() => {}}
       />
     );
 
@@ -100,9 +97,8 @@ describe('HabitGrid', () => {
     render(
       <HabitGrid
         habits={mockHabits}
-        todayAsString={mockToday}
-        onHabitCheck={handleCheck}
-        onHabitDelete={() => {}}
+        onDelete={() => {}}
+        onCheck={handleCheck}
       />
     );
 
@@ -122,9 +118,8 @@ describe('HabitGrid', () => {
     render(
       <HabitGrid
         habits={mockHabits}
-        todayAsString={mockToday}
-        onHabitCheck={() => {}}
-        onHabitDelete={handleDelete}
+        onDelete={handleDelete}
+        onCheck={() => {}}
       />
     );
 
@@ -144,9 +139,8 @@ describe('HabitGrid', () => {
     render(
       <HabitGrid
         habits={[]}
-        todayAsString={mockToday}
-        onHabitCheck={() => {}}
-        onHabitDelete={() => {}}
+        onDelete={() => {}}
+        onCheck={() => {}}
       />
     );
 
@@ -162,9 +156,8 @@ describe('HabitGrid', () => {
     render(
       <HabitGrid
         habits={mockHabits}
-        todayAsString={mockToday}
-        onHabitCheck={() => {}}
-        onHabitDelete={() => {}}
+        onDelete={() => {}}
+        onCheck={() => {}}
       />
     );
 
@@ -182,14 +175,13 @@ describe('HabitGrid', () => {
     const { container } = render(
       <HabitGrid
         habits={mockHabits}
-        todayAsString={mockToday}
-        onHabitCheck={() => {}}
-        onHabitDelete={() => {}}
+        onDelete={() => {}}
+        onCheck={() => {}}
       />
     );
 
     // Should have two sections - checked and unchecked
-    const sections = container.querySelectorAll('[class*="mt-8"]');
+    const sections = container.querySelectorAll('[class*="habitcard"]');
     expect(sections.length).toBeGreaterThanOrEqual(1);
   });
 
@@ -212,9 +204,8 @@ describe('HabitGrid', () => {
     render(
       <HabitGrid
         habits={habitsWithoutDesc}
-        todayAsString={mockToday}
-        onHabitCheck={() => {}}
-        onHabitDelete={() => {}}
+        onDelete={() => {}}
+        onCheck={() => {}}
       />
     );
 
@@ -227,18 +218,19 @@ describe('HabitGrid', () => {
    * Erwartet: Gewohnheitskarten sollten vorhanden sein und Streak-Daten enthalten.
    */
   it('displays streak information for each habit', () => {
-    render(
+    const { container } = render(
       <HabitGrid
         habits={mockHabits}
-        todayAsString={mockToday}
-        onHabitCheck={() => {}}
-        onHabitDelete={() => {}}
+        onDelete={() => {}}
+        onCheck={() => {}}
       />
     );
 
-    // Streaks should be visible (exact text depends on your display format)
-    // For example: "7 days streak" or "Streak: 7"
-    const habitCards = screen.getAllByRole('group');
+    // Check that streak information is displayed in habit cards
+    const habitCards = container.querySelectorAll('.habitcard');
     expect(habitCards.length).toBeGreaterThan(0);
+    
+    // Verify that streak text is visible
+    expect(screen.getByText(/Streak: 7/)).toBeInTheDocument();
   });
 });

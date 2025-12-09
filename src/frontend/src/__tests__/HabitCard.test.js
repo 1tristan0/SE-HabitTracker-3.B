@@ -13,6 +13,10 @@ describe('HabitCard', () => {
     prev_last_checked: [],
   };
 
+  /**
+   * Testet das Rendern des Gewohnheitsnamens und der Beschreibung.
+   * Überprüft, dass beide Texte im DOM vorhanden sind.
+   */
   it('renders habit name and description', () => {
     render(
       <HabitCard
@@ -27,6 +31,10 @@ describe('HabitCard', () => {
     expect(screen.getByText('Run 5km in the morning')).toBeInTheDocument();
   });
 
+  /**
+   * Testet die Anzeige des Streak-Counters.
+   * Überprüft, dass die Streak-Information korrekt angezeigt wird.
+   */
   it('displays streak', () => {
     render(
       <HabitCard
@@ -40,6 +48,10 @@ describe('HabitCard', () => {
     expect(screen.getByText(/Streak: 5/)).toBeInTheDocument();
   });
 
+  /**
+   * Testet, dass der onClick-Callback aufgerufen wird, wenn die Karte geklickt wird.
+   * Überprüft die Event-Behandlung beim Klick auf die Karte.
+   */
   it('calls onClick when card is clicked', async () => {
     const handleClick = jest.fn();
     render(
@@ -57,6 +69,10 @@ describe('HabitCard', () => {
     expect(handleClick).toHaveBeenCalled();
   });
 
+  /**
+   * Testet, dass der onDelete-Callback mit der korrekten Gewohnheits-ID aufgerufen wird.
+   * Überprüft die Lösch-Funktionalität beim Klick auf den "Löschen"-Button.
+   */
   it('calls onDelete when delete button is clicked', async () => {
     const handleDelete = jest.fn();
     render(
@@ -74,6 +90,10 @@ describe('HabitCard', () => {
     expect(handleDelete).toHaveBeenCalledWith(1);
   });
 
+  /**
+   * Testet, dass der onCheck-Callback mit Gewohnheits-ID und neuen Zustand aufgerufen wird.
+   * Überprüft die Checkbox-Toggle-Funktionalität und den Aufruf des Callbacks mit korrekten Parametern.
+   */
   it('calls onCheck when checkbox is toggled', async () => {
     const handleCheck = jest.fn();
     render(
@@ -91,6 +111,10 @@ describe('HabitCard', () => {
     expect(handleCheck).toHaveBeenCalledWith(1, true);
   });
 
+  /**
+   * Testet die Event-Propagation-Verhinderung beim Löschen-Button.
+   * Überprüft, dass der Klick auf den Löschen-Button nicht den onClick-Callback der Karte auslöst.
+   */
   it('does not trigger card click when delete button is clicked', async () => {
     const handleClick = jest.fn();
     const handleDelete = jest.fn();
@@ -106,7 +130,7 @@ describe('HabitCard', () => {
     const deleteBtn = screen.getByText('Löschen');
     await userEvent.click(deleteBtn);
 
-    // Card click should not have been triggered by the delete button click
+    // Der Klick auf die Karte sollte nicht ausgelöst werden, wenn der Löschen-Button geklickt wird
     expect(handleClick).not.toHaveBeenCalled();
   });
 });

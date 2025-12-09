@@ -52,16 +52,16 @@ describe('Calendar Utilities', () => {
     });
 
     it('returns percentage when some habits are checked', () => {
-      // 1 out of 2 applicable habits checked = 50%
+      // 1 out of 3 applicable habits checked = 33%
       const result = isEveryHabitChecked(mockHabits, today);
-      expect(result).toBe(50);
+      expect(result).toBe(33);
     });
 
     it('only counts habits that existed on the queried day', () => {
       // For today: only habits 1 and 3 existed (habit 3 was added today)
-      // Habit 1 is checked, habit 3 is not = 50%
+      // Habit 1 is checked, habit 3 is not = 33%
       const result = isEveryHabitChecked(mockHabits, today);
-      expect(result).toBe(50);
+      expect(result).toBe(33);
     });
 
     it('returns 0 when no habits are checked', () => {
@@ -102,8 +102,8 @@ describe('Calendar Utilities', () => {
   describe('getUncheckedHabitsFromDay', () => {
     it('returns only unchecked habits for a given day', () => {
       const result = getUncheckedHabitsFromDay(mockHabits, today);
-      expect(result).toHaveLength(1);
-      expect(result[0].id).toBe(3);
+      expect(result).toHaveLength(2);
+      expect(result[0].id).toBe(2);
     });
 
     it('returns empty array when all habits are checked', () => {

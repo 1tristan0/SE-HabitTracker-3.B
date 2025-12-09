@@ -1,123 +1,120 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import Navbar from '../components/Navbar';
 
-// Mock window.location.hash
-delete window.location;
-window.location = { hash: '' };
-
 describe('Navbar', () => {
-  beforeEach(() => {
-    window.location.hash = '';
-  });
-
+  /**
+   * Testet das Rendering der Navigations-Links.
+   * Überprüft, dass beide Navigations-Links "Übersicht" und "Hinzufügen" im DOM vorhanden sind.
+   */
   it('renders navigation links', () => {
     render(
-      <Navbar
-        onAddHabitClick={() => {}}
-        onOverviewClick={() => {}}
-      />
+      <BrowserRouter>
+        <Navbar onLogout={() => {}} />
+      </BrowserRouter>
     );
 
     expect(screen.getByText('Übersicht')).toBeInTheDocument();
     expect(screen.getByText('Hinzufügen')).toBeInTheDocument();
   });
 
-  it('sets active state for Übersicht when hash is empty or overview', () => {
-    window.location.hash = '';
-    const { rerender } = render(
-      <Navbar
-        onAddHabitClick={() => {}}
-        onOverviewClick={() => {}}
-      />
-    );
-
-    let overviewLink = screen.getByText('Übersicht');
-    expect(overviewLink.closest('a')).toHaveClass('text-green-600');
-
-    window.location.hash = '#overview';
-    rerender(
-      <Navbar
-        onAddHabitClick={() => {}}
-        onOverviewClick={() => {}}
-      />
-    );
-
-    overviewLink = screen.getByText('Übersicht');
-    expect(overviewLink.closest('a')).toHaveClass('text-green-600');
-  });
-
-  it('sets active state for Hinzufügen when hash is add', () => {
-    window.location.hash = '#add';
+  /**
+   * Testet den aktiven Zustand für den "Übersicht"-Link.
+   * Überprüft, dass der Link die aktive Klasse bekommt, wenn auf "/" navigiert wird.
+   */
+  it('sets active state for Übersicht when on root path', () => {
     render(
-      <Navbar
-        onAddHabitClick={() => {}}
-        onOverviewClick={() => {}}
-      />
+      <BrowserRouter>
+        <Navbar onLogout={() => {}} />
+      </BrowserRouter>
     );
 
-    const addLink = screen.getByText('Hinzufügen');
-    expect(addLink.closest('a')).toHaveClass('text-green-600');
+    const overviewLink = screen.getByText('Übersicht').closest('a');
+    expect(overviewLink).toHaveClass('text-primary3');
+    expect(overviewLink).toHaveClass('font-semibold');
   });
 
-  it('calls onOverviewClick when Übersicht is clicked', async () => {
-    const handleOverviewClick = jest.fn();
+  /**
+   * Testet den aktiven Zustand für den "Hinzufügen"-Link.
+   * Überprüft, dass der Link aktiv ist, wenn auf "/add" navigiert wird.
+   */
+  it('sets active state for Hinzufügen when on add path', () => {
+    window.history.pushState({}, 'Test page', '/add');
     render(
-      <Navbar
-        onAddHabitClick={() => {}}
-        onOverviewClick={handleOverviewClick}
-      />
+      <BrowserRouter>
+        <Navbar onLogout={() => {}} />
+      </BrowserRouter>
     );
 
-    const overviewLink = screen.getByText('Übersicht');
-    await userEvent.click(overviewLink);
-
-    expect(handleOverviewClick).toHaveBeenCalled();
+    const addLink = screen.getByText('Hinzufügen').closest('a');
+    expect(addLink).toHaveClass('text-primary3');
+    expect(addLink).toHaveClass('font-semibold');
   });
 
-  it('calls onAddHabitClick when Hinzufügen is clicked', async () => {
-    const handleAddClick = jest.fn();
+  /**
+   * Testet, dass beide Links als NavLink-Elemente (a-Tags) vorhanden sind.
+   * Überprüft, dass die Links zu den korrekten Pfaden führen.
+   */
+  it('renders links with correct href attributes', () => {
     render(
-      <Navbar
-        onAddHabitClick={handleAddClick}
-        onOverviewClick={() => {}}
-      />
+      <BrowserRouter>
+        <Navbar onLogout={() => {}} />
+      </BrowserRouter>
     );
 
-    const addLink = screen.getByText('Hinzufügen');
-    await userEvent.click(addLink);
+    const overviewLink = screen.getByText('Übersicht').closest('a');
+    const addLink = screen.getByText('Hinzufügen').closest('a');
 
-    expect(handleAddClick).toHaveBeenCalled();
+    expect(overviewLink).toHaveAttribute('href', '/');
+    expect(addLink).toHaveAttribute('href', '/add');
   });
 
-  it('updates hash when navigation link is clicked', async () => {
+  /**
+   * Testet das Rendering des Logout-Buttons.
+   * Überprüft, dass der Logout-Button im DOM vorhanden ist.
+   */
+  it('renders logout button', () => {
     render(
-      <Navbar
-        onAddHabitClick={() => {}}
-        onOverviewClick={() => {}}
-      />
+      <BrowserRouter>
+        <Navbar onLogout={() => {}} />
+      </BrowserRouter>
     );
 
-    const addLink = screen.getByText('Hinzufügen');
-    await userEvent.click(addLink);
-
-    expect(window.location.hash).toBe('#add');
-
-    const overviewLink = screen.getByText('Übersicht');
-    await userEvent.click(overviewLink);
-
-    expect(window.location.hash).toBe('#overview');
+    const logoutButton = screen.getByText('Logout', { selector: 'button' });
+    expect(logoutButton).toBeInTheDocument();
   });
 
-  it('renders with proper container classes for styling', () => {
-    const { container } = render(
-      <Navbar
-        onAddHabitClick={() => {}}
-        onOverviewClick={() => {}}
-      />
+  /**
+   * Testet, dass der onLogout-Callback aufgerufen wird.
+   * Überprüft, dass der Handler aufgerufen wird, wenn der Logout-Button geklickt wird.
+   */
+  it('calls onLogout when logout button is clicked', async () => {
+    const handleLogout = jest.fn();
+    render(
+      <BrowserRouter>
+        <Navbar onLogout={handleLogout} />
+      </BrowserRouter>
     );
 
-    const navbar = container.querySelector('nav');
-    expect(navbar).toHaveClass('bg-white', 'shadow');
+    const logoutButton = screen.getByText('Logout', { selector: 'button' });
+    await userEvent.click(logoutButton);
+
+    expect(handleLogout).toHaveBeenCalled();
+  });
+
+  /**
+   * Testet das Rendering des App-Logos und Titels.
+   * Überprüft, dass "Gewohnheitstier" im Titel vorhanden ist.
+   */
+  it('renders app title', () => {
+    render(
+      <BrowserRouter>
+        <Navbar onLogout={() => {}} />
+      </BrowserRouter>
+    );
+
+    const title = screen.getByText('Gewohnheitstier');
+    expect(title).toBeInTheDocument();
   });
 });

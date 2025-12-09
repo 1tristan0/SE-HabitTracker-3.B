@@ -8,7 +8,7 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick
   const today = new Date().toISOString().slice(0, 10);
 
   return (
-    <div className="card mb-3 bg-primary3" onClick={() => onClick(habit)}>
+    <div className="card mb-3 bg-primary3 habitcard" onClick={() => onClick(habit)}>
       <div className="card-body">
         {/* Titel der Gewohnheit */}
         <h5 className="card-title text-primary1">{habit.habit_name}</h5>

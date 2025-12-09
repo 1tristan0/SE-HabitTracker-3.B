@@ -66,8 +66,6 @@ export default function Calender({ habits }) {
           week.map((cell, di) => {
             const dateStr = dateOnlyBerlin(cell.date);
             const isToday = dateStr === todayStr;
-            console.log("dateStr", dateStr, "todayStr", todayStr);
-            console.log("isToday", isToday);
             const isSelected = selected === dateStr;
             const completion = isEveryHabitChecked(habits, dateStr); // true or percent number
             const percent = typeof completion === "number" ? completion : 0;
@@ -75,7 +73,7 @@ export default function Calender({ habits }) {
               <button
                 key={`${wi}-${di}`}
                 className={
-                  `py-3 border rounded-md focus:outline-none transition-colors hover:bg-primary2` +
+                  `py-3 border rounded-md focus:outline-none transition-colors hover:bg-primary2 dayButton` +
                   `${cell.inMonth ? "bg-white " : "bg-gray-50 text-gray-400"} ` +
                   `${isToday ? "ring-2 ring-primary3" : ""} ` +
                   `${isInFuture(cell.date) ? "cursor-not-allowed bg-gray-300" : "hover:bg-primary2 cursor-pointer text-primary3"} ` +

@@ -17,6 +17,7 @@ export default function HabitsErstellen({userId}) {
 
   const handleCancel = () => {
     // zurück zur Habit-Liste navigieren
+    window.location.href = "/";
   };
 
   return (

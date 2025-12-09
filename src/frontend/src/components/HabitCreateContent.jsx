@@ -20,16 +20,16 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
   };
 
   return (
-    <div className="min-h-screen bg-primary3 flex flex-col">
+    <div className="min-h-screen bg-primary1 flex flex-col">
       <main className="flex-1 flex items-start justify-center px-4 py-10">
         <div className="w-full max-w-4xl">
           {/* Kopfbereich */}
           <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-semibold text-primary1">
+              <h1 className="text-2xl font-semibold text-primary3">
                 Neue Gewohnheit erstellen
               </h1>
-              <p className="mt-1 text-sm text-primary1">
+              <p className="mt-1 text-sm text-primary3">
                 Gib deiner Gewohnheit einen klaren Namen und eine kurze Beschreibung.
               </p>
             </div>
@@ -40,13 +40,13 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
             {/* Formular-Card */}
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl bg-primary2 shadow-sm border border-slate-200 px-6 py-6 space-y-6"
+              className="rounded-2xl bg-primary3 shadow-sm border border-slate-200 px-6 py-6 space-y-6"
             >
               {/* Name */}
               <div className="space-y-2">
                 <label
                   htmlFor="habit-name"
-                  className="block text-sm font-medium text-black"
+                  className="block text-sm font-medium text-primary1"
                 >
                   Name der Gewohnheit
                   <span className="ml-1 text-red-500">*</span>
@@ -57,9 +57,9 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="z. B. 10 Minuten lesen"
-                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 text-sm text-slate-900 outline-none ring-0 transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 text-sm text-primary1 outline-none ring-0 transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
                 />
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-primary1">
                   Halte den Namen kurz und eindeutig – so erkennst du die Gewohnheit später
                   in der Übersicht auf einen Blick.
                 </p>
@@ -69,7 +69,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
               <div className="space-y-2">
                 <label
                   htmlFor="habit-description"
-                  className="block text-sm font-medium text-slate-800"
+                  className="block text-sm font-medium text-primary1"
                 >
                   Beschreibung
                 </label>
@@ -79,23 +79,23 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Was genau möchtest du tun? Wann, wie oft, zu welcher Tageszeit…?"
-                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 text-sm text-slate-900 outline-none ring-0 transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 resize-none"
+                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 text-sm text-primary1 outline-none ring-0 transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 resize-none"
                 />
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-primary1">
                   Optional, aber hilfreich, um dir selbst die Gewohnheit klarer zu machen.
                 </p>
               </div>
 
               {/* Aktionen */}
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                <p className="text-xs text-slate-400">
-                  Felder mit <span className="text-red-500">*</span> sind erforderlich.
+                <p className="text-xs text-primary1">
+                  Felder mit <span className="text-primaryRed">*</span> sind erforderlich.
                 </p>
                 <div className="flex gap-2">
                   <button
                     type="submit"
                     disabled={!name.trim()}
-                    className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60 transition"
+                    className="rounded-xl bg-primary4 px-4 py-2 text-sm font-medium text-primary1 shadow-sm hover:bg-primary2 disabled:cursor-not-allowed disabled:opacity-60 transition"
                   >
                     Hinzufügen
                   </button>
@@ -104,8 +104,8 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
             </form>
 
             {/* Tipp- / Info-Card (rechte Seite) */}
-            <aside className="rounded-2xl border border-slate-200 bg-primary2 px-5 py-5 space-y-3 text-sm text-slate-700">
-              <h2 className="text-sm font-semibold text-slate-800">
+            <aside className="rounded-2xl border border-slate-200 bg-primary3 px-5 py-5 space-y-3 text-sm text-primary1">
+              <h2 className="text-sm font-semibold text-primary1">
                 Tipps für gute Gewohnheiten
               </h2>
               <ul className="space-y-2 text-xs leading-relaxed">
