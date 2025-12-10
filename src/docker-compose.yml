@@ -7,5 +7,5 @@ services:
   frontend:
     image: gewohnheitstier-frontend
     ports:
-      - "3000:3000"   # Vite
+      - "3000:3000"   
 
