@@ -11,7 +11,7 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick
     <div className="card mb-3 bg-primary3 habitcard" onClick={() => onClick(habit)}>
       <div className="card-body">
         {/* Titel der Gewohnheit */}
-        <h5 className="card-title text-primary1">{habit.habit_name}</h5>
+        <h3 className="card-title text-primary1 text-xl font-bold">{habit.habit_name}</h3>
 
         {/* Beschreibung der Gewohnheit */}
         <p className="card-text text-primary1">{habit.description}</p>

@@ -57,7 +57,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="z. B. 10 Minuten lesen"
-                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 text-sm text-primary1 outline-none ring-0 transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
+                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 text-sm text-slate-400 outline-none ring-0 transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20"
                 />
                 <p className="text-xs text-primary1">
                   Halte den Namen kurz und eindeutig – so erkennst du die Gewohnheit später
@@ -79,7 +79,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Was genau möchtest du tun? Wann, wie oft, zu welcher Tageszeit…?"
-                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 text-sm text-primary1 outline-none ring-0 transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 resize-none"
+                  className="block w-full rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 text-sm text-slate-400 outline-none ring-0 transition placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 resize-none"
                 />
                 <p className="text-xs text-primary1">
                   Optional, aber hilfreich, um dir selbst die Gewohnheit klarer zu machen.
