@@ -2,6 +2,8 @@
 :toc:
 :toclevels: 2
 
+== ACHTUNG nicht aktuell -> readme.md nutzen
+
 Kurzer Leitfaden zur Prisma-Nutzung in diesem Projekt.
 
 == Projektanbindung

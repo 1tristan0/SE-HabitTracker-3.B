@@ -1,7 +1,6 @@
 const express = require('express');
 const prisma = require('../prisma');
 const { authenticate } = require('../middleware/authenticate');
-
 const router = express.Router();
 
 function serializeHabit(habit) {

@@ -1,45 +1,11 @@
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: ../Dockerfile.dev
-    container_name: gewohnheitstier-backend
-    working_dir: /app
-    # Install beim Start (füllt /app/node_modules-Volume), dann dev ODER start
-   # command: sh -c "npm install && (npm run dev || npm start)"
-    command: sh -c "npm install &&  npm run prisma:generate && (npm run dev || npm start)" #20.11.2025 add von Paul (Prisma Client generieren)
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-      - PORT=3001
-      - HOST=0.0.0.0
-    env_file:
-      - backend/.env
+    image: gewohnheitstier-backend
     ports:
       - "3001:3001"
-    #volumes:
-     # - ./backend:/app
-     # - /app/node_modules
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: ../Dockerfile.dev
-    container_name: gewohnheitstier-frontend
-    working_dir: /app
-    # Vite: --host nötig; bei CRA greift 'npm start'
-    command: sh -c "npm install && (npm run dev -- --host || npm start)"
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-      - PORT=5173
-      - HOST=0.0.0.0
-    # beide gängigen Dev-Ports freigeben; der ungenutzte bleibt halt leer
+    image: gewohnheitstier-frontend
     ports:
-      - "5173:5173"   # Vite
-      - "3000:3000"   # CRA
-    #volumes:
-     # - ./frontend::/app
-     # - /app/node_modules
-    depends_on:
-      - backend
+      - "3000:3000"   
+

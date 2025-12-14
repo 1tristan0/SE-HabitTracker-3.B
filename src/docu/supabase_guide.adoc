@@ -1,7 +1,7 @@
 = Supabase Guide
 :toc:
 :toclevels: 2
-
+== ACHTUNG nicht aktuell -> readme.md nutzen
 Kurzer Überblick, wie Supabase jetzt genutzt wird: Auth läuft weiterhin über Supabase, aber nur noch serverseitig. Das Frontend spricht ausschließlich die Express-API, die DB-Zugriffe übernimmt Prisma.
 
 == Clients & Umgebungsvariablen
