@@ -3,7 +3,6 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    #command: npm run dev
     env_file:
       - backend/.env.local
     environment:

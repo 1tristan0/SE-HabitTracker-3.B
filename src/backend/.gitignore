@@ -1,5 +1,5 @@
 node_modules
-# Keep environment variables out of version control
+# Umgebungsvariablen nicht in Versionierung einbeziehen (GitHub)
 .env
 .env.local
 .env.production

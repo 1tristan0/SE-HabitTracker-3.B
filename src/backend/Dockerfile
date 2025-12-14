@@ -17,6 +17,6 @@ RUN useradd -m appuser \
 USER appuser
 
 ENTRYPOINT ["/usr/bin/tini","--"]
-# Default is 'npm run start' (prod), for compose-dev it is 'npm run dev' (dev,nodemon)
-# prisma generate is always executed
+# Standard ist 'npm run start' (für production), für compose-dev wird 'npm run dev' ausgeführt (dev,nodemon)
+# prisma generate wird immer ausgeführt (production und development)
 CMD ["sh", "-c", "npx prisma generate && npm run ${NPM_SCRIPT:-start}"]
