@@ -1,0 +1,185 @@
+= Swagger UI Setup (Backend)
+:toc:
+:toclevels: 3
+
+Ziel: Eine klickbare API-Dokumentation unter `/api/docs` bereitstellen, basierend auf unseren bestehenden Express-Routen (`/api/auth/*`, `/api/habits/*`). Diese Anleitung führt Schritt für Schritt durch Installation, Konfiguration und Pflege.
+
+== 1) Pakete installieren
+Im Backend-Verzeichnis:
+----
+cd src/backend
+npm install swagger-ui-express swagger-jsdoc
+----
+
+== 2) OpenAPI-Definition vorbereiten
+Lege z. B. `src/swagger.js` im Backend an. Beispielgrundgerüst (kann angepasst/erweitert werden):
+----
+// src/swagger.js
+const swaggerJSDoc = require('swagger-jsdoc');
+
+const options = {
+  definition: {
+    openapi: '3.0.3',
+    info: {
+      title: 'Habit Tracker API',
+      version: '1.0.0',
+      description: 'REST-API für Authentifizierung und Gewohnheiten',
+    },
+    servers: [
+      { url: 'http://localhost:3001', description: 'Lokale Entwicklung' },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+      schemas: {
+        Habit: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', example: '123' },
+            habit_name: { type: 'string', example: 'Joggen' },
+            description: { type: 'string', example: '30 Minuten laufen' },
+            start_date: { type: 'string', format: 'date', example: '2025-01-01' },
+            streak: { type: 'integer', example: 5 },
+            last_checked: { type: 'string', format: 'date-time', nullable: true },
+            prev_last_checked: {
+              type: 'array',
+              items: { type: 'string', format: 'date-time' },
+            },
+            user_id: { type: 'string', example: 'uuid' },
+          },
+          required: ['id', 'habit_name', 'user_id'],
+        },
+        AuthUser: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', example: 'uuid' },
+            email: { type: 'string', format: 'email' },
+          },
+        },
+        AuthSession: {
+          type: 'object',
+          properties: {
+            accessToken: { type: 'string' },
+            refreshToken: { type: 'string' },
+            expiresIn: { type: 'integer' },
+            tokenType: { type: 'string' },
+            user: { $ref: '#/components/schemas/AuthUser' },
+          },
+        },
+        ErrorResponse: {
+          type: 'object',
+          properties: { error: { type: 'string' }, detail: { type: 'string' } },
+        },
+      },
+    },
+  },
+  apis: ['./src/routes/*.js'], // Pfade zu den Dateien mit Swagger-JSDoc-Kommentaren
+};
+
+const specs = swaggerJSDoc(options);
+module.exports = { specs };
+----
+
+== 3) Routen mit JSDoc-kommentieren
+In den Route-Dateien (`src/routes/auth.js`, `src/routes/habits.js`) oberhalb der Handler JSDoc mit OpenAPI-Annotations ergänzen. Beispiel für `auth.js` (Login):
+----
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Nutzer anmelden
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [email, password]
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Login erfolgreich
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/AuthSession'
+ *       400:
+ *         description: Fehlende Felder
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Falsche Zugangsdaten
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+----
+
+Beispiel für `habits.js` (GET /api/habits):
+----
+/**
+ * @swagger
+ * /api/habits:
+ *   get:
+ *     summary: Liste aller Gewohnheiten des angemeldeten Nutzers
+ *     tags: [Habits]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Erfolgreich
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Habit'
+ *       401:
+ *         description: Kein/ungültiges Token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+----
+
+Weitere Endpunkte analog dokumentieren:
+* POST `/api/habits` (Body: name, desc?)
+* DELETE `/api/habits/{id}`
+* POST `/api/habits/{id}/toggle`
+* POST `/api/auth/register`
+* POST `/api/auth/session`
+* POST `/api/auth/logout`
+
+== 4) Swagger UI einbinden
+In `index.js` (Backend) ergänzen:
+----
+const swaggerUi = require('swagger-ui-express');
+const { specs } = require('./src/swagger'); // Pfad anpassen, falls nötig
+
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs));
+----
+
+== 5) Starten und prüfen
+* Backend starten (z. B. `npm run dev` im Backend oder `docker compose up`).
+* Im Browser `http://localhost:3001/api/docs` (oder dein Port) öffnen.
+* Es sollte die Swagger UI erscheinen, in der alle beschriebenen Endpunkte klickbar sind.
+
+== 6) Pflegehinweise
+* Bei neuen oder geänderten Routen JSDoc-Kommentare anpassen, damit die UI aktuell bleibt.
+* Schemas (`components.schemas`) erweitern, wenn neue Felder dazukommen.
+* Sicherheit: Alle geschützten Endpunkte mit `security: - bearerAuth: []` markieren.

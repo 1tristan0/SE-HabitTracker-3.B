@@ -25,6 +25,31 @@ function normalizeDateArray(value) {
 
 router.use(authenticate);
 
+/**
+ * @swagger
+ * /api/habits:
+ *   get:
+ *     summary: Liste aller Habits des angemeldeten Nutzers
+ *     tags: [Habits]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Erfolgreich
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Habit'
+ *       401:
+ *         description: Kein oder ungültiges Token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+
 router.get('/', async (req, res) => {
   try {
     const userId = req.auth.user.id;
@@ -38,7 +63,38 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch habits' });
   }
 });
-
+/**
+ * @swagger
+ * /api/habits:
+ *   post:
+ *     summary: Neues Habit anlegen
+ *     tags: [Habits]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [name]
+ *             properties:
+ *               name:
+ *                 type: string
+ *               desc:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Habit angelegt
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Habit'
+ *       400:
+ *         description: Name fehlt oder ungültig
+ *       401:
+ *         description: Kein oder ungültiges Token
+ */
 router.post('/', async (req, res) => {
   const { name, desc } = req.body || {};
 
@@ -67,6 +123,31 @@ router.post('/', async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /api/habits/{id}:
+ *   delete:
+ *     summary: Habit löschen
+ *     tags: [Habits]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID des Habits
+ *     responses:
+ *       204:
+ *         description: Erfolgreich gelöscht
+ *       400:
+ *         description: Ungültige ID
+ *       404:
+ *         description: Habit nicht gefunden
+ *       401:
+ *         description: Kein oder ungültiges Token
+ */
 router.delete('/:id', async (req, res) => {
   const idParam = req.params.id;
   let habitId;
@@ -93,7 +174,35 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to delete habit' });
   }
 });
-
+/**
+ * @swagger
+ * /api/habits/{id}/toggle:
+ *   post:
+ *     summary: Habit für heute erledigt / rückgängig schalten
+ *     tags: [Habits]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID des Habits
+ *     responses:
+ *       200:
+ *         description: Aktualisiertes Habit
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Habit'
+ *       400:
+ *         description: Ungültige ID
+ *       404:
+ *         description: Habit nicht gefunden
+ *       401:
+ *         description: Kein oder ungültiges Token
+ */
 router.post('/:id/toggle', async (req, res) => {
   const idParam = req.params.id;
   let habitId;

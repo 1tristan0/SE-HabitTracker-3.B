@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors'); // CORS-Middleware importieren um Frontend mit Backend kommunizieren zu lassen
 const habitsRouter = require('./src/routes/habits');
 const authRouter = require('./src/routes/auth');
+const swaggerUi = require('swagger-ui-express');
+const { specs } = require('./src/swagger');
 
 const app = express();
 
@@ -26,6 +28,7 @@ app.get('/', (_req, res) => {
 
 app.use('/api/auth', authRouter); // Auth-Routen
 app.use('/api/habits', habitsRouter); // Habits-Routen
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(specs)); // Swagger UI
 
 
 
