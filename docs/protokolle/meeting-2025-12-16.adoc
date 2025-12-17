@@ -1,0 +1,32 @@
+= Meeting 16.12.2025 (weekly)
+Anwesend: Monika, Felix (online), Tristan, Martin, Paul, Nicola, Patrick
+
+== Besprechen
+-   Dokumentation Testfälle für Akzeptanzkriterien der abgeschlossenen UserStories => doc/testcases (Issue von Tristian)
+
+== Besprechen - Änderungen / Ergänzungen Doku:
+-   Architecture-Notebook:
+    * Annahmen/Abhängigkeiten: Prisma + Docker (stattdessen mpm?)
+    * Arch.-relevante Anforderungen: Responsives Design?
+    
+-   Project-Plan:
+    * Deployment: Beschreibung, wie Client/Server gestartet wird (Paul, Tristan)
+
+== To Do's
+-   DOR anpassen
+-   Doku / Reflexion: Aufwandsschätzung schwierig => anfangs Story-Zuordnung nicht gut
+-   Überlegung / Beschreibung der Anwendung von Methoden, die gut bzw. nicht gut funktioniert haben (Team-Tops/Team-Flops) (alle => Miro)
+-   Wissensaufbau automatische Doku (Software, UML, Klassen/Methoden) => (Tristan, Paul)
+-   Domänenmodell anpassen (Nicola)
+-   Überarbeitung Layout (Flexboxen)
+-   Beginn Anwenderdoku (Felix, Martin)
+-   Frontend-Tests implementieren (Patrick)
+-   Datenstrukturen (DB-Tabellen) ergänzen (Doku Glossar: Martin)
+-   Infos aus Doku Container in Doku (Doku Deployment: Martin)
+
+== Done
+-   Termin für Präsentation (20. oder 27.01.26) => Entscheidung für 20.01.26 (Martin)
+-   Präsentation Farbkonzept (Felix) => Entscheidung => Anpassung und Ausarbeitung (Felix)
+
+
+=> Retro/Planning:   19.12. 18.00 Uhr online
