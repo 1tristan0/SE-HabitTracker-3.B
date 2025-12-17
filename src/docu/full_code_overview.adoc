@@ -1,0 +1,144 @@
+= Vollständige Code-Übersicht (leicht erklärt)
+:toc:
+:toclevels: 3
+
+Kerngedanke: Der Browser spricht nur mit unserem eigenen Server. Der Server regelt Anmeldung und Datenbankzugriffe; die Datenbank liegt bei Supabase. Supabase selbst nutzen wir nur für Authentifizierung, nicht direkt aus dem Browser.
+
+== Verzeichnisstruktur (kurz)
+----
+src/
+├── backend/          # Server-Code (Node/Express + Prisma)
+│   ├── index.js
+│   ├── prisma.config.js
+│   ├── prisma/schema.prisma
+│   └── src/
+│       ├── prisma.js
+│       ├── supabaseAuth.js
+│       ├── middleware/authenticate.js
+│       └── routes/{auth.js, habits.js}
+└── frontend/         # Browser-App (React)
+    ├── package.json
+    └── src/
+        ├── App.jsx / App.css
+        ├── api/{httpClient.js, authApi.js, habitsApi.js}
+        ├── components/{Navbar.jsx, HabitForm.jsx, HabitGrid.jsx, HabitCard.jsx, HabitList.jsx, Calender.jsx}
+        ├── hooks/useHabits.js
+        ├── lib/{calendar.js, convert.js}
+        ├── pages/HabitsPage.jsx
+        └── weitere CRA-Standarddateien (index.js, tests, Styles)
+----
+
+== Backend (Server)
+Der Server läuft mit Node.js/Express. Er hat zwei Aufgaben: (1) Nutzer anmelden/abmelden, (2) Gewohnheiten eines Nutzers lesen/anlegen/löschen/umschalten. Die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur vom Server angesprochen, nie direkt aus dem Browser.
+
+=== index.js
+* Startet den Server, erlaubt Browser-Aufrufe (CORS) und versteht JSON-Anfragen.
+* `GET /` → kurzer „API läuft“-Text.
+* Leitet Anfragen an:
+** `/api/auth` (Anmeldung/Registrierung/Abmeldung)
+** `/api/habits` (Gewohnheiten)
+* Startet auf konfigurierter Port-Nummer (im Docker-Setup Port 3001).
+
+=== prisma.config.js
+* Sagt Prisma, wo das Datenbankmodell liegt und wohin der erzeugte DB-Client geschrieben wird.
+
+=== prisma/schema.prisma
+* Beschreibt die Tabellen:
+** `habits_table`: Gewohnheiten eines Nutzers (Name, Beschreibung, Startdatum, Fortschritt/Streak, letzte/prior Checks, user_id).
+** `users`: Grunddaten der Nutzer.
+* Verbindet sich per `DATABASE_URL` mit Postgres (Supabase).
+
+=== src/prisma.js
+* Baut den Datenbank-Zugriff (PrismaClient) auf und stellt ihn den Routen zur Verfügung.
+
+=== src/supabaseAuth.js
+* Spricht mit Supabase für alles rund um Anmeldung.
+* Braucht `SUPABASE_URL` und `SUPABASE_ANON_KEY` aus der Server-Umgebung.
+* Kernfunktionen:
+** `loginWithPassword(email, password)`: fragt ein Anmelde-Token ab.
+** `registerUser(email, password)`: legt einen neuen Benutzer an.
+** `fetchUser(accessToken)`: prüft, ob ein Token gültig ist, liefert Nutzer zurück.
+** `signOut(accessToken)`: meldet ein Token ab.
+
+=== src/middleware/authenticate.js
+* „Türsteher“ für geschützte Routen.
+* Erwartet Header `Authorization: Bearer <token>`.
+* Prüft das Token bei Supabase; bei Erfolg hängt der geprüfte Nutzer an `req.auth`. Sonst 401/403 mit klarer JSON-Fehlermeldung.
+
+=== src/routes/auth.js
+* Schnittstelle für Anmeldung im Browser (JSON rein, JSON raus):
+** `POST /api/auth/login`: E-Mail/Passwort → Token + Nutzer.
+** `POST /api/auth/register`: legt Nutzer an → Nutzer (+ ggf. Token).
+** `POST /api/auth/session`: prüft ein Token → Nutzer.
+** `POST /api/auth/logout`: meldet ein Token ab → Bestätigung.
+
+=== src/routes/habits.js
+* Nur mit gültigem Token erreichbar (Middleware oben prüft).
+* Helfer:
+** `serializeHabit`: macht Daten browserfreundlich (große Zahlen/Datumswerte als Strings/ISO).
+** `normalizeDateArray`: stellt sicher, dass Datumslisten wirklich Listen sind.
+* Endpunkte:
+** `GET /api/habits`: alle Gewohnheiten des angemeldeten Nutzers (sortiert nach Startdatum).
+** `POST /api/habits`: erwartet mindestens `name`, legt eine Gewohnheit an (Startdatum = heute, Streak = 0).
+** `DELETE /api/habits/:id`: löscht eine Gewohnheit des Nutzers, antwortet mit 204 bei Erfolg.
+** `POST /api/habits/:id/toggle`: schaltet „heute erledigt“ um; erhöht oder verringert den Streak und führt eine kleine Historie (`prev_last_checked`).
+
+== Frontend (Browser-App)
+Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach die Gewohnheiten. Sie spricht ausschließlich mit dem eigenen Backend; Datenbank und Supabase-Schlüssel bleiben verborgen.
+
+=== App.jsx
+* Oberste React-Komponente.
+* Beim Start: lädt ggf. gespeicherte Sitzung (Token/Nutzer) aus dem Browser, kann beim Server prüfen, ob das Token gültig ist.
+* Stellt bereit:
+** `handleLogin(email, password)`: ruft den Server, speichert Token/Nutzer, zeigt danach die Habits.
+** `handleRegister(email, password)`: legt Nutzer an, speichert Token falls Supabase eines liefert, sonst Hinweis auf Bestätigungs-Mail.
+** `handleLogout()`: meldet ab, räumt gespeicherte Daten weg.
+* Zeigt je nach Zustand das Login/Registrieren oder die Habit-Seite.
+
+=== api/httpClient.js
+* Kleiner Helfer für alle Server-Aufrufe.
+* Baut die Zieladresse aus `REACT_APP_API_BASE_URL` (Standard `http://localhost:5000`).
+* Hängt JSON-Header und bei Bedarf den `Authorization: Bearer`-Header an.
+* Liefert Daten oder eine verständliche Fehlermeldung.
+
+=== api/authApi.js
+* Funktionen für Anmeldung/Registrierung, alle sprechen den Server:
+** `login`, `register`, `fetchSession`, `logout`.
+* Speichert/liest/löscht die Sitzung im Browser (`persistSession`, `loadSession`, `clearSession`).
+
+=== api/habitsApi.js
+* Bündelt Aufrufe rund um Gewohnheiten (alle erwarten ein gültiges Token):
+** `fetchHabits` → lädt die Liste.
+** `addHabit` → legt eine neue Gewohnheit an (Name Pflicht, Beschreibung optional).
+** `deleteHabit` → löscht eine Gewohnheit.
+** `toggleHabitToday` → schaltet „heute erledigt“ um und gibt das aktualisierte Objekt zurück.
+
+=== pages/HabitsPage.jsx
+* Die Seite nach erfolgreichem Login.
+* Holt Token und Nutzer aus den übergebenen Daten.
+* Lädt, legt an, löscht und toggelt Gewohnheiten; aktualisiert die Anzeige entsprechend.
+* Zeigt Kopfzeile (`Navbar`), Formular (`HabitForm`), Kartenübersicht (`HabitGrid`) und Kalender (`Calender`).
+
+=== hooks/useHabits.js
+* Wiederverwendbarer Baustein für Habit-Listen.
+* Hält Liste und Ladezustand; ruft dieselben API-Funktionen wie die Habit-Seite.
+
+=== components
+* `Navbar.jsx`: Kopfzeile mit Logout.
+* `HabitForm.jsx`: Formular zum Anlegen neuer Gewohnheiten (Name, Beschreibung).
+* `HabitGrid.jsx`: gruppiert Habits (erledigt/offen) und zeigt Karten.
+* `HabitCard.jsx`: einzelne Karte mit Anzeige, Löschen- und Toggle-Schalter.
+* `HabitList.jsx`: ältere Listen-Variante (derzeit nicht genutzt).
+* `Calender.jsx`: Monatsübersicht, markiert erledigte Tage, zeigt Fortschritt pro Tag, Navigation zwischen Monaten.
+
+=== lib
+* `convert.js`:
+** `dateOnly(ts)`: Datum als `YYYY-MM-DD`.
+** `monthAndYear(year, month)`: deutscher Monatsname + Jahr.
+** `todayAsString()`: heutiges Datum als String.
+* `calendar.js`:
+** `getMonthMatrix(year, month)`: baut eine Monats-Matrix ab Montag.
+** `isEveryHabitChecked(habits, day)`: liefert `true` wenn alle für den Tag erledigt, sonst Prozentzahl.
+
+=== index.js / index.css / App.css / tests
+* Standard-Dateien von Create React App: Einstiegspunkt, globale Styles, Test-Setup und Beispiel-Test.

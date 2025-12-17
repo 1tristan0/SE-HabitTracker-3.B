@@ -4,20 +4,17 @@ import HabitForm from '../components/HabitForm';
 import Navbar from '../components/Navbar';
 import HabitGrid from '../components/HabitGrid';
 
-import {
-  fetchHabits,
-  addHabit as apiAddHabit,
-  deleteHabit as apiDeleteHabit,
-  toggleHabitToday,
-} from '../api/habitsApi';
+import { fetchHabits, addHabit as apiAddHabit, deleteHabit as apiDeleteHabit, toggleHabitToday } from '../api/habitsApi';
 import Calender from '../components/Calender';
 
-export default function HabitsPage({ userId, onLogout }) {
+export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
+  const userId = session.user.id;
+  const token = session.accessToken;
 
   const load = async () => {
     try {
-      const data = await fetchHabits(userId);
+      const data = await fetchHabits(token);
       setHabits(data);
     } catch (err) {
       console.error('Laden fehlgeschlagen:', err.message);
@@ -26,7 +23,7 @@ export default function HabitsPage({ userId, onLogout }) {
 
   const add = async (name, desc) => {
     try {
-      await apiAddHabit({ userId, name, desc });
+      await apiAddHabit(token, { name, desc });
       await load();
     } catch (err) {
       console.error('Anlegen fehlgeschlagen:', err.message);
@@ -35,7 +32,7 @@ export default function HabitsPage({ userId, onLogout }) {
 
   const remove = async (id) => {
     try {
-      await apiDeleteHabit({ userId, id });
+      await apiDeleteHabit(token, id);
       setHabits((prev) => prev.filter((h) => h.id !== id));
     } catch (err) {
       console.error('Löschen fehlgeschlagen:', err.message);
@@ -45,7 +42,7 @@ export default function HabitsPage({ userId, onLogout }) {
   // Check/Uncheck ohne RPC: habitsApi entscheidet anhand last_checked, was zu tun ist
   const check = async (id /* , nextChecked */) => {
     try {
-      const updated = await toggleHabitToday({ habitId: id, userId });
+      const updated = await toggleHabitToday(token, id);
       setHabits((prev) => prev.map((h) => (h.id === id ? updated : h)));
     } catch (err) {
       console.error('Check fehlgeschlagen:', err.message);
@@ -53,9 +50,9 @@ export default function HabitsPage({ userId, onLogout }) {
   };
 
   useEffect(() => {
-    if (userId) load();
+    if (userId && token) load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userId]);
+  }, [userId, token]);
 
   return (
     <div className="container py-5">

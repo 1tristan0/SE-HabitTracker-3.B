@@ -1,42 +1,36 @@
+//src/backend/index.js
 const express = require('express');
-const cors    = require('cors');
-const prisma  = require('./src/prisma');   // NEU: Prisma importiert
-const app     = express();
+const cors = require('cors'); // CORS-Middleware importieren um Frontend mit Backend kommunizieren zu lassen
+const habitsRouter = require('./src/routes/habits');
+const authRouter = require('./src/routes/auth');
 
-app.use(cors());
-app.use(express.json());
+const app = express();
 
-// Neue Route für den Browser-Aufruf
-app.get('/', (req, res) => {
-  res.send('Hello from your Express server!');
+const allowedOrigins = process.env.CORS_ORIGINS // Kommagetrennte Liste von erlaubten Origins
+  ? process.env.CORS_ORIGINS.split(',').map((o) => o.trim()) // Leerzeichen entfernen
+  : ['http://localhost:5173', 'http://localhost:3000']; // erlaubt Anfragen von diesen Ports im Localhost
+app.use( 
+  cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'], // Erlaubte HTTP-Methoden
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept'], // Erlaubte Header
+  })
+);
+app.use(express.json()); // Middleware zum übersetzten von JSON-Anfragen
+
+
+// Basis-Route liefert uns eine Statusmeldung
+app.get('/', (_req, res) => { 
+  res.send('Habit Tracker API is running');
 });
 
-// Beispielroute, um Prisma zu testen:
-app.get('/api/habits', async (req, res) => {
-  try {
-    const habits = await prisma.habits_table.findMany();  // <-- Prisma Query
+app.use('/api/auth', authRouter); // Auth-Routen
+app.use('/api/habits', habitsRouter); // Habits-Routen
 
-    // BigInt-Felder in Strings umwandeln
-    const serialized = habits.map(habit => ({
-      ...habit,
-      id: habit.id.toString(),
-      streak: habit.streak?.toString(),
-      father_id: habit.father_id?.toString(),
-    }));
 
-    res.json(serialized);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Prisma query failed' });
-  }
-});
 
-// Deine bestehende API-Route
-app.get('/api/hello', (req, res) => {
-  res.json({ msg: 'Hello from Express!' });
-});
-
+// Server starten
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, '0.0.0.0', () => 
+app.listen(PORT, '0.0.0.0', () =>
   console.log(`Server läuft auf http://0.0.0.0:${PORT}`)
 );

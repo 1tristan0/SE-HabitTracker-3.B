@@ -2,20 +2,20 @@
 import { useEffect, useState } from 'react';
 import { fetchHabits, addHabit, deleteHabit } from '../api/habitsApi';
 
-export function useHabits(userId) {
+export function useHabits(token) {
   const [habits, setHabits] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const load = async () => {
     setLoading(true);
-    try { setHabits(await fetchHabits(userId)); }
+    try { setHabits(await fetchHabits(token)); }
     finally { setLoading(false); }
   };
 
-  const add = async (name, desc) => { await addHabit({ userId, name, desc }); await load(); };
-  const remove = async (id) => { await deleteHabit({ userId, id }); await load(); };
+  const add = async (name, desc) => { await addHabit(token, { name, desc }); await load(); };
+  const remove = async (id) => { await deleteHabit(token, id); await load(); };
 
-  useEffect(() => { if (userId) load(); }, [userId]);
+  useEffect(() => { if (token) load(); }, [token]);
 
   return { habits, loading, add, remove, reload: load };
 }
