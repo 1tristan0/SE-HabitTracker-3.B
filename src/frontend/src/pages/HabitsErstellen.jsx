@@ -5,10 +5,10 @@ import {
 } from "../api/habitsApi";
 import HabitCreateContent from "../components/HabitCreateContent";
 
-export default function HabitsErstellen({userId}) {
+export default function HabitsErstellen({userId, session}) {
   const add = async (name, desc) => {
       try {
-        await apiAddHabit({ userId, name, desc });
+        await apiAddHabit(session.accessToken, { name, desc });
         console.log("Habit successfully added.");
       } catch (err) {
         console.error('Anlegen fehlgeschlagen:', err.message);

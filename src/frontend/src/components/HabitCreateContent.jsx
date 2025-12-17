@@ -15,8 +15,8 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
         description.trim()
       );
       console.log("Habit created:", { name, description });
+      window.location.href = "/";
     }
-    window.location.href = "/"; // Zurück zur Übersicht navigieren
   };
 
   return (
@@ -95,6 +95,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
                   <button
                     type="submit"
                     disabled={!name.trim()}
+                    onClick={handleSubmit}
                     className="rounded-xl bg-primary4 px-4 py-2 text-sm font-medium text-primary1 shadow-sm hover:bg-primary2 disabled:cursor-not-allowed disabled:opacity-60 transition"
                   >
                     Hinzufügen

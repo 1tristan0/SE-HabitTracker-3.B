@@ -135,11 +135,11 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={<HabitsPage userId={session.user.id} view="overview" />}
+          element={<HabitsPage session={session} view="overview" />}
         />
         <Route
           path="/add"
-          element={<HabitsErstellen userId={session.user.id} view="add" />}
+          element={<HabitsErstellen userId={session.user.id} session={session} view="add" />}
         />
       </Routes>
     </>

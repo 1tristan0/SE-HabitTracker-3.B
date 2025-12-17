@@ -12,8 +12,8 @@ import Calender from '../components/Calender';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
-  const userId = session.user.id;
-  const token = session.accessToken;
+  const userId = session?.user?.id;        // changed
+  const token = session?.accessToken;      // changed
   const [openModal, setOpenModal] = useState(false);
   const [selectedHabit, setSelectedHabit] = useState(null);
 
@@ -63,10 +63,17 @@ export default function HabitsPage({ session, onLogout }) {
   return (
     <div className="container py-5">
 
-
-      <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} />
-      { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
-      <Calender habits={habits} />
+      {!userId || !token ? (
+        <div className="alert alert-warning" role="alert">
+          Bitte melden Sie sich an, um Ihre Gewohnheiten zu verwalten.
+        </div>
+      ) : (
+        <>
+          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} />
+          { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
+          <Calender habits={habits} />
+        </>
+      )}
     </div>
   );
 }
