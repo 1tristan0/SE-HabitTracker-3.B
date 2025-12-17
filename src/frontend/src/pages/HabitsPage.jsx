@@ -26,15 +26,6 @@ export default function HabitsPage({ session, onLogout }) {
     }
   };
 
-  const add = async (name, desc) => {
-    try {
-      await apiAddHabit(token, { name, desc });
-      await load();
-    } catch (err) {
-      console.error('Anlegen fehlgeschlagen:', err.message);
-    }
-  };
-
   const remove = async (id) => {
     try {
       await apiDeleteHabit(token, id);
