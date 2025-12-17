@@ -137,8 +137,6 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 //. Definieren Sie alle Dokumentationsanforderugen, inkl. Benutzerhandbücher, Onlinehilfe, Installations-, Kennzeichnungs- und Auslieferungsanforderungen.
 //. Definieren Sie die Priorität für diese zusätzlichen Produktanforderungen. Ergänzen Sie, falls sinnvoll, Angaben zu Stabilität, Nutzen, Aufwand und Risiko für diese Anforderungen.
 
-=== Zusätzliche Produktanforderungen
-
 [%header, cols="2,1,4,1"]
 |===
 | Anforderung | Priorität | Beschreibung | Geplantes Release

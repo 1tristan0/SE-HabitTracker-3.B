@@ -1,0 +1,35 @@
+include::../docs/_includes/default-attributes.inc.adoc[]
+// ---
+:doctype: book
+//:toc:
+//:toclevels: 2
+//:toc-title: Inhaltsverzeichnis
+//:sectnums:
+//:icons: font
+//:source-highlighter: highlightjs
+:source-highlighter: rouge
+:rouge-style: github
+:xrefstyle: full
+:experimental:
+:chapter-signifier:
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:listing-caption: Listing
+:!example-caption:
+:experimental:
+// Folders
+:imagesdir-reset: {imagesdir}
+:docs-test2: {docs}/test2
+:docs-requirements: {docs}/requirements
+:docs-project-management: {docs}/project_management
+:docs-architecture: {docs}/architecture
+:docs-test: {docs}/test
+:docs-development: {docs}/development
+
+// --- Bereitstellung ---
+= Bereitstellung von `{project-system-name}`
+
+:imagesdir: {docs-requirements}/images
+//TODO Anleitung zum Zugriff auf die Software
+//TODO Wo liegen welche Softwware-Teile (evtl. auch C4-Modell)
+//Softwareumfang entsprechend Geschäftswert der Funktionen

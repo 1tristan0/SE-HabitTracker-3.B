@@ -1,0 +1,49 @@
+include::../docs/_includes/default-attributes.inc.adoc[]
+// ---
+:doctype: book
+//:toc:
+//:toclevels: 2
+//:toc-title: Inhaltsverzeichnis
+//:sectnums:
+//:icons: font
+//:source-highlighter: highlightjs
+:source-highlighter: rouge
+:rouge-style: github
+:xrefstyle: full
+:experimental:
+:chapter-signifier:
+:figure-caption: Abbildung
+:table-caption: Tabelle
+:listing-caption: Listing
+:!example-caption:
+:experimental:
+// Folders
+:imagesdir-reset: {imagesdir}
+:docs-test2: {docs}/test2
+:docs-requirements: {docs}/requirements
+:docs-project-management: {docs}/project_management
+:docs-architecture: {docs}/architecture
+:docs-test: {docs}/test
+:docs-development: {docs}/development
+
+// --- Entwicklerdokumentation ---
+*Link zum Repository:* https://github.com/1tristan0/SE-HabitTracker-3.B
+
+//Architektur-Beschreibung
+include::../docs/architecture/architecture_notebook.adoc[]
+
+//Design-Beschreibung
+include::../docs/development/design.adoc[]
+
+//Docker-Setup
+include::../src/docu/Doku-Docker.adoc[]
+
+//Code-Übersicht
+include::../src/docu/full_code_overview.adoc[]
+
+//Prisma-Guide
+include::../src/docu/prisma_guide.adoc[]
+
+//Supabase-Guide
+include::../src/docu/supabase_guide.adoc[]
+

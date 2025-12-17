@@ -1,9 +1,9 @@
-= Architecture Notebook: {project-name}
+= Architecture Notebook:
 include::attributes.inc.adoc[]
 
-include::../_includes/teammitglieder.adoc[]
+//include::../_includes/teammitglieder.adoc[]
 
-{localdatetime}
+//{localdatetime}
 // Platzhalter für weitere Dokumenten-Attribute
 :imagesdir: images 
 :diagramsdir: diagrams 
