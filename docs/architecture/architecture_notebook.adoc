@@ -170,3 +170,11 @@ Level 3 im C4-Modell folgt in späteren Iterationen
 === Verteilungsdiagramm (Deployment Diagramm)
 //Beschreibt die physischen Knoten (Rechner) des Systems und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
 Verteilungsdiagramm (Deployment Diagramm) folgt in späteren Iterationen
+
+=== Sequenzdiagramme
+//Beschreibt die Interaktionen zwischen Objekten in einem bestimmten Szenario einer Funktionalität des Systems. Diese Sicht wird verwendet, um die Zusammenarbeit zwischen Objekten zu verdeutlichen und den Ablauf von Nachrichten und Methodenaufrufen zu zeigen.
+Sequenzdiagramm Habit anlegen
+[plantuml, "{diagramsdir}/sequenz_habit_anlegen", svg]
+....
+include::{plantumlsdir}/sequenz_habit_anlegen.puml[]
+....
