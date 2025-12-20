@@ -14,6 +14,9 @@ export default function HabitsErstellen({userId, session}) {
         console.error('Anlegen fehlgeschlagen:', err.message);
       }
   };
+  if (!session || !session.accessToken || !userId) {
+    window.location.href = "/";
+  }
 
   const handleCancel = () => {
     // zurück zur Habit-Liste navigieren
