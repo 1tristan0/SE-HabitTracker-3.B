@@ -1,1 +1,4 @@
 nodemodules
+
+#linter cache
+.eslintcache

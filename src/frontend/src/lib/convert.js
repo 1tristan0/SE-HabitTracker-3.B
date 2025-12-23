@@ -6,6 +6,7 @@ export const dateOnly = (ts) => {
         try {
             return new Date(ts).toISOString().slice(0, 10);
         } catch (e) {
+            console.error("Fehler bei der Datumskonvertierung:", e);
             return null;
         }
 };
