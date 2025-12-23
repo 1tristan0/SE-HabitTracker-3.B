@@ -62,6 +62,7 @@ export function isEveryHabitChecked(habits, day) {
         const parsed = JSON.parse(prev);
         if (Array.isArray(parsed)) return parsed.some((ts) => dateOnly(ts) === d);
       } catch (e) {
+        console.error("Fehler beim Parsen des vorherigen Status:", e);
         // ignore parse error and fall back to comma split
       }
       const parts = prev.split(",").map((s) => s.trim()).filter(Boolean);
@@ -72,6 +73,7 @@ export function isEveryHabitChecked(habits, day) {
       try {
         return Object.values(prev).some((ts) => dateOnly(ts) === d);
       } catch (e) {
+        console.error("Fehler beim Überprüfen des vorherigen Status:", e);
         return false;
       }
     }
