@@ -14,7 +14,7 @@ Supabase Postgres (local oder cloud)
 - Docker Desktop (Mac/Win) oder Docker Engine (Linux)
 - Git
 - Node.js >= 20
-- Supabase CLI global installiert (https://github.com/supabase/cli?utm_source=chatgpt.com)
+- Supabase CLI global installiert (https://github.com/supabase/cli)
     - MacOS via brew, Linux via Package (siehe official Repo)
 
 ## Start (Erstlauf)
