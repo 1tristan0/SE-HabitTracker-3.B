@@ -1,35 +1,35 @@
 // client/src/components/HabitCard.jsx
 // Hilfsfunktion zum Formatieren von Datumswerten (z. B. Entfernen von Uhrzeit)
-import { dateOnly } from "../lib/convert";
+import { convertToGermanDateString, dateOnly } from "../lib/convert";
 
 // React-Komponente zur Darstellung einer einzelnen Gewohnheit (Habit)
-export default function HabitCard({ habit, onDelete, onCheck = () => {} }) {
+export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick = () => {}, onClose = () => {} }) {
   // Heutiges Datum im Format YYYY-MM-DD (zum Vergleich mit last_checked)
   const today = new Date().toISOString().slice(0, 10);
 
   return (
-    <div className="card mb-3">
+    <div className="card mb-3 bg-primary3 habitcard" onClick={() => onClick(habit)}>
       <div className="card-body">
         {/* Titel der Gewohnheit */}
-        <h5 className="card-title">{habit.habit_name}</h5>
+        <h3 className="card-title text-primary1 text-xl font-bold">{habit.habit_name}</h3>
 
         {/* Beschreibung der Gewohnheit */}
-        <p className="card-text">{habit.description}</p>
+        <p className="card-text text-primary1">{habit.description}</p>
 
         {/* Anzeige des Startdatums */}
-        <p className="card-text">
-          <small className="text-muted">Gestartet: {habit.start_date}</small>
+        <p className="card-text text-primary1">
+          <small className=" text-primary1">Gestartet: {convertToGermanDateString(habit.start_date)}</small>
         </p>
 
         {/* Anzeige des letzten Erledigungsdatums (oder „—“, falls noch nie erledigt) */}
         <p className="card-text">
-          <small className="text-muted">
-            Letztmalig erledigt: {habit.last_checked ? dateOnly(habit.last_checked) : "—"}
+          <small className="text-primary1">
+            Letztmalig erledigt: {habit.last_checked ? convertToGermanDateString(dateOnly(habit.last_checked)) : "—"}
           </small>
         </p>
         {/* Anzeige der Streak) */}
         <p className="card-text">
-          <small className="text-muted">
+          <small className="text-primary1">
             Streak: {habit.streak || 0}
           </small>
         </p>
@@ -37,7 +37,7 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {} }) {
         {/* Button zum Löschen der Gewohnheit */}
         <button
           className="btn btn-danger btn-sm me-2"
-          onClick={() => onDelete(habit.id)} // ruft die Löschfunktion aus dem Elternkomponenten auf
+          onClick={(e) => { e.stopPropagation(); onDelete(habit.id); }} // prevent card click
         >
           Löschen
         </button>
@@ -49,11 +49,13 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {} }) {
             className="form-check-input"
             id={`check-${habit.id}`}
             checked={dateOnly(habit.last_checked) === today}
-            onChange={(e) => onCheck(habit.id, e.target.checked)}
+            onClick={(e) => e.stopPropagation()}
+            onMouseDown={(e) => e.stopPropagation()}
+            onChange={(e) => { e.stopPropagation(); onCheck(habit.id, e.target.checked); }}
           />
 
           {/* Label neben der Checkbox */}
-          <label className="form-check-label" htmlFor={`check-${habit.id}`}>
+          <label className="form-check-label text-primary1" htmlFor={`check-${habit.id}`}>
             Erledigt!
           </label>
         </div>

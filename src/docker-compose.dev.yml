@@ -11,7 +11,7 @@ services:
       CHOKIDAR_USEPOLLING: "true"
     volumes:
       - ./backend:/app
-      - /app/node_modules
+      - backend_node_modules:/app/node_modules
 
   frontend:
     build:
@@ -24,4 +24,9 @@ services:
       NODE_ENV: development
     volumes:
       - ./frontend:/app
-      - /app/node_modules
+      - frontend_node_modules:/app/node_modules
+
+volumes:
+  backend_node_modules:
+  frontend_node_modules:
+

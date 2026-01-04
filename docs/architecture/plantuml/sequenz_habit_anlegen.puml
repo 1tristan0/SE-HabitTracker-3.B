@@ -1,0 +1,12 @@
+@startuml
+actor Nutzer as user
+participant "Web-Frontend" as frontend
+participant "Backend API" as backend
+participant "Database(Supabase)" as database
+user -> frontend: Legt ein neues Habit an
+frontend -> backend: Sendet Anfrage zum Anlegen eines neuen Habits
+backend -> database: Fügt das neue Habit in die Datenbank ein
+database --> backend: Bestätigung des erfolgreichen Einfügens, mitliefern der Daten des neu angelegten Habits
+backend --> frontend: Bestätigung des erfolgreichen Anlegens des Habits, mitliefern der Daten des neu angelegten Habits
+frontend --> user: Zeigt Bestätigung und Details des neu angelegten Habits an
+@enduml

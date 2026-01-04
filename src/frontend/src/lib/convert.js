@@ -19,3 +19,30 @@ export const monthAndYear = (year, month) => {
 export const todayAsString = () => {
     return new Date().toISOString().slice(0,10);
 };
+
+export const convertToGermanDateString = (dateStr) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
+}
+export const dateOnlyBerlin = (ts) => {
+  if (!ts) return null;
+  try {
+    return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' }).format(new Date(ts));
+  } catch (e) {
+    return null;
+  }
+};
+
+export const todayAsStringBerlin = () => {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' }).format(new Date());
+};
+/**
+ * Ist das übergebene Datum in der Zukunft?
+ * @param {*} dateStr istt ein Datum im Format YYYY-MM-DD
+ * @returns 
+ */
+export const isInFuture = (dateStr) => {
+  const today = new Date();
+  const date = new Date(dateStr);
+  return date > today;
+}

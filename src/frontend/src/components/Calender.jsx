@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
-import { getMonthMatrix, isEveryHabitChecked } from "../lib/calendar";
-import { monthAndYear, todayAsString } from "../lib/convert";
+import { getCheckedHabiitsFromDay, getMonthMatrix, getUncheckedHabitsFromDay, isEveryHabitChecked } from "../lib/calendar";
+import { monthAndYear, todayAsStringBerlin, dateOnlyBerlin, isInFuture } from "../lib/convert";
+import CalendarModal from "./CalendarModal";
 
 const WEEKDAYS = ["Mo","Di","Mi","Do","Fr","Sa","So"];
 
@@ -10,8 +11,12 @@ export default function Calender({ habits }) {
   const now = new Date();
   const [view, setView] = useState({ year: now.getFullYear(), month: now.getMonth() });
   const [selected, setSelected] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+  const [checkedHabits, setCheckedHabits] = useState([]);
+  const [uncheckedHabits, setUncheckedHabits] = useState([]);
 
-  const todayStr = todayAsString();
+  const todayStr = todayAsStringBerlin();
+  console.log("todayStr", todayStr);
 
   const matrix = useMemo(() => getMonthMatrix(view.year, view.month), [view]);
 
@@ -30,6 +35,12 @@ export default function Calender({ habits }) {
       return { year: v.year, month: m };
     });
   };
+  function onDaySelected(dateStr){
+    console.log("day selected", dateStr);
+    setOpenModal(true);
+    setCheckedHabits(getCheckedHabiitsFromDay(habits, dateStr));
+    setUncheckedHabits(getUncheckedHabitsFromDay(habits, dateStr));
+  };
 
 
   return (
@@ -38,20 +49,22 @@ export default function Calender({ habits }) {
         
 
         <div className="flex justify-between items-center w-full">
-          <button onClick={prevMonth} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">vorheriger Monat</button>
-          <h2 className="text-2xl font-semibold text-gray-800">{monthAndYear(view.year, view.month)}</h2>
-          <button onClick={nextMonth} className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200">nächster Monat</button>
+          <button onClick={prevMonth} className="px-3 py-1 rounded bg-primary3 hover:bg-primary4 text-primary1">vorheriger Monat</button>
+          <h2 className="text-2xl font-semibold text-primary3">{monthAndYear(view.year, view.month)}</h2>
+          <button onClick={nextMonth} className="px-3 py-1 rounded bg-primary3 hover:bg-primary4 text-primary1">nächster Monat</button>
         </div>
       </div>
-
+      {openModal && (
+        <CalendarModal selected={selected} checkedHabits={checkedHabits} uncheckedHabits={uncheckedHabits} setOpenModal={setOpenModal} />
+      )}
       <div className="grid grid-cols-7 gap-1 text-center">
         {WEEKDAYS.map((w) => (
-          <div key={w} className="text-sm font-medium text-gray-600 py-2">{w}</div>
+          <div key={w} className="text-sm font-medium text-primary3 py-2 ">{w}</div>
         ))}
 
         {matrix.map((week, wi) => (
           week.map((cell, di) => {
-            const dateStr = cell.date.toISOString().slice(0,10);
+            const dateStr = dateOnlyBerlin(cell.date);
             const isToday = dateStr === todayStr;
             const isSelected = selected === dateStr;
             const completion = isEveryHabitChecked(habits, dateStr); // true or percent number
@@ -60,12 +73,18 @@ export default function Calender({ habits }) {
               <button
                 key={`${wi}-${di}`}
                 className={
-                  `py-3 border rounded-md focus:outline-none transition-colors ` +
-                  `${cell.inMonth ? "bg-white" : "bg-gray-50 text-gray-400"} ` +
-                  `${isToday ? "ring-2 ring-blue-400" : ""} ` +
-                  `${completion === true ? "bg-green-600 " : ""}`
+                  `py-3 border rounded-md focus:outline-none transition-colors hover:bg-primary2 dayButton` +
+                  `${cell.inMonth ? "bg-white " : "bg-gray-50 text-gray-400"} ` +
+                  `${isToday ? "ring-2 ring-primary3" : ""} ` +
+                  `${isInFuture(cell.date) ? "cursor-not-allowed bg-gray-300" : "hover:bg-primary2 cursor-pointer text-primary3"} ` +
+                  {/*}`${completion === true ? "bg-green-600 " : ""}`*/}
                 }
                 aria-pressed={isSelected}
+                disabled={isInFuture(cell.date)}
+                onClick={() => {
+                  setSelected(dateStr);
+                  onDaySelected(dateStr);
+                }}
                 title={cell.date.toLocaleDateString()}
               >
                 <div className="text-sm">{cell.day}</div>
@@ -98,7 +117,7 @@ export default function Calender({ habits }) {
           })
         ))}
       </div>
-        <div className="mt-4 text-sm text-gray-600">
+        {/*<div className="mt-4 text-sm text-gray-600">
           {isEveryHabitChecked(habits, todayStr) === true ? (
             <div>Alle Gewohnheiten für heute erledigt!</div>
           ) : (
@@ -113,7 +132,7 @@ export default function Calender({ habits }) {
               })()}
             </div>
           )}
-        </div>
+        </div>*/}
 
     </div>
   );

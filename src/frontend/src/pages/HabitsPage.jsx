@@ -1,16 +1,21 @@
 // client/src/pages/HabitsPage.jsx
 import { useEffect, useState } from 'react';
-import HabitForm from '../components/HabitForm';
-import Navbar from '../components/Navbar';
 import HabitGrid from '../components/HabitGrid';
+import HabitInfoModal from '../components/HabitInfoModal';
 
-import { fetchHabits, addHabit as apiAddHabit, deleteHabit as apiDeleteHabit, toggleHabitToday } from '../api/habitsApi';
+import {
+  fetchHabits,
+  deleteHabit as apiDeleteHabit,
+  toggleHabitToday,
+} from '../api/habitsApi';
 import Calender from '../components/Calender';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
-  const userId = session.user.id;
-  const token = session.accessToken;
+  const userId = session?.user?.id;        // changed
+  const token = session?.accessToken;      // changed
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedHabit, setSelectedHabit] = useState(null);
 
   const load = async () => {
     try {
@@ -18,15 +23,6 @@ export default function HabitsPage({ session, onLogout }) {
       setHabits(data);
     } catch (err) {
       console.error('Laden fehlgeschlagen:', err.message);
-    }
-  };
-
-  const add = async (name, desc) => {
-    try {
-      await apiAddHabit(token, { name, desc });
-      await load();
-    } catch (err) {
-      console.error('Anlegen fehlgeschlagen:', err.message);
     }
   };
 
@@ -54,16 +50,30 @@ export default function HabitsPage({ session, onLogout }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, token]);
 
+  const opennModal = (habit) => {
+    setSelectedHabit(habit);
+    setOpenModal(true);
+    
+  }
+  const closeModal = () => {
+    setOpenModal(false);
+  }
+
+
   return (
     <div className="container py-5">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <Navbar onLogout={onLogout} />
-      </div>
 
-      <HabitForm onAdd={add} />
-
-      <HabitGrid habits={habits} onDelete={remove} onCheck={check} />
-      <Calender habits={habits} />
+      {!userId || !token ? (
+        <div className="alert alert-warning" role="alert">
+          Bitte melden Sie sich an, um Ihre Gewohnheiten zu verwalten.
+        </div>
+      ) : (
+        <>
+          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} />
+          { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
+          <Calender habits={habits} />
+        </>
+      )}
     </div>
   );
 }

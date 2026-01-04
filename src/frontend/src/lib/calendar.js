@@ -1,5 +1,12 @@
 import { dateOnly } from "./convert";
-
+/**
+ * Generiert eine Matrix für die Anzeige eines Monatskalenders.
+ * Jede Woche ist eine Zeile, jeder Tag eine Spalte.
+ * Tage außerhalb des Monats sind ebenfalls enthalten, um volle Wochen darzustellen.
+ * @param {number} year - Das Jahr (z.B. 2024)
+ * @param {number} month - Der Monat (0-11, wobei 0 = Januar, 11 = Dezember)
+ * @returns {Array<Array<{date: Date, day: number, inMonth: boolean}>>} Eine Matrix von Wochen und Tagen
+ */
 export function getMonthMatrix(year, month) {
   // month: 0-11
   const firstOfMonth = new Date(year, month, 1);
@@ -42,6 +49,13 @@ export function getMonthMatrix(year, month) {
 
   return matrix;
 }
+/**
+ * Überprüft, ob alle Gewohnheiten an einem bestimmten Tag erledigt wurden.
+ * Gibt true zurück, wenn alle erledigt sind, sonst den Prozentsatz der erledigten Gewohnheiten.
+ * @param {Array} habits - Liste der Gewohnheiten
+ * @param {string} day - Das Datum im Format 'YYYY-MM-DD'
+ * @returns {boolean|number} true, wenn alle erledigt sind, sonst Prozentsatz (0-100)
+ */
 export function isEveryHabitChecked(habits, day) {
 
   if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
@@ -85,4 +99,101 @@ export function isEveryHabitChecked(habits, day) {
 
   // return percentage rounded to nearest integer
   return Math.round((completedCount / habits.length) * 100);
+}
+/**
+ * Gibt die Liste der an einem bestimmten Tag erledigten Gewohnheiten zurück.
+ * @param {Array} habits - Liste der Gewohnheiten
+ * @param {string} day - Das Datum im Format 'YYYY-MM-DD'
+ * @returns {Array} Liste der erledigten Gewohnheiten
+ */
+export function getCheckedHabiitsFromDay(habits, day) {
+  if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
+  if (!day) return 0; // kein Datum angegeben
+  return habits.filter((habit) => {
+    if (dateOnly(habit.last_checked) === day) return true;
+    const prev = habit.prev_last_checked;
+    if (!prev) return false;
+    if (Array.isArray(prev)) {
+      return prev.some((ts) => dateOnly(ts) === day);
+    }
+    if (typeof prev === "string") {
+      try {
+        const parsed = JSON.parse(prev);
+        if (Array.isArray(parsed)) return parsed.some((ts) => dateOnly(ts) === day);
+      } catch (e) {
+        // ignore parse error and fall back to comma split
+      }
+      const parts = prev.split(",").map((s) => s.trim()).filter(Boolean);
+      if (parts.length) return parts.some((ts) => dateOnly(ts) === day);
+    }
+    if (typeof prev === "object") {
+      try {
+        return Object.values(prev).some((ts) => dateOnly(ts) === day);
+      } catch (e) {
+        return false;
+      }
+    }
+    return false;
+});
+}
+/**
+ * Gibt die Liste der an einem bestimmten Tag nicht erledigten Gewohnheiten zurück.
+ * @param {Array} habits - Liste der Gewohnheiten
+ * @param {string} day - Das Datum im Format 'YYYY-MM-DD'
+ * @returns {Array} Liste der nicht erledigten Gewohnheiten
+ */
+export function getUncheckedHabitsFromDay(habits, day) {
+  if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
+  if (!day) return 0; // kein Datum angegeben
+  return habits.filter((habit) => {
+    if (dateOnly(habit.last_checked) === day) return false;
+    const prev = habit.prev_last_checked;
+    if (!prev) return true;
+    if (Array.isArray(prev)) {
+      return !prev.some((ts) => dateOnly(ts) === day);
+    }
+    if (typeof prev === "string") {
+      try {
+        const parsed = JSON.parse(prev);
+        if (Array.isArray(parsed)) return !parsed.some((ts) => dateOnly(ts) === day);
+      } catch (e) {
+        // ignore parse error and fall back to comma split
+      }
+      const parts = prev.split(",").map((s) => s.trim()).filter(Boolean);
+      if (parts.length) return !parts.some((ts) => dateOnly(ts) === day);
+    }
+    if (typeof prev === "object") {
+      try {
+        return !Object.values(prev).some((ts) => dateOnly(ts) === day);
+      } catch (e) {
+        return true;
+      }
+    }
+    return true;
+  });
+}
+/**
+ * Berechnet die Anzahl der Tage zwischen zwei Daten.
+ * @param {string|Date} date1 - Das erste Datum (Format 'YYYY-MM-DD' oder Date-Objekt)
+ * @param {string|Date} date2 - Das zweite Datum (Format 'YYYY-MM-DD' oder Date-Objekt)
+ * @returns {number|null} Anzahl der Tage zwischen den beiden Daten, oder null bei ungültigem Datum
+ */
+export function daysBetween(date1, date2) {
+    try {
+        const d1 = new Date(date1);
+        const d2 = new Date(date2);
+
+        if (isNaN(d1) || isNaN(d2)) {
+            throw new Error("Invalid date format. Use 'YYYY-MM-DD' or a valid Date object.");
+        }
+
+        const utc1 = Date.UTC(d1.getFullYear(), d1.getMonth(), d1.getDate());
+        const utc2 = Date.UTC(d2.getFullYear(), d2.getMonth(), d2.getDate());
+
+        const msPerDay = 1000 * 60 * 60 * 24;
+        return Math.floor((utc2 - utc1) / msPerDay);
+    } catch (err) {
+        console.error(err.message);
+        return null;
+    }
 }
