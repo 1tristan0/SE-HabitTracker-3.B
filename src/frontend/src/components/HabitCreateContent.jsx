@@ -4,18 +4,21 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!name.trim()) return; // simple Validation
 
     if (onSubmit) {
-      onSubmit(
-        name.trim(),
-        description.trim()
-      );
-      console.log("Habit created:", { name, description });
-      window.location.href = "/";
+      try {
+        await onSubmit(
+          name.trim(),
+          description.trim()
+        );
+        console.log("Habit created:", { name, description });
+      } catch (err) {
+        console.error("Failed to create habit:", err);
+      }
     }
   };
 
