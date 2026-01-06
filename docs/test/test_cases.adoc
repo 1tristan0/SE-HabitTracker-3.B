@@ -1,6 +1,4 @@
 = Test Cases: {project-name}
-Martin-Lee Schubert <martinlee.schubert@stud.htw-dresden.de>; Patrick Eger <patrick.eger@stud.htw-dresden.de>; Nicola Gadow <nicola.gadow@stud.htw-dresden.de>; Felix Prockl <felix.prockl@stud.htw-dresden.de>; Tristan Weiland <tristan.weiland2@stud.htw-dresden.de>; Monika Keil <monika.keil@stud.htw-dresden.de>; Paul Händler <paul.haendler@stud.htw-dresden.de>; 
-{localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
@@ -8,7 +6,94 @@ include::../_includes/default-attributes.inc.adoc[]
 == Allgemeine Informationen
 
 == Test Cases
+=== Akzeptanztest AT-01
+Anzeige der geplanten Habits des aktuellen Tages
 
-=== Test Case 01
+*Ziel des Tests:*
+Überprüfung, ob eine Übersicht aller für den aktuellen Tag geplanten Habits angezeigt wird
 
-=== Test Case 02
+*Voraussetzung (Eingabe / Systemzustand):*
+
+- Nutzer ist eingeloggt
+- Für den aktuellen Tag sind Habits geplant
+
+*Aktion (Nutzeraktion):*
+Nutzer öffnet die Startseite der App
+
+*Erwartetes Ergebnis (Ausgabe):*
+Eine Liste aller für den aktuellen Tag geplanten Habits wird angezeigt
+
+*Testergebnis:*
+
+- [ ] bestanden
+- [ ] nicht bestanden
+
+=== Akzeptanztest AT-02
+Visuelle Unterscheidung erledigter und offener Habits
+
+*Ziel des Tests:*
+Überprüfung der visuellen Unterscheidbarkeit von erledigten und offenen Gewohnheiten
+
+*Voraussetzung (Eingabe / Systemzustand):*
+
+- Nutzer ist eingeloggt
+- Es existieren erledigte und offene Habits für den aktuellen Tag
+
+*Aktion:*
+Nutzer betrachtet die Habit-Übersicht
+
+*Erwartetes Ergebnis (Ausgabe):*
+Erledigte Gewohnheiten sind visuell eindeutig von offenen unterscheidbar
+
+*Testergebnis:*
+
+- [ ] bestanden
+- [ ] nicht bestanden
+
+=== Akzeptanztest AT-03
+Sichtbarkeit der Habit-Übersicht nach Login und über Menü
+
+*Ziel des Tests:*
+Überprüfung der Erreichbarkeit der Habit-Übersicht
+
+*Voraussetzung (Eingabe / Systemzustand):*
+
+- Website der App ist erreichbar und per Browser geöffnet
+
+*Aktion:*
+Nutzer betrachtet die Startseite
+
+*Erwartetes Ergebnis (Ausgabe):*
+Die Habit-Übersicht ist sichtbar
+
+*Zusätzliche Aktion:*
+Nutzer navigiert über den Menüpunkt zur Übersicht
+
+*Erwartetes Ergebnis:*
+Die Übersicht kann über den Menüpunkt aufgerufen werden
+
+*Testergebnis:*
+
+- [ ] bestanden
+- [ ] nicht bestanden
+
+=== Akzeptanztest AT-04
+Sortierung der Gewohnheiten nach Startdatum
+
+*Ziel des Tests:*
+Überprüfung der Sortierreihenfolge der angezeigten Gewohnheiten
+
+*Voraussetzung (Eingabe / Systemzustand):*
+
+Es existieren mehrere Gewohnheiten mit unterschiedlichen Startdaten
+
+*Aktion:*
+Nutzer betrachtet die Habit-Übersicht
+
+*Erwartetes Ergebnis (Ausgabe):*
+Die Gewohnheiten sind nach Startdatum sortiert
+
+*Testergebnis:*
+
+- [ ] bestanden
+- [ ] nicht bestanden
