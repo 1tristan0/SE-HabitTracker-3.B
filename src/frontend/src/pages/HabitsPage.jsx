@@ -1,4 +1,3 @@
-// client/src/pages/HabitsPage.jsx
 import { useEffect, useState } from 'react';
 import HabitGrid from '../components/HabitGrid';
 import HabitInfoModal from '../components/HabitInfoModal';
@@ -9,6 +8,7 @@ import {
   toggleHabitToday,
 } from '../api/habitsApi';
 import Calender from '../components/Calender';
+import BegleiterModal from '../components/BegleiterModal';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -16,6 +16,7 @@ export default function HabitsPage({ session, onLogout }) {
   const token = session?.accessToken;      // changed
   const [openModal, setOpenModal] = useState(false);
   const [selectedHabit, setSelectedHabit] = useState(null);
+  const [openBegleiterModal, setOpenBegleiterModal] = useState(false);
 
   const load = async () => {
     try {
@@ -72,6 +73,10 @@ export default function HabitsPage({ session, onLogout }) {
           <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} />
           { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
           <Calender habits={habits} />
+          <button
+            className="mt-6 btn btn-primary"
+            onClick={() => setOpenBegleiterModal(true)}>Begleiter auswählen</button>
+          { openBegleiterModal && <BegleiterModal onClose={() => setOpenBegleiterModal(false)} /> }
         </>
       )}
     </div>
