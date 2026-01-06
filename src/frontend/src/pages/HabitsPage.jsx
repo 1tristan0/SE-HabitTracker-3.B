@@ -11,6 +11,7 @@ import {
 import Calender from '../components/Calender';
 import HabitChangeModal from '../components/HabitChangeModal';
 import BegleiterModal from '../components/BegleiterModal';
+import Begleiter from '../components/Begleiter';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -20,6 +21,7 @@ export default function HabitsPage({ session, onLogout }) {
   const [selectedHabit, setSelectedHabit] = useState(null);
   const [openChangeModal, setOpenChangeModal] = useState(false);
   const [openBegleiterModal, setOpenBegleiterModal] = useState(false);
+  const [selectedBegleiter, setSelectedBegleiter] = useState("hamster");
 
   const load = async () => {
     try {
@@ -91,10 +93,8 @@ export default function HabitsPage({ session, onLogout }) {
           { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
           {openChangeModal && <HabitChangeModal habit={selectedHabit} onClose={() => setOpenChangeModal(false)} edit={edit}/>}
           <Calender habits={habits} />
-          <button
-            className="mt-6 btn btn-primary"
-            onClick={() => setOpenBegleiterModal(true)}>Begleiter auswählen</button>
-          { openBegleiterModal && <BegleiterModal onClose={() => setOpenBegleiterModal(false)} /> }
+          <Begleiter selectedBegleiter={selectedBegleiter} onClick={() => setOpenBegleiterModal(true)}/>
+          { openBegleiterModal && <BegleiterModal onClose={() => setOpenBegleiterModal(false)} onSelect={setSelectedBegleiter} /> }
         </>
       )}
     </div>
