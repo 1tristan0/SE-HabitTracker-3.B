@@ -9,6 +9,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum animal_type {
+  hund
+  katze
+  hamster
+  wurm
+}
+
+enum animal_mood {
+  gluecklich
+  traurig
+}
+
 model habits_table {
   id                String     @id @default(uuid())
 
@@ -28,6 +40,9 @@ model habits_table {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model users {
-  id              String   @id @default(uuid())
-  habits  habits_table[]
+  id                String       @id @default(uuid())
+  habits            habits_table[]
+
+  animal_type animal_type      @default(hund)
+  animal_mood animal_mood      @default(gluecklich)
 }
