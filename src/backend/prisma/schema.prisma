@@ -25,7 +25,7 @@ model habits_table {
   id                String     @id @default(uuid())
 
   user              users      @relation(fields: [userId], references: [id])
-  userId            String     // id aus users (Fremdschlüssel auf users)
+  userId            String     @db.Uuid
 
   habit_name        String?    @db.VarChar
   father_id         BigInt?
