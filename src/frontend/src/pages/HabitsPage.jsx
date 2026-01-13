@@ -12,6 +12,7 @@ import Calender from '../components/Calender';
 import HabitChangeModal from '../components/HabitChangeModal';
 import BegleiterModal from '../components/BegleiterModal';
 import Begleiter from '../components/Begleiter';
+import { fetchAnimal } from '../api/userApi';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -64,9 +65,21 @@ export default function HabitsPage({ session, onLogout }) {
   const openChangeModalComponent = (habit) => {
     setSelectedHabit(habit);
     setOpenChangeModal(true);
-  }
+  }  
+  const getAnimal = async () => {
+    try {
+      const data = await fetchAnimal(token);
+      setSelectedBegleiter(data.animal);
+    } catch (err) {
+      console.error('Laden des Gewohnheitstiers fehlgeschlagen:', err.message);
+    }
+  };
+
   useEffect(() => {
-    if (userId && token) load();
+    if (userId && token) {
+      load();
+      getAnimal();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, token]);
 
