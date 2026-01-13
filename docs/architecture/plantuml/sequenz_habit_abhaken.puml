@@ -1,0 +1,25 @@
+@startuml
+title Habit abhaken (als erledigt markieren)
+
+actor Nutzer as user
+participant "Web-Frontend" as frontend
+participant "Backend API" as backend
+participant "Prisma ORM" as prisma
+participant "Database(Supabase)" as database
+
+user -> frontend: Klickt "Habit abhaken"\n
+frontend -> frontend: toggleHabitToday(token, id)
+frontend -> frontend: apiFetch(`/api/habits/${habitId}/toggle`, { method: 'POST', token, });
+frontend -> backend: POST api/habits/{habitId}/toggle\n{date, timezone}
+backend -> prisma: find habit by id + userId
+prisma -> database: Query Habit mit Besitzrecht
+database --> prisma: Habit-Data
+prisma --> backend: Habit-Data
+backend -> backend: already completed?
+backend -> prisma: update habit completion
+prisma -> database: Insert Habit Completion
+database --> prisma: OK
+prisma --> backend: OK
+backend --> frontend: 200 OK + new Completion-Data
+frontend --> user: 200 OK + UI-Update
+@enduml

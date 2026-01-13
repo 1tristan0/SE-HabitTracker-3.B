@@ -1,4 +1,3 @@
-// client/src/hooks/useHabits.js
 import { useEffect, useState } from 'react';
 import { fetchHabits, addHabit, deleteHabit } from '../api/habitsApi';
 
