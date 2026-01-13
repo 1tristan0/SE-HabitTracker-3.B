@@ -1,0 +1,14 @@
+@startuml
+actor User
+participant Frontend
+participant Backend
+participant Supabase
+
+User -> Frontend : enter email/password
+Frontend -> Backend : POST /api/auth/login
+Backend -> Backend : validate input
+Backend -> Supabase : POST /auth/v1/token
+Supabase --> Backend : session data
+Backend --> Frontend : 200 OK + tokens
+Frontend -> Frontend : store session
+@enduml
