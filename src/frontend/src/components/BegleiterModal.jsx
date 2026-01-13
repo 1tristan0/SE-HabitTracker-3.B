@@ -1,13 +1,19 @@
 
 import { useState } from 'react';
+import { setAnimal } from '../api/userApi';
 
-export default function BegleiterModal({ onClose, onSelect }) {
+export default function BegleiterModal({ onClose, onSelect, animalMood, token }) {
   const [selected, setSelected] = useState(null);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (selected) {
       console.log('Ausgewählter Begleiter:', selected);
-      if (typeof onSelect === 'function') onSelect(selected);
+      try {
+        await setAnimal(token, selected, animalMood);
+        if (typeof onSelect === 'function') onSelect(selected, animalMood);
+      } catch (err) {
+        console.error('Fehler beim Speichern des Begleiters:', err);
+      }
     } else {
       console.log('Kein Begleiter ausgewählt');
     }
@@ -41,20 +47,20 @@ export default function BegleiterModal({ onClose, onSelect }) {
             <img
               src="/images/cat(1).png"
               alt="Katze"
-              onClick={() => setSelected('cat')}
-              className={`mx-auto block cursor-pointer rounded-lg w-24 h-24 object-contain ${selected === 'cat' ? 'ring-4 ring-primary4' : ''}`}
+              onClick={() => setSelected('katze')}
+              className={`mx-auto block cursor-pointer rounded-lg w-24 h-24 object-contain ${selected === 'katze' ? 'ring-4 ring-primary4' : ''}`}
             />
             <img
               src="/images/dog(1).png"
               alt="Hund"
-              onClick={() => setSelected('dog')}
-              className={`mx-auto block cursor-pointer rounded-lg w-24 h-24 object-contain ${selected === 'dog' ? 'ring-4 ring-primary4' : ''}`}
+              onClick={() => setSelected('hund')}
+              className={`mx-auto block cursor-pointer rounded-lg w-24 h-24 object-contain ${selected === 'hund' ? 'ring-4 ring-primary4' : ''}`}
             />
             <img
               src="/images/worm(1).png"
               alt="Wurm"
-              onClick={() => setSelected('worm')}
-              className={`mx-auto block cursor-pointer rounded-lg w-24 h-24 object-contain ${selected === 'worm' ? 'ring-4 ring-primary4' : ''}`}
+              onClick={() => setSelected('wurm')}
+              className={`mx-auto block cursor-pointer rounded-lg w-24 h-24 object-contain ${selected === 'wurm' ? 'ring-4 ring-primary4' : ''}`}
             />
             <img
               src="/images/hamster(1).png"
