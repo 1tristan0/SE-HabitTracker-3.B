@@ -31,6 +31,7 @@ Anwesend: Monika, Felix, Tristan, Martin (online), Paul, Nicola (online), Patric
 -   Styleguide dokumentieren (Patrick, Felix)
 -   automatisierte Tests mit Github Actions aufbauen (Tristan)
 -   Doku React-Komponenten => architecture-notebook (C4 Modelle Ebene 3+4) (Patrick, Felix)
+-   Frontend Modal Auswahl des Gewohnheitstiers (Patrick, Felix)
 -   Vorbereitung Folien für Präsi am 20.01. (Felix, Monika, Nicola?)
 
 
