@@ -13,16 +13,16 @@
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 Person(customer, "Nutzer")
-  System(webApp, "Gewohnheitstier\n - Habit Tracker",  "Erlaubt Nutzern ihre Habits zu erstellen, anzeigen zu lassen, zu bearbeiten und zu löschen. ")
+  System(webApp, "Gewohnheitstier\n - Habit Tracker",  "Ermöglicht Nutzern, ihre Habits zu erstellen, anzuzeigen, zu bearbeiten und zu löschen.")
 
 
 
-  ContainerDb_Ext(db,    "Supabase",  "Datenbank Provider", "Datenhaltung: Enthält User, Habits, Streaks und User-Beziehungen")
+  ContainerDb_Ext(db,    "Supabase",  "Datenbank-Provider", "Datenhaltung: Enthält User, Habits, Streaks und User-Beziehungen")
 
 
-Rel(customer, webApp, "Erstellt und trackt Habits \n Intergiert mit anderen Usern \n durch ")
+Rel(customer, webApp, "Erstellt und trackt Habits \n Integriert sich mit anderen Nutzern \n durch soziale Interaktion")
 
-Rel_R(webApp, db,     "UserManagement, Authentfication, Datenhaltung")
+Rel_R(webApp, db,     "User-Management, Authentifizierung, Datenhaltung")
 
 @enduml
 ----
@@ -50,3 +50,76 @@ Rel_R(api,       db,     "Kommunikation über ORM")
 
 @enduml
 ----
+
+== 3 Komponenten-Diagramm
+[plantuml, containerdiagram, svg]
+----
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Person(user, "Nutzer")
+
+System_Boundary(frontend, "Web Frontend - React") {
+  Component(router, "Router", "React Router", "Navigation zwischen Pages")
+  Component(authComp, "Auth Module", "React + Context", "Login/Signup Logik")
+  
+  Component(dashboard, "Dashboard Page", "React Component", "Zeigt Habits & Kalender")
+  Component(createHabit, "Create Habit Page", "React Component", "Formular zur Habit-Erstellung")
+  
+  Component(habitList, "Habit List Component", "React", "Anzeige aller Habits des Users")
+  Component(calendar, "Calendar Component", "React", "Kalenderdarstellung der Streaks")
+  Component(habitForm, "Habit Form Component", "React", "Wiederverwendbares Formular")
+  
+  Component(habitService, "Habit Service", "API Client", "Kommunikation mit Backend")
+  Component(authService, "Auth Service", "JWT/Context", "Authentifizierung & Session")
+}
+
+System_Boundary(backend, "Backend API - Node.js/Express") {
+  Component(authRoute, "Auth Routes", "Express Router", "Login/Signup/Logout Endpoints")
+  Component(habitRoute, "Habit Routes", "Express Router", "CRUD Endpoints für Habits")
+  
+  Component(authController, "Auth Controller", "Middleware", "Auth-Logik & JWT-Handling")
+  Component(habitController, "Habit Controller", "Express Handler", "Geschäftslogik für Habits")
+  
+  Component(habitModel, "Habit Model", "Prisma Schema", "Datenstruktur & Validierung")
+  Component(userModel, "User Model", "Prisma Schema", "User-Datenstruktur")
+  
+  Component(prismaClient, "Prisma Client", "ORM", "Datenbank-Zugriff")
+}
+
+System_Boundary(database, "Supabase") {
+  ComponentDb(habitTable, "habits", "PostgreSQL Table", "Speichert Habit-Daten")
+  ComponentDb(userTable, "users", "PostgreSQL Table", "Speichert User-Daten & Auth")
+}
+
+Rel(user, router, "navigiert")
+Rel(router, authComp, "zeigt bei unauthentifiziert")
+Rel(router, dashboard, "zeigt nach Login")
+Rel(router, createHabit, "zeigt bei Klick")
+
+Rel(dashboard, habitList, "verwendet")
+Rel(dashboard, calendar, "verwendet")
+Rel(createHabit, habitForm, "verwendet")
+
+Rel(habitList, habitService, "ruft Habits ab")
+Rel(createHabit, habitService, "erstellt/aktualisiert Habit")
+Rel(calendar, habitService, "ruft Streak-Daten ab")
+
+Rel(authComp, authService, "verwendet")
+Rel(habitService, authService, "nutzt Token")
+
+Rel(habitService, habitRoute, "HTTP GET/POST/PUT/DELETE")
+Rel(authService, authRoute, "HTTP POST")
+
+Rel(authRoute, authController, "delegiert zu")
+Rel(habitRoute, habitController, "delegiert zu")
+
+Rel(authController, userModel, "nutzt")
+Rel(habitController, habitModel, "nutzt")
+
+Rel(habitModel, prismaClient, "verwendet")
+Rel(userModel, prismaClient, "verwendet")
+
+Rel(prismaClient, userTable, "CRUD")
+Rel(prismaClient, habitTable, "CRUD")
+@enduml
