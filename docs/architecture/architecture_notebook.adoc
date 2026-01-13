@@ -70,13 +70,15 @@ Das Backend wird mit Node.js und Express.js umgesetzt. Die Kommunikation zwische
 - Hohe Performance und Skalierbarkeit.
 - Vorerfahrung der Team-Mitglieder mit Node.JS und Express.js
     
-. **Nutzung von Supabase (PostgreSQL)**  
+. **Nutzung von Supabase (PostgreSQL) und Prisma ORM**  
 - Spart Zeit durch fertige Authentifizierungslösungen und Datenbankverwaltung in der Cloud. 
-- Team muss keinen eigenen Lösung zum Hosting einer Datenbank finden.
+- Team muss keine eigene Lösung zum Hosting einer Datenbank finden.
+- Verwendung eines ORM ermöglicht komplexere Features mit geringerem Aufwand umzusetzen sowie kein reines SQL im Backend verwalten zu müssen
+- Prisma Schema verringert den Aufwand, Anpassungen des Domänenmodells auf DB-Schema zu übertragen (Objektorientiert)
 
 . **Dreischicht-Modell**  
 - Getrennte Verantwortlichkeiten, einfache Skalierung, klare Trennung zwischen UI, Logik und Datenspeicherung.
-// Haben wir noch 3 Schichten oder eigentlich schon 4? Wo integriert sich Prisma?
+
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
@@ -90,13 +92,14 @@ Die Anwendung nutzt ein klassisches Dreischichten-Framework (Three-Tier-Architek
 |Präsentationsschicht (Client)
 |• Leichtgewichtiges, responsives Frontend in React  
 • Styling mit Tailwind CSS & Bootstrap  
-• Kommuniziert per HTTP/REST mit der Logikschicht  
+• Kommuniziert per HTTP/REST mit der Logikschicht
 
 |Logikschicht (Server)
 |• Node.js + Express.js als API-Backend  
 • Implementierung aller Geschäftsprozesse (Use Cases)  
 • Authentifizierung via Supabase Auth über Middleware  
-• Mapping von HTTP-Requests auf Domänen-Services  
+• Mapping von HTTP-Requests auf Domänen-Services
+• DB-Abfragen/Operationen werden durch den Prisma Client ausgeführt
 
 |Datenhaltungsschicht (Database)
 |• Supabase (PostgreSQL) für persistente Datenspeicherung  
@@ -107,7 +110,7 @@ Die Anwendung nutzt ein klassisches Dreischichten-Framework (Three-Tier-Architek
   
 . **Kommunikation:**  
   – RESTful API zwischen Präsentations- und Logikschicht  
-  – SQL/JSON-API-Aufrufe von der Logik- zu Datenhaltungsschicht  
+  – Prisma Client verknüpft Logik- und Datenhaltungsschicht  
 
 . **Prinzipien:**  
   – Jede Schicht nur über wohldefinierte Schnittstellen (Top-Down).  
@@ -182,4 +185,14 @@ Sequenzdiagramm Habit abhaken
 [plantuml, "{diagramsdir}/sequenz_habit_abhaken", svg]
 ....
 include::{plantumlsdir}/sequenz_habit_abhaken.puml[]
+....
+Sequenzdiagramm User registrieren
+[plantuml, "{diagramsdir}/user_registration", svg]
+....
+include::{plantumlsdir}/user_registration.puml[]
+....
+Sequenzdiagramm user log in
+[plantuml, "{diagramsdir}/user_login", svg]
+....
+include::{plantumlsdir}/user_login.puml[]
 ....

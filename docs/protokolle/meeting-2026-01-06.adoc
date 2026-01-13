@@ -30,7 +30,8 @@ Anwesend: Monika, Felix, Tristan, Martin (online), Paul, Nicola (online), Patric
 -   Sequenzdiagramm überarbeiten, z.B. Habit anlegen und/oder Login (Patrick, Paul)
 -   Styleguide dokumentieren (Patrick, Felix)
 -   automatisierte Tests mit Github Actions aufbauen (Tristan)
--   Doku React-Komponenten => architecture-notebook (C4 Modelle Ebene 3+4) (Paul, Tristan, Martin)
+-   Doku React-Komponenten => architecture-notebook (C4 Modelle Ebene 3+4) (Patrick, Felix)
+-   Frontend Modal Auswahl des Gewohnheitstiers (Patrick, Felix)
 -   Vorbereitung Folien für Präsi am 20.01. (Felix, Monika, Nicola?)
 
 
