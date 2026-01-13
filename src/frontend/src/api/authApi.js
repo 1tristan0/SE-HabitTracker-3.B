@@ -1,4 +1,3 @@
-// client/src/api/authApi.js
 // Neue API-Schicht: ruft nur noch das Backend auf, keine Supabase-Calls im Browser
 import { apiFetch } from './httpClient';
 
