@@ -8,7 +8,7 @@ import HabitCard from "./HabitCard";         // Einzelkomponente zur Darstellung
 //  - habits: Array aller Gewohnheiten
 //  - onDelete: Callback zum Löschen einer Gewohnheit
 //  - onCheck: Callback zum Markieren als erledigt
-export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose, onEdit }) {
+export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose, onEdit, setAnimalMood }) {
 
     // Heutiges Datum im Format YYYY-MM-DD
     const today = new Date().toISOString().slice(0, 10);
@@ -16,6 +16,12 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose,
     // Gewohnheiten filtern:
     // 1. "completed" → alle, die heute erledigt wurden
     const completed = habits.filter((h) => dateOnly(h.last_checked) === today);
+    if (completed.length > 0) {
+        setAnimalMood("gluecklich");
+    } else {
+        setAnimalMood("traurig");
+        console.log("Keine erledigten Gewohnheiten heute. Animal Mood set to traurig.");
+    }
 
     // 2. "remaining" → alle, die noch nicht (oder an einem anderen Tag) erledigt wurden
     const remaining = habits.filter((h) => dateOnly(h.last_checked) !== today);

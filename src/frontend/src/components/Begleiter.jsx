@@ -1,12 +1,16 @@
-export default function Begleiter({ selectedBegleiter, onClick }) {
+export default function Begleiter({ selectedBegleiter, onClick, begleiterMood }) {
     const images = {
-        cat: '/images/cat(1).png',
-        dog: '/images/dog(1).png',
-        worm: '/images/worm(1).png',
+        katze: '/images/cat(1).png',
+        katzeTraurig: '/images/Katze_unhappy.png',
+        hundTraurig: '/images/Hund_unhappy.png',
+        wurmTraurig: '/images/wurm_unhappy.png',
+        hamsterTraurig: '/images/hamster_unhappy.png',
+        hund: '/images/dog(1).png',
+        wurm: '/images/worm(1).png',
         hamster: '/images/hamster(1).png',
     };
 
-    const src = images[selectedBegleiter] || null;
+    const src = images[selectedBegleiter + (begleiterMood === "traurig" ? "Traurig" : "")] || null;
 
     return (
         <div className="fixed bottom-4 right-4 z-40">

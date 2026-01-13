@@ -23,6 +23,7 @@ export default function HabitsPage({ session, onLogout }) {
   const [openChangeModal, setOpenChangeModal] = useState(false);
   const [openBegleiterModal, setOpenBegleiterModal] = useState(false);
   const [selectedBegleiter, setSelectedBegleiter] = useState("hamster");
+  const [animalMood , setAnimalMood] = useState("gluecklich");
 
   const load = async () => {
     try {
@@ -69,7 +70,8 @@ export default function HabitsPage({ session, onLogout }) {
   const getAnimal = async () => {
     try {
       const data = await fetchAnimal(token);
-      setSelectedBegleiter(data.animal);
+      setSelectedBegleiter(data.animal_type);
+      console.log("Begleiter geladen:", data);
     } catch (err) {
       console.error('Laden des Gewohnheitstiers fehlgeschlagen:', err.message);
     }
@@ -82,6 +84,11 @@ export default function HabitsPage({ session, onLogout }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, token]);
+  const setAnimal = async (animalType, animalmood) => {
+    const data = await setAnimal(token, animalType, animalmood);
+    setSelectedBegleiter(data.animal_type);
+    console.log("Begleiter gesetzt:", data);
+  }
 
   const opennModal = (habit) => {
     setSelectedHabit(habit);
@@ -102,12 +109,12 @@ export default function HabitsPage({ session, onLogout }) {
         </div>
       ) : (
         <>
-          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} onEdit={openChangeModalComponent} />
+          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} onEdit={openChangeModalComponent} setAnimalMood={setAnimalMood}/>
           { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
           {openChangeModal && <HabitChangeModal habit={selectedHabit} onClose={() => setOpenChangeModal(false)} edit={edit}/>}
           <Calender habits={habits} />
-          <Begleiter selectedBegleiter={selectedBegleiter} onClick={() => setOpenBegleiterModal(true)}/>
-          { openBegleiterModal && <BegleiterModal onClose={() => setOpenBegleiterModal(false)} onSelect={setSelectedBegleiter} /> }
+          <Begleiter selectedBegleiter={selectedBegleiter} onClick={() => setOpenBegleiterModal(true)} begleiterMood={animalMood}/>
+          { openBegleiterModal && <BegleiterModal onClose={() => setOpenBegleiterModal(false)} onSelect={setSelectedBegleiter} token={token} animalMood={animalMood}/> }
         </>
       )}
     </div>
