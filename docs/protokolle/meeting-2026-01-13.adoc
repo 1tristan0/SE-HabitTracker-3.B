@@ -1,0 +1,45 @@
+= Meeting 13.01.2026
+Anwesend: Monika, Felix, Tristan, Martin, Paul, Nicola, Patrick
+
+== Infos
+-   Dokumentation Testfälle für Akzeptanzkriterien der abgeschlossenen UserStories => doc/test_cases.adoc (Issue von Tristan) => Nachfrage bei Prof. Anke: Vorgehen bestätigt, ABER: wichtig ist das Vorliegen einer Teststrategie (was muss wann durch wen getestet werden und was passiert mit den Testergebnissen, insbesondere bei Fails)
+    => vor PR müssen alle Unit-Tests erfolgreich sein
+    => im PR werden Akzeptanztests durchgeführt
+    => im Zuge des PR werden Backend- und Frontendtests mit Swagger durchgeführt
+
+
+
+
+-   Doku / Reflexion:
+    -   Aufwandsschätzung schwierig => anfangs Story-Zuordnung nicht gut => Erläuterung Vergabe Story-Points (aus Miro)
+    -   bei Aufwandsschätzung anfangs das Schreiben und Durchführen der Tests ignoriert
+    -   Datenbankstruktur ändern (eine Tabelle mit allen Habits splitten in user/ habits)
+
+== Besprechen - Änderungen / Ergänzungen Doku:
+-   Architecture-Notebook:
+    * Annahmen/Abhängigkeiten: Prisma + Docker (stattdessen mpm?)
+    * Arch.-relevante Anforderungen: Responsives Design?
+    
+-   Project-Plan:
+    * Deployment: Beschreibung, wie Client/Server gestartet wird (Paul, Tristan)
+
+== To Do's
+-   Überlegung / Beschreibung der Anwendung von Methoden, die gut bzw. nicht gut funktioniert haben (Team-Tops/Team-Flops) (alle => Miro) z.B. Zusammenführen von Testfällen aus PR in "test_cases.adoc" (Monika)
+-   aktuelles Domänenmodell in Doku übernehmen => nach Merge aller Dev-Branches (Nicola)
+-   in Doku Verweis auf Arbeit mit PullRequests
+-   in Doku Erstellen Ablaufdiagramm für "Way of Working" (was passiert nach Ziehen einer Aufgabe bis zum Pull Request) (Martin)
+-   Update Anwenderdoku (Felix, Martin)
+-   Glossar in Anwenderdoku und Entwicklerdoku einbinden => nur Begriffe aus UserStories und Anwendung
+-   Infos aus Doku Container in Doku (Doku Deployment: Martin)
+-   Wissensaufbau Unit-Tests mit Prisma (Martin)
+-   Sequenzdiagramm überarbeiten, z.B. Habit anlegen und/oder Login (Patrick, Paul)
+-   Styleguide dokumentieren (Patrick, Felix)
+-   automatisierte Tests mit Github Actions aufbauen (Tristan)
+-   Doku React-Komponenten => architecture-notebook (C4 Modelle Ebene 3+4) (Paul, Tristan, Martin)
+-   Vorbereitung Folien für Präsi am 20.01. (Felix, Monika, Nicola?)
+-   Datenstrukturen (DB-Tabellen) ergänzen (Doku Glossar: Martin, Tristan, Paul)
+
+== Done
+-   Doku Datenbankschema erzeugen mit Prisma-UML => Entwicklerdoku bzw. architecture-notebook.adoc (Tristan)
+
+=> weekly:   20.01. 15.15 Uhr in Z 136c

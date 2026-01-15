@@ -1,0 +1,70 @@
+= Development-Team Meeting-Protokoll
+:doctype: book
+:revdate: 2025-10-27
+:revnumber: 1.1
+:toc: left
+:toclevels: 2
+:icons: font
+
+== Meeting-Informationen
+
+*Meeting-Typ:* Development Team Meeting 
+*Datum:* 04.01.2026  
+*Uhrzeit: 14:30-17:45 
+*Ort / Plattform:* Discord  
+*Mod:* Verteilt  
+*Protokoll:*   
+*Iteration:* Iteration xx (DD.MM.–DD.MM.YYYY)  
+*Teilnehmende: Felix Prockl, Tristan Wieland, Paul Händler, Patrick Eger
+
+== Zweck
+
+In diesem Meeting wurden PRs backend/#158/SwaggerUI/Paul und Feature/b029/habit infos/felix patrick gemeinsam reviewt und gemerged. Zuallererst wurde ein Fehler behoben im PR #161, denn in Firefox konnten keine Habits angelegt werden, aber in Chrome.
+Problem war eine Weiterleitung, welche nach dem Anlegen der Habits durchgeführt wurde. Stattdessen wurde auf React Routers useNavigate umgestellt
+
+== Agenda
+
+. Kurzes Check-in
+. Fehlerbehebung
+. Review PR Feature/b029/habit infos/felix patrick
+. Review backend/#158/SwaggerUI/Paul
+.  Merge der Branches in Dev
+
+== Umsetzungen / Änderungen
+
+|===
+| Thema/US/Task | Beschreibung | Entscheidungen / Aktionen | Verantwortlich | Bemerkungen
+
+| Fehlerbehebung #161
+| nach dem Erstellen eines Habits wurde der Nutzer auf die Login-Seite weitergeleitet, wo er eingeloggt wurde und dann allerdings das neue Habit nicht erstellt wurde(auf Firefox)
+| Durch Schrittweises Debugging wurde die Zeile window.location.href = '/' entfernt und stattdessen auf react router useNavigate umgestellt
+| Tristan, Patrick, Felix
+| ---
+
+| PR Review #161
+| gemeinsames testen des PRs
+| ---
+| Tristan, Patrick, Felix
+| ---
+
+| PR Review #158
+| gemeinsames testen des PRs
+| ---
+| Paul, Patrick, Tristan
+| ---
+|===
+
+
+== Learnings / Verbesserungen
+
+* Was gut funktioniert hat:  
+** gemeinsames Brainstorming an einem Problem
+
+* Was verbessert werden kann:  
+** gezieltere Vorgehensweise
+
+
+== Nächste Schritte
+
+* Nächstes Meeting: 06.01.2026
+* Erwartete Themen: Weekly
