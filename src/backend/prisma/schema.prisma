@@ -25,15 +25,14 @@ model habits_table {
   id                String     @id @default(uuid())
 
   user              users      @relation(fields: [userId], references: [id])
-  userId            String     @db.Uuid // Fremdschlüssel auf users
+  userId            String     // Fremdschlüssel auf users
 
   habit_name        String?    @db.VarChar
-  father_id         BigInt?
   description       String?
+
   start_date        DateTime?  @db.Date
   streak            BigInt?
   last_break        DateTime?  @db.Date
-  user_id           String?    @db.Uuid
   last_checked      DateTime?  @db.Timestamptz(6)
   prev_last_checked DateTime[] @db.Timestamptz
 }
