@@ -1,4 +1,4 @@
-//// client/src/components/HabitGrid.jsx
+
 // Importiere Hilfsfunktion und Komponente
 import { dateOnly } from "../lib/convert";   // Hilfsfunktion zur Formatierung von Datumswerten (YYYY-MM-DD)
 import HabitCard from "./HabitCard";         // Einzelkomponente zur Darstellung einer Gewohnheit
@@ -8,7 +8,7 @@ import HabitCard from "./HabitCard";         // Einzelkomponente zur Darstellung
 //  - habits: Array aller Gewohnheiten
 //  - onDelete: Callback zum Löschen einer Gewohnheit
 //  - onCheck: Callback zum Markieren als erledigt
-export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose }) {
+export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose, onEdit }) {
 
     // Heutiges Datum im Format YYYY-MM-DD
     const today = new Date().toISOString().slice(0, 10);
@@ -31,6 +31,7 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose 
                     onCheck={onCheck}       // Erledigt-Callback weiterreichen
                     onClick={onClick}       // Klick-Callback weiterreichen
                     onClose={onClose}       // Schließen-Callback weiterreichen
+                    onEdit={onEdit}         // Bearbeiten-Callback weiterreichen
                 />
             ))}
 
