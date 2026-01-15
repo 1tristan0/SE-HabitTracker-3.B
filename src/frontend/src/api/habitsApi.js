@@ -1,4 +1,3 @@
-// client/src/api/habitsApi.js
 // API-Schicht: alle Habit-Aufrufe laufen über das Backend
 import { apiFetch } from './httpClient';
 

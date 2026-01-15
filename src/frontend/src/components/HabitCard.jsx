@@ -34,7 +34,7 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick
         </p>
         <button
           className="btn btn-secondary btn-sm me-2"
-          onClick={(e) => { e.stopPropagation(); onEdit(habit.id); }} // prevent card click
+          onClick={(e) => { e.stopPropagation(); onEdit(habit); }} // prevent card click
         >
           Bearbeiten
         </button>

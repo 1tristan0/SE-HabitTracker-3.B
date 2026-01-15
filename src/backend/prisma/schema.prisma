@@ -24,8 +24,8 @@ enum animal_mood {
 model habits_table {
   id                String     @id @default(uuid())
 
-  user              users      @relation(fields: [userId], references: [id])
-  userId            String     @db.Uuid // Fremdschlüssel auf users
+  user              users      @relation(fields: [user_id], references: [id])
+  user_id           String     @db.Uuid // Fremdschlüssel auf users
 
   habit_name        String?    @db.VarChar
   father_id         BigInt?
@@ -33,7 +33,6 @@ model habits_table {
   start_date        DateTime?  @db.Date
   streak            BigInt?
   last_break        DateTime?  @db.Date
-  user_id           String?    @db.Uuid
   last_checked      DateTime?  @db.Timestamptz(6)
   prev_last_checked DateTime[] @db.Timestamptz
 }
