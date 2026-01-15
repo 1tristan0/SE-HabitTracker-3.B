@@ -15,12 +15,12 @@ import {
   clearSession,
 } from './api/authApi';
 import Navbar from './components/Navbar';
+import Login from './components/Login';
+import Signup from './components/Signup';
 import { Route, Routes } from 'react-router-dom';
 
 export default function App() {
   const [session, setSession] = useState(null);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [isLoginView, setIsLoginView] = useState(true);
 
   useEffect(() => {
@@ -32,8 +32,7 @@ export default function App() {
       .catch(() => clearSession());
   }, []);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleLogin = async (email, password) => {
     try {
       const result = await login(email, password);
       const next = {
@@ -48,8 +47,7 @@ export default function App() {
     }
   };
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
+  const handleRegister = async (email, password) => {
     try {
       const result = await register(email, password);
       if (result.session?.accessToken) {
@@ -82,49 +80,16 @@ export default function App() {
   };
 
   if (!session) {
-    return (
-      <div className="container py-5" style={{ maxWidth: 400 }}>
-        <h2 className="mb-4">{isLoginView ? 'Login' : 'Registrieren'}</h2>
-
-        <form onSubmit={isLoginView ? handleLogin : handleRegister}>
-          <div className="mb-3">
-            <label className="form-label">E-Mail</label>
-            <input
-              type="email"
-              className="form-control"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="mb-3">
-            <label className="form-label">Passwort</label>
-            <input
-              type="password"
-              className="form-control"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          <button type="submit" className="btn btn-primary w-100">
-            {isLoginView ? 'Login' : 'Registrieren'}
-          </button>
-        </form>
-
-        <div className="text-center mt-3">
-          <button
-            className="btn btn-link"
-            onClick={() => setIsLoginView(!isLoginView)}
-          >
-            {isLoginView
-              ? 'Noch keinen Account? Registrieren'
-              : 'Schon registriert? Login'}
-          </button>
-        </div>
-      </div>
+    return isLoginView ? (
+      <Login
+        onSubmit={handleLogin}
+        switchToRegister={() => setIsLoginView(false)}
+      />
+    ) : (
+      <Signup
+        onSubmit={handleRegister}
+        switchToLogin={() => setIsLoginView(true)}
+      />
     );
   }
 
