@@ -50,7 +50,7 @@ export default function HabitInfoModal({ habit, onClose }) {
             />
             <StatCard
               name="Aktuelle Streak"
-              value={habit ? habit.current_streak : 0}
+              value={habit ? habit.streak : 0}
             />
           </div>
 
