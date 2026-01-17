@@ -9,6 +9,7 @@ import {
   toggleHabitToday,
 } from '../api/habitsApi';
 import Calender from '../components/Calender';
+import HabitCard from '../components/HabitCard';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -62,7 +63,6 @@ export default function HabitsPage({ session, onLogout }) {
 
   return (
     <div className="container py-5">
-
       {!userId || !token ? (
         <div className="alert alert-warning" role="alert">
           Bitte melden Sie sich an, um Ihre Gewohnheiten zu verwalten.

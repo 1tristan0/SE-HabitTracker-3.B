@@ -11,6 +11,28 @@ export const getNumberOfCompletedHabits = (habit) => {
         return (habit.prev_last_checked.length + 1); // +1 für heute
     }
 }
+export const getNumberOfCompletedHabitsLastMonth = (habit) => {
+    if ((!habit || habit.prev_last_checked.length === 0) && habit.last_checked === 0) return 0;
+    const today = new Date();
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(today.getDate() - 30);
+    let count = 0;
+    // Überprüfen, ob die Gewohnheit heute erledigt wurde
+    if (habit.last_checked) {
+        const lastCheckedDate = new Date(habit.last_checked);
+        if (lastCheckedDate >= thirtyDaysAgo && lastCheckedDate <= today) {
+            count++;
+        }
+    }
+    // Überprüfen der vorherigen erledigten Daten
+    habit.prev_last_checked.forEach((dateString) => {
+        const date = new Date(dateString);
+        if (date >= thirtyDaysAgo && date <= today) {
+            count++;
+        }
+    });
+    return count;
+}
 /**
  * Gibt den Prozentsatz der erledigten Gewohnheiten zurück.
  * @param {Object} habit - Das Gewohnheitsobjekt
