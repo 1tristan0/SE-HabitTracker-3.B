@@ -1,7 +1,6 @@
 import { convertToGermanDateString } from "../lib/convert";
-import { getNumberOfCompletedHabits, getPercentageOfCompletedHabits } from "../lib/habit";
+import { getNumberOfCompletedHabits, getNumberOfCompletedHabitsLastMonth, getPercentageOfCompletedHabits } from "../lib/habit";
 
-// HabitInfoModal.jsx
 export default function HabitInfoModal({ habit, onClose }) {
     console.log("Habit in Modal:", habit);
 
@@ -42,14 +41,17 @@ export default function HabitInfoModal({ habit, onClose }) {
           {/* Kennzahlen */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <StatCard
-                name="Abgeschlossene Gewohnheiten"
-                value={getNumberOfCompletedHabits(habit) || 0}
+                name="Abgeschlossene Gewohnheiten letzte 30 Tage"
+                value={getNumberOfCompletedHabitsLastMonth(habit) || 0}
             />
             <StatCard
                 name="Anteil abgeschlossene Gewohnheiten"
                 value={getPercentageOfCompletedHabits(habit) ? `${getPercentageOfCompletedHabits(habit)}%` : "0%"}
             />
-            
+            <StatCard
+              name="Aktuelle Streak"
+              value={habit ? habit.current_streak : 0}
+            />
           </div>
 
           {/* Timeline-Infos */}
