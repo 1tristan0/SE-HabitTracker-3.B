@@ -50,3 +50,10 @@ export const getPercentageOfCompletedHabits = (habit) => {
     return Math.round((completed / total) * 100);
     }
 }
+
+export const getPercentageOfCompletedHabitsLastMonth = (habit) => {
+    if ((!habit || habit.prev_last_checked.length === 0) && habit.last_checked === 0) return 0;
+    const completed = getNumberOfCompletedHabitsLastMonth(habit);
+    const total = 30;
+    return Math.round((completed / total) * 100);
+}

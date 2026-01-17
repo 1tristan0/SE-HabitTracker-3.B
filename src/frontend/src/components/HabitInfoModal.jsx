@@ -3,13 +3,14 @@ import {
   getNumberOfCompletedHabits,
   getNumberOfCompletedHabitsLastMonth,
   getPercentageOfCompletedHabits,
+  getPercentageOfCompletedHabitsLastMonth,
 } from "../lib/habit";
 
 export default function HabitInfoModal({ habit, onClose }) {
   if (!habit) return null;
 
   const completedLast30 = getNumberOfCompletedHabitsLastMonth(habit) ?? 0;
-  const completionRate = getPercentageOfCompletedHabits(habit) ?? 0;
+  const completionRate = getPercentageOfCompletedHabitsLastMonth(habit) ?? 0;
   const completionRateLabel = `${completionRate}%`;
 
   const startedAt = habit.start_date
