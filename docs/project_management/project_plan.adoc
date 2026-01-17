@@ -75,14 +75,13 @@ Zur Beobachtung der Teamzufriedenheit und der Zusammenarbeit wurde im ersten Sem
 === Versionierung
 Die Versionsverwaltung erfolgt über GitHub, das zugleich als Plattform für Aufgaben- und Issue-Tracking dient. Das Development-Team hat sich darauf geeinigt, Pull-Requests und Branches zu nutzen, um Änderungen nachvollziehbar und konfliktfrei in das Projekt zu integrieren. 
 
-Das Entwickeln neuer Features sowie Fehlerbehebungen werden hinsichtlich der Vermeidung von Konflikten auf *separaten Branches* betrieben. Um Missverständnisse zu vermeiden, sollen Branches der Namenskonvention folgen, welche vom Development-Team erarbeitet wurde. Das Format sieht wie folgt aus:
-
+Das Entwickeln neuer Features sowie Fehlerbehebungen erfolgen zur Vermeidung von Konflikten auf *separaten Branches*. Um Missverständnisse zu vermeiden, werden die Branches entsprechend der nachfolgenden Namenskonvention benannt. Diese wurde vom Development-Team gemeinsam erarbeitet.
 ----
 type / UserStory or Issue - optional detail / developer
 ----
 Beispiele: `_feature/B033-Checkbox/Paul_` oder `_fix/B011/Patrick_`
 
-Um einen *Fix- oder Feature-Branch* in den *dev-Branch mitaufzunehmen* muss der jeweilige Branch vom Developer dem Remote-Repository hinzugefügt werden. Damit Änderungen in den Dev-Branch aufgenommen werden *muss vom Developer über GitHub ein Pull-Request ausgeführt werden*. In der Beschreibung werden sog. _Experten_ (Developer die mit den veränderten Teilen des Codes besonders vertraut sind) verlinkt, anderenfalls betrifft ein Pull-Request das gesamte Team. Damit die vorgeschlagenen Änderungen aufgenommen werden dürfen, *müssen mindestens zwei Teammitglieder* den betreffenden Branch *lokal testen* und optional ein Codereview durchführen. Sind Änderungen nötig werden diese von den Testern in Form eines Kommentar vorgeschlagen, anderenfalls soll eine Bestätigung hinzugefügt werden. *Die zweite zustimmende Person kann den Pull-Request freigeben*, sonst tut dies der Branch-Owner. *Inaktive Branches* werden anschließend gelöscht.Zum Ende einer Iteration wird der Dev-Branch in den Main-Branch gemerged. Während einer Iteration wird nur auf dem Dev-Branch gearbeitet, bzw. auf Branches die von diesem abgeleitet wurden. Für Dokumentationsänderungen und Protokolle muss kein zusätzlicher Branch erstellt werden, Änderungen werden direkt dem Dev-Branch hinzugefügt.  
+Um einen *Fix- oder Feature-Branch* in den *dev-Branch aufzunehmen* muss der jeweilige Branch vom Developer dem Remote-Repository hinzugefügt werden. Damit Änderungen in den Dev-Branch aufgenommen werden *muss vom Developer über GitHub ein Pull-Request ausgeführt werden*. In der Beschreibung werden sog. _Experten_ (Developer, die mit den veränderten Teilen des Codes besonders gut vertraut sind) verlinkt, anderenfalls betrifft ein Pull-Request das gesamte Team. Damit die vorgeschlagenen Änderungen aufgenommen werden dürfen, *müssen mindestens zwei Teammitglieder* den betreffenden Branch *lokal testen* und optional ein Codereview durchführen. Sind Änderungen nötig, werden diese von den Testern in Form eines Kommentars vorgeschlagen, anderenfalls erfolgt eine Bestätigung. *Die zweite zustimmende Person kann den Pull-Request freigeben*. Tut sie das nicht, wird dies vom Branch-Owner gemacht. Die nun *Inaktiven Branches* werden gelöscht. Zum Ende einer Iteration wird der Dev-Branch in den Main-Branch gemerged. Während einer Iteration wird nur auf dem Dev-Branch oder auf Branches, die davon abgeleitet wurden, entwickelt. Für Dokumentationsänderungen und Protokolle muss kein zusätzlicher Branch erstellt werden, Änderungen werden direkt dem Dev-Branch hinzugefügt.  
 
 === Tests
 Darüber hinaus werden automatisierte Tests vorbereitet, um die technische Qualität der Anwendung langfristig sicherzustellen. Perspektivisch ist die Einrichtung einer Continuous-Integration-Pipeline vorgesehen, um Builds und Tests automatisiert auszuführen und so frühzeitig Fehler im Entwicklungsprozess zu erkennen.
@@ -108,7 +107,7 @@ TODO: Wie sind wir zu Entscheidungen gekommen?
 // Listen Sie hier alle Kritierien auf, damit die Aufgabe eines bestimmten Typs (z.B. Task, User Story) als abgeschlossen gilt.
 - Code fertig implementiert und lokal erfolgreich gebaut.
 - Peer-Review / Pull-Request durchgeführt, alle Kommentare adressiert.
-- Akzeptanzkriterien (Definition of Ready) durch Tester oder PO verifiziert.
+- Akzeptanzkriterien (Definition of Ready) durch Tester oder PO verifiziert. Wichtige Testfälle für <wiederkehrende/fortlaufende/begleitende> Tests beschrieben.
 - Dokumentation (Code-Comments, Deployment, Architecture usw.) aktualisiert.
 - PO bestätigt: „Akzeptiert“ im Sprint Review.
 
@@ -116,6 +115,7 @@ TODO: Wie sind wir zu Entscheidungen gekommen?
 //Outline the strategy for deploying the software (and its updates) into the production environment.
 TODO: Wo liegen welche Software-Teile (siehe auch C4-Modell)
 TODO: "Anleitung", wie System nach Crash wieder hergestellt werden kann
+TODO: Beschreibung, wie Container bereitgestellt werden und welche Rahmenbedingungen erforderlich sind
 
 == Erkenntnisse (Lessons learned)
 // Führen Sie hier die wesentlichen Erkenntnisse auf, die Sie in den Retrospektiven gewonnen haben. Legen Sie besonderen Fokus auf die Maßnahmen, die Sie getroffen haben um Verbesserungen in den verschiedenen Aspekten des Projekts zu erzielen, z.B. dem Entwicklungsprozess, der technischen und organisatorischen Umgebung oder der Zusammenarbeit im Team.

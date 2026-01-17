@@ -1,4 +1,5 @@
 = Architecture Notebook:
+include::../_includes/default-attributes.inc.adoc[]
 include::attributes.inc.adoc[]
 
 //include::../_includes/teammitglieder.adoc[]
@@ -137,7 +138,7 @@ Der Austausch zwischen den Schichten erfolgt über eine klar definierte REST-API
 include::{plantumlsdir}/c4.puml[]
 ....
 ==== Erklärung:
-Unsere App „Gewohnheitstier“ ist ein einfacher Habit-Tracker:
+Unsere App {project-system-name} ist ein einfacher Habit-Tracker:
 
 * **Nutzer**: Legt in der App neue Gewohnheiten (Habits) an und trackt deren Fortschritt.  
 * **Gewohnheitstier (System)**: Bietet Funktionen zum Erstellen, Anzeigen, Bearbeiten und Löschen von Habits.  
@@ -157,6 +158,7 @@ include::{plantumlsdir}/context.puml[]
 * **Web-Frontend** (React):  
   Browser-UI für Nutzerinteraktion; kommuniziert per REST mit der Backend API.
 
+//Nicht umgesetzt - aus Diagramm entfernen!
 * **Mobile App** (JavaScript/Expo, optional):  
   Mobile UI-Variante; ebenfalls REST-Calls an die Backend API.
 

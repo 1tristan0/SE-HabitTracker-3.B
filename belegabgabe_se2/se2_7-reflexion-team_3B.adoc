@@ -1,12 +1,6 @@
 include::../docs/_includes/default-attributes.inc.adoc[]
 // --- 1. Projektthema -------------------------
 = SE I - Belegabgabe: {project-name}
-// --- 2. Teammitglieder -----------------------
-:docs: ../docs
-include::{docs}/_includes/teammitglieder.adoc[lines=2..-1]
-// --- 3. Abgabedatum --------------------------
-04. Juli 2025
-// ---------------------------------------------
 
 // ---
 :doctype: book
@@ -37,53 +31,46 @@ include::{docs}/_includes/teammitglieder.adoc[lines=2..-1]
 
 <<<
 
-// --- 4. include Pfade anpassen ---------------
+== Erfolg: Effektive Teamzusammenarbeit durch flexible Arbeitsorganisation
 
-// --- Projektdokumentation ---
-= Projektdokumentation
-* Projektplan
+Ein zentraler Erfolg des Projekts war die sehr gute Zusammenarbeit innerhalb der Gruppe, insbesondere im Development-Team. Die Aufgabenbearbeitung erfolgte häufig in kleinen Gruppen oder parallel an Einzelaufgaben mit der Möglichkeit, sich jederzeit gegenseitig abzustimmen. Bei komplexeren oder besonders kritischen Aufgaben wurde bewusst Pair Programming eingesetzt, um Lösungsansätze gemeinsam zu erarbeiten und die Qualität des entstehenden Codes zu erhöhen.
 
-:imagesdir: {docs-project-management}/images
+Das Pair Programming diente dabei nicht nur dem Wissenstransfer, sondern auch als Element zur Umsetzung von Clean-Code-Prinzipien. Durch das gemeinsame Arbeiten am Code konnten Fehler frühzeitig erkannt, verständlichere Strukturen geschaffen und bessere Benennungen sowie klarere Verantwortlichkeiten im Code etabliert werden. Gleichzeitig wurde verhindert, dass sich technische Schulden unbemerkt aufbauen.
 
-// Projektplan
-//include::{docs-project-management}/project_plan.adoc[lines=1..1;4..-1,leveloffset=+1]
-include::{docs-project-management}/project_plan.adoc[lines=1..2;14..-1,leveloffset=+1]
-<<<
+Die flexible Arbeitsorganisation - bestehend aus gemeinsamer Problemlösung, paralleler Aufgabenbearbeitung und kurzen Abstimmungswegen - erwies sich insgesamt als sehr effizient. Fachliche Fragen oder technische Unsicherheiten konnten zeitnah geklärt werden, was sowohl den Entwicklungsprozess beschleunigte als auch das gegenseitige Verständnis im Team stärkte. Darüber hinaus trug diese Arbeitsweise zu einem positiven Arbeitsklima bei, das Motivation und Engagement nachhaltig förderte.
 
-// --- Technische Spezifikation ---
-= Technische Spezifikation
-* Produktvision
-* Glossar und Domänenmodel
-* UX-Konzept
+Aus Sicht des Softwareentwicklungsprozesses zeigte sich deutlich, dass enge Zusammenarbeit und gezielte Qualitätssicherungsmaßnahmen wie Pair Programming wichtige Erfolgsfaktoren im agilen Kontext sind. Sie unterstützen nicht nur die iterative Entwicklung, sondern tragen wesentlich zur langfristigen Wartbarkeit und Verständlichkeit des Systems bei.
 
-:imagesdir: {docs-requirements}/images
+== Erfolg: Verbesserung des Softwaredesigns durch Domain-Driven Design
 
-// Produktvision
-include::{docs-requirements}/vision.adoc[lines=1..2;28..-1,leveloffset=+1]
-<<<
-// Glossar und Domänenmodell
-//[#glossary]
-include::{docs-requirements}/glossary.adoc[lines=1..2;13..-1,leveloffset=+1]
+Ein weiterer bedeutender Erfolg des Projekts war das bewusste Erkennen und Beheben von Defiziten im initialen Softwaredesign. Im Projektverlauf wurde deutlich, dass bestehende Strukturen die Wartbarkeit und Erweiterbarkeit der Anwendung zunehmend einschränkten. Als Reaktion darauf orientierte sich das Team stärker an Konzepten des Domain-Driven Design (DDD), um die fachliche Domäne klarer vom technischen Unterbau zu trennen.
 
-<<<
-// UX-Konzept
-include::{docs-requirements}/ux-concept.adoc[lines=1..2;19..-1,leveloffset=+1]
-<<<
+Im Zuge dieser Entscheidung wurden zentrale Entwurfsprinzipien gezielt angewendet. Durch eine konsequente _Separation of Concerns_ erfolgte eine klare Trennung zwischen fachlicher Logik und technischer Umsetzung. Fachliche Komponenten wurden so gestaltet, dass sie möglichst unabhängig von konkreten Frameworks oder technischen Details bleiben. Ergänzend dazu wurde das Prinzip des _Information Hiding_ umgesetzt, indem einzelne Komponenten ausschließlich über definierte Schnittstellen miteinander kommunizieren und interne Implementierungsdetails gekapselt bleiben.
 
-// --- Entwurfsdokumentation ---
-= Entwurfsdokumentation
-* Architektur-Notizbuch
-* Test Cases
+Ein weiterer Schwerpunkt lag auf der _Modularisierung_ des Systems, insbesondere durch die saubere Aufteilung in Frontend- und Backend-Komponenten. Diese Struktur erleichterte nicht nur das Verständnis der Codebasis, sondern auch die parallele Weiterentwicklung einzelner Teile des Systems.
 
-// Architektur-Notizbuch
-:imagesdir: {docs-architecture}/images
-include::{docs-architecture}/architecture_notebook.adoc[lines=1..2;7-10;21..-1,leveloffset=+1]
-<<<
-// Test Cases
-:imagesdir: {docs-test}/images
-include::{docs-test}/test_cases.adoc[lines=1..1;4..-1,leveloffset=+1]
-<<<
+Die Umstellung auf diese Architektur machte ein umfangreiches Refactoring des bestehenden Codes notwendig, das mit einem erheblichen Zeit- und Arbeitsaufwand verbunden war. Rückblickend stellte sich diese Phase als technisch anspruchsvoll und organisatorisch herausfordernd dar. Gleichzeitig führte sie zu einer wichtigen Erkenntnis: Änderungen an der Softwarearchitektur werden mit zunehmendem Projektfortschritt deutlich aufwändiger. Daraus ergab sich für das Team die Lehre, architektonische Entscheidungen möglichst früh bewusst zu treffen und regelmäßig zu überprüfen, um spätere, kostenintensive Anpassungen zu vermeiden.
 
-// ---------------------------------------------
+Trotz des hohen Aufwands erwies sich das Refactoring als nachhaltige Investition in die Qualität des Systems. Die resultierende Architektur ist klarer strukturiert, besser wartbar und robuster gegenüber zukünftigen Erweiterungen, wodurch sich der Einsatz etablierter DDD-Prinzipien im Projekt eindeutig bewährt hat.
 
-:imagesdir: {imagesdir-reset}/images
+== Erfolg: Etablierung eines strukturierten Versions- und Konfigurationsmanagements
+
+Ein dritter zentraler Erfolg war die konsequente Nutzung von GitHub für das Versions- und Konfigurationsmanagement. Das Team einigte sich frühzeitig auf einen strukturierten Workflow mit Branching und Pull Requests, um Änderungen nachvollziehbar und konfliktarm in das Projekt zu integrieren.
+
+Neue Features sowie Fehlerbehebungen wurden auf separaten Branches entwickelt. Um Missverständnisse zu vermeiden, wurde eine einheitliche Namenskonvention für Branches eingeführt, die Informationen über Typ, zugehörige User Story oder Issue sowie den verantwortlichen Entwickler enthält. Dadurch war jederzeit klar ersichtlich, welchem Zweck ein Branch dient.
+
+Die Integration in den dev-Branch erfolgte ausschließlich über Pull Requests. Dabei wurden relevante Teammitglieder als Reviewer eingebunden, sodass Änderungen mindestens von zwei Personen getestet und optional einem Code-Review unterzogen wurden. Dieses Vorgehen erhöhte die Codequalität und reduzierte das Risiko von Fehlern im gemeinsamen Codebestand. Inaktive Branches wurden nach dem Merge konsequent entfernt. Zum Ende einer Iteration wurde der dev-Branch in den main-Branch überführt.
+
+Dieser strukturierte Umgang mit Versionsverwaltung stellte sich als äußerst hilfreich heraus und trug maßgeblich zu einem stabilen Entwicklungsprozess bei. Gleichzeitig förderte er Transparenz, Verantwortungsbewusstsein und gemeinsame Qualitätsstandards im Team.
+
+== Misserfolg: Unzureichendes und inkonsistentes Tracking organisatorischer Aufgaben
+
+Ein wesentlicher Misserfolg im Projektverlauf betraf das Tracking organisatorischer Aufgaben innerhalb des Teams. Zwar wurden Aufgaben regelmäßig in Meetings besprochen und dokumentiert, jedoch gelang es nicht, eine einheitliche und dauerhaft konsequent genutzte Methode zur Aufgabenverfolgung zu etablieren. Informationen wurden parallel in Gesprächsprotokollen, auf Aufgabenlisten im Miro-Board sowie in GitHub-Issues festgehalten, ohne dass eine klare Priorisierung oder ein verbindlicher Hauptablageort definiert war.
+
+Diese parallele Nutzung mehrerer Werkzeuge führte im Projektalltag zunehmend zu Unübersichtlichkeit. Aufgaben gingen teilweise verloren, Zuständigkeiten waren nicht immer eindeutig nachvollziehbar und der aktuelle Bearbeitungsstand einzelner organisatorischer Themen war nicht für alle Teammitglieder transparent. Trotz mehrerer Versuche, eine der Lösungen konsequent einzusetzen, konnte sich keine der Varianten langfristig durchsetzen.
+
+Die Ursachen hierfür lagen unter anderem in einer zu hohen Tool-Vielfalt, fehlender Disziplin bei der Pflege der Aufgabenlisten sowie einer unklaren Verantwortlichkeit für das organisatorische Tracking. Zudem wurde der Aufwand für die kontinuierliche Pflege der verschiedenen Systeme unterschätzt, insbesondere im Vergleich zu inhaltlich-technischen Aufgaben, die für das Team eine höhere Priorität hatten.
+
+Rückblickend hätte dieser Misserfolg durch die frühzeitige Festlegung einer Single Source of Truth für organisatorische Aufgaben vermieden oder zumindest abgeschwächt werden können. Eine klare Entscheidung für ein zentrales Tool - beispielsweise GitHub Issues - sowie feste Regeln zur Pflege und Aktualisierung hätten die Transparenz und Verbindlichkeit deutlich erhöht. Als zentrale Erkenntnis bleibt, dass ein funktionierendes Aufgaben- und Organisationsmanagement genauso wichtig für den Projekterfolg ist wie die technische Umsetzung selbst und bewusst gesteuert werden muss.
+
+
