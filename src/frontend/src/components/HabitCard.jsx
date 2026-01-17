@@ -87,18 +87,7 @@ function StreakBadge({ streak = 0 }) {
       title={`Streak: ${s} ${s === 1 ? "Tag" : "Tage"}`}
       style={{ ...containerStyle, overflow: "visible" }}
     >
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        preserveAspectRatio="xMidYMid meet"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        style={{ display: "block", flex: "0 0 auto" }}
-      >
-        <path d="M12 2s1.5 2 1.5 3.5S12 8 12 10s1.5 2.5 1.5 4-1.5 4-4 4c0 0 3-2 3-6s-4-6-4-9 4-6 4-6z" />
-      </svg>
+      <img src="/flame.svg" alt="Flame icon" fill="orange" style={{ width: 14, height: 14 }} />
 
       <div
         style={{
@@ -109,9 +98,6 @@ function StreakBadge({ streak = 0 }) {
         }}
       >
         <span style={{ fontSize: "0.8rem", fontWeight: 700 }}>{s}</span>
-        <span style={{ fontSize: "0.6rem", opacity: 0.85 }}>
-          {s === 1 ? "Tag" : "Tage"}
-        </span>
       </div>
     </div>
   );
