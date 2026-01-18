@@ -22,6 +22,12 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose,
         setAnimalMood("traurig");
         console.log("Keine erledigten Gewohnheiten heute. Animal Mood set to traurig.");
     }
+    if (completed.length > 0) {
+        setAnimalMood("gluecklich");
+    } else {
+        setAnimalMood("traurig");
+        console.log("Keine erledigten Gewohnheiten heute. Animal Mood set to traurig.");
+    }
 
     // 2. "remaining" → alle, die noch nicht (oder an einem anderen Tag) erledigt wurden
     const remaining = habits.filter((h) => dateOnly(h.last_checked) !== today);
