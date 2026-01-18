@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { setAnimal } from '../api/userApi';
 

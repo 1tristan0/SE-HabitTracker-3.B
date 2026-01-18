@@ -1,4 +1,4 @@
-//// client/src/components/HabitGrid.jsx
+
 // Importiere Hilfsfunktion und Komponente
 import { dateOnly } from "../lib/convert";   // Hilfsfunktion zur Formatierung von Datumswerten (YYYY-MM-DD)
 import HabitCard from "./HabitCard";         // Einzelkomponente zur Darstellung einer Gewohnheit
@@ -8,7 +8,7 @@ import HabitCard from "./HabitCard";         // Einzelkomponente zur Darstellung
 //  - habits: Array aller Gewohnheiten
 //  - onDelete: Callback zum Löschen einer Gewohnheit
 //  - onCheck: Callback zum Markieren als erledigt
-export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose, setAnimalMood }) {
+export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose, onEdit, setAnimalMood }) {
 
     // Heutiges Datum im Format YYYY-MM-DD
     const today = new Date().toISOString().slice(0, 10);
@@ -16,6 +16,12 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose,
     // Gewohnheiten filtern:
     // 1. "completed" → alle, die heute erledigt wurden
     const completed = habits.filter((h) => dateOnly(h.last_checked) === today);
+    if (completed.length > 0) {
+        setAnimalMood("gluecklich");
+    } else {
+        setAnimalMood("traurig");
+        console.log("Keine erledigten Gewohnheiten heute. Animal Mood set to traurig.");
+    }
     if (completed.length > 0) {
         setAnimalMood("gluecklich");
     } else {
@@ -37,6 +43,7 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose,
                     onCheck={onCheck}       // Erledigt-Callback weiterreichen
                     onClick={onClick}       // Klick-Callback weiterreichen
                     onClose={onClose}       // Schließen-Callback weiterreichen
+                    onEdit={onEdit}         // Bearbeiten-Callback weiterreichen
                 />
             ))}
 
@@ -56,6 +63,7 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose,
                         onCheck={onCheck}
                         onClick={onClick}
                         onClose={onClose}
+                        onEdit={onEdit}      
                     />
                 ))
             ) : (

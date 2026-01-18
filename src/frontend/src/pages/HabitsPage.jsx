@@ -6,8 +6,10 @@ import {
   fetchHabits,
   deleteHabit as apiDeleteHabit,
   toggleHabitToday,
+  updateHabit,
 } from '../api/habitsApi';
 import Calender from '../components/Calender';
+import HabitChangeModal from '../components/HabitChangeModal';
 import BegleiterModal from '../components/BegleiterModal';
 import Begleiter from '../components/Begleiter';
 import { fetchAnimal } from '../api/userApi';
@@ -18,6 +20,7 @@ export default function HabitsPage({ session, onLogout }) {
   const token = session?.accessToken;      // changed
   const [openModal, setOpenModal] = useState(false);
   const [selectedHabit, setSelectedHabit] = useState(null);
+  const [openChangeModal, setOpenChangeModal] = useState(false);
   const [openBegleiterModal, setOpenBegleiterModal] = useState(false);
   const [selectedBegleiter, setSelectedBegleiter] = useState("");
   const [animalMood , setAnimalMood] = useState("gluecklich");
@@ -49,6 +52,21 @@ export default function HabitsPage({ session, onLogout }) {
       console.error('Check fehlgeschlagen:', err.message);
     }
   };
+  const edit = async (id, data = {}) => {
+    try{
+      const { name, description } = data || {};
+      const updated = await updateHabit(token, id, { name, desc: description });
+      setHabits((prev) => prev.map((h) => (h.id === id ? updated : h)));
+    } catch (err) {
+      console.error('Update fehlgeschlagen:', err.message);
+    }
+    
+    setOpenChangeModal(false);
+  };
+  const openChangeModalComponent = (habit) => {
+    setSelectedHabit(habit);
+    setOpenChangeModal(true);
+  }  
   const getAnimal = async () => {
     try {
       const data = await fetchAnimal(token);
@@ -60,6 +78,10 @@ export default function HabitsPage({ session, onLogout }) {
   };
 
   useEffect(() => {
+    if (userId && token) {
+      load();
+      getAnimal();
+    }
     if (userId && token) {
       load();
       getAnimal();
@@ -91,8 +113,9 @@ export default function HabitsPage({ session, onLogout }) {
         </div>
       ) : (
         <>
-          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} setAnimalMood={setAnimalMood}/>
+          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} onEdit={openChangeModalComponent} setAnimalMood={setAnimalMood}/>
           { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
+          {openChangeModal && <HabitChangeModal habit={selectedHabit} onClose={() => setOpenChangeModal(false)} edit={edit}/>}
           <Calender habits={habits} />
           <Begleiter selectedBegleiter={selectedBegleiter} onClick={() => setOpenBegleiterModal(true)} begleiterMood={animalMood}/>
           { openBegleiterModal && <BegleiterModal onClose={() => setOpenBegleiterModal(false)} onSelect={setSelectedBegleiter} token={token} animalMood={animalMood}/> }
