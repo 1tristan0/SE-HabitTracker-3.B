@@ -1,3 +1,4 @@
+// client/src/components/HabitCard.jsx
 // Hilfsfunktion zum Formatieren von Datumswerten (z. B. Entfernen von Uhrzeit)
 import { convertToGermanDateString, dateOnly } from "../lib/convert";
 // Small inline delete icon to avoid external dependency on `react-icons`
@@ -108,10 +109,7 @@ export default function HabitCard({
   onDelete,
   onCheck = () => {},
   onClick = () => {},
-<<<<<<< HEAD
-=======
   onEdit = () => {},
->>>>>>> save-commits
 }) {
   // Heutiges Datum im Format YYYY-MM-DD (zum Vergleich mit last_checked)
   const today = new Date().toISOString().slice(0, 10);
@@ -201,10 +199,7 @@ export default function HabitCard({
               className="btn btn-link btn-sm text-secondary p-0 me-2"
               onClick={(e) => {
                 e.stopPropagation();
-<<<<<<< HEAD
-=======
                 onEdit(habit);
->>>>>>> save-commits
               }}
               aria-label={`Bearbeite "${habit.habit_name}"`}
               title="Bearbeiten"
