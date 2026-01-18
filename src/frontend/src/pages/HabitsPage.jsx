@@ -1,4 +1,3 @@
-// client/src/pages/HabitsPage.jsx
 import { useEffect, useState } from 'react';
 import HabitGrid from '../components/HabitGrid';
 import HabitInfoModal from '../components/HabitInfoModal';
@@ -11,6 +10,9 @@ import {
 } from '../api/habitsApi';
 import Calender from '../components/Calender';
 import HabitChangeModal from '../components/HabitChangeModal';
+import BegleiterModal from '../components/BegleiterModal';
+import Begleiter from '../components/Begleiter';
+import { fetchAnimal } from '../api/userApi';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -19,6 +21,9 @@ export default function HabitsPage({ session, onLogout }) {
   const [openModal, setOpenModal] = useState(false);
   const [selectedHabit, setSelectedHabit] = useState(null);
   const [openChangeModal, setOpenChangeModal] = useState(false);
+  const [openBegleiterModal, setOpenBegleiterModal] = useState(false);
+  const [selectedBegleiter, setSelectedBegleiter] = useState("");
+  const [animalMood , setAnimalMood] = useState("gluecklich");
 
   const load = async () => {
     try {
@@ -61,11 +66,33 @@ export default function HabitsPage({ session, onLogout }) {
   const openChangeModalComponent = (habit) => {
     setSelectedHabit(habit);
     setOpenChangeModal(true);
-  }
+  }  
+  const getAnimal = async () => {
+    try {
+      const data = await fetchAnimal(token);
+      setSelectedBegleiter(data.animal_type);
+      console.log("Begleiter geladen:", data);
+    } catch (err) {
+      console.error('Laden des Gewohnheitstiers fehlgeschlagen:', err.message);
+    }
+  };
+
   useEffect(() => {
-    if (userId && token) load();
+    if (userId && token) {
+      load();
+      getAnimal();
+    }
+    if (userId && token) {
+      load();
+      getAnimal();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, token]);
+  const setAnimal = async (animalType, animalmood) => {
+    const data = await setAnimal(token, animalType, animalmood);
+    setSelectedBegleiter(data.animal_type);
+    console.log("Begleiter gesetzt:", data);
+  }
 
   const opennModal = (habit) => {
     setSelectedHabit(habit);
@@ -86,10 +113,12 @@ export default function HabitsPage({ session, onLogout }) {
         </div>
       ) : (
         <>
-          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} onEdit={openChangeModalComponent} />
+          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} onEdit={openChangeModalComponent} setAnimalMood={setAnimalMood}/>
           { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
           {openChangeModal && <HabitChangeModal habit={selectedHabit} onClose={() => setOpenChangeModal(false)} edit={edit}/>}
           <Calender habits={habits} />
+          <Begleiter selectedBegleiter={selectedBegleiter} onClick={() => setOpenBegleiterModal(true)} begleiterMood={animalMood}/>
+          { openBegleiterModal && <BegleiterModal onClose={() => setOpenBegleiterModal(false)} onSelect={setSelectedBegleiter} token={token} animalMood={animalMood}/> }
         </>
       )}
     </div>
