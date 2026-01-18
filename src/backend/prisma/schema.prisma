@@ -24,8 +24,8 @@ enum animal_mood {
 model habits_table {
   id                String     @id @default(uuid())
 
-  user              users      @relation(fields: [user_id], references: [id])
-  user_id           String     @db.Uuid
+  user              users      @relation(fields: [userId], references: [id])
+  userId            String     // Fremdschlüssel auf users
 
   habit_name        String?    @db.VarChar
   description       String?
@@ -39,8 +39,8 @@ model habits_table {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model users {
-  id                String       @id @default(uuid()) @db.Uuid
-  habits            habits_table[]
+  id                String       @id @default(uuid())
+  habits            habits_table[] // 1-n-Relation zu habits_table
 
   animal_type animal_type      @default(hund)
   animal_mood animal_mood      @default(gluecklich)

@@ -93,11 +93,6 @@ export default function HabitsPage({ session, onLogout }) {
     setSelectedBegleiter(data.animal_type);
     console.log("Begleiter gesetzt:", data);
   }
-  const setAnimal = async (animalType, animalmood) => {
-    const data = await setAnimal(token, animalType, animalmood);
-    setSelectedBegleiter(data.animal_type);
-    console.log("Begleiter gesetzt:", data);
-  }
 
   const opennModal = (habit) => {
     setSelectedHabit(habit);
