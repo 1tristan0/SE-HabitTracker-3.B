@@ -108,6 +108,7 @@ export default function HabitCard({
   onDelete,
   onCheck = () => {},
   onClick = () => {},
+  onEdit = () => {},
 }) {
   // Heutiges Datum im Format YYYY-MM-DD (zum Vergleich mit last_checked)
   const today = new Date().toISOString().slice(0, 10);
@@ -197,6 +198,7 @@ export default function HabitCard({
               className="btn btn-link btn-sm text-secondary p-0 me-2"
               onClick={(e) => {
                 e.stopPropagation();
+                onEdit(habit);
               }}
               aria-label={`Bearbeite "${habit.habit_name}"`}
               title="Bearbeiten"
