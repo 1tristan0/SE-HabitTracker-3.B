@@ -111,7 +111,7 @@ create_habit "$token_one" "Lesen" "10 Seiten lesen"
 create_habit "$token_one" "Meditation" "10 Minuten gefuehrte Atemmeditation, Fokus auf ruhiges Ein- und Ausatmen"
 create_habit "$token_one" "Stretching" "15 Minuten Dehnen fuer Ruecken, Beine und Schultern nach dem Aufstehen"
 
-token_two="$(register_and_get_token "user@example.com" "string)"
+token_two="$(register_and_get_token "user@example.com" "string")"
 if [ -z "$token_two" ]; then
   echo "Failed to login user user@example.com"
   exit 1
