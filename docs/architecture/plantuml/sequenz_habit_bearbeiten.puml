@@ -1,0 +1,16 @@
+@startuml
+actor Nutzer as user
+participant "HabitChangeModal" as modal
+participant "HabitsPage" as site
+participant "Backend API" as backend
+participant "PrismaORM" as prisma
+participant "Database(Supabase)" as database
+user -> modal: Editiert ein bestehendes Habit (Name, Beschreibung) im HabitChangeModal
+modal-> site: handleSave(habit.id, { name, description })
+site -> backend: updateHabit(token, id, { name, desc, start_date })
+backend -> prisma: PUT /api/habits/${id} mit neuen Habit-Daten
+prisma -> database: Aktualisiert das Habit in der Datenbank
+database --> backend: sendet aktualisierte Habit-Daten zurück
+backend --> site: 200 OK mit aktualisierten Habit-Daten
+site --> user: Zeigt aktualisierte Habit-Daten in der UI an
+@enduml

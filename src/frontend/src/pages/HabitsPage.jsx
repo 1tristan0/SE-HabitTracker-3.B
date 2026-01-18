@@ -7,8 +7,10 @@ import {
   fetchHabits,
   deleteHabit as apiDeleteHabit,
   toggleHabitToday,
+  updateHabit,
 } from '../api/habitsApi';
 import Calender from '../components/Calender';
+import HabitChangeModal from '../components/HabitChangeModal';
 
 export default function HabitsPage({ session, onLogout }) {
   const [habits, setHabits] = useState([]);
@@ -16,6 +18,7 @@ export default function HabitsPage({ session, onLogout }) {
   const token = session?.accessToken;      // changed
   const [openModal, setOpenModal] = useState(false);
   const [selectedHabit, setSelectedHabit] = useState(null);
+  const [openChangeModal, setOpenChangeModal] = useState(false);
 
   const load = async () => {
     try {
@@ -44,7 +47,21 @@ export default function HabitsPage({ session, onLogout }) {
       console.error('Check fehlgeschlagen:', err.message);
     }
   };
-
+  const edit = async (id, data = {}) => {
+    try{
+      const { name, description } = data || {};
+      const updated = await updateHabit(token, id, { name, desc: description });
+      setHabits((prev) => prev.map((h) => (h.id === id ? updated : h)));
+    } catch (err) {
+      console.error('Update fehlgeschlagen:', err.message);
+    }
+    
+    setOpenChangeModal(false);
+  };
+  const openChangeModalComponent = (habit) => {
+    setSelectedHabit(habit);
+    setOpenChangeModal(true);
+  }
   useEffect(() => {
     if (userId && token) load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,8 +86,9 @@ export default function HabitsPage({ session, onLogout }) {
         </div>
       ) : (
         <>
-          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} />
+          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} onEdit={openChangeModalComponent} />
           { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
+          {openChangeModal && <HabitChangeModal habit={selectedHabit} onClose={() => setOpenChangeModal(false)} edit={edit}/>}
           <Calender habits={habits} />
         </>
       )}

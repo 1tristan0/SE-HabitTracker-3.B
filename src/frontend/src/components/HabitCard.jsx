@@ -1,9 +1,8 @@
-// client/src/components/HabitCard.jsx
 // Hilfsfunktion zum Formatieren von Datumswerten (z. B. Entfernen von Uhrzeit)
 import { convertToGermanDateString, dateOnly } from "../lib/convert";
 
 // React-Komponente zur Darstellung einer einzelnen Gewohnheit (Habit)
-export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick = () => {}, onClose = () => {} }) {
+export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick = () => {}, onClose = () => {}, onEdit = () => {} }) {
   // Heutiges Datum im Format YYYY-MM-DD (zum Vergleich mit last_checked)
   const today = new Date().toISOString().slice(0, 10);
 
@@ -33,6 +32,12 @@ export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick
             Streak: {habit.streak || 0}
           </small>
         </p>
+        <button
+          className="btn btn-secondary btn-sm me-2"
+          onClick={(e) => { e.stopPropagation(); onEdit(habit); }} // prevent card click
+        >
+          Bearbeiten
+        </button>
 
         {/* Button zum Löschen der Gewohnheit */}
         <button
