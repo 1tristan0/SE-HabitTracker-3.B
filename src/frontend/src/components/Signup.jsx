@@ -12,11 +12,11 @@ export default function Signup({ onSubmit, switchToLogin }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-primary1 p-6">
       <div className="w-full max-w-md bg-white/80 backdrop-blur rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-semibold text-primary4 mb-4">Registrieren</h2>
+        <h2 className="text-2xl font-semibold text-primary3 mb-4">Registrieren</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-primary4 mb-1">E-Mail</label>
+            <label className="block text-sm font-medium text-primary3 mb-1">E-Mail</label>
             <input
               type="email"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary3"
@@ -27,7 +27,7 @@ export default function Signup({ onSubmit, switchToLogin }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-primary4 mb-1">Passwort</label>
+            <label className="block text-sm font-medium text-primary3 mb-1">Passwort</label>
             <input
               type="password"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary3"
@@ -37,13 +37,13 @@ export default function Signup({ onSubmit, switchToLogin }) {
             />
           </div>
 
-          <button type="submit" className="w-full py-2 rounded-md bg-primary4 text-white hover:bg-primary3 transition">
+          <button type="submit" className="w-full py-2 rounded-md bg-primary3 text-white hover:bg-primary4 transition">
             Registrieren
           </button>
         </form>
 
         <div className="text-center mt-4">
-          <button className="text-sm text-primary4 hover:underline" onClick={switchToLogin}>
+          <button className="text-sm text-primary3 hover:underline" onClick={switchToLogin}>
             Schon registriert? Login
           </button>
         </div>
