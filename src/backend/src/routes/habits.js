@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
   try {
     const userId = req.auth.user.id;
     const habits = await prisma.habits_table.findMany({
-      where: { user_id: userId },
+      where: { userId },
       orderBy: { start_date: 'desc' },
     });
     res.json(habits.map(serializeHabit));
@@ -193,7 +193,7 @@ router.put('/:id', async (req, res) => {
   try {
     const userId = req.auth.user.id;
     const existing = await prisma.habits_table.findFirst({
-      where: { id: idParam, user_id: userId },
+      where: { id: idParam, userId },
     });
 
     if (!existing) {
@@ -250,7 +250,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const userId = req.auth.user.id;
     const existing = await prisma.habits_table.findFirst({
-      where: { id: idParam, user_id: userId },
+      where: { id: idParam, userId },
     });
 
     if (!existing) {
@@ -302,7 +302,7 @@ router.post('/:id/toggle', async (req, res) => {
   try {
     const userId = req.auth.user.id;
     const habit = await prisma.habits_table.findFirst({
-      where: { id: idParam, user_id: userId },
+      where: { id: idParam, userId },
     });
 
     if (!habit) {

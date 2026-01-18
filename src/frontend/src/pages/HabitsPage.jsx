@@ -19,7 +19,7 @@ export default function HabitsPage({ session, onLogout }) {
   const [openModal, setOpenModal] = useState(false);
   const [selectedHabit, setSelectedHabit] = useState(null);
   const [openBegleiterModal, setOpenBegleiterModal] = useState(false);
-  const [selectedBegleiter, setSelectedBegleiter] = useState("hamster");
+  const [selectedBegleiter, setSelectedBegleiter] = useState("");
   const [animalMood , setAnimalMood] = useState("gluecklich");
 
   const load = async () => {
