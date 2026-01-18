@@ -12,8 +12,24 @@ Dieses Dokument beschreibt wesentliche Entwurfsentscheidungen auf Ebene der Komp
 
 == Ausgewählte Sichten
 //Entwurfsklassendiagramme, Sequenzdiagramme
+Die Sequenzdiagramme finden Sie im Architecture Notebook
 
 == Schnittstellen
 //Dokumentation oder Verweise auf Schnittstellen, z.B. REST-APIs
+Frontend-Backend: Das Frontend kommuniziert mit dem Backend über eine Rest-API Schnittstelle:
+Folgende Endpunkte sind definiert:
+=== Arbeit mit Gewohnheiten:
+PUT `/api/habits/${habitId}/check` - PUT-Anfrage an die API senden, um das Feld `last_checked` auf das aktuelle Datum zu setzen
+GET `/pi/habits` - GET-Anfrage an die API senden, um alle Gewohnheiten abzurufen
+POST `/api/habits` - POST-Anfrage an die API senden, um eine neue Gewohnheit zu erstellen
+DELETE `/api/habits/${habitId}` - DELETE-Anfrage an die API senden, um eine Gewohnheit zu löschen
+POST `/api/habits/${habitId}/toggle` - POST-Anfrage an die API senden, um die Streak zu aktualisieren
+
+=== Login
+POST `/api/auth/login` - POST-Anfrage an die API senden, um einen Benutzer zu authentifizieren und ein JWT-Token zu erhalten
+POST `/api/auth/register` - POST-Anfrage an die API senden, um einen neuen Benutzer zu registrieren
+POST `/api/auth/session` - POST-Anfrage an die API senden, um die aktuelle Sitzung zu überprüfen
+POST `/api/auth/logout` - POST-Anfrage an die API senden, um den Benutzer abzumelden
+Backend-Datenbank: Das Backend greift per Prisma ORM auf die Datenbank zu
 
 == Datenmodell

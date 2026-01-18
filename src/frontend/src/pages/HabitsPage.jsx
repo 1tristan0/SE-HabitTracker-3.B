@@ -106,7 +106,6 @@ export default function HabitsPage({ session, onLogout }) {
 
   return (
     <div className="container py-5">
-
       {!userId || !token ? (
         <div className="alert alert-warning" role="alert">
           Bitte melden Sie sich an, um Ihre Gewohnheiten zu verwalten.
