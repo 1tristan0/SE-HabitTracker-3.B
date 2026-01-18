@@ -34,9 +34,9 @@ const options = {
               type: 'array',
               items: { type: 'string', format: 'date-time' },
             },
-            user_id: { type: 'string', example: 'uuid' },
+            userId: { type: 'string', example: 'uuid' },
           },
-          required: ['id', 'habit_name', 'user_id'],
+          required: ['id', 'habit_name', 'userId'],
         },
         AuthUser: {
           type: 'object',
@@ -53,6 +53,33 @@ const options = {
             expiresIn: { type: 'integer' },
             tokenType: { type: 'string' },
             user: { $ref: '#/components/schemas/AuthUser' },
+          },
+        },
+        UserAnimal: {
+          type: 'object',
+          properties: {
+            animal_type: {
+              type: 'string',
+              enum: ['hund', 'katze', 'hamster', 'wurm'],
+            },
+            animal_mood: {
+              type: 'string',
+              enum: ['gluecklich', 'traurig'],
+            },
+          },
+          required: ['animal_type', 'animal_mood'],
+        },
+        UserAnimalUpdate: {
+          type: 'object',
+          properties: {
+            animal_type: {
+              type: 'string',
+              enum: ['hund', 'katze', 'hamster', 'wurm'],
+            },
+            animal_mood: {
+              type: 'string',
+              enum: ['gluecklich', 'traurig'],
+            },
           },
         },
         ErrorResponse: {
