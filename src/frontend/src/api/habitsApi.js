@@ -27,3 +27,11 @@ export async function toggleHabitToday(token, habitId) {
     token,
   });
 }
+
+export async function updateHabit(token, id, { name, desc, start_date } = {}) {
+  return apiFetch(`/api/habits/${id}`, {
+    method: 'PUT',
+    token,
+    body: { name, desc, start_date },
+  });
+}
