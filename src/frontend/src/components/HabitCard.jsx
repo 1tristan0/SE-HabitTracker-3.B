@@ -2,7 +2,7 @@
 import { convertToGermanDateString, dateOnly } from "../lib/convert";
 
 // React-Komponente zur Darstellung einer einzelnen Gewohnheit (Habit)
-export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick = () => {}, onClose = () => {}, onEdit = () => {}, onEdit = () => {} }) {
+export default function HabitCard({ habit, onDelete, onCheck = () => {}, onClick = () => {}, onClose = () => {}, onEdit = () => {} }) {
   // Heutiges Datum im Format YYYY-MM-DD (zum Vergleich mit last_checked)
   const today = new Date().toISOString().slice(0, 10);
 

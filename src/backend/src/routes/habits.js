@@ -14,7 +14,7 @@ function serializeHabit(habit) {
     prev_last_checked: Array.isArray(habit.prev_last_checked)
       ? habit.prev_last_checked.map((d) => (d instanceof Date ? d.toISOString() : d))
       : [],
-    userId: habit.user_id ?? null,
+    userId: habit.userId ?? habit.user_id ?? null,
   };
 }
 
@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
   try {
     const userId = req.auth.user.id;
     const habits = await prisma.habits_table.findMany({
-      where: { user_id: userId },
+      where: { userId },
       orderBy: { start_date: 'desc' },
     });
     res.json(habits.map(serializeHabit));
@@ -193,7 +193,7 @@ router.put('/:id', async (req, res) => {
   try {
     const userId = req.auth.user.id;
     const existing = await prisma.habits_table.findFirst({
-      where: { id: idParam, user_id: userId },
+      where: { id: idParam, userId },
     });
 
     if (!existing) {
@@ -250,7 +250,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const userId = req.auth.user.id;
     const existing = await prisma.habits_table.findFirst({
-      where: { id: idParam, user_id: userId },
+      where: { id: idParam, userId },
     });
 
     if (!existing) {
@@ -302,7 +302,7 @@ router.post('/:id/toggle', async (req, res) => {
   try {
     const userId = req.auth.user.id;
     const habit = await prisma.habits_table.findFirst({
-      where: { id: idParam, user_id: userId },
+      where: { id: idParam, userId },
     });
 
     if (!habit) {

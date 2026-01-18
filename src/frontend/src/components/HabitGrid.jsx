@@ -51,6 +51,7 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose,
                         onCheck={onCheck}
                         onClick={onClick}
                         onClose={onClose}
+                        onEdit={onEdit}      
                     />
                 ))
             ) : (
