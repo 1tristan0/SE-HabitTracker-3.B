@@ -52,8 +52,9 @@ export const getPercentageOfCompletedHabits = (habit) => {
 }
 
 export const getPercentageOfCompletedHabitsLastMonth = (habit) => {
-    if ((!habit || habit.prev_last_checked.length === 0) && habit.last_checked === 0) return 0;
-    const completed = getNumberOfCompletedHabitsLastMonth(habit);
-    const total = 30;
-    return Math.round((completed / total) * 100);
-}
+  if ((!habit || habit.prev_last_checked.length === 0) && habit.last_checked === 0) return 0;
+  const completed = getNumberOfCompletedHabitsLastMonth(habit);
+  // Wenn das Habit weniger als 30 Tage alt ist, nur seit Startdatum zählen
+  const total = Math.min(30, daysBetween(new Date(habit.start_date), new Date()) + 1);
+  return Math.round((completed / total) * 100);
+};
