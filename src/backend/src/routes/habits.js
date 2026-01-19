@@ -53,6 +53,20 @@ router.use(authenticate);
 router.get('/', async (req, res) => {
   try {
     const userId = req.auth.user.id;
+    const now = new Date();
+    const cutoff = new Date(now.getTime() - 48 * 60 * 60 * 1000);
+
+    await prisma.habits_table.updateMany({
+      where: {
+        userId,
+        OR: [{ last_checked: null }, { last_checked: { lt: cutoff } }],
+      },
+      data: {
+        streak: BigInt(0),
+        last_break: now,
+      },
+    });
+
     const habits = await prisma.habits_table.findMany({
       where: { userId },
       orderBy: { start_date: 'desc' },
