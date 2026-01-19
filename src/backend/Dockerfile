@@ -12,9 +12,6 @@ RUN npm ci --verbose
 
 COPY . .
 
-RUN useradd -m appuser \
-    && chown -R appuser:appuser /app
-USER appuser
 
 ENTRYPOINT ["/usr/bin/tini","--"]
 # Standard ist 'npm run start' (für production), für compose-dev wird 'npm run dev' ausgeführt (dev,nodemon)
