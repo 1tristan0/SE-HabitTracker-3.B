@@ -208,6 +208,7 @@ Das Habit steht nicht mehr zur Bearbeitung zur Verfügung.
 ### Testergebnis:
 - [ ] bestanden
 - [ ] nicht bestanden
+
 ---
 
 ## Userstory : B033
@@ -317,7 +318,6 @@ Tage ohne erledigte Habits sind entsprechend anders oder neutral dargestellt.
 ### Testergebnis:
 - [ ] bestanden
 - [ ] nicht bestanden
-
 
 ---
 
