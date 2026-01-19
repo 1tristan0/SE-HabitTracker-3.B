@@ -1,6 +1,6 @@
 include::../docs/_includes/default-attributes.inc.adoc[]
 // --- 1. Projektthema -------------------------
-= SE I - Belegabgabe: {project-name}
+= SE II - Reflexion: {project-name}
 
 // ---
 :doctype: book
@@ -30,6 +30,7 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 :docs-development: {docs}/development
 
 <<<
+= Gruppenleistung
 
 == Erfolg: Effektive Teamzusammenarbeit durch flexible Arbeitsorganisation
 
@@ -37,7 +38,7 @@ Ein zentraler Erfolg des Projekts war die sehr gute Zusammenarbeit innerhalb der
 
 Das Pair Programming diente dabei nicht nur dem Wissenstransfer, sondern auch als Element zur Umsetzung von Clean-Code-Prinzipien. Durch das gemeinsame Arbeiten am Code konnten Fehler frühzeitig erkannt, verständlichere Strukturen geschaffen und bessere Benennungen sowie klarere Verantwortlichkeiten im Code etabliert werden. Gleichzeitig wurde verhindert, dass sich technische Schulden unbemerkt aufbauen.
 
-Die flexible Arbeitsorganisation - bestehend aus gemeinsamer Problemlösung, paralleler Aufgabenbearbeitung und kurzen Abstimmungswegen - erwies sich insgesamt als sehr effizient. Fachliche Fragen oder technische Unsicherheiten konnten zeitnah geklärt werden, was sowohl den Entwicklungsprozess beschleunigte als auch das gegenseitige Verständnis im Team stärkte. Darüber hinaus trug diese Arbeitsweise zu einem positiven Arbeitsklima bei, das Motivation und Engagement nachhaltig förderte.
+Die flexible Arbeitsorganisation, bestehend aus gemeinsamer Problemlösung, paralleler Aufgabenbearbeitung und kurzen Abstimmungswegen, erwies sich insgesamt als sehr effizient. Fachliche Fragen oder technische Unsicherheiten konnten zeitnah geklärt werden, was sowohl den Entwicklungsprozess beschleunigte als auch das gegenseitige Verständnis im Team stärkte. Darüber hinaus trug diese Arbeitsweise zu einem positiven Arbeitsklima bei, das Motivation und Engagement nachhaltig förderte.
 
 Aus Sicht des Softwareentwicklungsprozesses zeigte sich deutlich, dass enge Zusammenarbeit und gezielte Qualitätssicherungsmaßnahmen wie Pair Programming wichtige Erfolgsfaktoren im agilen Kontext sind. Sie unterstützen nicht nur die iterative Entwicklung, sondern tragen wesentlich zur langfristigen Wartbarkeit und Verständlichkeit des Systems bei.
 
@@ -65,12 +66,58 @@ Dieser strukturierte Umgang mit Versionsverwaltung stellte sich als äußerst hi
 
 == Misserfolg: Unzureichendes und inkonsistentes Tracking organisatorischer Aufgaben
 
-Ein wesentlicher Misserfolg im Projektverlauf betraf das Tracking organisatorischer Aufgaben innerhalb des Teams. Zwar wurden Aufgaben regelmäßig in Meetings besprochen und dokumentiert, jedoch gelang es nicht, eine einheitliche und dauerhaft konsequent genutzte Methode zur Aufgabenverfolgung zu etablieren. Informationen wurden parallel in Gesprächsprotokollen, auf Aufgabenlisten im Miro-Board sowie in GitHub-Issues festgehalten, ohne dass eine klare Priorisierung oder ein verbindlicher Hauptablageort definiert war.
+Ein wesentlicher Misserfolg im Projektverlauf betraf das Tracking organisatorischer und koordinierender Aufgaben innerhalb des Teams. Während die technische Umsetzung der Projektinhalte weitgehend strukturiert und nachvollziehbar im GitHub-Repository erfolgte, zeigte sich insbesondere im Bereich des Projektmanagements ein Defizit in der systematischen Aufgabenverfolgung.
 
-Diese parallele Nutzung mehrerer Werkzeuge führte im Projektalltag zunehmend zu Unübersichtlichkeit. Aufgaben gingen teilweise verloren, Zuständigkeiten waren nicht immer eindeutig nachvollziehbar und der aktuelle Bearbeitungsstand einzelner organisatorischer Themen war nicht für alle Teammitglieder transparent. Trotz mehrerer Versuche, eine der Lösungen konsequent einzusetzen, konnte sich keine der Varianten langfristig durchsetzen.
+Zwar wurden organisatorische Themen wie Terminabsprachen, Zuständigkeiten, Abhängigkeiten oder offene Entscheidungsfragen regelmäßig in Meetings besprochen und protokolliert, jedoch gelang es nicht, eine einheitliche und dauerhaft konsequent genutzte Methode zur Nachverfolgung dieser Aufgaben zu etablieren. Entsprechende Informationen wurden parallel in Gesprächsprotokollen, auf Aufgabenlisten im Miro-Board sowie in GitHub-Issues festgehalten, ohne dass ein verbindlicher Hauptablageort oder eine klare Priorisierung definiert war.
 
-Die Ursachen hierfür lagen unter anderem in einer zu hohen Tool-Vielfalt, fehlender Disziplin bei der Pflege der Aufgabenlisten sowie einer unklaren Verantwortlichkeit für das organisatorische Tracking. Zudem wurde der Aufwand für die kontinuierliche Pflege der verschiedenen Systeme unterschätzt, insbesondere im Vergleich zu inhaltlich-technischen Aufgaben, die für das Team eine höhere Priorität hatten.
+Diese parallele Nutzung mehrerer Werkzeuge führte im Projektalltag zunehmend zu Unübersichtlichkeit. Organisatorische Aufgaben gerieten teilweise aus dem Blick, Zuständigkeiten waren nicht immer eindeutig nachvollziehbar und der Bearbeitungsstand einzelner Management-Themen war nicht für alle Teammitglieder transparent. Trotz mehrerer Versuche, eine der Lösungen konsequent einzusetzen, konnte sich keine der Varianten langfristig durchsetzen.
 
-Rückblickend hätte dieser Misserfolg durch die frühzeitige Festlegung einer Single Source of Truth für organisatorische Aufgaben vermieden oder zumindest abgeschwächt werden können. Eine klare Entscheidung für ein zentrales Tool - beispielsweise GitHub Issues - sowie feste Regeln zur Pflege und Aktualisierung hätten die Transparenz und Verbindlichkeit deutlich erhöht. Als zentrale Erkenntnis bleibt, dass ein funktionierendes Aufgaben- und Organisationsmanagement genauso wichtig für den Projekterfolg ist wie die technische Umsetzung selbst und bewusst gesteuert werden muss.
+Die Ursachen hierfür lagen unter anderem in einer zu hohen Tool-Vielfalt, fehlender Verbindlichkeit bei der Pflege der Aufgabenlisten sowie einer unklaren Verantwortlichkeit für das organisatorische Tracking. Zusätzlich wurde der Aufwand für kontinuierliches Projektmanagement unterschätzt, insbesondere im Vergleich zu technischen Aufgaben, die vom Team als inhaltlich greifbarer und dringlicher wahrgenommen wurden.
 
+Rückblickend hätte dieser Misserfolg durch die frühzeitige Festlegung einer klaren Single Source of Truth für organisatorische Aufgaben vermieden oder zumindest abgeschwächt werden können. Eine bewusste Entscheidung für ein zentrales Tool (beispielsweise GitHub Issues) sowie feste Regeln zur Pflege und Aktualisierung hätten die Transparenz und Verbindlichkeit deutlich erhöht. Als zentrale Erkenntnis bleibt, dass ein funktionierendes Aufgaben- und Organisationsmanagement eine eigenständige Disziplin im Softwareentwicklungsprozess darstellt und nicht nebenbei erfolgen sollte, auch wenn die technische Umsetzung gut funktioniert.
 
+== Misserfolg: Unzureichende Aufwandsschätzung und unklare User Stories
+
+Ein weiterer Misserfolg im Projektverlauf zeigte sich in der anfänglich unzureichenden Aufwandsschätzung von User Stories und Tasks. Insbesondere zu Beginn des Projekts fiel es dem Team schwer, den tatsächlichen Arbeitsaufwand realistisch einzuschätzen. Dies führte dazu, dass Stories entweder zu groß geschnitten oder nicht ausreichend detailliert beschrieben waren, wodurch die Ableitung konkreter Tasks erschwert wurde.
+
+Ein zentrales Problem bestand darin, dass bei der initialen Aufwandsschätzung wesentliche Aspekte wie das Schreiben und Durchführen von Tests nicht oder nur unzureichend berücksichtigt wurden. Der Fokus lag überwiegend auf der Implementierung der Funktionalität, während Qualitätssicherungsmaßnahmen implizit als Nebenaufgabe betrachtet wurden. In der Praxis führte dies regelmäßig zu Abweichungen zwischen geschätztem und tatsächlichem Aufwand.
+
+Die Ursachen lagen unter anderem in der fehlenden Erfahrung des Teams mit agilen Schätzverfahren sowie in einer noch nicht ausreichend ausgeprägten gemeinsamen Vorstellung darüber, was zur vollständigen Umsetzung einer User Story gehört. Zudem waren die User Stories selbst häufig zu grob formuliert, sodass notwendige Detailarbeit erst während der Implementierung sichtbar wurde.
+
+Als Reaktion darauf wurden im weiteren Projektverlauf gezielte Maßnahmen ergriffen. User Stories wurden im Rahmen gemeinsamer Refinement-Sitzungen im Miro-Board detaillierter ausgearbeitet, und der Entwicklungsaufwand wurde rückblickend mit der ursprünglichen Schätzung verglichen. Diese Form der retrospektiven Aufwandseinschätzung trug dazu bei, ein besseres Gefühl für die eigene Velocity zu entwickeln und zukünftige Schätzungen realistischer vorzunehmen. Als wichtige Erkenntnis bleibt, dass präzise User Stories und eine ganzheitliche Betrachtung aller notwendigen Arbeitsschritte entscheidend für eine verlässliche Sprintplanung sind.
+
+== Misserfolg: Späte Architekturentscheidungen und hoher Refactoring-Aufwand
+
+Ein weiterer Misserfolg zeigte sich in der späten Konkretisierung zentraler Architekturentscheidungen, insbesondere im Bereich der System- und Datenbankstruktur. Zu Beginn des Projekts wurde die Architektur vergleichsweise pragmatisch aufgebaut, was kurzfristig Fortschritte ermöglichte, langfristig jedoch zu strukturellen Problemen führte.
+
+Ein konkretes Beispiel hierfür war die Gestaltung der Datenbankstruktur. Eine zunächst einfach gehaltene Tabelle zur Verwaltung von Gewohnheiten erwies sich im weiteren Projektverlauf als unzureichend, da sie unterschiedliche fachliche Verantwortlichkeiten vermischte. Die notwendige Aufteilung in separate Entitäten, etwa für Nutzer und Gewohnheiten, machte eine grundlegende Umstrukturierung der Datenbank erforderlich. Diese Änderung war mit erheblichem Aufwand verbunden und zog Anpassungen in mehreren Teilen des Systems nach sich.
+
+Die Ursachen lagen vor allem in der fehlenden Erfahrung des Teams im Bereich Webentwicklung sowie in einer zu späten Anwendung der in der Vorlesung behandelten Architektur- und Entwurfsprinzipien. Aspekte wie Modularisierung, klare Verantwortlichkeiten und saubere Schichtenbildung wurden zwar theoretisch verstanden, jedoch zunächst nicht konsequent umgesetzt.
+
+Als Konsequenz musste im späteren Projektverlauf ein umfangreiches Refactoring durchgeführt werden, das viel Zeit und Koordinationsaufwand erforderte. Rückblickend wurde deutlich, dass architektonische Entscheidungen möglichst früh getroffen und regelmäßig überprüft werden sollten. Gleichzeitig zeigte sich aber auch, dass Refactoring ein unvermeidlicher Bestandteil iterativer Softwareentwicklung ist. Die zentrale Erkenntnis aus diesem Misserfolg besteht darin, dass eine frühzeitige und bewusste Auseinandersetzung mit Architektur und Datenmodell den späteren Aufwand erheblich reduzieren kann.
+
+= Einzelleistungen
+== Monika
+=== Ausgangssituation und Aufgabenstellung
+
+Zu Beginn des Semesters wurde im Team die Rollenverteilung leicht angepasst, sodass ich zusätzlich zu meiner bisherigen Funktion als Ansprechpartnerin die Rolle der Scrum Masterin übernommen habe. Ziel war es, die Arbeitslast gleichmäßiger zu verteilen und die interne Abstimmung zu verbessern.
+
+Meine Aufgaben als Scrum Masterin umfassten Projektmanagement und Prozessorganisation innerhalb des Softwareentwicklungsprozesses. Dazu gehörten insbesondere Planung, Moderation und Nachbereitung der regelmäßigen Team-Meetings (Weeklies, Sprint Reviews, Retrospektiven) sowie die Koordination des Teams und die Dokumentation von Entscheidungen, Aufgaben und Ergebnissen in unserem gemeinsamen Repository (link:https://github.com/1tristan0/SE-HabitTracker-3.B/tree/dev/docs/protokolle[]). Diese Tätigkeiten waren eng mit den Entwicklungsaktivitäten verzahnt, da sie die Grundlage für eine strukturierte Zusammenarbeit und transparente Aufgabenverteilung bildeten.
+
+=== Lösungsweg und eingesetzte Methoden
+
+Zur Umsetzung meiner Rolle orientierte ich mich an den im Modul behandelten Scrum-Prinzipien. Ein zentraler Fokus lag auf der Etablierung verlässlicher Kommunikationsformate. Die wöchentlichen Meetings dienten dazu, den aktuellen Arbeitsstand zu erfassen, offene Punkte zu klären und Aufgaben gemeinsam zu priorisieren. In Sprint Reviews und Retrospektiven reflektierten wir Projektverlauf und Arbeitsprozess, um kontinuierliche Verbesserungen zu erreichen.
+
+Nach jedem Meeting habe ich Protokolle erstellt, die Aufgaben, Entscheidungen und Zuständigkeiten festhielten. Diese wurden zentral abgelegt und dienten als Referenz für die Umsetzung durch das Development-Team sowie die Vorbereitung des nächsten Meetings. Die Terminorganisation gehörte ebenfalls zu meinen Aufgaben – insbesondere die Anpassung der Meeting-Zeiten an veränderte Stundenpläne sowie die Organisation von Räumen und technischer Ausstattung.
+
+Ergänzend habe ich Akzeptanztests in Form von Blackbox-Tests durchgeführt und dokumentiert. Dabei überprüfte ich ausgewählte Funktionen aus Nutzersicht und hielt die Testfälle strukturiert fest. Ziel war es, den aktuellen Funktionsumfang abzusichern und eine Grundlage für wiederkehrende Regressionstests zu schaffen. Die dokumentierten Testfälle ermöglichen es, nach Änderungen am System gezielt zu überprüfen, ob bestehende Funktionalitäten weiterhin korrekt arbeiten, und tragen damit zur nachhaltigen Qualitätssicherung bei (link:https://github.com/1tristan0/SE-HabitTracker-3.B/blob/dev/docs/test/test_cases.adoc[]).
+
+=== Bewertung und persönliche Erkenntnisse
+
+Rückblickend hat die Übernahme der Scrum-Master-Rolle die Teamorganisation und Kommunikation deutlich verbessert. Regelmäßige Meetings und konsequente Dokumentation erhöhten Transparenz hinsichtlich Aufgabenverteilung und Projektfortschritt. Abwesende Teammitglieder konnten sich jederzeit einen Überblick verschaffen und das Team nutzte die Protokolle als Gedankenstütze für die Woche.
+
+Die Akzeptanztests haben zusätzlich die Qualitätssicherung gestärkt, indem sie sicherstellten, dass neue Funktionen den Anforderungen entsprechen und bestehende Funktionalitäten nicht unbeabsichtigt beeinträchtigt werden. Diese Erfahrungen haben mir gezeigt, wie wichtig systematisches Testen innerhalb des Entwicklungsprozesses ist und dass Qualitätssicherung frühzeitig integriert werden sollte.
+
+Zudem wurde mir deutlich, dass die Scrum-Master-Rolle nicht nur organisatorische, sondern auch moderierende und vermittelnde Kompetenzen erfordert. Insbesondere bei Diskussionen über Prioritäten war es entscheidend, unterschiedliche Perspektiven zusammenzuführen und auf gemeinsame Ziele auszurichten. Eine zentrale Erkenntnis war, dass ein gut strukturierter Prozess nur dann funktioniert, wenn er von allen Teammitgliedern aktiv mitgetragen wird.
+
+Insgesamt habe ich gelernt, wie wichtig klare Kommunikation, Verbindlichkeit, kontinuierliche Prozessreflexion und systematische Qualitätssicherung für den Erfolg eines Softwareprojekts sind. Diese Erfahrungen werde ich sowohl in weiteren Studienprojekten als auch in beruflichen Kontexten gezielt einsetzen können.
