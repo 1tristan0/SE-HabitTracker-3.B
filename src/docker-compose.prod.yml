@@ -1,5 +1,6 @@
 services:
   backend:
+    container_name: backend-prod
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -10,6 +11,7 @@ services:
     restart: unless-stopped
 
   frontend:
+    container_name: frontend-prod
     build:
       context: ./frontend
       dockerfile: Dockerfile
