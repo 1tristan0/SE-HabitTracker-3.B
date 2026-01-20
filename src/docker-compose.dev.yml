@@ -1,5 +1,6 @@
 services:
   backend:
+    container_name: backend-dev
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -14,6 +15,7 @@ services:
       - /app/node_modules
 
   frontend:
+    container_name: frontend-dev
     build:
       context: ./frontend
       dockerfile: Dockerfile
