@@ -117,22 +117,6 @@ export default function Calender({ habits }) {
           })
         ))}
       </div>
-        {/*<div className="mt-4 text-sm text-gray-600">
-          {isEveryHabitChecked(habits, todayStr) === true ? (
-            <div>Alle Gewohnheiten für heute erledigt!</div>
-          ) : (
-            <div>
-              {(() => {
-                const c = isEveryHabitChecked(habits, todayStr);
-                return typeof c === "number" && c > 0 ? (
-                  <div>{`Heute erledigt: ${c}%`}</div>
-                ) : (
-                  <div>Noch nichts erledigt heute.</div>
-                );
-              })()}
-            </div>
-          )}
-        </div>*/}
 
     </div>
   );
