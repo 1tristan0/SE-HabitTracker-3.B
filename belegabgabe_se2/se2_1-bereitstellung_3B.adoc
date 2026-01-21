@@ -34,3 +34,5 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 //TODO Wo liegen welche Software-Teile (evtl. auch C4-Modell)
 //Softwareumfang entsprechend Geschäftswert der Funktionen
 
+URL zur laufenden Instanz:
+Bitte wenden Sie sich an Ihren Administrator, um die URL des laufenden Systems zu erfahren. Die Dokumentation zum Download und Start der Docker-Container befindet sich in der Betriebsdokumentation.
