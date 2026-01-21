@@ -8,9 +8,7 @@ import { dateOnly } from "./convert";
  * @returns {Array<Array<{date: Date, day: number, inMonth: boolean}>>} Eine Matrix von Wochen und Tagen
  */
 export function getMonthMatrix(year, month) {
-  // month: 0-11
   const firstOfMonth = new Date(year, month, 1);
-  // getDay: 0 (Sun) .. 6 (Sat). Convert so Monday=0
   const firstWeekday = (firstOfMonth.getDay() + 6) % 7;
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const prevMonthDays = new Date(year, month, 0).getDate();

@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from "react";
-import { getCheckedHabiitsFromDay, getMonthMatrix, getUncheckedHabitsFromDay, isEveryHabitChecked } from "../lib/calendar";
-import { monthAndYear, todayAsStringBerlin, dateOnlyBerlin, isInFuture } from "../lib/convert";
-import CalendarModal from "./CalendarModal";
+import { getCheckedHabiitsFromDay, getMonthMatrix, getUncheckedHabitsFromDay, isEveryHabitChecked } from "../../../lib/calendar";
+import { monthAndYear, todayAsStringBerlin, dateOnlyBerlin } from "../../../lib/convert";
+import CalendarModal from "./modals/CalendarModal";
+import CalendarDayButton from "../../ui/Buttons/CalendarDayButton";
 
 const WEEKDAYS = ["Mo","Di","Mi","Do","Fr","Sa","So"];
 
@@ -16,7 +17,6 @@ export default function Calender({ habits }) {
   const [uncheckedHabits, setUncheckedHabits] = useState([]);
 
   const todayStr = todayAsStringBerlin();
-  console.log("todayStr", todayStr);
 
   const matrix = useMemo(() => getMonthMatrix(view.year, view.month), [view]);
 
@@ -36,7 +36,6 @@ export default function Calender({ habits }) {
     });
   };
   function onDaySelected(dateStr){
-    console.log("day selected", dateStr);
     setOpenModal(true);
     setCheckedHabits(getCheckedHabiitsFromDay(habits, dateStr));
     setUncheckedHabits(getUncheckedHabitsFromDay(habits, dateStr));
@@ -67,52 +66,22 @@ export default function Calender({ habits }) {
             const dateStr = dateOnlyBerlin(cell.date);
             const isToday = dateStr === todayStr;
             const isSelected = selected === dateStr;
-            const completion = isEveryHabitChecked(habits, dateStr); // true or percent number
+            const completion = isEveryHabitChecked(habits, dateStr); 
             const percent = typeof completion === "number" ? completion : 0;
             return (
-              <button
+              <CalendarDayButton
                 key={`${wi}-${di}`}
-                className={
-                  `py-3 border rounded-md focus:outline-none transition-colors hover:bg-primary2 dayButton` +
-                  `${cell.inMonth ? "bg-white " : "bg-gray-50 text-gray-400"} ` +
-                  `${isToday ? "ring-2 ring-primary3" : ""} ` +
-                  `${isInFuture(cell.date) ? "cursor-not-allowed bg-gray-300" : "hover:bg-primary2 cursor-pointer text-primary3"} ` +
-                  {/*}`${completion === true ? "bg-green-600 " : ""}`*/}
-                }
-                aria-pressed={isSelected}
-                disabled={isInFuture(cell.date)}
-                onClick={() => {
+                cell={cell}
+                dateStr={dateStr}
+                isToday={isToday}
+                isSelected={isSelected}
+                completion={completion}
+                percent={percent}
+                onDayClick={(dateStr) => {
                   setSelected(dateStr);
                   onDaySelected(dateStr);
                 }}
-                title={cell.date.toLocaleDateString()}
-              >
-                <div className="text-sm">{cell.day}</div>
-                {completion === true ? (
-                  <div className="mt-1 w-5 h-5 mx-auto bg-green-500 rounded-full"></div>
-                ) : (
-                  <div className="mt-1 w-5 h-5 mx-auto">
-                    {percent > 0 ? (
-                      <svg width="20" height="20" viewBox="0 0 20 20" className="mx-auto">
-                        <circle cx="10" cy="10" r="8" stroke="#e5e7eb" strokeWidth="2" fill="none" />
-                        <circle
-                          cx="10"
-                          cy="10"
-                          r="8"
-                          stroke="#FF6803"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeDasharray={`${(2 * Math.PI * 8 * percent) / 100} ${2 * Math.PI * 8}`}
-                          transform="rotate(-90 10 10)"
-                        />
-                      </svg>
-                    ) : (
-                      <div className="w-5 h-5"></div>
-                    )}
-                  </div>
-                )}
-              </button>
+              />
             );
           })
         ))}

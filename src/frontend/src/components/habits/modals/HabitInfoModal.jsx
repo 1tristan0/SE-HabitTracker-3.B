@@ -1,9 +1,9 @@
-import { convertToGermanDateString } from "../lib/convert";
+import { convertToGermanDateString } from "../../../lib/convert";
 import {
   getNumberOfCompletedHabitsLastMonth,
   getPercentageOfCompletedHabitsLastMonth,
-} from "../lib/habit";
-import Modal from "./Modal";
+} from "../../../lib/habit";
+import Modal from "../../ui/Modal";
 
 export default function HabitInfoModal({ habit, onClose }) {
   if (!habit) return null;

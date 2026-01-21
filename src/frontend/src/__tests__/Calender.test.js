@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Calender from '../components/Calender';
+import Calender from '../components/habits/calendar/Calender';
 
 // Mock supabase
 jest.mock('../api/habitsApi', () => ({

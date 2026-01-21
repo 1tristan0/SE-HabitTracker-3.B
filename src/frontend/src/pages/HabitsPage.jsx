@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import HabitGrid from '../components/HabitGrid';
-import HabitInfoModal from '../components/HabitInfoModal';
+import HabitGrid from '../components/habits/HabitGrid';
+import HabitInfoModal from '../components/habits/modals/HabitInfoModal';
 
 import {
   fetchHabits,
@@ -8,23 +8,24 @@ import {
   toggleHabitToday,
   updateHabit,
 } from '../api/habitsApi';
-import Calender from '../components/Calender';
-import HabitChangeModal from '../components/HabitChangeModal';
-import BegleiterModal from '../components/BegleiterModal';
-import Begleiter from '../components/Begleiter';
+import Calender from '../components/habits/calendar/Calender';
+import HabitChangeModal from '../components/habits/modals/HabitChangeModal';
+import AnimalModal from '../components/animal/modals/AnimalModal';
+import Animal from '../components/animal/Animal';
 import { fetchAnimal } from '../api/userApi';
 
-export default function HabitsPage({ session, onLogout }) {
+export default function HabitsPage({ session}) {
   const [habits, setHabits] = useState([]);
-  const userId = session?.user?.id;        // changed
-  const token = session?.accessToken;      // changed
+  const userId = session?.user?.id;        
+  const token = session?.accessToken;      
   const [openModal, setOpenModal] = useState(false);
   const [selectedHabit, setSelectedHabit] = useState(null);
   const [openChangeModal, setOpenChangeModal] = useState(false);
-  const [openBegleiterModal, setOpenBegleiterModal] = useState(false);
-  const [selectedBegleiter, setSelectedBegleiter] = useState("");
+  const [openAnimalModal, setOpenAnimalModal] = useState(false);
+  const [selectedAnimal, setSelectedAnimal] = useState("");
   const [animalMood , setAnimalMood] = useState("gluecklich");
 
+  // Gewohnheiten laden
   const load = async () => {
     try {
       const data = await fetchHabits(token);
@@ -33,7 +34,7 @@ export default function HabitsPage({ session, onLogout }) {
       console.error('Laden fehlgeschlagen:', err.message);
     }
   };
-
+  // Gewohnheit löschen
   const remove = async (id) => {
     try {
       await apiDeleteHabit(token, id);
@@ -52,6 +53,7 @@ export default function HabitsPage({ session, onLogout }) {
       console.error('Check fehlgeschlagen:', err.message);
     }
   };
+  // Gewohnheit bearbeiten
   const edit = async (id, data = {}) => {
     try{
       const { name, description } = data || {};
@@ -63,14 +65,16 @@ export default function HabitsPage({ session, onLogout }) {
     
     setOpenChangeModal(false);
   };
+  //Öffnen des Änderungsmodals
   const openChangeModalComponent = (habit) => {
     setSelectedHabit(habit);
     setOpenChangeModal(true);
   }  
+  // Begleiter des Nutzers laden
   const getAnimal = async () => {
     try {
       const data = await fetchAnimal(token);
-      setSelectedBegleiter(data.animal_type);
+      setSelectedAnimal(data.animal_type);
       console.log("Begleiter geladen:", data);
     } catch (err) {
       console.error('Laden des Gewohnheitstiers fehlgeschlagen:', err.message);
@@ -90,7 +94,7 @@ export default function HabitsPage({ session, onLogout }) {
   }, [userId, token]);
   const setAnimal = async (animalType, animalmood) => {
     const data = await setAnimal(token, animalType, animalmood);
-    setSelectedBegleiter(data.animal_type);
+    setSelectedAnimal(data.animal_type);
     console.log("Begleiter gesetzt:", data);
   }
 
@@ -116,8 +120,8 @@ export default function HabitsPage({ session, onLogout }) {
           { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
           {openChangeModal && <HabitChangeModal habit={selectedHabit} onClose={() => setOpenChangeModal(false)} edit={edit}/>}
           <Calender habits={habits} />
-          <Begleiter selectedBegleiter={selectedBegleiter} onClick={() => setOpenBegleiterModal(true)} begleiterMood={animalMood}/>
-          { openBegleiterModal && <BegleiterModal onClose={() => setOpenBegleiterModal(false)} onSelect={setSelectedBegleiter} token={token} animalMood={animalMood}/> }
+          <Animal selectedAnimal={selectedAnimal} onClick={() => setOpenAnimalModal(true)} animalMood={animalMood}/>
+          { openAnimalModal && <AnimalModal onClose={() => setOpenAnimalModal(false)} onSelect={setSelectedAnimal} token={token} animalMood={animalMood}/> }
         </>
       )}
     </div>

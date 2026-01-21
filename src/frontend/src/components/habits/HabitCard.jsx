@@ -1,8 +1,9 @@
 
-import { dateOnly } from "../lib/convert";
-import DeleteIcon from "./icons/DeleteIcon";
-import EditIcon from "./icons/EditIcon";
-import StreakBadge from "./ui/StreakBadge";
+import { dateOnly } from "../../lib/convert";
+import DeleteIcon from "../icons/DeleteIcon";
+import EditIcon from "../icons/EditIcon";
+import StreakBadge from "../ui/StreakBadge";
+import ToggleSwitch from "../ui/ToggleSwitch";
 
 
 // React-Komponente zur Darstellung einer einzelnen Gewohnheit (Habit)
@@ -44,21 +45,13 @@ export default function HabitCard({
         <div className="d-flex align-items-center">
           {/* LEFT: Toggle */}
           <div className="flex-shrink-0 me-2">
-            <div className="form-check form-switch mb-0" style={{ transform: "scale(0.9)" }}>
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id={`check-${habit.id}`}
-                checked={isDoneToday}
-                onClick={(e) => e.stopPropagation()}
-                onMouseDown={(e) => e.stopPropagation()}
-                onChange={(e) => {
-                  e.stopPropagation();
-                  onCheck(habit.id, e.target.checked);
-                }}
-                aria-label="Heute erledigt"
-              />
-            </div>
+            <ToggleSwitch
+              id={`check-${habit.id}`}
+              checked={isDoneToday}
+              onToggle={(nextChecked) => onCheck(habit.id, nextChecked)}
+              ariaLabel="Heute erledigt"
+              style={{ transform: "scale(0.9)" }}
+            />
           </div>
 
           {/* MIDDLE: Name + Beschreibung */}

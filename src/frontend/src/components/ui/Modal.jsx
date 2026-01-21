@@ -1,4 +1,4 @@
-import CloseButton from './ui/CloseButton';
+import CloseButton from './Buttons/CloseButton';
 
 export default function Modal({
   title,

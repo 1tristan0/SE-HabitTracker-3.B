@@ -1,12 +1,11 @@
-// HabitsErstellen.jsx
-import React from "react";
+
 import { useNavigate } from "react-router-dom";
 import {
   addHabit as apiAddHabit,
 } from "../api/habitsApi";
-import HabitCreateContent from "../components/HabitCreateContent";
+import HabitCreateContent from "../components/habits/HabitCreateContent";
 
-export default function HabitsErstellen({userId, session}) {
+export default function CreateHabitPage({userId, session}) {
   const navigate = useNavigate();
   const token = session?.accessToken;
 
@@ -20,12 +19,9 @@ export default function HabitsErstellen({userId, session}) {
         console.error('Anlegen fehlgeschlagen:', err.message);
       }
   };
-  /*if (!session || !session.accessToken || !userId) {
-    window.location.href = "/";
-  }*/
 
   const handleCancel = () => {
-    // zurück zur Habit-Liste navigieren
+    // zurück zur Startseite
      navigate("/");
   };
 

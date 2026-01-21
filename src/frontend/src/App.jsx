@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import HabitsPage from './pages/HabitsPage';
-import HabitsErstellen from './pages/HabitsErstellen';
 import {
   login,
   register,
@@ -14,10 +13,11 @@ import {
   loadSession,
   clearSession,
 } from './api/authApi';
-import Navbar from './components/Navbar';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Navbar from './components/layout/Navbar';
+import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
 import { Route, Routes } from 'react-router-dom';
+import CreateHabitPage from './pages/CreateHabitPage';
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -104,7 +104,7 @@ export default function App() {
         />
         <Route
           path="/add"
-          element={<HabitsErstellen userId={session.user.id} session={session} view="add" />}
+          element={<CreateHabitPage userId={session.user.id} session={session} view="add" />}
         />
       </Routes>
     </>
