@@ -21,10 +21,16 @@ src/
     └── src/
         ├── App.jsx / App.css
         ├── api/{httpClient.js, authApi.js, habitsApi.js}
-        ├── components/{Navbar.jsx, HabitForm.jsx, HabitGrid.jsx, HabitCard.jsx, HabitList.jsx, Calender.jsx}
-        ├── hooks/useHabits.js
-        ├── lib/{calendar.js, convert.js}
-        ├── pages/HabitsPage.jsx
+        ├── components/
+        Kurzüberblick (feature-basiert, wichtigste Bausteine mit Pfadlinks):
+        - [layout/Navbar.jsx](src/frontend/src/components/layout/Navbar.jsx): Kopfzeile mit Logout und Titel.
+        - Auth: [Login.jsx](src/frontend/src/components/auth/Login.jsx) und [Signup.jsx](src/frontend/src/components/auth/Signup.jsx) für Anmeldung/Registrierung.
+        - Habits: [HabitForm.jsx](src/frontend/src/components/habits/HabitForm.jsx) legt neue Gewohnheiten an; [HabitGrid.jsx](src/frontend/src/components/habits/HabitGrid.jsx) gruppiert erledigt/offen und nutzt [HabitCard.jsx](src/frontend/src/components/habits/HabitCard.jsx) mit ToggleSwitch und Edit/Delete-Icons; [HabitCreateContent.jsx](src/frontend/src/components/habits/HabitCreateContent.jsx) angeleitete Erstellung; [HabitList.jsx](src/frontend/src/components/habits/HabitList.jsx) alternative Listen-Ansicht.
+        - Kalender: [Calender.jsx](src/frontend/src/components/habits/calendar/Calender.jsx) Monatsübersicht mit Tagesbuttons; [CalendarModal.jsx](src/frontend/src/components/habits/calendar/modals/CalendarModal.jsx) zeigt Tagesdetails.
+        - Habit-Modale: [HabitChangeModal.jsx](src/frontend/src/components/habits/modals/HabitChangeModal.jsx) (Bearbeiten), [HabitInfoModal.jsx](src/frontend/src/components/habits/modals/HabitInfoModal.jsx) (Details).
+        - Begleiter: [Animal.jsx](src/frontend/src/components/animal/Animal.jsx) und [AnimalModal.jsx](src/frontend/src/components/animal/modals/AnimalModal.jsx).
+        - UI-Primitives: Buttons [CalendarDayButton.jsx](src/frontend/src/components/ui/Buttons/CalendarDayButton.jsx), [CloseButton.jsx](src/frontend/src/components/ui/Buttons/CloseButton.jsx), [SaveButton.jsx](src/frontend/src/components/ui/Buttons/SaveButton.jsx); [ToggleSwitch.jsx](src/frontend/src/components/ui/ToggleSwitch.jsx); [Modal.jsx](src/frontend/src/components/ui/Modal.jsx); [ProgressCircle.jsx](src/frontend/src/components/ui/ProgressCircle.jsx); [StreakBadge.jsx](src/frontend/src/components/ui/StreakBadge.jsx); [InputField.jsx](src/frontend/src/components/ui/InputField.jsx); [Titel.jsx](src/frontend/src/components/ui/Titel.jsx).
+        - Icons: [DeleteIcon.jsx](src/frontend/src/components/icons/DeleteIcon.jsx), [EditIcon.jsx](src/frontend/src/components/icons/EditIcon.jsx).
         └── weitere CRA-Standarddateien (index.js, tests, Styles)
 ----
 
@@ -117,19 +123,22 @@ Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach 
 * Die Seite nach erfolgreichem Login.
 * Holt Token und Nutzer aus den übergebenen Daten.
 * Lädt, legt an, löscht und toggelt Gewohnheiten; aktualisiert die Anzeige entsprechend.
-* Zeigt Kopfzeile (`Navbar`), Formular (`HabitForm`), Kartenübersicht (`HabitGrid`) und Kalender (`Calender`).
+* Zeigt Kopfzeile (Layout), Formular (`HabitForm`), Kartenübersicht (`HabitGrid` mit `HabitCard` + `ToggleSwitch`) und die Monatsansicht (`Calender` mit Tag-Modal).
 
 === hooks/useHabits.js
 * Wiederverwendbarer Baustein für Habit-Listen.
 * Hält Liste und Ladezustand; ruft dieselben API-Funktionen wie die Habit-Seite.
 
 === components
-* `Navbar.jsx`: Kopfzeile mit Logout.
-* `HabitForm.jsx`: Formular zum Anlegen neuer Gewohnheiten (Name, Beschreibung).
-* `HabitGrid.jsx`: gruppiert Habits (erledigt/offen) und zeigt Karten.
-* `HabitCard.jsx`: einzelne Karte mit Anzeige, Löschen- und Toggle-Schalter.
-* `HabitList.jsx`: ältere Listen-Variante (derzeit nicht genutzt).
-* `Calender.jsx`: Monatsübersicht, markiert erledigte Tage, zeigt Fortschritt pro Tag, Navigation zwischen Monaten.
+Kurzüberblick (feature-basiert, wichtigste Bausteine mit Pfadlinks):
+- [layout/Navbar.jsx](src/frontend/src/components/layout/Navbar.jsx): Kopfzeile mit Logout und Titel.
+- Auth: [Login.jsx](src/frontend/src/components/auth/Login.jsx) und [Signup.jsx](src/frontend/src/components/auth/Signup.jsx) für Anmeldung/Registrierung.
+- Habits: [HabitForm.jsx](src/frontend/src/components/habits/HabitForm.jsx) legt neue Gewohnheiten an; [HabitGrid.jsx](src/frontend/src/components/habits/HabitGrid.jsx) gruppiert erledigt/offen und nutzt [HabitCard.jsx](src/frontend/src/components/habits/HabitCard.jsx) mit ToggleSwitch und Edit/Delete-Icons; [HabitCreateContent.jsx](src/frontend/src/components/habits/HabitCreateContent.jsx) angeleitete Erstellung; [HabitList.jsx](src/frontend/src/components/habits/HabitList.jsx) alternative Listen-Ansicht.
+- Kalender: [Calender.jsx](src/frontend/src/components/habits/calendar/Calender.jsx) Monatsübersicht mit Tagesbuttons; [CalendarModal.jsx](src/frontend/src/components/habits/calendar/modals/CalendarModal.jsx) zeigt Tagesdetails.
+- Habit-Modale: [HabitChangeModal.jsx](src/frontend/src/components/habits/modals/HabitChangeModal.jsx) (Bearbeiten), [HabitInfoModal.jsx](src/frontend/src/components/habits/modals/HabitInfoModal.jsx) (Details).
+- Begleiter: [Animal.jsx](src/frontend/src/components/animal/Animal.jsx) und [AnimalModal.jsx](src/frontend/src/components/animal/modals/AnimalModal.jsx).
+- UI-Primitives: Buttons [CalendarDayButton.jsx](src/frontend/src/components/ui/Buttons/CalendarDayButton.jsx), [CloseButton.jsx](src/frontend/src/components/ui/Buttons/CloseButton.jsx), [SaveButton.jsx](src/frontend/src/components/ui/Buttons/SaveButton.jsx); [ToggleSwitch.jsx](src/frontend/src/components/ui/ToggleSwitch.jsx); [Modal.jsx](src/frontend/src/components/ui/Modal.jsx); [ProgressCircle.jsx](src/frontend/src/components/ui/ProgressCircle.jsx); [StreakBadge.jsx](src/frontend/src/components/ui/StreakBadge.jsx); [InputField.jsx](src/frontend/src/components/ui/InputField.jsx); [Titel.jsx](src/frontend/src/components/ui/Titel.jsx).
+- Icons: [DeleteIcon.jsx](src/frontend/src/components/icons/DeleteIcon.jsx), [EditIcon.jsx](src/frontend/src/components/icons/EditIcon.jsx).
 
 === lib
 * `convert.js`:

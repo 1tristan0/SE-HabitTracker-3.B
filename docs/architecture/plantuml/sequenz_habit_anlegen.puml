@@ -1,12 +1,21 @@
 @startuml
+title Habit anlegen (neues Habit erstellen)
+
 actor Nutzer as user
 participant "Web-Frontend" as frontend
 participant "Backend API" as backend
+participant "Prisma ORM" as prisma
 participant "Database(Supabase)" as database
-user -> frontend: Legt ein neues Habit an
-frontend -> backend: Sendet Anfrage zum Anlegen eines neuen Habits
-backend -> database: Fügt das neue Habit in die Datenbank ein
-database --> backend: Bestätigung des erfolgreichen Einfügens, mitliefern der Daten des neu angelegten Habits
-backend --> frontend: Bestätigung des erfolgreichen Anlegens des Habits, mitliefern der Daten des neu angelegten Habits
-frontend --> user: Zeigt Bestätigung und Details des neu angelegten Habits an
+
+user -> frontend: Klickt "Habit anlegen"\nFormular ausfüllen
+frontend -> frontend: apiFetch(`/api/habits`, { method: 'POST', body: habitData, token })
+frontend -> backend: POST /api/habits\n{habitData, token}
+backend -> backend: Auth & Request-Validation
+note right of backend: 401/422 bei fehlendem Token\noder ungültigen Feldern
+backend -> prisma: prisma.habit.create({ data: habitData + userId })
+prisma -> database: Insert Habit row
+database --> prisma: Habit gespeichert + id
+prisma --> backend: Habit (mit id)
+backend --> frontend: 201 Created + Habit
+frontend --> user: UI zeigt neues Habit
 @enduml
