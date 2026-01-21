@@ -14,7 +14,7 @@ function serializeHabit(habit) {
     prev_last_checked: Array.isArray(habit.prev_last_checked)
       ? habit.prev_last_checked.map((d) => (d instanceof Date ? d.toISOString() : d))
       : [],
-    user_id: habit.user_id,
+    userId: habit.userId ?? habit.user_id ?? null,
   };
 }
 
@@ -53,8 +53,22 @@ router.use(authenticate);
 router.get('/', async (req, res) => {
   try {
     const userId = req.auth.user.id;
+    const now = new Date();
+    const cutoff = new Date(now.getTime() - 48 * 60 * 60 * 1000);
+
+    await prisma.habits_table.updateMany({
+      where: {
+        userId,
+        OR: [{ last_checked: null }, { last_checked: { lt: cutoff } }],
+      },
+      data: {
+        streak: BigInt(0),
+        last_break: now,
+      },
+    });
+
     const habits = await prisma.habits_table.findMany({
-      where: { user_id: userId },
+      where: { userId },
       orderBy: { start_date: 'desc' },
     });
     res.json(habits.map(serializeHabit));
@@ -112,7 +126,12 @@ router.post('/', async (req, res) => {
         streak: BigInt(0),
         last_checked: null,
         prev_last_checked: [],
-        user_id: userId,
+        user: {
+          connectOrCreate: {
+            where: { id: userId },
+            create: { id: userId },
+          },
+        },
       },
     });
 
@@ -120,6 +139,94 @@ router.post('/', async (req, res) => {
   } catch (err) {
     console.error('[POST /api/habits] failed', err);
     res.status(500).json({ error: 'Failed to create habit' });
+  }
+});
+
+/**
+ * @swagger
+ * /api/habits/{id}:
+ *   put:
+ *     summary: Habit bearbeiten
+ *     tags: [Habits]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID des Habits
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               desc:
+ *                 type: string
+ *               start_date:
+ *                 type: string
+ *                 format: date
+ *     responses:
+ *       200:
+ *         description: Habit aktualisiert
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Habit'
+ *       400:
+ *         description: Ungültige Eingaben
+ *       404:
+ *         description: Habit nicht gefunden
+ *       401:
+ *         description: Kein oder ungültiges Token
+ */
+router.put('/:id', async (req, res) => {
+  const idParam = req.params.id;
+  if (!idParam) {
+    return res.status(400).json({ error: 'Invalid habit id' });
+  }
+
+  const { name, desc, start_date } = req.body || {};
+  if (name == null && desc == null && start_date == null) {
+    return res.status(400).json({ error: 'name, desc or start_date is required' });
+  }
+
+  let parsedStartDate;
+  if (start_date != null) {
+    parsedStartDate = new Date(start_date);
+    if (Number.isNaN(parsedStartDate.getTime())) {
+      return res.status(400).json({ error: 'Invalid start_date' });
+    }
+  }
+
+  try {
+    const userId = req.auth.user.id;
+    const existing = await prisma.habits_table.findFirst({
+      where: { id: idParam, userId },
+    });
+
+    if (!existing) {
+      return res.status(404).json({ error: 'Habit not found' });
+    }
+
+    const updated = await prisma.habits_table.update({
+      where: { id: idParam },
+      data: {
+        ...(name != null ? { habit_name: name } : {}),
+        ...(desc != null ? { description: desc } : {}),
+        ...(start_date != null ? { start_date: parsedStartDate } : {}),
+      },
+    });
+
+    return res.json(serializeHabit(updated));
+  } catch (err) {
+    console.error('[PUT /api/habits/:id] failed', err);
+    return res.status(500).json({ error: 'Failed to update habit' });
   }
 });
 
@@ -150,24 +257,21 @@ router.post('/', async (req, res) => {
  */
 router.delete('/:id', async (req, res) => {
   const idParam = req.params.id;
-  let habitId;
-  try {
-    habitId = BigInt(idParam);
-  } catch {
+  if (!idParam) {
     return res.status(400).json({ error: 'Invalid habit id' });
   }
 
   try {
     const userId = req.auth.user.id;
     const existing = await prisma.habits_table.findFirst({
-      where: { id: habitId, user_id: userId },
+      where: { id: idParam, userId },
     });
 
     if (!existing) {
       return res.status(404).json({ error: 'Habit not found' });
     }
 
-    await prisma.habits_table.delete({ where: { id: habitId } });
+    await prisma.habits_table.delete({ where: { id: idParam } });
     res.status(204).send();
   } catch (err) {
     console.error('[DELETE /api/habits/:id] failed', err);
@@ -205,17 +309,14 @@ router.delete('/:id', async (req, res) => {
  */
 router.post('/:id/toggle', async (req, res) => {
   const idParam = req.params.id;
-  let habitId;
-  try {
-    habitId = BigInt(idParam);
-  } catch {
+  if (!idParam) {
     return res.status(400).json({ error: 'Invalid habit id' });
   }
 
   try {
     const userId = req.auth.user.id;
     const habit = await prisma.habits_table.findFirst({
-      where: { id: habitId, user_id: userId },
+      where: { id: idParam, userId },
     });
 
     if (!habit) {
@@ -257,7 +358,7 @@ router.post('/:id/toggle', async (req, res) => {
     }
 
     const updated = await prisma.habits_table.update({
-      where: { id: habitId },
+      where: { id: idParam },
       data: payload,
     });
 

@@ -6,94 +6,553 @@ include::../_includes/default-attributes.inc.adoc[]
 == Allgemeine Informationen
 
 == Test Cases
-=== Akzeptanztest AT-01
+
+## Userstory : B011
+
+### Akzeptanztest AT-01
 Anzeige der geplanten Habits des aktuellen Tages
 
-*Ziel des Tests:*
+### Ziel des Tests:
+
 Überprüfung, ob eine Übersicht aller für den aktuellen Tag geplanten Habits angezeigt wird
 
-*Voraussetzung (Eingabe / Systemzustand):*
+### Voraussetzung (Eingabe / Systemzustand):
 
-- Nutzer ist eingeloggt
-- Für den aktuellen Tag sind Habits geplant
+Nutzer ist eingeloggt
+Für den aktuellen Tag sind Habits geplant
 
-*Aktion (Nutzeraktion):*
+### Aktion:
+
 Nutzer öffnet die Startseite der App
 
-*Erwartetes Ergebnis (Ausgabe):*
+### Erwartetes Ergebnis (Ausgabe):
+
 Eine Liste aller für den aktuellen Tag geplanten Habits wird angezeigt
 
-*Testergebnis:*
+### Testergebnis:
 
 - [ ] bestanden
 - [ ] nicht bestanden
 
-=== Akzeptanztest AT-02
+### Akzeptanztest AT-02
 Visuelle Unterscheidung erledigter und offener Habits
 
-*Ziel des Tests:*
+### Ziel des Tests:
 Überprüfung der visuellen Unterscheidbarkeit von erledigten und offenen Gewohnheiten
 
-*Voraussetzung (Eingabe / Systemzustand):*
+### Voraussetzung (Eingabe / Systemzustand):
 
-- Nutzer ist eingeloggt
-- Es existieren erledigte und offene Habits für den aktuellen Tag
+Nutzer ist eingeloggt
+Es existieren erledigte und offene Habits für den aktuellen Tag
 
-*Aktion:*
+### Aktion:
 Nutzer betrachtet die Habit-Übersicht
 
-*Erwartetes Ergebnis (Ausgabe):*
+### Erwartetes Ergebnis (Ausgabe):
 Erledigte Gewohnheiten sind visuell eindeutig von offenen unterscheidbar
 
-*Testergebnis:*
+### Testergebnis:
 
 - [ ] bestanden
 - [ ] nicht bestanden
 
-=== Akzeptanztest AT-03
+### Akzeptanztest AT-03
 Sichtbarkeit der Habit-Übersicht nach Login und über Menü
 
-*Ziel des Tests:*
+### Ziel des Tests:
 Überprüfung der Erreichbarkeit der Habit-Übersicht
 
-*Voraussetzung (Eingabe / Systemzustand):*
+### Voraussetzung (Eingabe / Systemzustand):
 
-- Website der App ist erreichbar und per Browser geöffnet
+Website der App ist erreichbar und per Browser geöffnet
 
-*Aktion:*
+### Aktion:
 Nutzer betrachtet die Startseite
 
-*Erwartetes Ergebnis (Ausgabe):*
+### Erwartetes Ergebnis (Ausgabe):
 Die Habit-Übersicht ist sichtbar
 
-*Zusätzliche Aktion:*
+### Zusätzliche Aktion:
 Nutzer navigiert über den Menüpunkt zur Übersicht
 
-*Erwartetes Ergebnis:*
+### Erwartetes Ergebnis:
 Die Übersicht kann über den Menüpunkt aufgerufen werden
 
-*Testergebnis:*
+### Testergebnis:
 
 - [ ] bestanden
 - [ ] nicht bestanden
 
-=== Akzeptanztest AT-04
+### Akzeptanztest AT-04
 Sortierung der Gewohnheiten nach Startdatum
 
-*Ziel des Tests:*
+### Ziel des Tests:
 Überprüfung der Sortierreihenfolge der angezeigten Gewohnheiten
 
-*Voraussetzung (Eingabe / Systemzustand):*
+### Voraussetzung (Eingabe / Systemzustand):
 
 Es existieren mehrere Gewohnheiten mit unterschiedlichen Startdaten
 
-*Aktion:*
+### Aktion:
 Nutzer betrachtet die Habit-Übersicht
 
-*Erwartetes Ergebnis (Ausgabe):*
+### Erwartetes Ergebnis (Ausgabe):
 Die Gewohnheiten sind nach Startdatum sortiert
 
-*Testergebnis:*
+### Testergebnis:
 
 - [ ] bestanden
 - [ ] nicht bestanden
+
+---
+
+## Userstory : B030
+
+### Akzeptanztest AT-01
+Öffnen eines bestehenden Habits zur Bearbeitung.
+
+### Ziel des Tests:
+Überprüfung, ob ein bestehender Habit zur bearbeitung geöffnet werden kann.
+
+### Vorraussetzung 
+Nutzer ist eingeloggt
+Es existiert mindestens ein Habit
+
+### Aktion:
+Nutzer wählt ein bestehendes Habit aus
+
+### Erwartetes Ergebnis (Ausgabe)
+Eine Bearbeitungsansicht für den ausgewählten Habit wird angezeigt
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+
+### Akzeptanztest AT-02
+Änderung von Habit-Eigenschaften
+
+### Ziel des Tests:
+Überprüfung, ob die Eigenschaften eines Habits geändert werden können.
+
+### Vorraussetzung 
+Bearbeitungsansicht eines Habits ist geöffnet.
+
+### Aktion:
+Nutzer ändert mindestens eine Eigenschaft (z.B. Titel, Zeit, Dauer oder Häufigkeit).
+Nutzer speichert die Änderungen.
+
+### Erwartetes Ergebnis (Ausgabe)
+Die Änderungen werden übernommen.
+Die aktualisierten Werte werden übernommen.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-03
+Speicherung von Änderungen
+
+### Ziel des Tests:
+Überprüfung der dauerhaften Speicherung von Änderungen.
+
+### Vorraussetzung 
+Änderungen an einem Habit wurden vorgenommen.
+
+### Aktion:
+Nutzer schließt die Bearbeitungsansicht.
+Nutzer öffnet dasselbe Habit erneut.
+
+### Erwartetes Ergebnis (Ausgabe)
+Die zuvor vorgenommenen Änderungen sind weiterhin vorhanden.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-04
+Feedback nach erfolgreicher Änderung
+
+### Ziel des Tests:
+Überprüfung, ob der nutzer eine Rückmeldung nach erfolgreicher Speicherung erhält.
+
+### Vorraussetzung 
+Änderungen wurden gespeichert.
+
+### Aktion:
+Nutzer beobachtet die Oberfläche nach dem Speichern.
+
+### Erwartetes Ergebnis (Ausgabe)
+Eine sichtbare Rückmeldung über den erfolgreichen Abschluss wird angezeigt. 
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-05
+Löschen eines Habits
+
+### Ziel des Tests:
+Überprüfung, ob ein Habit gelöscht werden kann.
+
+### Vorraussetzung 
+Nutzer ist eingeloggt. Es existiert mindestens ein Habit. 
+
+### Aktion:
+Nutzer löscht ein Habit.
+
+### Erwartetes Ergebnis (Ausgabe)
+Das Habit wird nicht merh angezeigt.
+Das Habit steht nicht mehr zur Bearbeitung zur Verfügung.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+---
+
+## Userstory : B033
+
+### Akzeptanztest AT-01
+"Erledigte" Habits sind visuell erkennbar.
+
+### Ziel des Tests:
+Überprüfung des visuellen Feedbacks nach dem als "erledigt" Markieren des Habits.
+
+### Vorraussetzung 
+Ein Habit wurde erfolgreich als "erledigt" markiert.
+
+### Aktion:
+Nutzer betrachtet die Habit-Übersicht.
+
+### Erwartetes Ergebnis (Ausgabe)
+Das "erledigte" Habit ist visuell eindeutig von nicht erledigten Habits unterscheidbar.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-02
+Korrektur innerhalb desselben Tages.
+
+### Ziel des Tests:
+Überprüfung der Möglichkeit zur Korrektur der Markierung am selben Tag.
+
+### Vorraussetzung 
+Nutzer befindet sich am selben Kalendertag 
+Ein Habit wurde zuvor als erledigt markiert 
+
+### Aktion:
+Nutzer hebt die Erledigt-Markierung auf
+
+### Erwartetes Ergebnis (Ausgabe)
+Der Habit gilt wieder als offen
+Eine erneute Markierung ist möglich
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+---
+
+## Userstory : B065
+
+### Akzeptanztest AT-01
+Anzeige des Kalenders auf der Startseite
+
+### Ziel des Tests:
+Überprüfung, dass auf der Startseite eine Kalenderansicht angezeigt wird. 
+
+### Vorraussetzung 
+Nutzer ist eingeloggt
+Die Startseite wird geladen
+
+### Aktion:
+Nutzer befindet sich auf der Startseite.
+
+### Erwartetes Ergebnis (Ausgabe)
+Auf der Startseite wird ein Kalender angezeigt.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-02
+Strukturierte Darstellung der Kalenderansicht
+
+### Ziel des Tests:
+Überprüfung, dass die Kalenderansicht Tage in einer klaren und nachvollziehbaren Struktur darstellt.
+
+### Vorraussetzung 
+Nutzer ist eingeloggt
+Der Kalender ist sichtbar
+
+### Aktion:
+Nutzer betrachtet die Kalenderansicht.
+
+### Erwartetes Ergebnis (Ausgabe)
+Tage sind übersichtlich angeordnet   
+Die Darstellung entspricht einer klaren Struktur (z. B. Monats- oder Wochenübersicht) 
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-03
+ Visualisierung erledigter Habits pro Tag
+
+### Ziel des Tests:
+Überprüfung, dass für einzelne Tage visualisiert wird, ob Habits erledigt wurden.
+
+### Vorraussetzung 
+Nutzer ist eingeloggt   
+Es existieren Tage mit erledigten und nicht erledigten Habits 
+
+### Aktion:
+Nutzer betrachtet verschiedene Tage im Kalender
+
+### Erwartetes Ergebnis (Ausgabe)
+Tage mit erledigten Habits sind visuell gekennzeichnet.   
+Tage ohne erledigte Habits sind entsprechend anders oder neutral dargestellt.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+---
+
+## Userstory : B023
+
+### Akzeptanztest AT-01
+Validierung fehlerhafter Anmeldedaten
+
+### Ziel des Tests:
+Überprüfung der Eingabevalidierung bei falschen Zugangsdaten. 
+
+### Vorraussetzung 
+Login-Maske ist geöffnet
+
+###Aktion:
+Nutzer gibt nicht registrierte Anmeldeinformationen ein.
+Nutzer bestätigt die Anmeldung.
+
+### Erwartetes Ergebnis (Ausgabe)
+Anmeldung ist nicht erfolgreich
+Eine verständliche Fehlermeldung wird angezeigt
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-02
+Anzeige ausschließlich eigener Habits nach Login
+
+### Ziel des Tests:
+Überprüfung des Zugriffsschutzes auf persönliche Daten.
+
+### Vorraussetzung 
+Nutzer ist eingeloggt
+Es existieren Habits mehrerer Nutzer im System
+
+### Aktion:
+Nutzer öffnet die Habit-Übersicht
+
+### Erwartetes Ergebnis (Ausgabe)
+Es werden ausschließlich die eigenen Habits des Nutzers angezeigt.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+---
+
+## Userstory : B061
+
+=== Akzeptanztest AT-01
+Weiterleitung auf die Startseite nach erfolgreicher Anmeldung
+
+### Ziel des Tests:
+Überprüfung, dass Nutzer nach erfolgreicher Anmeldung automatisch auf die Startseite weitergeleitet werden.
+
+### Vorraussetzung 
+Nutzerkonto existiert 
+Nutzer ist nicht eingeloggt
+
+### Aktion:
+ Nutzer meldet sich mit gültigen Zugangsdaten an.
+
+### Erwartetes Ergebnis (Ausgabe)
+Die Startseite wird unmittelbar nach der Anmeldung angezeigt.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-02
+Zugriff auf die Startseite nur für angemeldete Nutzer.
+
+### Ziel des Tests:
+Überprüfung, dass die Startseite ausschließlich für angemeldete Nutzer zugänglich ist.
+
+### Vorraussetzung 
+Nutzer ist nicht eingeloggt.
+
+### Aktion:
+Nutzer ruft die URL der Startseite direkt auf.
+
+### Erwartetes Ergebnis (Ausgabe)
+Der Nutzer wird auf die Login-Seite weitergeleitet
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-03
+Anzeige relevanter Habits auf der Startseite.
+
+### Ziel des Tests:
+Überprüfung, dass auf der Startseite relevante Habits angezeigt werden.
+
+### Vorraussetzung 
+Nutzer ist eingeloggt 
+Es existieren zu erledigende und erledigte Habits für den aktuellen Tag
+
+### Aktion:
+Nutzer betrachtet die Startseite.
+
+### Erwartetes Ergebnis (Ausgabe)
+Zu erledigende Habits werden angezeigt 
+Bereits erledigte Habits werden angezeigt
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+## Userstory :B161
+
+### Akzeptanztest AT-01
+Sichtbarkeit der Navigationseinträge
+
+### Ziel des Tests:
+Überprüfung, dass die wichtigsten Funktionen in der Navigationsbar sichtbar sind.
+
+### Vorraussetzung 
+Nutzer ist eingeloggt 
+Anwendung ist geladen
+
+### Aktion:
+Nutzer betrachtet die Navigationsbar
+
+### Erwartetes Ergebnis (Ausgabe)
+Der Reiter "Habit anlegen" ist sichtbar 
+Der Reiter "Übersicht" ist sichtbar
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-02
+Navigation zu „Habit anlegen“
+
+### Ziel des Tests:
+Überprüfung, dass über die Navigationsbar zur Seite „Habit anlegen“ navigiert werden kann.
+
+### Vorraussetzung 
+Nutzer ist eingeloggt 
+Navigationsbar ist sichtbar
+
+### Aktion:
+Nutzer klickt auf den Reiter "Habit anlegen"
+
+### Erwartetes Ergebnis (Ausgabe)
+Die Seite „Habit anlegen“ wird geöffnet
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-03
+Navigation zur Übersicht der Habits 
+
+### Ziel des Tests:
+Überprüfung, dass über die Navigationsbar zur Übersicht der Habits navigiert werden kann.
+
+### Vorraussetzung 
+Nutzer ist eingeloggt 
+Navigationsbar ist sichtbar
+
+### Aktion:
+Nutzer klickt auf den Reiter "Übersicht"
+
+### Erwartetes Ergebnis (Ausgabe)
+Die Seite „Übersicht über die Habits“ (Startseite) wird geöffnet
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+## Userstory :B170
+
+### Akzeptanztest AT-01
+Konsistentes Farbkonzept wird im gesamten Frontend verwendet
+
+### Ziel des Tests:
+Überprüfung, dass ein einheitliches Farbkonzept existiert und durchgängig im Frontend angewendet wird. 
+
+### Vorraussetzung 
+Das Frontend ist lauffähig und es existieren mehrere UI-Seiten/Ansichten.
+Ein Farbkonzept (z. B. definierte Primär-/Sekundärfarben und Zustandsfarben) ist festgelegt.
+
+### Aktion:
+ Relevante Seiten/Ansichten des Frontends werden nacheinander geöffnet und visuell überprüft.
+
+### Erwartetes Ergebnis (Ausgabe)
+Farben werden konsistent gemäß dem festgelegten Farbkonzept verwendet.
+Es sind keine abweichenden „Ad-hoc“-Farben für vergleichbare Zwecke erkennbar.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-02
+CSS-Klassen folgen einer klaren, einheitlichen Benennungslogik
+
+### Ziel des Tests:
+Überprüfung, dass CSS-Klassen einem einheitlichen Benennungsschema folgen.
+
+### Vorraussetzung 
+Ein Benennungsschema ist definiert (z. B. BEM oder teaminternes Schema) 
+Der Quellcode des Frontends ist zugänglich
+
+### Aktion:
+Stichprobenartig werden CSS/SCSS-Dateien sowie Komponenten-Dateien (z. B. React-Komponenten) überprüft.
+
+### Erwartetes Ergebnis (Ausgabe)
+CSS-Klassennamen entsprechen dem definierten Schema 
+Es sind keine uneinheitlichen oder widersprüchlichen Benennungen erkennbar
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+
+### Akzeptanztest AT-03
+Gleiche UI-Elemente werden visuell gleich dargestellt
+
+### Ziel des Tests:
+Überprüfung, dass gleiche UI-Elemente (z. B. Buttons, Inputs, Cards) überall einheitlich aussehen.
+
+### Vorraussetzung 
+Es existieren mehrfach verwendete UI-Elemente in verschiedenen Ansichten.
+Das Frontend ist lauffähig.
+
+### Aktion:
+ In mehreren Ansichten werden gleiche UI-Elemente miteinander verglichen.
+
+### Erwartetes Ergebnis (Ausgabe)
+Gleiche UI-Elemente besitzen identische oder klar definierte, konsistente Varianten (z. B. Primary/Secondary).
+Abweichungen treten nur auf, wenn sie als Variante im Konzept vorgesehen sind.
+
+### Testergebnis:
+- [ ] bestanden
+- [ ] nicht bestanden
+

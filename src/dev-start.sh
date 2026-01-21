@@ -9,3 +9,4 @@ supabase start
 
 # Docker Compose (dev) hochfahren + build
 docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+git switch 

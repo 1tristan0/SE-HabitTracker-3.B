@@ -146,6 +146,12 @@ run --rm --user root backend npx prisma migrate reset
 ```
   - löscht alle Daten/Tabellen der DB, wendet Migrations an
 
+##### 4) DEV-Setup Script (Reset + Migrations + API-Seed)
+```bash
+./dev-db-setup.sh
+```
+- setzt Supabase lokal zurück, lädt Trigger aus `supabase/seed.sql` und seeded die Daten per Backend API
+
 ##### 5) Supabase lokal hard-Reset
  `supabase db reset`
  - setzt die lokale Supabase DB zurück

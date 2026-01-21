@@ -1,6 +1,5 @@
-// client/src/hooks/useHabits.js
 import { useEffect, useState } from 'react';
-import { fetchHabits, addHabit, deleteHabit } from '../api/habitsApi';
+import { fetchHabits, addHabit, deleteHabit, updateHabit } from '../api/habitsApi';
 
 export function useHabits(token) {
   const [habits, setHabits] = useState([]);
@@ -14,8 +13,12 @@ export function useHabits(token) {
 
   const add = async (name, desc) => { await addHabit(token, { name, desc }); await load(); };
   const remove = async (id) => { await deleteHabit(token, id); await load(); };
+  const update = async (id, payload) => { await updateHabit(token, id, payload); await load(); };
+
 
   useEffect(() => { if (token) load(); }, [token]);
 
-  return { habits, loading, add, remove, reload: load };
+  return { habits, loading, add, remove, update, reload: load };
+
+
 }

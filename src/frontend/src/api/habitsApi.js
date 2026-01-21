@@ -1,4 +1,3 @@
-// client/src/api/habitsApi.js
 // API-Schicht: alle Habit-Aufrufe laufen über das Backend
 import { apiFetch } from './httpClient';
 
@@ -25,5 +24,13 @@ export async function toggleHabitToday(token, habitId) {
   return apiFetch(`/api/habits/${habitId}/toggle`, {
     method: 'POST',
     token,
+  });
+}
+
+export async function updateHabit(token, id, { name, desc, start_date } = {}) {
+  return apiFetch(`/api/habits/${id}`, {
+    method: 'PUT',
+    token,
+    body: { name, desc, start_date },
   });
 }
