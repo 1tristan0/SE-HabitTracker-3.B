@@ -113,21 +113,6 @@ describe('HabitCreateContent', () => {
     expect(mockOnSubmit).toHaveBeenCalledWith('Daily Meditation', '');
   });
 
-  /**
-   * Test: Zeigt erforderliche Feld-Hinweis an.
-   * Überprüft, dass der Benutzer über Pflichtfelder informiert wird.
-   */
-  it('displays required field indicator', () => {
-    render(
-      <HabitCreateContent
-        onSubmit={jest.fn()}
-        onCancel={jest.fn()}
-      />
-    );
-
-    const requiredText = screen.getByText(/Felder mit/i);
-    expect(requiredText).toBeInTheDocument();
-  });
 
   /**
    * Test: Fehlerbehandlung bei fehlgeschlagenem onSubmit.

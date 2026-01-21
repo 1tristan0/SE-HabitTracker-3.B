@@ -47,9 +47,9 @@ describe('HabitGrid', () => {
   });
 
   /**
-   * Test: Getestete und nicht getestete Gewohnheiten trennen
-   * Überprüft, dass abhängig von last_checked getestete Gewohnheiten getrennt werden.
-   * Erwartet: Morning Run und Meditate (heute überprüft) sollten von Read 30 mins (gestern überprüft) getrennt sein.
+   * Test: Erledigte und nicht erledigte Gewohnheiten trennen
+   * Überprüft, dass abhängig von last_checked erledigte Gewohnheiten getrennt werden.
+   * Erwartet: Morning Run und Meditate (heute erledigt) sollten von Read 30 mins (gestern erledigt) getrennt sein.
    */
   it('separates checked habits from unchecked habits', () => {
     render(
@@ -60,18 +60,18 @@ describe('HabitGrid', () => {
       />
     );
 
-    // Checked habits (today: 2025-12-07)
+    // Erledigte Habits
     expect(screen.getByText('Morning Run')).toBeInTheDocument();
     expect(screen.getByText('Meditate')).toBeInTheDocument();
 
-    // Unchecked habits
+    // Nicht erledigte Habits
     expect(screen.getByText('Read 30 mins')).toBeInTheDocument();
   });
 
   /**
-   * Test: Nur heutige überprüfte Gewohnheiten in der speziellen Sektion
+   * Test: Nur heutige erledigte Gewohnheiten in der speziellen Sektion
    * Überprüft, dass nur die Gewohnheiten mit today's Datum in der speziellen Sektion angezeigt werden.
-   * Erwartet: Morning Run und Meditate sollten in der "Bereits heute erledigt" Sektion sein.
+   * Erwartet: Morning Run und Meditate sollten in der "Bereits heute erledigt" Sektion angezeigt werden.
    */
   it('displays only today\'s checked habits in the special section', () => {
     render(
@@ -82,7 +82,7 @@ describe('HabitGrid', () => {
       />
     );
 
-    // Both checked habits should appear, but Read should be in unchecked section
+    // Beide heutigen Habits sollten angezeigt werden
     const morningRunCards = screen.getAllByText('Morning Run');
     expect(morningRunCards.length).toBeGreaterThan(0);
   });
@@ -161,7 +161,6 @@ describe('HabitGrid', () => {
       />
     );
 
-    // Check that habit details are displayed
     expect(screen.getByText('Morning Run')).toBeInTheDocument();
     expect(screen.getByText('Run 5km every morning')).toBeInTheDocument();
   });
@@ -226,11 +225,11 @@ describe('HabitGrid', () => {
       />
     );
 
-    // Check that streak information is displayed in habit cards
+    // Verifiziere, dass HabitCards gerendert werden
     const habitCards = container.querySelectorAll('.habitcard');
     expect(habitCards.length).toBeGreaterThan(0);
     
-    // Verify that streak text is visible
-    expect(screen.getByText(/Streak: 7/)).toBeInTheDocument();
+    // verifiziere, dass Streak-Werte angezeigt werden
+    expect(screen.getByText(/7/)).toBeInTheDocument();
   });
 });

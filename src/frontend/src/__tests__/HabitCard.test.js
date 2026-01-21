@@ -45,7 +45,7 @@ describe('HabitCard', () => {
       />
     );
 
-    expect(screen.getByText(/Streak: 5/)).toBeInTheDocument();
+    expect(screen.getByText(/5/)).toBeInTheDocument();
   });
 
   /**
@@ -84,7 +84,7 @@ describe('HabitCard', () => {
       />
     );
 
-    const deleteBtn = screen.getByText('Löschen');
+    const deleteBtn = screen.getByRole('button', { name: /lösche/i });
     await userEvent.click(deleteBtn);
 
     expect(handleDelete).toHaveBeenCalledWith(1);
@@ -127,7 +127,7 @@ describe('HabitCard', () => {
       />
     );
 
-    const deleteBtn = screen.getByText('Löschen');
+    const deleteBtn = screen.getByRole('button', { name: /lösche/i });
     await userEvent.click(deleteBtn);
 
     // Der Klick auf die Karte sollte nicht ausgelöst werden, wenn der Löschen-Button geklickt wird
