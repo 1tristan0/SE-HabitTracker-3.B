@@ -159,3 +159,173 @@ Rel(userModel, prismaClient, "verwendet")
 Rel(prismaClient, userTable, "CRUD")
 Rel(prismaClient, habitTable, "CRUD")
 @enduml
+
+== 4 Code-Ebene
+[plantuml, containerdiagram, svg]
+----
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+' === Frontend (React) ===
+System_Boundary(frontendCode, "Frontend - React Module") {
+  ' Pages
+  Component(appJsx, "App.jsx", "Root Component", "Routes, Session Management, Handlers")
+  Component(loginJsx, "Login.jsx", "React Component", "Email/Password Form")
+  Component(signupJsx, "Signup.jsx", "React Component", "Email/Password/Confirm Form")
+  Component(habitsPageJsx, "HabitsPage.jsx", "React Page", "Habits, Calendar, Animal, Modals")
+  Component(createHabitPageJsx, "CreateHabitPage.jsx", "React Page", "New Habit Form")
+  
+  ' Components (Habits)
+  Component(habitGridJsx, "HabitGrid.jsx", "React Component", "Grid Layout für Habits")
+  Component(habitCardJsx, "HabitCard.jsx", "React Component", "einzelne Habit-Anzeige")
+  Component(calendarJsx, "Calender.jsx", "React Component", "Monatskalender")
+  Component(habitCreateContentJsx, "HabitCreateContent.jsx", "React Component", "Formular-Logik")
+  
+  ' Modals
+  Component(habitChangeModalJsx, "HabitChangeModal.jsx", "React Modal", "Bearbeiten Habit")
+  Component(habitInfoModalJsx, "HabitInfoModal.jsx", "React Modal", "Habit Details")
+  Component(calendarModalJsx, "CalendarModal.jsx", "React Modal", "Tag-Details")
+  Component(animalModalJsx, "AnimalModal.jsx", "React Modal", "Tier auswählen")
+  
+  ' Components (Other)
+  Component(animalJsx, "Animal.jsx", "React Component", "Tier-Anzeige")
+  Component(navbarJsx, "Navbar.jsx", "React Component", "Header mit Logout")
+  
+  ' Shared UI
+  Component(toggleSwitchJsx, "ToggleSwitch.jsx", "Reusable UI", "Toggle Component")
+  Component(progressCircleJsx, "ProgressCircle.jsx", "Reusable UI", "Fortschritt-Anzeige")
+  Component(streakBadgeJsx, "StreakBadge.jsx", "Reusable UI", "Streak-Badge")
+  Component(inputFieldJsx, "InputField.jsx", "Reusable UI", "Text Input")
+  Component(modalJsx, "Modal.jsx", "Reusable UI", "Modal Wrapper")
+  Component(buttonJsx, "Buttons/*.jsx", "Reusable UI", "SaveButton, CloseButton, CalendarDayButton")
+  Component(iconsJsx, "icons/*.jsx", "Reusable UI", "DeleteIcon, EditIcon")
+  
+  ' API Services
+  Component(httpClientJs, "httpClient.js", "API Layer", "apiFetch(path, options)")
+  Component(authApiJs, "authApi.js", "Service", "login(), register(), logout(), fetchSession()")
+  Component(authApiSession, "authApi.js", "Session", "persistSession(), loadSession(), clearSession()")
+  Component(habitsApiJs, "habitsApi.js", "Service", "fetchHabits(), addHabit(), deleteHabit(), toggleHabitToday(), updateHabit()")
+  Component(userApiJs, "userApi.js", "Service", "fetchAnimal(), setAnimal()")
+  
+  ' Utilities
+  Component(calendarLib, "lib/calendar.js", "Utility", "getMonthMatrix(), isEveryHabitChecked()")
+  Component(convertLib, "lib/convert.js", "Utility", "dateOnly(), monthAndYear(), todayAsString()")
+}
+
+' === Backend (Node.js/Express) ===
+System_Boundary(backendCode, "Backend - Node.js/Express Module") {
+  ' Main Entry
+  Component(indexJs, "index.js", "Express Server", "CORS, JSON Parser, Routes Registration")
+  Component(prismaJs, "prisma.js", "ORM Client", "PrismaClient Instance")
+  
+  ' Routes
+  Component(authRouteJs, "routes/auth.js", "Express Router", "POST /login, /register, /session, /logout")
+  Component(habitsRouteJs, "routes/habits.js", "Express Router", "GET/POST/DELETE/PUT /habits, /toggle")
+  Component(usersRouteJs, "routes/users.js", "Express Router", "GET/POST /animal")
+  
+  ' Middleware
+  Component(authenticateJs, "middleware/authenticate.js", "Middleware", "Bearer Token Validation")
+  
+  ' Auth
+  Component(supabaseAuthJs, "supabaseAuth.js", "Auth Service", "loginWithPassword(), registerUser(), fetchUser(), signOut()")
+  Component(supabaseRequestFn, "supabaseAuth.js", "Fetch", "supabaseRequest() to Supabase API")
+  
+  ' Helpers
+  Component(serializeHabit, "routes/habits.js", "Helper", "serializeHabit(), normalizeDateArray()")
+  Component(validateHabit, "routes/habits.js", "Validator", "Daten-Validierung")
+}
+
+' === Database (Supabase) ===
+System_Boundary(dbCode, "Database Layer") {
+  Component(prismaSchema, "schema.prisma", "Prisma Schema", "habits_table, users Model Definition")
+  ComponentDb(supabaseDb, "Supabase PostgreSQL", "Database", "habits_table, users Tables")
+}
+
+' === Frontend Internal Relations ===
+Rel(appJsx, loginJsx, "renders bei unauthentifiziert")
+Rel(appJsx, signupJsx, "renders bei Registration")
+Rel(appJsx, habitsPageJsx, "Route: /")
+Rel(appJsx, createHabitPageJsx, "Route: /add")
+Rel(appJsx, navbarJsx, "renders nach Login")
+
+Rel(habitsPageJsx, habitGridJsx, "uses")
+Rel(habitsPageJsx, calendarJsx, "uses")
+Rel(habitsPageJsx, animalJsx, "uses")
+Rel(habitsPageJsx, habitChangeModalJsx, "opens")
+Rel(habitsPageJsx, habitInfoModalJsx, "opens")
+Rel(habitsPageJsx, animalModalJsx, "opens")
+
+Rel(createHabitPageJsx, habitCreateContentJsx, "uses")
+
+Rel(habitGridJsx, habitCardJsx, "renders")
+Rel(habitCardJsx, toggleSwitchJsx, "uses")
+Rel(habitCardJsx, progressCircleJsx, "uses")
+Rel(habitCardJsx, streakBadgeJsx, "uses")
+Rel(habitCardJsx, habitChangeModalJsx, "opens on edit")
+Rel(habitCardJsx, habitInfoModalJsx, "opens on info")
+Rel(habitCardJsx, iconsJsx, "uses Icons")
+
+Rel(calendarJsx, buttonJsx, "uses CalendarDayButton")
+Rel(calendarJsx, calendarModalJsx, "opens on day click")
+
+Rel(habitCreateContentJsx, inputFieldJsx, "uses")
+Rel(habitCreateContentJsx, buttonJsx, "uses SaveButton")
+
+Rel(habitChangeModalJsx, inputFieldJsx, "uses")
+Rel(habitChangeModalJsx, buttonJsx, "uses SaveButton, CloseButton")
+
+Rel(animalModalJsx, buttonJsx, "uses")
+
+Rel(animalJsx, animalModalJsx, "opens on click")
+
+' === Service Integration ===
+Rel(loginJsx, authApiJs, "calls login()")
+Rel(signupJsx, authApiJs, "calls register()")
+Rel(navbarJsx, authApiJs, "calls logout()")
+Rel(appJsx, authApiSession, "calls persistSession/loadSession/clearSession")
+
+Rel(habitGridJsx, habitsApiJs, "calls fetchHabits()")
+Rel(habitCardJsx, habitsApiJs, "calls toggleHabitToday(), deleteHabit()")
+Rel(habitChangeModalJsx, habitsApiJs, "calls updateHabit()")
+Rel(habitCreateContentJsx, habitsApiJs, "calls addHabit()")
+
+Rel(habitsPageJsx, userApiJs, "calls fetchAnimal()")
+Rel(animalModalJsx, userApiJs, "calls setAnimal()")
+
+Rel(authApiJs, httpClientJs, "uses apiFetch()")
+Rel(habitsApiJs, httpClientJs, "uses apiFetch()")
+Rel(userApiJs, httpClientJs, "uses apiFetch()")
+
+Rel(habitsPageJsx, calendarLib, "uses getMonthMatrix, isEveryHabitChecked")
+Rel(habitsPageJsx, convertLib, "uses dateOnly, monthAndYear, todayAsString")
+Rel(habitCardJsx, convertLib, "uses dateOnly")
+
+' === API Layer to Backend ===
+Rel(httpClientJs, indexJs, "HTTP GET/POST/PUT/DELETE")
+
+' === Backend Internal ===
+Rel(indexJs, authRouteJs, "registers route")
+Rel(indexJs, habitsRouteJs, "registers route")
+Rel(indexJs, usersRouteJs, "registers route")
+
+Rel(authRouteJs, authenticateJs, "uses (optional)")
+Rel(habitsRouteJs, authenticateJs, "uses middleware")
+Rel(usersRouteJs, authenticateJs, "uses middleware")
+
+Rel(authRouteJs, supabaseAuthJs, "calls loginWithPassword, registerUser, fetchUser, signOut")
+Rel(supabaseAuthJs, supabaseRequestFn, "calls")
+
+Rel(habitsRouteJs, serializeHabit, "calls serializeHabit, normalizeDateArray")
+Rel(habitsRouteJs, validateHabit, "calls validation")
+Rel(habitsRouteJs, prismaJs, "uses prisma.habit")
+
+Rel(usersRouteJs, prismaJs, "uses prisma.user")
+
+Rel(authenticateJs, supabaseAuthJs, "calls fetchUser()")
+
+Rel(prismaJs, prismaSchema, "generates from")
+Rel(prismaJs, supabaseDb, "connects to")
+
+Rel(supabaseRequestFn, supabaseDb, "HTTPS Request")
+
+@enduml
