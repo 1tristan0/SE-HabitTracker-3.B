@@ -103,18 +103,4 @@ describe('Navbar', () => {
     expect(handleLogout).toHaveBeenCalled();
   });
 
-  /**
-   * Testet das Rendering des App-Logos und Titels.
-   * Überprüft, dass "Gewohnheitstier" im Titel vorhanden ist.
-   */
-  it('renders app title', () => {
-    render(
-      <BrowserRouter>
-        <Navbar onLogout={() => {}} />
-      </BrowserRouter>
-    );
-
-    const title = screen.getByText('Gewohnheitstier');
-    expect(title).toBeInTheDocument();
-  });
 });

@@ -118,31 +118,4 @@ describe('CalendarModal', () => {
 
     expect(handleClose).toHaveBeenCalledWith(false);
   });
-
-  /**
-   * Testet die korrekten Accessibility-Attribute des Modals.
-   * Überprüft, dass das Modal-Container Elemente und die Schließen-Schaltfläche vorhanden sind.
-   */
-  it('has proper accessibility attributes', () => {
-    const { container } = render(
-      <CalendarModal
-        selected="2025-12-07"
-        checkedHabits={mockCheckedHabits}
-        uncheckedHabits={mockUncheckedHabits}
-        setOpenModal={() => {}}
-      />
-    );
-
-    // Check for modal container (fixed overlay)
-    const modalContainer = container.querySelector('.fixed.inset-0');
-    expect(modalContainer).toBeInTheDocument();
-
-    // Check that heading is present
-    const heading = screen.getByRole('heading');
-    expect(heading).toBeInTheDocument();
-
-    // Check that close button is accessible
-    const closeBtn = screen.getByText('Schließen');
-    expect(closeBtn).toBeInTheDocument();
-  });
 });

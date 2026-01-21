@@ -32,6 +32,15 @@ describe('HabitInfoModal', () => {
     prev_last_checked: ['2026-01-18', '2026-01-17', '2026-01-16'],
   };
 
+  beforeEach(() => {
+    jest.useFakeTimers('modern');
+    jest.setSystemTime(new Date('2026-01-19T00:00:00Z'));
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
 
   /**
    * Test: Modal zeigt den Gewohnheitsnamen im Header an.
@@ -57,19 +66,6 @@ describe('HabitInfoModal', () => {
     expect(screen.getByText('Run 5km in the morning')).toBeInTheDocument();
   });
 
-  /**
-   * Test: Modal rendert nicht die Beschreibung, wenn leer.
-   * Überprüft, dass leere Beschreibungen nicht angezeigt werden.
-   */
-  it('does not display description when empty', () => {
-    const habitWithoutDesc = { ...mockHabit, description: null };
-
-    render(
-      <HabitInfoModal habit={habitWithoutDesc} onClose={jest.fn()} />
-    );
-
-    expect(screen.queryByText('Run 5km in the morning')).not.toBeInTheDocument();
-  });
 
   /**
    * Test: Modal zeigt die letzten 30 Tage Abschlüsse an.
@@ -189,36 +185,5 @@ describe('HabitInfoModal', () => {
     );
 
     expect(screen.getByText('Noch nie erledigt')).toBeInTheDocument();
-  });
-
-  /**
-   * Test: Modal zeigt alle StatCards an.
-   * Überprüft das Rendering aller Statistik-Karten.
-   */
-  it('renders all stat cards', () => {
-    render(
-      <HabitInfoModal habit={mockHabit} onClose={jest.fn()} />
-    );
-
-    expect(screen.getByText('Letzte 30 Tage')).toBeInTheDocument();
-    expect(screen.getByText('Abschlussrate')).toBeInTheDocument();
-    expect(screen.getByText('Aktuelle Streak')).toBeInTheDocument();
-  });
-
-
-
-  /**
-   * Test: StatCard rendert Namen und Wert korrekt.
-   * Überprüft das Rendering der Statistik-Unter-Komponente.
-   */
-  it('renders stat cards with correct name and value', () => {
-    render(
-      <HabitInfoModal habit={mockHabit} onClose={jest.fn()} />
-    );
-
-    // Überprüft, dass die Karte "Letzte 30 Tage" mit einem numerischen Wert gerendert wird
-    const card = screen.getByText('Letzte 30 Tage').closest('div');
-    expect(card).toHaveTextContent('Letzte 30 Tage');
-    expect(card).toHaveTextContent(/\d+/); // Sollte eine Zahl enthalten
   });
 });

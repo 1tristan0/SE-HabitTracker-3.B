@@ -1,0 +1,47 @@
+= Testing-Strategie
+
+== Übersicht
+
+Dieses Dokument beschreibt die Test-Strategie für die Anwendung. Es umfasst automatisierte Tests nach Feature-Updates sowie manuelle Tests vor der finalen Akzeptanz durch den Product Owner.
+
+== Automatisierte Tests nach Feature-Updates
+
+Nach jedem neuen Funktionsupdate müssen alle automatisierten Tests durchgeführt werden.
+
+=== Testdurchführung
+
+* Alle bestehenden Tests werden ausgeführt
+* Testergebnisse werden dokumentiert
+* Fehlerhafte Tests werden identifiziert
+* Ebenfalls werden neue Tests für die hinzugefügte Funktionalität implementiert
+
+=== Umgang mit fehlgeschlagenen Tests
+
+Bei fehlgeschlagenen Tests wird folgendes Vorgehen durchgeführt:
+
+. *Analyse*: Ursache des Testfehlers wird untersucht
+. *Bewertung*: Bestimmung, ob:
+    - Die neue Funktionalität die Tests erfüllt und Tests angepasst werden müssen, oder
+    - Die neue Funktionalität fehlerhaft ist und überarbeitet werden muss
+. *Abklärung*: Bei Bedarf wird mit dem Team und Product Owner geklärt, wie vorzugehen ist
+. *Behebung*: Notwendige Anpassungen werden vorgenommen
+
+== Manuelle Tests vor finaler Abnahme der User Storys durch den Product Owner
+
+Vor der finalen Abnahme durch den Product Owner müssen manuelle Tests durchgeführt werden. Diese sollen die Akzeptanzkriterien der einzelnen User Storys abdecken.
+
+=== Testumfang
+
+* Simulation realistischer Benutzerszenarien
+* Überprüfung der Funktionalität aus Nutzerperspektive
+* Validierung des Designs und der Benutzeroberfläche
+* Sicherstellung der Benutzerfreundlichkeit
+
+=== Akzeptanzkriterien
+
+Eine Änderung oder ein neues Feature wird erst akzeptiert, wenn:
+
+* Alle automatisierten Tests bestanden haben
+* Manuelle Tests erfolgreich durchgeführt wurden
+* Design und Funktionalität den Anforderungen entsprechen
+* Product Owner die Änderung freigegeben hat
