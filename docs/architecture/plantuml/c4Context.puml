@@ -60,18 +60,32 @@ Rel_R(api,       db,     "Kommunikation über ORM")
 Person(user, "Nutzer")
 
 System_Boundary(frontend, "Web Frontend - React") {
-  Component(router, "Router", "React Router", "Navigation zwischen Pages")
-  Component(authComp, "Auth Module", "React + Context", "Login/Signup Logik")
+  Component(app, "App.jsx", "React Root + Routes", "Router mit Routes / Login/Signup Handler")
+  Component(login, "Login", "React Component", "Login-Seite")
+  Component(signup, "Signup", "React Component", "Registrierungs-Seite")
   
-  Component(dashboard, "Dashboard Page", "React Component", "Zeigt Habits & Kalender")
-  Component(createHabit, "Create Habit Page", "React Component", "Formular zur Habit-Erstellung")
+  Component(habitsPage, "HabitsPage", "React Component", "Zeigt Habits & Kalender & Begleiter")
+  Component(createHabit, "CreateHabitPage", "React Component", "Formular zur Habit-Erstellung")
+  Component(navbar, "Navbar", "React Component", "Header mit Logout")
   
-  Component(habitList, "Habit List Component", "React", "Anzeige aller Habits des Users")
-  Component(calendar, "Calendar Component", "React", "Kalenderdarstellung der Streaks")
-  Component(habitForm, "Habit Form Component", "React", "Wiederverwendbares Formular")
+  Component(habitGrid, "Habit Grid Component", "React Component", "Mapping aller Habits des Users")
+  Component(habitCard, "Habit Card Component", "React Component", "Anzeige eines Habits mit ToggleSwitch")
+  Component(toggleSwitch, "ToggleSwitch", "Reusable UI", "Ein/Aus-Schalter für Habits")
+  Component(calendar, "Calendar Component", "React", "Kalenderdarstellung der Streaks mit Tagesbuttons")
+  Component(habitForm, "HabitCreateContent", "React", "Wiederverwendbares Formular")
   
-  Component(habitService, "Habit Service", "API Client", "Kommunikation mit Backend")
-  Component(authService, "Auth Service", "JWT/Context", "Authentifizierung & Session")
+  Component(editHabit, "HabitChangeModal", "React Component", "Modal zur Habit-Bearbeitung")
+  Component(habitInfoModal, "HabitInfoModal", "React Component", "Modal zur Anzeige von Habit-Details")
+  Component(calendarModal, "CalendarModal", "React Component", "Modal für Tagesdetails")
+  
+  Component(animal, "Animal Component", "React Component", "Anzeige des Gewohnheitstiers")
+  Component(animalModal, "Animal Modal", "React Component", "Modal zur Auswahl des Tiers")
+  
+  Component(uiPrimitives, "UI Primitives", "Shared UI", "ProgressCircle, StreakBadge, Modal, Buttons")
+  
+  Component(habitService, "Habit Service", "API Client", "Kommunikation mit Backend (habitsApi.js)")
+  Component(authService, "Auth Service", "API Client", "Authentifizierung & Session (authApi.js)")
+  Component(userService, "User Service", "API Client", "Nutzer-Daten & Tier (userApi.js)")
 }
 
 System_Boundary(backend, "Backend API - Node.js/Express") {
@@ -92,24 +106,46 @@ System_Boundary(database, "Supabase") {
   ComponentDb(userTable, "users", "PostgreSQL Table", "Speichert User-Daten & Auth")
 }
 
-Rel(user, router, "navigiert")
-Rel(router, authComp, "zeigt bei unauthentifiziert")
-Rel(router, dashboard, "zeigt nach Login")
-Rel(router, createHabit, "zeigt bei Klick")
+Rel(user, app, "nutzt")
+Rel(app, login, "zeigt bei unauthentifiziert")
+Rel(app, signup, "zeigt bei Registrierung")
+Rel(app, navbar, "zeigt nach Login")
+Rel(app, habitsPage, "Route: /")
+Rel(app, createHabit, "Route: /add")
+Rel(navbar, app, "Logout-Trigger")
 
-Rel(dashboard, habitList, "verwendet")
-Rel(dashboard, calendar, "verwendet")
+Rel(habitsPage, habitGrid, "verwendet")
+Rel(habitsPage, calendar, "verwendet")
+Rel(habitsPage, animal, "zeigt Begleiter")
+Rel(habitsPage, habitService, "lädt/bearbeitet Habits")
+Rel(habitsPage, userService, "lädt Tier-Daten")
+
+Rel(animal, animalModal, "öffnet bei Klick")
+Rel(animalModal, userService, "speichert Tier-Auswahl")
+
 Rel(createHabit, habitForm, "verwendet")
+Rel(habitForm, habitService, "erstellt Habit")
 
-Rel(habitList, habitService, "ruft Habits ab")
-Rel(createHabit, habitService, "erstellt/aktualisiert Habit")
-Rel(calendar, habitService, "ruft Streak-Daten ab")
+Rel(calendar, calendarModal, "zeigt bei Tages-Klick")
 
-Rel(authComp, authService, "verwendet")
-Rel(habitService, authService, "nutzt Token")
+Rel(habitGrid, habitCard, "rendert Habits")
+Rel(habitCard, toggleSwitch, "verwendet zum Toggle")
+Rel(habitCard, habitInfoModal, "nach Info-Klick")
+Rel(habitCard, editHabit, "nach Edit-Klick")
+Rel(habitCard, habitService, "delete/toggle")
+
+Rel(editHabit, habitService, "speichert Update")
+Rel(habitForm, uiPrimitives, "nutzt Buttons/InputField")
+Rel(habitCard, uiPrimitives, "nutzt ProgressCircle/StreakBadge")
+
+Rel(login, authService, "nutzt")
+Rel(signup, authService, "nutzt")
+Rel(habitService, authService, "sendet Token")
+Rel(userService, authService, "sendet Token")
 
 Rel(habitService, habitRoute, "HTTP GET/POST/PUT/DELETE")
 Rel(authService, authRoute, "HTTP POST")
+Rel(userService, habitRoute, "HTTP GET/POST")
 
 Rel(authRoute, authController, "delegiert zu")
 Rel(habitRoute, habitController, "delegiert zu")
