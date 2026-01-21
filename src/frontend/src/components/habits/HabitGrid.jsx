@@ -1,6 +1,6 @@
 
-// Importiere Hilfsfunktion und Komponente
-import { dateOnly } from "../lib/convert";   // Hilfsfunktion zur Formatierung von Datumswerten (YYYY-MM-DD)
+import { dateOnly, todayAsString } from "../../lib/convert";   // Hilfsfunktion zur Formatierung von Datumswerten (YYYY-MM-DD)
+import Titel from "../ui/Titel";
 import HabitCard from "./HabitCard";         // Einzelkomponente zur Darstellung einer Gewohnheit
 
 // Komponente zur Darstellung aller Gewohnheiten in einem Grid (Liste)
@@ -11,7 +11,7 @@ import HabitCard from "./HabitCard";         // Einzelkomponente zur Darstellung
 export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose, onEdit, setAnimalMood }) {
 
     // Heutiges Datum im Format YYYY-MM-DD
-    const today = new Date().toISOString().slice(0, 10);
+    const today = todayAsString();
 
     // Gewohnheiten filtern:
     // 1. "completed" → alle, die heute erledigt wurden
@@ -48,9 +48,8 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose,
             ))}
 
             {/* Abschnitt für heute bereits erledigte Gewohnheiten */}
-            <h1 className="text-2xl mb-3 font-bold text-center text-primary3 mt-5">
-                Bereits heute erledigt
-            </h1>
+
+            <Titel>Bereits heute erledigt</Titel>
 
             {/* Wenn es bereits erledigte Gewohnheiten gibt, zeige sie an,
                 ansonsten einen Hinweistext */}

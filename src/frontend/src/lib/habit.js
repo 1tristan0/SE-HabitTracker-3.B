@@ -50,7 +50,11 @@ export const getPercentageOfCompletedHabits = (habit) => {
     return Math.round((completed / total) * 100);
     }
 }
-
+/**
+ * Gibt den Prozentsatz der erledigten Gewohnheiten im letzten Monat zurück.
+ * @param {Object} habit - Das Gewohnheitsobjekt
+ * @returns {number} Prozentsatz der erledigten Gewohnheiten
+ */
 export const getPercentageOfCompletedHabitsLastMonth = (habit) => {
   if ((!habit || habit.prev_last_checked.length === 0) && habit.last_checked === 0) return 0;
   const completed = getNumberOfCompletedHabitsLastMonth(habit);

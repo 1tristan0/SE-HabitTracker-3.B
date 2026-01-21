@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { setAnimal } from '../api/userApi';
-import SaveButton from './ui/SaveButton';
-import Modal from './Modal';
+import { setAnimal } from '../../../api/userApi';
+import SaveButton from '../../ui/Buttons/SaveButton';
+import Modal from '../../ui/Modal';
 
-export default function BegleiterModal({ onClose, onSelect, animalMood, token }) {
+export default function AnimalModal({ onClose, onSelect, animalMood, token }) {
   const [selected, setSelected] = useState(null);
-
+  // Begleiter speichern
   const handleSave = async () => {
     if (selected) {
       console.log('Ausgewählter Begleiter:', selected);

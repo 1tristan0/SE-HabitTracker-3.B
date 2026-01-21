@@ -1,5 +1,5 @@
-import { convertToGermanDateString } from "../lib/convert";
-import Modal from "./Modal";
+import { convertToGermanDateString } from "../../../../lib/convert";
+import Modal from "../../../ui/Modal";
 
 export default function CalendarModal({ selected, checkedHabits = [], uncheckedHabits = [], setOpenModal }) {
   return (

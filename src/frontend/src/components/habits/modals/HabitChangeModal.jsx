@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import SaveButton from './ui/SaveButton';
-import Modal from './Modal';
+import SaveButton from '../../ui/Buttons/SaveButton';
+import Modal from '../../ui/Modal';
 
 export default function HabitChangeModal({ habit, onClose, edit }) {
   const [name, setName] = useState(habit?.habit_name || '');

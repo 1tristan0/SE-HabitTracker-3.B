@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Titel from "../ui/Titel";
 
 export default function HabitCreateContent({ onSubmit, onCancel }) {
   const [name, setName] = useState("");
@@ -29,9 +30,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
           {/* Kopfbereich */}
           <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-semibold text-primary3">
-                Neue Gewohnheit erstellen
-              </h1>
+            <Titel>Neue Gewohnheit erstellen</Titel>
               <p className="mt-1 text-sm text-primary3">
                 Gib deiner Gewohnheit einen klaren Namen und eine kurze Beschreibung.
               </p>
@@ -114,22 +113,22 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
               </h2>
               <ul className="space-y-2 text-xs leading-relaxed">
                 <li>
-                  • Formuliere die Gewohnheit positiv:
+                  Formuliere die Gewohnheit positiv:
                   <span className="font-medium"> „Mehr Wasser trinken“</span> statt
                   „Keine Softdrinks“.
                 </li>
                 <li>
-                  • Mach sie klein und machbar –{" "}
+                  Mach sie klein und machbar –{" "}
                   <span className="font-medium">5 Minuten Bewegung</span> sind besser als
                   gar keine.
                 </li>
                 <li>
-                  • Verknüpfe sie mit einem Auslöser, z. B.{" "}
+                  Verknüpfe sie mit einem Auslöser, z. B.{" "}
                   <span className="font-medium">„nach dem Zähneputzen“</span>.
                 </li>
                 <li>
-                  • Je klarer Name & Beschreibung, desto besser kann unser Tracker dir
-                  Fortschritt anzeigen. 🔁
+                  Je klarer Name & Beschreibung, desto besser kann unser Tracker dir
+                  Fortschritt anzeigen.
                 </li>
               </ul>
             </aside>

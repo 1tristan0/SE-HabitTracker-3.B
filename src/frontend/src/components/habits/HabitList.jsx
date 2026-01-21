@@ -1,4 +1,4 @@
-// client/src/components/HabitList.jsx
+// client/src/components/habits/HabitList.jsx
 
 // Funktion zum Aktualisieren (Abhaken) einer Gewohnheit
 // Sie sendet eine PUT-Anfrage an die API, um das Feld `last_checked` auf das aktuelle Datum zu setzen
@@ -12,7 +12,7 @@ async function handleCheck(habitId) {
   });
 
   // Nach erfolgreichem Update die Habit-Liste neu laden,
-  // damit der neue Status (z. B. „heute erledigt“) angezeigt wird.
+  // damit der neue Status (z. B. „heute erledigt") angezeigt wird.
   // Alternativ könnte man auch den lokalen State direkt anpassen, um einen API-Call zu sparen.
   await fetchHabits();
 }
