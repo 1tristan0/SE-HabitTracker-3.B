@@ -86,7 +86,7 @@ Um einen *Fix- oder Feature-Branch* in den *dev-Branch aufzunehmen* muss der jew
 === Tests
 Darüber hinaus werden automatisierte Tests vorbereitet, um die technische Qualität der Anwendung langfristig sicherzustellen. Perspektivisch ist die Einrichtung einer Continuous-Integration-Pipeline vorgesehen, um Builds und Tests automatisiert auszuführen und so frühzeitig Fehler im Entwicklungsprozess zu erkennen.
 
-Alle Artefakte wie Backlogs und Protokolle sowie das Risk-Board (https://github.com/users/1tristan0/projects/6/views/5) werden fortlaufend im gemeinsamen Repository gepflegt. Der Fortschritt wird durch den Vergleich der erledigten Aufgaben zwischen den Weeklies sowie durch Reflexionen im Rahmen der Sprint-Reviews nachvollzogen und dokumentiert.
+Alle Artefakte wie Backlogs und Protokolle (sowie das Risk-Board (https://github.com/users/1tristan0/projects/6/views/5)) werden fortlaufend im gemeinsamen Repository gepflegt. Der Fortschritt wird durch den Vergleich der erledigten Aufgaben zwischen den Weeklies sowie durch Reflexionen im Rahmen der Sprint-Reviews nachvollzogen und dokumentiert.
 
 TODO: Wie sind wir zu Entscheidungen gekommen?
 

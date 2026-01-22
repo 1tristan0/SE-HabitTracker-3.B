@@ -11,20 +11,21 @@ Nach jedem neuen Funktionsupdate müssen alle automatisierten Tests durchgeführ
 === Testdurchführung
 
 * Alle bestehenden Tests werden ausgeführt
-* Testergebnisse werden dokumentiert
-* Fehlerhafte Tests werden identifiziert
-* Ebenfalls werden neue Tests für die hinzugefügte Funktionalität implementiert
+* Es gilt das Verursacherprinzip: Der Entwickler des Features ist verantwortlich für die Testdurchführung
+* Bei fehlgeschlagenen Tests muss der Entwickler die Ursache analysieren und beheben.
+* Es wird kein Pull Request gestellt, bevor alle Tests lokal bestanden sind
+* Ebenfalls werden neue Tests für die hinzugefügten Funktionalitäten implementiert 
 
 === Umgang mit fehlgeschlagenen Tests
 
 Bei fehlgeschlagenen Tests wird folgendes Vorgehen durchgeführt:
 
-. *Analyse*: Ursache des Testfehlers wird untersucht
-. *Bewertung*: Bestimmung, ob:
+*Analyse*: Ursache des Testfehlers wird untersucht
+*Bewertung*: Bestimmung, ob:
     - Die neue Funktionalität die Tests erfüllt und Tests angepasst werden müssen, oder
     - Die neue Funktionalität fehlerhaft ist und überarbeitet werden muss
-. *Abklärung*: Bei Bedarf wird mit dem Team und Product Owner geklärt, wie vorzugehen ist
-. *Behebung*: Notwendige Anpassungen werden vorgenommen
+*Abklärung*: Bei Bedarf wird mit dem Team und Product Owner geklärt, wie vorzugehen ist
+*Behebung*: Notwendige Anpassungen werden vorgenommen
 
 == Manuelle Tests vor finaler Abnahme der User Storys durch den Product Owner
 
@@ -41,7 +42,14 @@ Vor der finalen Abnahme durch den Product Owner müssen manuelle Tests durchgef�
 
 Eine Änderung oder ein neues Feature wird erst akzeptiert, wenn:
 
-* Alle automatisierten Tests bestanden haben
+* Alle automatisierten Tests erfolgreich durchgeführt wurden
 * Manuelle Tests erfolgreich durchgeführt wurden
 * Design und Funktionalität den Anforderungen entsprechen
 * Product Owner die Änderung freigegeben hat
+
+== Umgang mit Bugs nach/während der Abnahme
+Sollte ein Bug nach der Abnahme durch den Product Owner/Teammitglied/Externer Stakeholder entdeckt werden, wird folgender Prozess befolgt:
+* Dokumentation des Bugs im Github -> Neue Task mit dem Label "Bug"
+** Beschreibung des Fehlers, ggf mit Screenshots/Schritten zur Reproduktion
+
+Sollte während der Abnahme ein Bug entdeckt werden, erfolgt die Dokumentation innerhalb des Pull-Requests und nicht in einem separaten Issue. Dabei wird gegebenenfalls die Funktion "Request Changes" von Github  genutzt.

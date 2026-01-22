@@ -10,16 +10,16 @@ Es dient als Referenz für Tester, Entwickler und Stakeholder, um die Qualität 
 Wir haben in unserem Programm 3 verschiedene Testarten implementiert:
 - **Unit Tests**: Diese Tests überprüfen einzelne Funktionen und Komponenten der Anwendung isoliert, um sicherzustellen, dass sie wie erwartet funktionieren, unabhängig von anderen Teilen des Systems.
 - **Integration Tests**: Diese Tests überprüfen das Zusammenspiel mehrerer Komponenten oder Module, um sicherzustellen, dass sie zusammen korrekt arbeiten.
-- **Manuelle Tests/Abnahmetests**: Diese Tests werden von Testern durchgeführt, um die Benutzeroberfläche und die Benutzererfahrung zu überprüfen. Sie stellen sicher, dass die Anwendung aus Sicht des Endbenutzers funktioniert.
+- **Systemtests**: Diese Tests werden von Testern durchgeführt, um die Benutzeroberfläche und die Benutzererfahrung zu überprüfen. Sie stellen sicher, dass die Anwendung aus Sicht des Endbenutzers funktioniert.
 
 == Testtechnologien
 Für die verschiedenen Testarten verwenden wir unterschiedliche Technologien:
 - **Unit Tests Frontend**: Wir verwenden Jest als Testframework für unsere Unit Tests zusammen mit der React Testing Library. Jest ermöglicht es uns, einzelne Funktionen und Komponenten der Anwendung zu testen und sicherzustellen, dass sie korrekt funktionieren. Es können Mock-Daten und -Funktionen verwendet werden, um Abhängigkeiten zu isolieren.
 - **Integration Tests**: Auch für die Integration Tests verwenden wir Jest in Kombination mit der React Testing Library. Diese Kombination ermöglicht es uns, das Zusammenspiel mehrerer Komponenten zu testen und sicherzustellen, dass sie zusammen korrekt arbeiten.
-- **Manuelle Tests**: Die manuellen Tests werden von Testern durchgeführt, die die Anwendung in verschiedenen Szenarien verwenden, um sicherzustellen, dass sie den Anforderungen entspricht und eine gute Benutzererfahrung bietet.
+- **Systemtests**: Die Systemtests werden von Testern durchgeführt, die die Anwendung in verschiedenen Szenarien verwenden, um sicherzustellen, dass sie den Anforderungen entspricht und eine gute Benutzererfahrung bietet.
 
 == Dokumentation der Tests
-Die einzelnen Testfälle werden in den user-Stories im Github dokumentiert. Dort sind die Akzeptanzkriterien und die erwarteten Ergebnisse festgehalten. 
+Die einzelnen Testfälle werden in den User-Stories im Github dokumentiert und auch in diesem Dokument festgehalten. Dort sind die Akzeptanzkriterien und die erwarteten Ergebnisse festgehalten. 
 
 == Tests
 
@@ -96,11 +96,9 @@ Wir haben Unit Tests für die folgenden Komponenten implementiert:
 ** Submit ruft onSubmit mit E-Mail und Passwort auf
 ** Login-Button ruft switchToLogin auf
 
-== Test Cases
-
-## Userstory : B011
-
-### Akzeptanztest AT-01
+== Systemtests / Akzeptanztests
+Die folgenden Akzeptanztests wurden definiert, um die Hauptfunktionen der Habit Tracker Anwendung zu überprüfen:
+=== Akzeptanztest AT-01
 Anzeige der geplanten Habits des aktuellen Tages
 
 ### Ziel des Tests:
@@ -120,10 +118,6 @@ Nutzer öffnet die Startseite der App
 
 Eine Liste aller für den aktuellen Tag geplanten Habits wird angezeigt
 
-### Testergebnis:
-
-- [ ] bestanden
-- [ ] nicht bestanden
 
 ### Akzeptanztest AT-02
 Visuelle Unterscheidung erledigter und offener Habits
