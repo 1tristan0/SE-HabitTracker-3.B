@@ -7,7 +7,7 @@ participant "Backend API" as backend
 participant "Prisma ORM" as prisma
 participant "Database(Supabase)" as database
 
-user -> frontend: Klickt "Habit abhaken"\n
+user -> frontend: clicks toggle\n
 frontend -> frontend: toggleHabitToday(token, id)
 frontend -> frontend: apiFetch(`/api/habits/${habitId}/toggle`, { method: 'POST', token, });
 frontend -> backend: POST api/habits/{habitId}/toggle\n{date, timezone}
