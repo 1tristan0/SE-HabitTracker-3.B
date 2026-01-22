@@ -91,9 +91,11 @@ System_Boundary(frontend, "Web Frontend - React") {
 System_Boundary(backend, "Backend API - Node.js/Express") {
   Component(authRoute, "Auth Routes", "Express Router", "Login/Signup/Logout Endpoints")
   Component(habitRoute, "Habit Routes", "Express Router", "CRUD Endpoints für Habits")
+  Component(userRoute, "User Routes", "Express Router", "Animal Endpoints")
   
   Component(authController, "Auth Controller", "Middleware", "Auth-Logik & JWT-Handling")
   Component(habitController, "Habit Controller", "Express Handler", "Geschäftslogik für Habits")
+  Component(userController, "User Controller", "Express Handler", "Geschäftslogik für User")
   
   Component(habitModel, "Habit Model", "Prisma Schema", "Datenstruktur & Validierung")
   Component(userModel, "User Model", "Prisma Schema", "User-Datenstruktur")
@@ -145,13 +147,15 @@ Rel(userService, authService, "sendet Token")
 
 Rel(habitService, habitRoute, "HTTP GET/POST/PUT/DELETE")
 Rel(authService, authRoute, "HTTP POST")
-Rel(userService, habitRoute, "HTTP GET/POST")
+Rel(userService, userRoute, "HTTP GET/POST")
 
 Rel(authRoute, authController, "delegiert zu")
 Rel(habitRoute, habitController, "delegiert zu")
+Rel(userRoute, userController, "delegiert zu")
 
 Rel(authController, userModel, "nutzt")
 Rel(habitController, habitModel, "nutzt")
+Rel(userController, userModel, "nutzt")
 
 Rel(habitModel, prismaClient, "verwendet")
 Rel(userModel, prismaClient, "verwendet")
