@@ -29,10 +29,9 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 :docs-test: {docs}/test
 :docs-development: {docs}/development
 
-<<<
-= Gruppenleistung
+== Gruppenleistung
 
-== Erfolg: Effektive Teamzusammenarbeit durch flexible Arbeitsorganisation
+=== Erfolg: Effektive Teamzusammenarbeit durch flexible Arbeitsorganisation
 
 Ein zentraler Erfolg des Projekts war die sehr gute Zusammenarbeit innerhalb der Gruppe, insbesondere im Development-Team. Die Aufgabenbearbeitung erfolgte häufig in kleinen Gruppen oder parallel an Einzelaufgaben mit der Möglichkeit, sich jederzeit gegenseitig abzustimmen. Bei komplexeren oder besonders kritischen Aufgaben wurde bewusst Pair Programming eingesetzt, um Lösungsansätze gemeinsam zu erarbeiten und die Qualität des entstehenden Codes zu erhöhen.
 
@@ -42,7 +41,7 @@ Die flexible Arbeitsorganisation, bestehend aus gemeinsamer Problemlösung, para
 
 Aus Sicht des Softwareentwicklungsprozesses zeigte sich deutlich, dass enge Zusammenarbeit und gezielte Qualitätssicherungsmaßnahmen wie Pair Programming wichtige Erfolgsfaktoren im agilen Kontext sind. Sie unterstützen nicht nur die iterative Entwicklung, sondern tragen wesentlich zur langfristigen Wartbarkeit und Verständlichkeit des Systems bei.
 
-== Erfolg: Verbesserung des Softwaredesigns durch Domain-Driven Design
+=== Erfolg: Verbesserung des Softwaredesigns durch Domain-Driven Design
 
 Ein weiterer bedeutender Erfolg des Projekts war das bewusste Erkennen und Beheben von Defiziten im initialen Softwaredesign. Im Projektverlauf wurde deutlich, dass bestehende Strukturen die Wartbarkeit und Erweiterbarkeit der Anwendung zunehmend einschränkten. Als Reaktion darauf orientierte sich das Team stärker an Konzepten des Domain-Driven Design (DDD), um die fachliche Domäne klarer vom technischen Unterbau zu trennen.
 
@@ -54,7 +53,7 @@ Die Umstellung auf diese Architektur machte ein umfangreiches Refactoring des be
 
 Trotz des hohen Aufwands erwies sich das Refactoring als nachhaltige Investition in die Qualität des Systems. Die resultierende Architektur ist klarer strukturiert, besser wartbar und robuster gegenüber zukünftigen Erweiterungen, wodurch sich der Einsatz etablierter DDD-Prinzipien im Projekt eindeutig bewährt hat.
 
-== Erfolg: Etablierung eines strukturierten Versions- und Konfigurationsmanagements
+=== Erfolg: Etablierung eines strukturierten Versions- und Konfigurationsmanagements
 
 Ein dritter zentraler Erfolg war die konsequente Nutzung von GitHub für das Versions- und Konfigurationsmanagement. Das Team einigte sich frühzeitig auf einen strukturierten Workflow mit Branching und Pull Requests, um Änderungen nachvollziehbar und konfliktarm in das Projekt zu integrieren.
 
@@ -64,7 +63,7 @@ Die Integration in den dev-Branch erfolgte ausschließlich über Pull Requests. 
 
 Dieser strukturierte Umgang mit Versionsverwaltung stellte sich als äußerst hilfreich heraus und trug maßgeblich zu einem stabilen Entwicklungsprozess bei. Gleichzeitig förderte er Transparenz, Verantwortungsbewusstsein und gemeinsame Qualitätsstandards im Team.
 
-== Misserfolg: Unzureichendes und inkonsistentes Tracking organisatorischer Aufgaben
+=== Misserfolg: Unzureichendes und inkonsistentes Tracking organisatorischer Aufgaben
 
 Ein wesentlicher Misserfolg im Projektverlauf betraf das Tracking organisatorischer und koordinierender Aufgaben innerhalb des Teams. Während die technische Umsetzung der Projektinhalte weitgehend strukturiert und nachvollziehbar im GitHub-Repository erfolgte, zeigte sich insbesondere im Bereich des Projektmanagements ein Defizit in der systematischen Aufgabenverfolgung.
 
@@ -76,7 +75,7 @@ Die Ursachen hierfür lagen unter anderem in einer zu hohen Tool-Vielfalt, fehle
 
 Rückblickend hätte dieser Misserfolg durch die frühzeitige Festlegung einer klaren Single Source of Truth für organisatorische Aufgaben vermieden oder zumindest abgeschwächt werden können. Eine bewusste Entscheidung für ein zentrales Tool (beispielsweise GitHub Issues) sowie feste Regeln zur Pflege und Aktualisierung hätten die Transparenz und Verbindlichkeit deutlich erhöht. Als zentrale Erkenntnis bleibt, dass ein funktionierendes Aufgaben- und Organisationsmanagement eine eigenständige Disziplin im Softwareentwicklungsprozess darstellt und nicht nebenbei erfolgen sollte, auch wenn die technische Umsetzung gut funktioniert.
 
-== Misserfolg: Unzureichende Aufwandsschätzung und unklare User Stories
+=== Misserfolg: Unzureichende Aufwandsschätzung und unklare User Stories
 
 Ein weiterer Misserfolg im Projektverlauf zeigte sich in der anfänglich unzureichenden Aufwandsschätzung von User Stories und Tasks. Insbesondere zu Beginn des Projekts fiel es dem Team schwer, den tatsächlichen Arbeitsaufwand realistisch einzuschätzen. Dies führte dazu, dass Stories entweder zu groß geschnitten oder nicht ausreichend detailliert beschrieben waren, wodurch die Ableitung konkreter Tasks erschwert wurde.
 
@@ -86,7 +85,7 @@ Die Ursachen lagen unter anderem in der fehlenden Erfahrung des Teams mit agilen
 
 Als Reaktion darauf wurden im weiteren Projektverlauf gezielte Maßnahmen ergriffen. User Stories wurden im Rahmen gemeinsamer Refinement-Sitzungen im Miro-Board detaillierter ausgearbeitet, und der Entwicklungsaufwand wurde rückblickend mit der ursprünglichen Schätzung verglichen. Diese Form der retrospektiven Aufwandseinschätzung trug dazu bei, ein besseres Gefühl für die eigene Velocity zu entwickeln und zukünftige Schätzungen realistischer vorzunehmen. Als wichtige Erkenntnis bleibt, dass präzise User Stories und eine ganzheitliche Betrachtung aller notwendigen Arbeitsschritte entscheidend für eine verlässliche Sprintplanung sind.
 
-== Misserfolg: Späte Architekturentscheidungen und hoher Refactoring-Aufwand
+=== Misserfolg: Späte Architekturentscheidungen und hoher Refactoring-Aufwand
 
 Ein weiterer Misserfolg zeigte sich in der späten Konkretisierung zentraler Architekturentscheidungen, insbesondere im Bereich der System- und Datenbankstruktur. Zu Beginn des Projekts wurde die Architektur vergleichsweise pragmatisch aufgebaut, was kurzfristig Fortschritte ermöglichte, langfristig jedoch zu strukturellen Problemen führte.
 
@@ -96,28 +95,26 @@ Die Ursachen lagen vor allem in der fehlenden Erfahrung des Teams im Bereich Web
 
 Als Konsequenz musste im späteren Projektverlauf ein umfangreiches Refactoring durchgeführt werden, das viel Zeit und Koordinationsaufwand erforderte. Rückblickend wurde deutlich, dass architektonische Entscheidungen möglichst früh getroffen und regelmäßig überprüft werden sollten. Gleichzeitig zeigte sich aber auch, dass Refactoring ein unvermeidlicher Bestandteil iterativer Softwareentwicklung ist. Die zentrale Erkenntnis aus diesem Misserfolg besteht darin, dass eine frühzeitige und bewusste Auseinandersetzung mit Architektur und Datenmodell den späteren Aufwand erheblich reduzieren kann.
 
-= Einzelleistungen
-== Monika
-=== Ausgangssituation und Aufgabenstellung
+== Einzelleistungen
+=== Monika
+==== Ausgangssituation und Aufgabenstellung
 
-Zu Beginn des Semesters wurde im Team die Rollenverteilung leicht angepasst, sodass ich zusätzlich zu meiner bisherigen Funktion als Ansprechpartnerin die Rolle der Scrum Masterin übernommen habe. Ziel war es, die Arbeitslast gleichmäßiger zu verteilen und die interne Abstimmung zu verbessern.
+Zu Beginn des Semesters wurde im Team die Rollenverteilung leicht angepasst, sodass ich zusätzlich zu meiner bisherigen Funktion als Ansprechpartnerin die Rolle der Scrum Masterin übernommen habe. Ziel dieser Anpassung war es, die Arbeitslast gleichmäßiger zu verteilen, die interne Abstimmung zu verbessern und die Zusammenarbeit auch in stressigen Phasen aufrechtzuerhalten.
 
-Meine Aufgaben als Scrum Masterin umfassten Projektmanagement und Prozessorganisation innerhalb des Softwareentwicklungsprozesses. Dazu gehörten insbesondere Planung, Moderation und Nachbereitung der regelmäßigen Team-Meetings (Weeklies, Sprint Reviews, Retrospektiven) sowie die Koordination des Teams und die Dokumentation von Entscheidungen, Aufgaben und Ergebnissen in unserem gemeinsamen Repository (link:https://github.com/1tristan0/SE-HabitTracker-3.B/tree/dev/docs/protokolle[]). Diese Tätigkeiten waren eng mit den Entwicklungsaktivitäten verzahnt, da sie die Grundlage für eine strukturierte Zusammenarbeit und transparente Aufgabenverteilung bildeten.
+Meine Aufgaben als Scrum Masterin lagen primär im Bereich Projektmanagement und Prozessorganisation innerhalb des Softwareentwicklungsprozesses. Dazu gehörten insbesondere die Planung, Moderation und Nachbereitung der regelmäßigen Team-Meetings (Weeklies, Sprint Reviews, Retrospektiven) sowie die Koordination des Teams und die Dokumentation von Entscheidungen, Aufgaben und Ergebnissen in unserem gemeinsamen Repository (\url{https://github.com/1tristan0/SE-HabitTracker-3.B/tree/dev/docs/protokolle}). Diese Tätigkeiten bildeten eine zentrale Grundlage für eine strukturierte Zusammenarbeit und eine transparente Aufgabenverteilung im Team.
 
-=== Lösungsweg und eingesetzte Methoden
+==== Lösungsweg und eingesetzte Methoden
 
-Zur Umsetzung meiner Rolle orientierte ich mich an den im Modul behandelten Scrum-Prinzipien. Ein zentraler Fokus lag auf der Etablierung verlässlicher Kommunikationsformate. Die wöchentlichen Meetings dienten dazu, den aktuellen Arbeitsstand zu erfassen, offene Punkte zu klären und Aufgaben gemeinsam zu priorisieren. In Sprint Reviews und Retrospektiven reflektierten wir Projektverlauf und Arbeitsprozess, um kontinuierliche Verbesserungen zu erreichen.
+Zur Ausgestaltung meiner Rolle orientierte ich mich an den im Modul behandelten Scrum-Prinzipien. Ein besonderer Schwerpunkt lag auf der Sicherstellung verlässlicher Kommunikations- und Abstimmungsformate. Die wöchentlichen Meetings dienten dazu, den aktuellen Arbeitsstand zu synchronisieren, offene Fragen zu klären und die anstehenden Aufgaben gemeinsam zu priorisieren. In Sprint Reviews und Retrospektiven wurde der Projektverlauf reflektiert, um den Entwicklungsprozess kontinuierlich zu verbessern.
 
-Nach jedem Meeting habe ich Protokolle erstellt, die Aufgaben, Entscheidungen und Zuständigkeiten festhielten. Diese wurden zentral abgelegt und dienten als Referenz für die Umsetzung durch das Development-Team sowie die Vorbereitung des nächsten Meetings. Die Terminorganisation gehörte ebenfalls zu meinen Aufgaben – insbesondere die Anpassung der Meeting-Zeiten an veränderte Stundenpläne sowie die Organisation von Räumen und technischer Ausstattung.
+Nach jedem Meeting erstellte ich strukturierte Protokolle, in denen Aufgaben, Entscheidungen und Zuständigkeiten festgehalten wurden. Diese wurden zentral im Repository abgelegt und dienten sowohl als Referenz für die weitere Arbeit als auch als Vorbereitungshilfe für die folgenden Treffen. Ergänzend übernahm ich die Organisation der Meeting-Termine, insbesondere die Anpassung an veränderte Stundenpläne, sowie die Koordination von Räumen und technischer Ausstattung.
 
-Ergänzend habe ich Akzeptanztests in Form von Blackbox-Tests durchgeführt und dokumentiert. Dabei überprüfte ich ausgewählte Funktionen aus Nutzersicht und hielt die Testfälle strukturiert fest. Ziel war es, den aktuellen Funktionsumfang abzusichern und eine Grundlage für wiederkehrende Regressionstests zu schaffen. Die dokumentierten Testfälle ermöglichen es, nach Änderungen am System gezielt zu überprüfen, ob bestehende Funktionalitäten weiterhin korrekt arbeiten, und tragen damit zur nachhaltigen Qualitätssicherung bei (link:https://github.com/1tristan0/SE-HabitTracker-3.B/blob/dev/docs/test/test_cases.adoc[]).
+Neben meiner Rolle im Prozessmanagement habe ich mich an der Erstellung der Anwenderdokumentation beteiligt und etwa die Hälfte der im Semester gehaltenen Vorträge übernommen. Diese Präsentationen dienten dazu, Projektstände, Konzepte und Entscheidungen verständlich aufzubereiten und sowohl innerhalb des Teams als auch gegenüber externen Zuhörenden transparent zu kommunizieren.
 
-=== Bewertung und persönliche Erkenntnisse
+==== Bewertung und persönliche Erkenntnisse
 
-Rückblickend hat die Übernahme der Scrum-Master-Rolle die Teamorganisation und Kommunikation deutlich verbessert. Regelmäßige Meetings und konsequente Dokumentation erhöhten Transparenz hinsichtlich Aufgabenverteilung und Projektfortschritt. Abwesende Teammitglieder konnten sich jederzeit einen Überblick verschaffen und das Team nutzte die Protokolle als Gedankenstütze für die Woche.
+Rückblickend hat die Übernahme der Scrum-Master-Rolle wesentlich zur Stabilisierung der Teamorganisation und zur Verbesserung der Kommunikation beigetragen. Die regelmäßigen Meetings und die konsequente Dokumentation erhöhten die Transparenz hinsichtlich Aufgabenverteilung und Projektfortschritt. Insbesondere abwesende Teammitglieder konnten sich anhand der Protokolle jederzeit einen Überblick verschaffen, während diese für das gesamte Team als Orientierung und Gedankenstütze im weiteren Wochenverlauf dienten.
 
-Die Akzeptanztests haben zusätzlich die Qualitätssicherung gestärkt, indem sie sicherstellten, dass neue Funktionen den Anforderungen entsprechen und bestehende Funktionalitäten nicht unbeabsichtigt beeinträchtigt werden. Diese Erfahrungen haben mir gezeigt, wie wichtig systematisches Testen innerhalb des Entwicklungsprozesses ist und dass Qualitätssicherung frühzeitig integriert werden sollte.
+Darüber hinaus wurde mir deutlich, dass die Rolle der Scrum Masterin nicht ausschließlich organisatorischer Natur ist. Ein wesentlicher Teil bestand darin, das Team zusammenzuhalten, alle Mitglieder zur aktiven Teilnahme an Meetings und zur Erledigung ihrer Aufgaben zu motivieren sowie auf ein positives und wertschätzendes Arbeitsklima zu achten. Gerade in Phasen hoher Arbeitsbelastung oder bei Unsicherheiten im Projektverlauf erwiesen sich diese moderierenden und vermittelnden Aspekte als entscheidend.
 
-Zudem wurde mir deutlich, dass die Scrum-Master-Rolle nicht nur organisatorische, sondern auch moderierende und vermittelnde Kompetenzen erfordert. Insbesondere bei Diskussionen über Prioritäten war es entscheidend, unterschiedliche Perspektiven zusammenzuführen und auf gemeinsame Ziele auszurichten. Eine zentrale Erkenntnis war, dass ein gut strukturierter Prozess nur dann funktioniert, wenn er von allen Teammitgliedern aktiv mitgetragen wird.
-
-Insgesamt habe ich gelernt, wie wichtig klare Kommunikation, Verbindlichkeit, kontinuierliche Prozessreflexion und systematische Qualitätssicherung für den Erfolg eines Softwareprojekts sind. Diese Erfahrungen werde ich sowohl in weiteren Studienprojekten als auch in beruflichen Kontexten gezielt einsetzen können.
+Die Mitarbeit an der Anwenderdokumentation und die regelmäßige Präsentation von Projektergebnissen haben mir zudem gezeigt, wie wichtig verständliche Kommunikation und adressatengerechte Aufbereitung technischer Inhalte sind. Insgesamt habe ich gelernt, dass ein gut funktionierender Softwareentwicklungsprozess nicht allein von technischen Fähigkeiten abhängt, sondern in hohem Maße von klarer Kommunikation, Verbindlichkeit, Motivation und einer konstruktiven Teamkultur. Diese Erkenntnisse werde ich sowohl in zukünftigen Studienprojekten als auch in meinem beruflichen Umfeld gezielt einsetzen.

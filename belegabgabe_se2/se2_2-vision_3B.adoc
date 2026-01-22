@@ -28,10 +28,8 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 
 // --- Systembeschreibung ---
 :imagesdir: {docs-requirements}/images
-= Vision
+== Vision
 include::../docs/requirements/vision.adoc[]
 
-= Personas
 include::../docs/requirements/ux-concept.adoc[]
-//hiervon nur den Abschnitt Personas übernehmen
-//oder auch den Nutzungskontekt?
+//hiervon nur den Abschnitt Nutzungskontekt übernehmen - Personas sollen nicht mit rein

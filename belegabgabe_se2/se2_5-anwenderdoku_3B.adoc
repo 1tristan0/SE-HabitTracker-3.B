@@ -27,3 +27,5 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 :docs-development: {docs}/development
 
 // --- Anwenderdokumentation ---
+== Anwenderdokumentation
+
