@@ -17,8 +17,8 @@ jobs:
         
       - name: Set up Supabase Cli Local DB  
         uses: supabase/setup-cli@v1
-          with:
-            version: 2.65.5
+        with:
+          version: 2.65.5
         run: | 
           supabase start
       
