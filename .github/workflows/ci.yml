@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        
+      - name: Set up Supabase Cli Local DB  
+        uses: supabase/setup-cli@v1
+          with:
+            version: 2.65.5
+        run: | 
+          supabase start
+      
+      - name: Build Docker images
+        run: |
+          docker compose \
+            -f docker-compose.yaml \
+            -f docker-compose.dev.yaml \
+            build
+
+      - name: Start containers
+        run: |
+          docker compose \
+            -f docker-compose.yaml \
+            -f docker-compose.dev.yaml \
+            up -d
+
+      - name: Shutdown containers
+        if: always()
+        run: |
+          docker compose down -v
