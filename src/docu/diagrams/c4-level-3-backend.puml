@@ -1,0 +1,54 @@
+@startuml
+!include <C4/C4_Component>
+
+LAYOUT_WITH_LEGEND()
+
+title C4 Level 3 - Component Diagram (Habit Tracker)
+
+Person(user, "User", "Uses the habit tracker from a browser")
+
+System_Boundary(system, "Habit Tracker") {
+  Container_Boundary(frontend, "Frontend (React SPA)") {
+    Component(spa, "SPA Shell", "React", "App.jsx, routing, session handling")
+    Component(pages, "Pages", "React", "HabitsPage, HabitsErstellen")
+    Component(ui, "UI Components", "React", "HabitGrid, Modals, Begleiter, Navbar, Login/Signup")
+    Component(api, "API Client", "Fetch wrapper", "httpClient + authApi + habitsApi + userApi")
+  }
+
+  Container_Boundary(backend, "Backend API (Node/Express)") {
+    Component(app, "Express App", "Express", "index.js wiring, JSON, CORS")
+    Component(authRoutes, "Auth Routes", "Express Router", "/api/auth/*")
+    Component(habitsRoutes, "Habits Routes", "Express Router", "/api/habits/*")
+    Component(usersRoutes, "Users Routes", "Express Router", "/api/users/*")
+    Component(authMiddleware, "Authenticate Middleware", "Express Middleware", "Bearer token validation")
+    Component(supabaseClient, "Supabase Auth Client", "HTTP wrapper", "supabaseAuth.js")
+    Component(prismaClient, "Prisma Client", "Prisma", "prisma.js")
+    Component(swagger, "Swagger Setup", "OpenAPI", "/api/docs")
+  }
+
+  ContainerDb(db, "PostgreSQL Database", "Supabase/Postgres", "users, habits_table")
+  System_Ext(supabase, "Supabase Auth API", "External Auth Service")
+}
+
+Rel(user, spa, "Uses", "HTTPS")
+Rel(spa, pages, "Renders")
+Rel(pages, ui, "Composes")
+Rel(spa, api, "Calls")
+Rel(api, app, "HTTP JSON", "REST")
+
+Rel(app, authRoutes, "Mounts")
+Rel(app, habitsRoutes, "Mounts")
+Rel(app, usersRoutes, "Mounts")
+Rel(app, swagger, "Serves")
+
+Rel(habitsRoutes, authMiddleware, "Uses")
+Rel(usersRoutes, authMiddleware, "Uses")
+Rel(authMiddleware, supabaseClient, "Calls fetchUser")
+Rel(authRoutes, supabaseClient, "Login/Register/Session/Logout")
+
+Rel(habitsRoutes, prismaClient, "CRUD")
+Rel(usersRoutes, prismaClient, "CRUD")
+Rel(prismaClient, db, "SQL")
+Rel(supabaseClient, supabase, "HTTPS")
+
+@enduml
