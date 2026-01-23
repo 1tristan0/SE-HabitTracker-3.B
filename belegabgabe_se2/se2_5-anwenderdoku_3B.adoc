@@ -37,32 +37,29 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 
 == Ziel der Anwendung
 
-*Gewohnheitstier* richtet sich an Menschen, die im Alltag viel um die Ohren haben und sich mehr Struktur und Überblick über ihre täglichen Aufgaben und Gewohnheiten wünschen.
+*Gewohnheitstier* richtet sich an Menschen, die im Alltag einer Mehrfachbelastung ausgesetzt sind, sich aber dennoch mehr Struktur und Überblick über ihre täglichen Aufgaben und Gewohnheiten wünschen.
 
-Die Anwendung unterstützt Nutzer dabei, sich neue Gewohnheiten anzueignen oder bestehende abzulegen, indem geplante Tätigkeiten übersichtlich dargestellt und der eigene Fortschritt sichtbar gemacht wird.  
-Ein spielerisches Element – das sogenannte *Gewohnheitstier* – motiviert zusätzlich, regelmäßig am Ball zu bleiben.
+Die Anwendung unterstützt Nutzer dabei, sich neue Gewohnheiten anzueignen oder bestehende abzulegen, indem geplante Tätigkeiten übersichtlich dargestellt und der eigene Fortschritt sichtbar gemacht wird.
+Ein spielerisches Element – das sogenannte *Gewohnheitstier* – motiviert zusätzlich, dauerhaft dabeizubleiben.
 
-Die App ist für alle Nutzer geeignet, die über einen Webzugang verfügen und ihre täglichen To-Do’s bzw. Gewohnheiten auf einfache Weise organisieren möchten.
+Die App ist für alle Nutzenden geeignet, die über ein internetfähiges Endgerät mit aktuellem Browser verfügen und ihre täglichen Gewohnheiten auf einfache Weise organisieren möchten.
 
 == Zugriff auf das System
 
-Die Anwendung ist webbasiert und erreichbar über:
+Die Anwendung ist webbasiert wird von Ihrem Administrator bereitgestellt. Bitte fragen Sie dort nach der URL zum Gewohnheitstier.
 
-* erreichbar über `[http://localhost:3000/]`
-
-Ein Benutzerkonto ist erforderlich. Nutzer können sich registrieren oder mit bestehenden Zugangsdaten anmelden.
-
-image::login.png[Login, width=60%]
+Ein Benutzerkonto ist erforderlich. Nutzende können sich registrieren oder mit bestehenden Zugangsdaten anmelden. Näheres dazu im Abschnitt "Registrierung und Login"
 
 == Überblick über die Benutzeroberfläche
 
-Nach dem Login gelangt der Nutzer auf die Startseite der Anwendung. Diese besteht aus drei zentralen Bereichen:
+Nach dem Login gelangt der Nutzende auf die Startseite der Anwendung. Diese besteht aus drei zentralen Bereichen:
 
-* Übersicht der eigenen Gewohnheiten
-* Kalenderansicht mit Tagesauswertung
-* Navigationsleiste zum Wechseln der Ansichten
+* Navigationsleiste zum Wechseln der Ansichten (1)
+* Übersicht der eigenen Gewohnheiten (2)
+* Kalenderansicht mit Tagesauswertung (3)
+* den aktuellen Zustand seines Gewohnheitstiers (4)
 
-imagesdir::dashboard.png[Übersicht & Kalender, width=85%]
+image::dashboard.png[Übersicht & Kalender, width=85%]
 
 Die Navigationsleiste ermöglicht den Wechsel zwischen:
 
@@ -76,12 +73,20 @@ Die folgenden Abschnitte beschreiben die wichtigsten Nutzeraufgaben Schritt für
 
 === Registrierung und Login
 
-Ein Nutzer kann:
+Ein Nutzender kann:
 
-* ein neues Benutzerkonto anlegen
+* ein neues Benutzerkonto anlegen oder
 * sich mit E-Mail und Passwort anmelden
 
-image::registry.png[Login, width=60%]
+image::registry.png[Login, width=50%]
+image::login.png[Login, width=50%]
+
+// zum Setzen beider Bilder nebeneinander:
+//[cols="a,a", frame=none, grid=none]
+//|===
+//| image::foo.png[]
+//| image::bar.png[]
+//|===
 
 Nach erfolgreichem Login wird die persönliche Startseite angezeigt.
 
@@ -91,7 +96,6 @@ Auf der Startseite sieht der Nutzer:
 
 * eine Liste aller angelegten Gewohnheiten
 * eine individuelle Streak-Anzeige pro Gewohnheit
-* den aktuellen Zustand seines Gewohnheitstiers
 
 image::habits_overview.png[Habit-Übersicht, width=85%]
 
