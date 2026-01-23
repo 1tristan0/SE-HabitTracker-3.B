@@ -29,3 +29,176 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 // --- Anwenderdokumentation ---
 == Anwenderdokumentation
 
+:toc:
+:toclevels: 2
+:icons: font
+:imagesdir: ../docs/project_management/images
+
+
+== Ziel der Anwendung
+
+*Gewohnheitstier* richtet sich an Menschen, die im Alltag viel um die Ohren haben und sich mehr Struktur und Überblick über ihre täglichen Aufgaben und Gewohnheiten wünschen.
+
+Die Anwendung unterstützt Nutzer dabei, sich neue Gewohnheiten anzueignen oder bestehende abzulegen, indem geplante Tätigkeiten übersichtlich dargestellt und der eigene Fortschritt sichtbar gemacht wird.  
+Ein spielerisches Element – das sogenannte *Gewohnheitstier* – motiviert zusätzlich, regelmäßig am Ball zu bleiben.
+
+Die App ist für alle Nutzer geeignet, die über einen Webzugang verfügen und ihre täglichen To-Do’s bzw. Gewohnheiten auf einfache Weise organisieren möchten.
+
+== Zugriff auf das System
+
+Die Anwendung ist webbasiert und erreichbar über:
+
+* erreichbar über `[http://localhost:3000/]`
+
+Ein Benutzerkonto ist erforderlich. Nutzer können sich registrieren oder mit bestehenden Zugangsdaten anmelden.
+
+image::login.png[Login, width=60%]
+
+== Überblick über die Benutzeroberfläche
+
+Nach dem Login gelangt der Nutzer auf die Startseite der Anwendung. Diese besteht aus drei zentralen Bereichen:
+
+* Übersicht der eigenen Gewohnheiten
+* Kalenderansicht mit Tagesauswertung
+* Navigationsleiste zum Wechseln der Ansichten
+
+imagesdir::dashboard.png[Übersicht & Kalender, width=85%]
+
+Die Navigationsleiste ermöglicht den Wechsel zwischen:
+
+* **Übersicht** – Hauptansicht mit Habits und Kalender
+* **Hinzufügen** – neue Gewohnheit anlegen
+* **Logout** – Abmelden vom System
+
+== Zentrale Funktionen (User Stories)
+
+Die folgenden Abschnitte beschreiben die wichtigsten Nutzeraufgaben Schritt für Schritt.
+
+=== Registrierung und Login
+
+Ein Nutzer kann:
+
+* ein neues Benutzerkonto anlegen
+* sich mit E-Mail und Passwort anmelden
+
+image::registry.png[Login, width=60%]
+
+Nach erfolgreichem Login wird die persönliche Startseite angezeigt.
+
+=== Übersicht anstehender Gewohnheiten
+
+Auf der Startseite sieht der Nutzer:
+
+* eine Liste aller angelegten Gewohnheiten
+* eine individuelle Streak-Anzeige pro Gewohnheit
+* den aktuellen Zustand seines Gewohnheitstiers
+
+image::habits_overview.png[Habit-Übersicht, width=85%]
+
+=== Neue Gewohnheit erstellen
+
+Über den Menüpunkt **Hinzufügen** kann eine neue Gewohnheit angelegt werden.
+
+Vorgehen:
+
+. Klick auf *Hinzufügen* in der Navigationsleiste
+. Eingabe eines Namens (Pflichtfeld)
+. Optional: kurze Beschreibung der Gewohnheit
+. Klick auf *Hinzufügen*
+
+image::add_habbit.png[Neue Gewohnheit erstellen, width=85%]
+
+=== Gewohnheiten bearbeiten, löschen und abhaken
+
+Für jede Gewohnheit stehen folgende Aktionen zur Verfügung:
+
+* **abhaken** – Gewohnheit für den heutigen Tag als erledigt markieren
+* **unabhaken** – Markierung rückgängig machen
+* **bearbeiten** – Name oder Beschreibung ändern
+* **löschen** – Gewohnheit dauerhaft entfernen
+
+image::habit_actions.png[Habit-Aktionen, width=85%]
+
+Jede Gewohnheit besitzt eine eigene Streak, die anzeigt, wie viele Tage in Folge sie erfüllt wurde.
+
+=== Streak-Logik
+
+* Die Streak erhöht sich, wenn eine Gewohnheit an aufeinanderfolgenden Tagen erfüllt wird.
+* Wird eine Gewohnheit länger als einen Tag nicht erfüllt, wird die Streak zurückgesetzt.
+
+Die Streak wird visuell hervorgehoben:
+
+* **Grau** – weniger als 3 Tage
+* **Grün** – ab 3 Tagen in Folge
+* **Rot** – ab 7 Tagen in Folge
+
+=== Kalenderansicht
+
+Der Kalender zeigt für jeden Tag:
+
+* den Anteil erfüllter Gewohnheiten
+* eine farbliche Darstellung des Tageserfolgs
+
+image::calendar.png[Kalenderansicht, width=85%]
+
+Tage vor dem Startdatum der Gewohnheiten enthalten keine Einträge.
+
+=== Tagesdetails im Kalender
+
+Durch Klick auf einen Kalendertag öffnet sich eine Detailansicht.
+
+Diese zeigt:
+
+* erfüllte Gewohnheiten des Tages
+* nicht erfüllte Gewohnheiten des Tages
+
+image::day_details.png[Tagesdetails, width=60%]
+
+=== Gewohnheitstier auswählen
+
+Der Nutzer kann ein persönliches Gewohnheitstier auswählen, indem er auf das aktuell angezeigte Tier klickt.
+
+image::choose_pet.png[Gewohnheitstier auswählen, width=70%]
+
+Das Gewohnheitstier reagiert auf das Verhalten des Nutzers:
+
+* ist glücklich, wenn mindestens eine Gewohnheit pro Tag erfüllt wird
+* ist traurig, wenn keine Gewohnheit erfüllt wurde
+
+== Selten genutzte Funktionen & FAQ
+
+=== Wann wird eine Streak zurückgesetzt?
+Eine Streak wird zurückgesetzt, wenn eine Gewohnheit länger als einen Tag nicht erfüllt wird.
+
+=== Wann ändert sich die Farbe der Streak?
+Die visuelle Darstellung der Streak verändert sich abhängig von der Länge:
+
+* ab **3 Tagen** wechselt die Anzeige von Grau zu Grün
+* ab **7 Tagen** wechselt sie von Grün zu Rot
+
+=== Warum sind manche Kalendertage grau?
+Graue Tage liegen entweder:
+
+* in der Zukunft
+* oder vor dem Startdatum der ersten Gewohnheit
+
+Für diese Tage existieren keine Habit-Daten.
+
+=== Warum ist mein Gewohnheitstier traurig?
+Das Gewohnheitstier reagiert auf die tägliche Aktivität:
+
+* mindestens eine erfüllte Gewohnheit → zufrieden
+* keine erfüllte Gewohnheit → traurig
+
+Dies dient als zusätzliche Motivation zur regelmäßigen Nutzung.
+
+== Hinweise zur Nutzung
+
+* Die Anwendung ist vollständig webbasiert
+* Eine Internetverbindung ist erforderlich
+* Alle Daten sind benutzerbezogen gespeichert
+
+---
+
+*Stand der Dokumentation: aktueller Entwicklungsstand*
+
