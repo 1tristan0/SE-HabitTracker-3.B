@@ -45,15 +45,15 @@ jobs:
       - name: Build Docker images
         run: |
           docker compose \
-            -f docker-compose.yaml \
-            -f docker-compose.dev.yaml \
+            -f docker-compose.yml \
+            -f docker-compose.dev.yml \
             build
 
       - name: Start containers
         run: |
           docker compose \
-            -f docker-compose.yaml \
-            -f docker-compose.dev.yaml \
+            -f docker-compose.yml \
+            -f docker-compose.dev.yml \
             up -d
       
       # Tests
