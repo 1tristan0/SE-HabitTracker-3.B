@@ -1,4 +1,4 @@
-name: CI
+name: Integration Testing
 
 on:
   pull_request:
