@@ -1,0 +1,115 @@
+= Verzeichnisstruktur vor und nach dem Refactoring #196
+Patrick Eger
+2026-01-21 
+Updated 2026-01-21
+:toc:
+
+== Ausgangszustand (vor dem Refactoring) Frontend
+
+[listing]
+----
+frontend
+└── src
+    ├── api
+    │   ├── authApi.js
+    │   |── habitsApi.js
+    |   |── httpClient.js
+    |   └── userApi.js
+    ├── components
+    │   ├── Begleiter.jsx
+    │   ├── BegleiterModal.jsx
+    │   ├── Calender.jsx
+    │   ├── HabitCard.jsx
+    │   ├── HabitChangeModal.jsx
+    │   ├── HabitCreateContent.jsx
+    │   ├── HabitForm.jsx
+    │   ├── HabitGrid.jsx
+    │   ├── HabitInfoModal.jsx
+    │   ├── HabitList.jsx
+    │   ├── Login.jsx
+    │   |── Navbar.jsx
+    │   └── Register.jsx
+    ├── hooks
+    │   └── useHabits.js
+    ├── lib
+    │   ├── calendar.js
+    │   |── convert.js
+    |   └── habit.js
+    ├── pages
+    │   |── HabitErstellen.jsx
+    │   └── HabitsPage.jsx
+    ├── App.css
+    ├── App.jsx
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    ├── reportWebVitals.js
+    └── setupTests.js
+----
+== Istzustand (nach dem Refactoring) Frontend
+
+[listing]
+----
+frontend
+└── src
+    ├── api
+    │   ├── authApi.js
+    │   |── habitsApi.js
+    |   |── httpClient.js
+    |   └── userApi.js
+    ├── components
+    │   ├── auth/
+    │   │   ├── Login.jsx
+    │   │   └── Signup.jsx
+    │   ├── habits/
+    │   │   ├── HabitCard.jsx
+    │   │   ├── HabitCreateContent.jsx
+    │   │   ├── HabitForm.jsx
+    │   │   ├── HabitGrid.jsx
+    │   │   ├── HabitList.jsx
+    │   │   ├── calendar/
+    │   │   │   ├── Calender.jsx
+    │   │   │   └── modals/CalendarModal.jsx
+    │   │   └── modals/
+    │   │       ├── HabitChangeModal.jsx
+    │   │       └── HabitInfoModal.jsx
+    │   ├── animal/
+    │   │   ├── Animal.jsx
+    │   │   └── modals/AnimalModal.jsx
+    │   ├── layout/
+    │   │   └── Navbar.jsx
+    │   ├── ui/
+    │   │   ├── InputField.jsx
+    │   │   ├── Modal.jsx
+    │   │   ├── ProgressCircle.jsx
+    │   │   ├── StreakBadge.jsx
+    │   │   ├── ToggleSwitch.jsx
+    │   │   ├── Buttons/
+    │   │   │   ├── CalendarDayButton.jsx
+    │   │   │   ├── CloseButton.jsx
+    │   │   │   └── SaveButton.jsx
+    │   │   └── icons/
+    │   │       ├── DeleteIcon.jsx
+    │   │       └── EditIcon.jsx
+    │   └── icons/
+    │       ├── DeleteIcon.jsx
+    │       └── EditIcon.jsx
+    ├── hooks
+    │   └── useHabits.js
+    ├── lib
+    │   ├── calendar.js
+    │   |── convert.js
+    |   └── habit.js
+    ├── pages
+    │   |── CreateHabitPage.jsx
+    │   └── HabitsPage.jsx
+    ├── App.css
+    ├── App.jsx
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    ├── reportWebVitals.js
+    └── setupTests.js
+----

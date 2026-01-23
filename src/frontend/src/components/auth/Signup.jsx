@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import InputField from '../ui/InputField';
 
 export default function Signup({ onSubmit, switchToLogin }) {
   const [email, setEmail] = useState('');
@@ -15,27 +16,19 @@ export default function Signup({ onSubmit, switchToLogin }) {
         <h2 className="text-2xl font-semibold text-primary3 mb-4">Registrieren</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-primary3 mb-1">E-Mail</label>
-            <input
-              type="email"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary3"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+          <InputField
+            label="E-Mail"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-          <div>
-            <label className="block text-sm font-medium text-primary3 mb-1">Passwort</label>
-            <input
-              type="password"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary3"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
+          <InputField
+            label="Passwort"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
           <button type="submit" className="w-full py-2 rounded-md bg-primary3 text-white hover:bg-primary4 transition">
             Registrieren
