@@ -7,9 +7,10 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: src
     steps:
-
       # Setup: Einrichten der DB, Container bauen/starten
 
       - name: Checkout repository
@@ -25,7 +26,7 @@ jobs:
 
       - name: Setup backend .env file
         run: |
-          cat <<EOF > src/backend/.env.local
+          cat <<EOF > backend/.env.local
           DATABASE_URL=${{ secrets.LOCAL_DATABASE_URL }}
           SUPABASE_URL=${{ secrets.LOCAL_SUPABASE_URL }}
           SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
@@ -34,7 +35,7 @@ jobs:
 
       - name: Setup frontend .env file
         run: |
-          cat <<EOF > src/frontend/.env
+          cat <<EOF > frontend/.env
           REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }}
           EOF    
 
