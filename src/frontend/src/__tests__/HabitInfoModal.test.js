@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import HabitInfoModal from '../components/HabitInfoModal';
+import HabitInfoModal from '../components/habits/modals/HabitInfoModal';
 
 // Mock der Utility-Funktionen
 jest.mock('../lib/convert', () => ({

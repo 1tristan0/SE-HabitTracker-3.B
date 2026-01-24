@@ -40,6 +40,7 @@ describe('HabitGrid', () => {
         habits={mockHabits}
         onDelete={() => {}}
         onCheck={() => {}}
+        setAnimalMood={jest.fn()}
       />
     );
 
@@ -57,6 +58,7 @@ describe('HabitGrid', () => {
         habits={mockHabits}
         onDelete={() => {}}
         onCheck={() => {}}
+        setAnimalMood={jest.fn()}
       />
     );
 
@@ -79,6 +81,7 @@ describe('HabitGrid', () => {
         habits={mockHabits}
         onDelete={() => {}}
         onCheck={() => {}}
+        setAnimalMood={jest.fn()}
       />
     );
 
@@ -99,6 +102,7 @@ describe('HabitGrid', () => {
         habits={mockHabits}
         onDelete={() => {}}
         onCheck={handleCheck}
+        setAnimalMood={jest.fn()}
       />
     );
 
@@ -120,14 +124,14 @@ describe('HabitGrid', () => {
         habits={mockHabits}
         onDelete={handleDelete}
         onCheck={() => {}}
+        setAnimalMood={jest.fn()}
       />
     );
 
-    const deleteButtons = screen.getAllByText('Löschen');
-    if (deleteButtons.length > 0) {
-      await userEvent.click(deleteButtons[0]);
-      expect(handleDelete).toHaveBeenCalled();
-    }
+    const deleteButtons = screen.getAllByTitle('Löschen');
+    await userEvent.click(deleteButtons[0]);
+
+    expect(handleDelete).toHaveBeenCalled();
   });
 
   /**
@@ -141,6 +145,7 @@ describe('HabitGrid', () => {
         habits={[]}
         onDelete={() => {}}
         onCheck={() => {}}
+        setAnimalMood={jest.fn()}
       />
     );
 
@@ -158,6 +163,7 @@ describe('HabitGrid', () => {
         habits={mockHabits}
         onDelete={() => {}}
         onCheck={() => {}}
+        setAnimalMood={jest.fn()}
       />
     );
 
@@ -176,6 +182,7 @@ describe('HabitGrid', () => {
         habits={mockHabits}
         onDelete={() => {}}
         onCheck={() => {}}
+        setAnimalMood={jest.fn()}
       />
     );
 
@@ -205,6 +212,7 @@ describe('HabitGrid', () => {
         habits={habitsWithoutDesc}
         onDelete={() => {}}
         onCheck={() => {}}
+        setAnimalMood={jest.fn()}
       />
     );
 
@@ -222,6 +230,7 @@ describe('HabitGrid', () => {
         habits={mockHabits}
         onDelete={() => {}}
         onCheck={() => {}}
+        setAnimalMood={jest.fn()}
       />
     );
 

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import BegleiterModal from '../components/BegleiterModal';
+import AnimalModal from '../components/animal/modals/AnimalModal';
 import { setAnimal } from '../api/userApi';
 
 // Mock der API
@@ -8,7 +8,7 @@ jest.mock('../api/userApi', () => ({
   setAnimal: jest.fn(),
 }));
 
-describe('BegleiterModal', () => {
+describe('AnimalModal', () => {
   const mockOnClose = jest.fn();
   const mockOnSelect = jest.fn();
   const mockToken = 'test-token-123';
@@ -24,7 +24,7 @@ describe('BegleiterModal', () => {
    */
   it('renders modal with all available companions', () => {
     render(
-      <BegleiterModal
+      <AnimalModal
         onClose={mockOnClose}
         onSelect={mockOnSelect}
         animalMood={mockAnimalMood}
@@ -45,7 +45,7 @@ describe('BegleiterModal', () => {
    */
   it('selects companion when image is clicked', async () => {
     render(
-      <BegleiterModal
+      <AnimalModal
         onClose={mockOnClose}
         onSelect={mockOnSelect}
         animalMood={mockAnimalMood}
@@ -65,7 +65,7 @@ describe('BegleiterModal', () => {
    */
   it('changes selection when different companion is clicked', async () => {
     render(
-      <BegleiterModal
+      <AnimalModal
         onClose={mockOnClose}
         onSelect={mockOnSelect}
         animalMood={mockAnimalMood}
@@ -94,7 +94,7 @@ describe('BegleiterModal', () => {
     setAnimal.mockResolvedValue({ animal_type: 'katze' });
 
     render(
-      <BegleiterModal
+      <AnimalModal
         onClose={mockOnClose}
         onSelect={mockOnSelect}
         animalMood={mockAnimalMood}
@@ -118,7 +118,7 @@ describe('BegleiterModal', () => {
    */
   it('closes modal without API call when save is clicked without selection', async () => {
     render(
-      <BegleiterModal
+      <AnimalModal
         onClose={mockOnClose}
         onSelect={mockOnSelect}
         animalMood={mockAnimalMood}
@@ -138,7 +138,7 @@ describe('BegleiterModal', () => {
    */
   it('calls onClose when close button (X) is clicked without saving', async () => {
     render(
-      <BegleiterModal
+      <AnimalModal
         onClose={mockOnClose}
         onSelect={mockOnSelect}
         animalMood={mockAnimalMood}
@@ -162,7 +162,7 @@ describe('BegleiterModal', () => {
     setAnimal.mockRejectedValue(new Error('Network error'));
 
     render(
-      <BegleiterModal
+      <AnimalModal
         onClose={mockOnClose}
         onSelect={mockOnSelect}
         animalMood={mockAnimalMood}
@@ -197,7 +197,7 @@ describe('BegleiterModal', () => {
     setAnimal.mockRejectedValue(new Error('API Error'));
 
     render(
-      <BegleiterModal
+      <AnimalModal
         onClose={mockOnClose}
         onSelect={mockOnSelect}
         animalMood={mockAnimalMood}

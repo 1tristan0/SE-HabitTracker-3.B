@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Begleiter from '../components/Begleiter';
+import Animal from '../components/animal/Animal';
 
-describe('Begleiter', () => {
+describe('Animal', () => {
   /**
    * Test: Begleiter zeigt positives (glückliches) Bild, wenn begleiterMood "gluecklich" ist.
    * 
@@ -16,10 +16,10 @@ describe('Begleiter', () => {
    */
   it('displays happy companion image when at least one habit is completed', () => {
     render(
-      <Begleiter
-        selectedBegleiter="katze"
+      <Animal
+        selectedAnimal="katze"
         onClick={jest.fn()}
-        begleiterMood="gluecklich"
+        animalMood="gluecklich"
       />
     );
 
@@ -29,21 +29,21 @@ describe('Begleiter', () => {
   });
 
   /**
-   * Test: Begleiter zeigt negatives (trauriges) Bild, wenn begleiterMood "traurig" ist.
+   * Test: Begleiter zeigt negatives (trauriges) Bild, wenn animalMood "traurig" ist.
    * 
    * Szenario:
    * - Benutzer hat noch kein Habit heute erfüllt
-   * - begleiterMood ist "traurig"
+   * - animalMood ist "traurig"
    * 
    * Erwartet:
    * - Das traurige Bild des Begleiters wird angezeigt (z.B. /images/Katze_unhappy.png)
    */
   it('displays sad companion image when no habits are completed', () => {
     render(
-      <Begleiter
-        selectedBegleiter="katze"
+      <Animal
+        selectedAnimal="katze"
         onClick={jest.fn()}
-        begleiterMood="traurig"
+        animalMood="traurig"
       />
     );
 
@@ -60,10 +60,10 @@ describe('Begleiter', () => {
     const mockOnClick = jest.fn();
 
     render(
-      <Begleiter
-        selectedBegleiter="katze"
+      <Animal
+        selectedAnimal="katze"
         onClick={mockOnClick}
-        begleiterMood="gluecklich"
+        animalMood="gluecklich"
       />
     );
 

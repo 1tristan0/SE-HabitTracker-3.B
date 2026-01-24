@@ -1,6 +1,6 @@
 import { isEveryHabitChecked, getCheckedHabiitsFromDay, getUncheckedHabitsFromDay } from '../lib/calendar';
 import { dateOnlyBerlin } from '../lib/convert';
-
+//Diese Tests prüfen die Kalenderfunktionen für Habit-Tracking aus der calendar.js Datei.
 describe('Calendar Utilities', () => {
   const today = dateOnlyBerlin(new Date());
   const yesterday = dateOnlyBerlin(new Date(Date.now() - 86400000));

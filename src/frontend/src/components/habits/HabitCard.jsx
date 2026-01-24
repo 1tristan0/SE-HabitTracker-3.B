@@ -110,11 +110,13 @@ export default function HabitCard({
             <button
               className="btn btn-link btn-sm text-danger p-0"
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 onDelete(habit.id);
               }}
               aria-label={`Lösche "${habit.habit_name}"`}
               title="Löschen"
+              role="löschen"
               style={{
                 display: "inline-flex",
                 alignItems: "center",

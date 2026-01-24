@@ -113,7 +113,7 @@ describe('CalendarModal', () => {
       />
     );
 
-    const closeBtn = screen.getByText('Schließen');
+    const closeBtn = screen.getByRole('button', { name: 'Schließen' });
     await userEvent.click(closeBtn);
 
     expect(handleClose).toHaveBeenCalledWith(false);

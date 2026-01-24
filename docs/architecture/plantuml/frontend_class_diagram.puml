@@ -1,0 +1,177 @@
+@startuml frontend_class_diagram
+top to bottom direction
+skinparam packageStyle rectangle
+
+package "Frontend" {
+    
+    package "Pages" {
+        class HabitsPage <<Page>> {
+            - habits: List<Habit>
+            - openModal: boolean
+            - selectedHabit: Habit
+            + load(): void
+            + remove(id: int): void
+            + check(id: int): void
+            + edit(id: int, data: Object): void
+            + getAnimal(): void
+            + setAnimal(type: string, mood: string): void
+        }
+        
+        class CreateHabitPage <<Page>> {
+             + add(name: string, desc: string): void
+             + handleCancel(): void
+        }
+        
+        class Login <<Page>> {
+        }
+        
+        class Signup <<Page>> {
+        }
+    }
+
+    package "Components" {
+        
+        package "Habits" {
+            class HabitGrid <<Component>> {
+                + habits: List<Habit>
+                + onDelete: Function
+                + onCheck: Function
+                + onClick: Function
+                + onClose: Function
+                + onEdit: Function
+                + setAnimalMood: Function
+                --
+                + completed: List<Habit>
+                + remaining: List<Habit>
+            }
+            
+            class HabitCard <<Component>> {
+                + habit: Habit
+                + onDelete: Function
+                + onCheck: Function
+                + onClick: Function
+                + onEdit: Function
+            }
+            
+            class HabitCreateContent <<Component>> {
+                + onSubmit: Function
+                + onCancel: Function
+                - name: string
+                - description: string
+                + handleSubmit(): void
+            }
+            
+            package "Modals" as HabitsModals {
+                class HabitInfoModal <<Component>> {
+                    + habit: Habit
+                    + onClose: Function
+                }
+                class HabitChangeModal <<Component>> {
+                    + habit: Habit
+                    + onClose: Function
+                    + edit: Function
+                }
+            }
+            
+            package "Calendar" {
+                class Calender <<Component>> {
+                    + habits: List<Habit>
+                }
+            }
+        }
+        
+        package "Animal" {
+            class Animal <<Component>> {
+                + selectedAnimal: string
+                + animalMood: string
+                + onClick: Function
+            }
+            package "Modals" as AnimalModals {
+                class AnimalModal <<Component>> {
+                    + onClose: Function
+                    + onSelect: Function
+                    + token: string
+                    + animalMood: string
+                }
+            }
+        }
+        
+        package "UI" {
+            class ToggleSwitch <<Component>> {
+            }
+            class StreakBadge <<Component>> {
+            }
+            class Modal <<Component>> {
+            }
+            class Titel <<Component>> {
+            }
+            package "Buttons" {
+                 class SaveButton <<Component>> {
+                 }
+                 class CloseButton <<Component>> {
+                }
+            }
+        }
+    }
+
+    package "API" {
+        class habitsApi <<Module>> {
+            + fetchHabits(token): Promise
+            + addHabit(token, habit): Promise
+            + deleteHabit(token, id): Promise
+            + updateHabit(token, id, habit): Promise
+            + toggleHabitToday(token, id): Promise
+        }
+        
+        class userApi <<Module>> {
+            + fetchAnimal(token): Promise
+            + setAnimal(token, type, mood): Promise
+        }
+        
+        class authApi <<Module>> {
+        }
+    }
+    
+    package "Hooks(veraltet)" {
+        class useHabits <<Hook>> {
+            + habits: List<Habit>
+            + loading: boolean
+            + add(name, desc): void
+            + remove(id): void
+            + update(id, payload): void
+        }
+    }
+
+    ' Beziehungen
+    HabitsPage --> HabitGrid
+    HabitsPage --> HabitInfoModal
+    HabitsPage --> HabitChangeModal
+    HabitsPage --> Calender
+    HabitsPage --> Animal
+    HabitsPage --> AnimalModal
+    HabitsPage ..> habitsApi : uses
+    HabitsPage ..> userApi : uses
+
+    CreateHabitPage --> HabitCreateContent
+    CreateHabitPage ..> habitsApi : uses
+
+    HabitGrid --> HabitCard
+    HabitGrid --> Titel
+    
+    HabitCard --> ToggleSwitch
+    HabitCard --> StreakBadge
+
+    HabitCreateContent --> Titel
+
+    HabitChangeModal --> Modal
+    HabitChangeModal --> SaveButton
+    
+    HabitInfoModal --> Modal
+
+    Login ..> authApi
+    Signup ..> authApi
+    
+    useHabits ..> habitsApi
+}
+
+@enduml
