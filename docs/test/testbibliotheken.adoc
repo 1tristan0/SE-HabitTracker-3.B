@@ -1,4 +1,4 @@
-=== Testbibliotheken und Einsatzgebiete
+=== Testbibliotheken und Einsatzgebiete (Explorativ)
 
 * **Jest** (https://jestjs.io/)
 ** Art: JavaScript/TypeScript-Testframework

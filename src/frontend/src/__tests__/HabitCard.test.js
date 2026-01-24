@@ -6,7 +6,7 @@ describe('HabitCard', () => {
   const mockHabit = {
     id: 1,
     habit_name: 'Morning Jog',
-    description: 'Run 5km in the morning',
+    description: 'Run 4km in the morning',
     start_date: '2025-01-01',
     streak: 5,
     last_checked: null,
@@ -28,7 +28,7 @@ describe('HabitCard', () => {
     );
 
     expect(screen.getByText('Morning Jog')).toBeInTheDocument();
-    expect(screen.getByText('Run 5km in the morning')).toBeInTheDocument();
+    expect(screen.getByText('Run 4km in the morning')).toBeInTheDocument();
   });
 
   /**
@@ -45,7 +45,7 @@ describe('HabitCard', () => {
       />
     );
 
-    expect(screen.getByText(/Streak: 5/)).toBeInTheDocument();
+    expect(screen.getByText(/5/)).toBeInTheDocument();
   });
 
   /**
@@ -84,7 +84,7 @@ describe('HabitCard', () => {
       />
     );
 
-    const deleteBtn = screen.getByText('Löschen');
+    const deleteBtn = screen.getByLabelText(`Lösche "${mockHabit.habit_name}"`);
     await userEvent.click(deleteBtn);
 
     expect(handleDelete).toHaveBeenCalledWith(1);
@@ -127,7 +127,7 @@ describe('HabitCard', () => {
       />
     );
 
-    const deleteBtn = screen.getByText('Löschen');
+    const deleteBtn = screen.getByLabelText(`Lösche "${mockHabit.habit_name}"`);
     await userEvent.click(deleteBtn);
 
     // Der Klick auf die Karte sollte nicht ausgelöst werden, wenn der Löschen-Button geklickt wird

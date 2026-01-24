@@ -16,8 +16,8 @@ prisma -> database: Query Habit mit Besitzrecht
 database --> prisma: Habit-Data
 prisma --> backend: Habit-Data
 backend -> backend: already completed?
-backend -> prisma: update habit completion
-prisma -> database: Insert Habit Completion
+backend -> prisma: prisma.habits_table.update(...)
+prisma -> database: Update Habit row (streak, last_checked)
 database --> prisma: OK
 prisma --> backend: OK
 backend --> frontend: 200 OK + new Completion-Data

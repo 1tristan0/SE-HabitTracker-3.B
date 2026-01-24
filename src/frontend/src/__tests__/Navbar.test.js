@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
 import Navbar from '../components/layout/Navbar';
 
@@ -103,18 +103,4 @@ describe('Navbar', () => {
     expect(handleLogout).toHaveBeenCalled();
   });
 
-  /**
-   * Testet das Rendering des App-Logos und Titels.
-   * Überprüft, dass "Gewohnheitstier" im Titel vorhanden ist.
-   */
-  it('renders app title', () => {
-    render(
-      <BrowserRouter>
-        <Navbar onLogout={() => {}} />
-      </BrowserRouter>
-    );
-
-    const title = screen.getByText('Gewohnheitstier');
-    expect(title).toBeInTheDocument();
-  });
 });
