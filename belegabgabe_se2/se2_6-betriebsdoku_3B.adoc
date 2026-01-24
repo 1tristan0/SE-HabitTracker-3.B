@@ -28,4 +28,23 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 
 // --- Betriebsdokumentation ---
 == Betriebsdokumentation
+Ziel dieser Betriebsdokumentation ist es, Administratoren beim Einrichten, Konfigurieren, Betreiben und Warten unserer Anwendung zu unterstützen.
+Dieses Dokument beschreibt ausschließlich systemspezifische Besonderheiten. Allgemeine Software-Dokumentationen (z. B. Docker, Supabase/PostgreSQL, React, Prisma) werden bei Bedarf verlinkt.
+
+=== Übersicht der verwendeten Technologien
+Eine detailreichere Auflistung der verwendeten Technologien ist der Entwicklerdokumentation zu entnehmen. Die folgende Auflistung dient lediglich dem Zweck einen Kontext zum Gesamtsystem herstellen zu können.
+
+* Frontend: React (Create React App) mit Tailwind CSS
+* Backend: Node.js mit Express
+* ORM: Prisma
+* Datenbank: PostgreSQL (Supabase)
+
+* Containerisierung: Docker Compose
+** Umgebungen: Development (DEV) und Production (PROD)
+
+Die Anwendung ist als Mehrcontainer-System realisiert worden. Das heißt es existiert jeweils ein Container für Front- und Backend. Die Trennung dient der erleichterten Wartbarkeit sowie Testbarkeit (siehe Testdokumentation) und erfolgt nach dem Prinzip der "Seperation of Concerns".  
+
+=== Systemvorraussetzungen
+==== Hardware-Mindestanforderungen
+Eine Abschätzung der benötigten Ressourcen kann zum aktuellen Zeitpunkt nur durch lokales Beobachten der Container erfolgen. Eine gemittelte Messung der Aktivitäten unter Last (Mehrnutzer-Betrieb) ist noch offen und könnte hier zu genaueren Angaben beitragen.
 
