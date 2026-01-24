@@ -15,7 +15,6 @@ Wir haben in unserem Programm 3 verschiedene Testarten implementiert:
 == Testtechnologien
 Für die verschiedenen Testarten verwenden wir unterschiedliche Technologien:
 - **Unit Tests Frontend**: Wir verwenden Jest als Testframework für unsere Unit Tests zusammen mit der React Testing Library. Jest ermöglicht es uns, einzelne Funktionen und Komponenten der Anwendung zu testen und sicherzustellen, dass sie korrekt funktionieren. Es können Mock-Daten und -Funktionen verwendet werden, um Abhängigkeiten zu isolieren.
-- **Integration Tests**: Auch für die Integration Tests verwenden wir Jest in Kombination mit der React Testing Library. Diese Kombination ermöglicht es uns, das Zusammenspiel mehrerer Komponenten zu testen und sicherzustellen, dass sie zusammen korrekt arbeiten.
 - **Systemtests**: Die Systemtests werden von Testern durchgeführt, die die Anwendung in verschiedenen Szenarien verwenden, um sicherzustellen, dass sie den Anforderungen entspricht und eine gute Benutzererfahrung bietet.
 
 == Dokumentation der Tests
