@@ -7,8 +7,8 @@ participant "PrismaORM" as prisma
 participant "Database(Supabase)" as database
 user -> modal: edits habit (Name, description) in HabitChangeModal
 modal-> site: handleSave(habit.id, { name, description })
-site -> backend: updateHabit(token, id, { name, description, start_date })
-backend -> prisma: PUT /api/habits/${id} 
+site -> backend: updateHabit(token, id, { name, description })
+backend -> prisma: prisma.habits_table.update(...)
 prisma -> database: Update Habit row
 database --> backend: OK
 prisma --> backend: Updated Habit-Data
