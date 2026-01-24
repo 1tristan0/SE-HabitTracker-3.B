@@ -16,7 +16,7 @@ import {
 import Navbar from './components/layout/Navbar';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router';
 import CreateHabitPage from './pages/CreateHabitPage';
 
 export default function App() {
