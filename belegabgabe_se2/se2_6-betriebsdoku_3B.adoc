@@ -29,7 +29,7 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 // --- Betriebsdokumentation ---
 == Betriebsdokumentation
 Ziel dieser Betriebsdokumentation ist es, Administratoren beim Einrichten, Konfigurieren, Betreiben und Warten unserer Anwendung zu unterstützen.
-Dieses Dokument beschreibt ausschließlich systemspezifische Besonderheiten. Allgemeine Software-Dokumentationen (z. B. Docker, Supabase/PostgreSQL, React, Prisma) werden bei Bedarf verlinkt.
+Dieses Dokument beschreibt ausschließlich systemspezifische Besonderheiten. Allgemeine Software-Dokumentationen (z.B. Docker, Supabase/PostgreSQL, React, Prisma) werden bei Bedarf verlinkt.
 
 === Übersicht der verwendeten Technologien
 Eine detailreichere Auflistung der verwendeten Technologien ist der Entwicklerdokumentation zu entnehmen. Die folgende Auflistung dient lediglich dem Zweck einen Kontext zum Gesamtsystem herstellen zu können.

@@ -1,0 +1,24 @@
+=== Monika
+==== Ausgangssituation und Aufgabenstellung
+
+Zu Beginn des Semesters wurde im Team die Rollenverteilung leicht angepasst, sodass ich zusätzlich zu meiner bisherigen Funktion als Ansprechpartnerin die Rolle der Scrum Masterin übernommen habe. Ziel dieser Anpassung war es, die Arbeitslast gleichmäßiger zu verteilen, die interne Abstimmung zu verbessern und die Zusammenarbeit auch in arbeitsintensiven Phasen aufrechtzuerhalten.
+
+Meine Aufgaben als Scrum Masterin lagen primär im Bereich Projektmanagement und Prozessorganisation innerhalb des Softwareentwicklungsprozesses. Dazu gehörten insbesondere die Planung, Moderation und Nachbereitung der regelmäßigen Team-Meetings (Weeklies, Sprint Reviews, Retrospektiven) sowie die Koordination des Teams und die Dokumentation von Entscheidungen, Aufgaben und Ergebnissen in unserem gemeinsamen Repository (https://github.com/1tristan0/SE-HabitTracker-3.B/tree/dev/docs/protokolle).
+
+Diese Tätigkeiten bildeten eine zentrale Grundlage für eine strukturierte Zusammenarbeit und eine transparente Aufgabenverteilung im Team. Meine Rolle war dabei weniger technisch, sondern vor allem prozessbegleitend und analytisch ausgerichtet. Ziel war es, offene Fragen frühzeitig zu klären, Abhängigkeiten sichtbar zu machen und dem Team einen stabilen organisatorischen Rahmen für die Umsetzung zu bieten.
+
+==== Lösungsweg und eingesetzte Methoden
+
+Zur Ausgestaltung meiner Rolle orientierte ich mich an den im Modul behandelten Scrum-Prinzipien. Ein besonderer Schwerpunkt lag auf der Sicherstellung verlässlicher Kommunikations- und Abstimmungsformate. Die wöchentlichen Meetings dienten dazu, den aktuellen Arbeitsstand zu synchronisieren, offene Fragen zu klären und anstehende Aufgaben gemeinsam zu priorisieren. In Sprint Reviews und Retrospektiven wurde der Projektverlauf reflektiert, um den Entwicklungsprozess kontinuierlich zu verbessern.
+
+Nach jedem Meeting erstellte ich strukturierte Protokolle, in denen Aufgaben, Entscheidungen und Zuständigkeiten festgehalten wurden. Diese wurden zentral im Repository abgelegt und dienten sowohl als Referenz für die weitere Arbeit als auch als Vorbereitungshilfe für die folgenden Treffen. Ergänzend übernahm ich die Organisation der Meeting-Termine sowie die Koordination von Räumen und technischer Ausstattung.
+
+Neben meiner Rolle im Prozessmanagement habe ich mich an der Erstellung der Anwenderdokumentation beteiligt und etwa die Hälfte der im Semester gehaltenen Vorträge übernommen. Diese Präsentationen dienten dazu, Projektstände, Konzepte und Entscheidungen verständlich aufzubereiten und sowohl innerhalb des Teams als auch gegenüber externen Zuhörenden transparent zu kommunizieren. Darüber hinaus fungierte ich als zentrale Schnittstelle für die Kommunikation mit Dozent und Coach, einschließlich Terminabsprachen und Rückfragen, und trug relevante Informationen zeitnah in das Team.
+
+==== Bewertung und persönliche Erkenntnisse
+
+Rückblickend hat die Übernahme der Scrum-Master-Rolle wesentlich zur Stabilisierung der Teamorganisation und zur Verbesserung der Kommunikation beigetragen. Die regelmäßigen Meetings und die konsequente Dokumentation erhöhten die Transparenz hinsichtlich Aufgabenverteilung und Projektfortschritt. Insbesondere abwesende Teammitglieder konnten sich anhand der Protokolle jederzeit einen Überblick verschaffen, während diese für das gesamte Team als Orientierung und Gedankenstütze im weiteren Wochenverlauf dienten.
+
+Darüber hinaus wurde mir deutlich, dass die Rolle der Scrum Masterin nicht ausschließlich organisatorischer Natur ist. Ein wesentlicher Teil bestand darin, das Team zusammenzuhalten, alle Mitglieder zur aktiven Teilnahme an Meetings und zur Erledigung ihrer Aufgaben zu motivieren sowie auf ein positives und wertschätzendes Arbeitsklima zu achten. Gerade in Phasen hoher Arbeitsbelastung oder bei Unsicherheiten im Projektverlauf erwiesen sich diese moderierenden und vermittelnden Aspekte als entscheidend.
+
+Die Mitarbeit an der Anwenderdokumentation sowie die regelmäßige Präsentation von Projektergebnissen haben mir zudem gezeigt, wie wichtig verständliche Kommunikation und die adressatengerechte Aufbereitung technischer Inhalte sind. Insgesamt habe ich gelernt, dass ein gut funktionierender Softwareentwicklungsprozess nicht allein von technischen Fähigkeiten abhängt, sondern in hohem Maße von klarer Kommunikation, Verbindlichkeit, Motivation und einer konstruktiven Teamkultur. Diese Erkenntnisse werde ich sowohl in zukünftigen Studienprojekten als auch in meinem beruflichen Umfeld gezielt einsetzen.

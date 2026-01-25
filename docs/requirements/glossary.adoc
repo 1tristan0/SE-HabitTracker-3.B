@@ -31,7 +31,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Gewohnheit | regelmäßig wiederholte Handlung, die automatisiert und ohne hohe Willenskraft ausgeführt wird. | Habit
 // | Gewohnheitsreise | persönlicher Entwicklungsprozess, bei dem bestehende Verhaltensmuster reflektiert, gezielt verändert und neue, nachhaltige Gewohnheiten aufgebaut werden. |
 | Gewohnheitstier | Icon eines Tieres, das Emotionen zeigt und zum Durchhalten motiviert | Maskottchen, Avatar
-| Habit Loop | Modell aus Cue → Routine → Reward, das den Entstehungs- und Verstärkungsprozess einer Gewohnheit beschreibt.| 
+// | Habit Loop | Modell aus Cue → Routine → Reward, das den Entstehungs- und Verstärkungsprozess einer Gewohnheit beschreibt.| 
 // | Habit Stacking | Methode, bei der eine neue Gewohnheit direkt an eine bestehende gekoppelt wird („nach dem Zähneputzen meditieren“).| 
 // | Habit-Statistiken | grafisch aufbreitete Übersicht der gesammelten Daten über abgeschlossene Habits. | Statistik
 // | Heatmap | Farbkodierte Matrix, die zeigt, an welchen Tagen/Wochen eine Gewohnheit erfüllt wurde (je dunkler, desto häufiger). |

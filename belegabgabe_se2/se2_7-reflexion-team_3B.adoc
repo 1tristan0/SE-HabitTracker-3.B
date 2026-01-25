@@ -19,7 +19,6 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 :table-caption: Tabelle
 :listing-caption: Listing
 :!example-caption:
-:experimental:
 // Folders
 :imagesdir-reset: {imagesdir}
 :docs-test2: {docs}/test2
@@ -96,25 +95,11 @@ Die Ursachen lagen vor allem in der fehlenden Erfahrung des Teams im Bereich Web
 Als Konsequenz musste im späteren Projektverlauf ein umfangreiches Refactoring durchgeführt werden, das viel Zeit und Koordinationsaufwand erforderte. Rückblickend wurde deutlich, dass architektonische Entscheidungen möglichst früh getroffen und regelmäßig überprüft werden sollten. Gleichzeitig zeigte sich aber auch, dass Refactoring ein unvermeidlicher Bestandteil iterativer Softwareentwicklung ist. Die zentrale Erkenntnis aus diesem Misserfolg besteht darin, dass eine frühzeitige und bewusste Auseinandersetzung mit Architektur und Datenmodell den späteren Aufwand erheblich reduzieren kann.
 
 == Einzelleistungen
-=== Monika
-==== Ausgangssituation und Aufgabenstellung
 
-Zu Beginn des Semesters wurde im Team die Rollenverteilung leicht angepasst, sodass ich zusätzlich zu meiner bisherigen Funktion als Ansprechpartnerin die Rolle der Scrum Masterin übernommen habe. Ziel dieser Anpassung war es, die Arbeitslast gleichmäßiger zu verteilen, die interne Abstimmung zu verbessern und die Zusammenarbeit auch in stressigen Phasen aufrechtzuerhalten.
-
-Meine Aufgaben als Scrum Masterin lagen primär im Bereich Projektmanagement und Prozessorganisation innerhalb des Softwareentwicklungsprozesses. Dazu gehörten insbesondere die Planung, Moderation und Nachbereitung der regelmäßigen Team-Meetings (Weeklies, Sprint Reviews, Retrospektiven) sowie die Koordination des Teams und die Dokumentation von Entscheidungen, Aufgaben und Ergebnissen in unserem gemeinsamen Repository (\url{https://github.com/1tristan0/SE-HabitTracker-3.B/tree/dev/docs/protokolle}). Diese Tätigkeiten bildeten eine zentrale Grundlage für eine strukturierte Zusammenarbeit und eine transparente Aufgabenverteilung im Team.
-
-==== Lösungsweg und eingesetzte Methoden
-
-Zur Ausgestaltung meiner Rolle orientierte ich mich an den im Modul behandelten Scrum-Prinzipien. Ein besonderer Schwerpunkt lag auf der Sicherstellung verlässlicher Kommunikations- und Abstimmungsformate. Die wöchentlichen Meetings dienten dazu, den aktuellen Arbeitsstand zu synchronisieren, offene Fragen zu klären und die anstehenden Aufgaben gemeinsam zu priorisieren. In Sprint Reviews und Retrospektiven wurde der Projektverlauf reflektiert, um den Entwicklungsprozess kontinuierlich zu verbessern.
-
-Nach jedem Meeting erstellte ich strukturierte Protokolle, in denen Aufgaben, Entscheidungen und Zuständigkeiten festgehalten wurden. Diese wurden zentral im Repository abgelegt und dienten sowohl als Referenz für die weitere Arbeit als auch als Vorbereitungshilfe für die folgenden Treffen. Ergänzend übernahm ich die Organisation der Meeting-Termine, insbesondere die Anpassung an veränderte Stundenpläne, sowie die Koordination von Räumen und technischer Ausstattung.
-
-Neben meiner Rolle im Prozessmanagement habe ich mich an der Erstellung der Anwenderdokumentation beteiligt und etwa die Hälfte der im Semester gehaltenen Vorträge übernommen. Diese Präsentationen dienten dazu, Projektstände, Konzepte und Entscheidungen verständlich aufzubereiten und sowohl innerhalb des Teams als auch gegenüber externen Zuhörenden transparent zu kommunizieren.
-
-==== Bewertung und persönliche Erkenntnisse
-
-Rückblickend hat die Übernahme der Scrum-Master-Rolle wesentlich zur Stabilisierung der Teamorganisation und zur Verbesserung der Kommunikation beigetragen. Die regelmäßigen Meetings und die konsequente Dokumentation erhöhten die Transparenz hinsichtlich Aufgabenverteilung und Projektfortschritt. Insbesondere abwesende Teammitglieder konnten sich anhand der Protokolle jederzeit einen Überblick verschaffen, während diese für das gesamte Team als Orientierung und Gedankenstütze im weiteren Wochenverlauf dienten.
-
-Darüber hinaus wurde mir deutlich, dass die Rolle der Scrum Masterin nicht ausschließlich organisatorischer Natur ist. Ein wesentlicher Teil bestand darin, das Team zusammenzuhalten, alle Mitglieder zur aktiven Teilnahme an Meetings und zur Erledigung ihrer Aufgaben zu motivieren sowie auf ein positives und wertschätzendes Arbeitsklima zu achten. Gerade in Phasen hoher Arbeitsbelastung oder bei Unsicherheiten im Projektverlauf erwiesen sich diese moderierenden und vermittelnden Aspekte als entscheidend.
-
-Die Mitarbeit an der Anwenderdokumentation und die regelmäßige Präsentation von Projektergebnissen haben mir zudem gezeigt, wie wichtig verständliche Kommunikation und adressatengerechte Aufbereitung technischer Inhalte sind. Insgesamt habe ich gelernt, dass ein gut funktionierender Softwareentwicklungsprozess nicht allein von technischen Fähigkeiten abhängt, sondern in hohem Maße von klarer Kommunikation, Verbindlichkeit, Motivation und einer konstruktiven Teamkultur. Diese Erkenntnisse werde ich sowohl in zukünftigen Studienprojekten als auch in meinem beruflichen Umfeld gezielt einsetzen.
+include::se2_7a-reflexion-felix.adoc[]
+include::se2_7b-reflexion-martin.adoc[]
+include::se2_7c-reflexion-monika.adoc[]
+include::se2_7d-reflexion-nicola.adoc[]
+include::se2_7e-reflexion-patrick.adoc[]
+include::se2_7f-reflexion-paul.adoc[]
+include::se2_7g-reflexion-tristan.adoc[]

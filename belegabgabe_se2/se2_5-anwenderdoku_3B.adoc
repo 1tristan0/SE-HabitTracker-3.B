@@ -146,7 +146,7 @@ Der Kalender zeigt für jeden Tag:
 * den Anteil erfüllter Gewohnheiten in Form einer kreisförmigen Fortschrittsanzeige (Fortschrittsring). Der Fortschritt wird als farbiger Anteil eines kreisförmigen Umrings dargestellt, wobei der Umfang des farbigen Segments proportional zum erreichten Fortschritt ist (z.B. 50 % = halber Kreis) (1)
 * einen grünen Punkt, wenn alle Gewohnheiten des Tages erledigt sind (2)
 
-//(Tage vor dem Startdatum der Gewohnheiten enthalten keine Einträge.)
+Die Tage vor dem Startdatum der ersten Gewohnheit enthalten keine Einträge. Der Anteil der erledigten Gewohnheiten wird nur aus den Gewohnheiten berechnet, die an diesem Tag oder vorher hinzugefügt wurden.
 
 image::calendar.png[Kalenderansicht, width=85%]
 
