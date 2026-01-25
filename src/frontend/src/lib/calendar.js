@@ -59,6 +59,12 @@ export function isEveryHabitChecked(habits, day) {
   if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
   if (!day) return 0; // kein Datum angegeben
 
+  const isHabitActiveOn = (habit, d) => {
+    const start = dateOnly(habit?.start_date);
+    if (!start) return true;
+    return start <= d;
+  };
+
   const isHabitCheckedOn = (habit, d) => {
     if (dateOnly(habit.last_checked) === d) return true;
 
@@ -93,12 +99,15 @@ export function isEveryHabitChecked(habits, day) {
     return false;
   };
 
-  const completedCount = habits.reduce((acc, habit) => acc + (isHabitCheckedOn(habit, day) ? 1 : 0), 0);
+  const activeHabits = habits.filter((habit) => isHabitActiveOn(habit, day));
+  if (activeHabits.length === 0) return 0;
 
-  if (completedCount === habits.length) return true;
+  const completedCount = activeHabits.reduce((acc, habit) => acc + (isHabitCheckedOn(habit, day) ? 1 : 0), 0);
+
+  if (completedCount === activeHabits.length) return true;
 
   // return percentage rounded to nearest integer
-  return Math.round((completedCount / habits.length) * 100);
+  return Math.round((completedCount / activeHabits.length) * 100);
 }
 /**
  * Gibt die Liste der an einem bestimmten Tag erledigten Gewohnheiten zurück.
@@ -110,6 +119,8 @@ export function getCheckedHabiitsFromDay(habits, day) {
   if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
   if (!day) return 0; // kein Datum angegeben
   return habits.filter((habit) => {
+    const start = dateOnly(habit?.start_date);
+    if (start && start > day) return false;
     if (dateOnly(habit.last_checked) === day) return true;
     const prev = habit.prev_last_checked;
     if (!prev) return false;
@@ -146,6 +157,8 @@ export function getUncheckedHabitsFromDay(habits, day) {
   if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
   if (!day) return 0; // kein Datum angegeben
   return habits.filter((habit) => {
+    const start = dateOnly(habit?.start_date);
+    if (start && start > day) return false;
     if (dateOnly(habit.last_checked) === day) return false;
     const prev = habit.prev_last_checked;
     if (!prev) return true;
