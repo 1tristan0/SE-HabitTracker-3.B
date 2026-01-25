@@ -57,7 +57,9 @@ jobs:
             up -d
       
       # Tests
-
+      - name: Run Frontend Unit Tests
+        run: |
+          docker exec frontend-dev npm run test
 
       # Aufräumen, Container herunterfahren
 
