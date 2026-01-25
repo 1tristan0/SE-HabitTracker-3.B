@@ -171,6 +171,28 @@ include::{plantumlsdir}/context.puml[]
 === Components
 //Level 3 im C4-Modell
 Level 3 im C4-Modell folgt in späteren Iterationen
+[plantuml, "{diagramsdir}/c4-level3", svg]
+....
+include::{plantumlsdir}/c4-level3.puml[]
+....
+==== Erklärung:
+* **C3-Diagramm (Komponentensicht)**:  
+  Zeigt die wichtigsten Komponenten innerhalb des **Backend API**-Containers und deren Zusammenspiel.
+
+* **Controller/Routen**:  
+  Endpunkte der REST-API, die HTTP-Requests entgegennehmen und an die Geschäftslogik weiterleiten.
+
+* **Services**:  
+  Kapseln die Geschäftslogik (Use Cases) und koordinieren die Verarbeitung.
+
+* **Repositorys/Adapter (Prisma Client)**:  
+  Verantwortlich für den Datenzugriff auf die Supabase/PostgreSQL-Datenbank.
+
+* **Querschnittsfunktionen**:  
+  Authentifizierung (Supabase Auth), Validierung und Fehlerbehandlung sind klar sichtbar.
+
+* **Abhängigkeitsrichtung**:  
+  UI → API → Service → Datenzugriff.
 
 === Verteilungsdiagramm (Deployment Diagramm)
 //Beschreibt die physischen Knoten (Rechner) des Systems und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
