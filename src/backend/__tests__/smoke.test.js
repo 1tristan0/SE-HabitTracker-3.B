@@ -2,12 +2,12 @@
 // ohne echte DB/Prisma-Abhaengigkeiten zu laden.
 const assert = require('assert');
 
-// Express routers are functions with a "stack" of registered middleware/routes.
+// Express-Router sind Funktionen mit einem "stack" aus registrierten Middleware/Routes.
 function isExpressRouter(router) {
   return typeof router === 'function' && Array.isArray(router.stack);
 }
 
-// Minimal response stub used to capture status/json calls from middleware.
+// Minimaler Response-Stub, der status/json-Aufrufe aus Middleware abfaengt.
 function makeRes() {
   const state = { statusCode: null, jsonPayload: null };
   return {
@@ -26,7 +26,7 @@ function makeRes() {
 }
 
 async function run() {
-  // Prevent Prisma from initializing the native query engine during unit tests.
+  // Verhindert, dass Prisma im Unit-Test die native Query-Engine initialisiert.
   const prismaModulePath = require.resolve('../src/prisma');
   require.cache[prismaModulePath] = {
     id: prismaModulePath,
@@ -35,24 +35,24 @@ async function run() {
     exports: {},
   };
 
-  // Load routers after Prisma is stubbed so they don't import Prisma directly.
+  // Router erst laden, nachdem Prisma gestubbt ist, damit sie Prisma nicht direkt importieren.
   const authRouter = require('../src/routes/auth');
   const habitsRouter = require('../src/routes/habits');
   const usersRouter = require('../src/routes/users');
   const { authenticate } = require('../src/middleware/authenticate');
 
-  // Basic router shape checks ensure Express wiring stays intact.
+  // Basischecks der Router-Form stellen sicher, dass das Express-Wiring intakt bleibt.
   assert.ok(isExpressRouter(authRouter), 'auth router should be an express router');
   assert.ok(isExpressRouter(habitsRouter), 'habits router should be an express router');
   assert.ok(isExpressRouter(usersRouter), 'users router should be an express router');
 
-  // Habits routes must require authentication by default.
+  // Habits-Routen muessen standardmaessig Authentifizierung verlangen.
   const hasAuthMiddleware = habitsRouter.stack.some(
     (layer) => layer?.handle?.name === 'authenticate'
   );
   assert.ok(hasAuthMiddleware, 'habits router should use authenticate middleware');
 
-  // Missing token should short-circuit with a 401 and not call next().
+  // Fehlendes Token soll mit 401 abbrechen und next() nicht aufrufen.
   const missingTokenReq = { headers: {} };
   const missingToken = makeRes();
   let missingTokenNext = false;
@@ -65,7 +65,7 @@ async function run() {
   assert.strictEqual(missingToken.state.jsonPayload?.error, 'Missing bearer token');
   assert.strictEqual(missingTokenNext, false);
 
-  // Stub fetchUser to simulate an invalid token and validate error handling.
+  // fetchUser stubben, um ein ungueltiges Token zu simulieren und Fehlerbehandlung zu pruefen.
   const authModulePath = require.resolve('../src/supabaseAuth');
   const authenticateModulePath = require.resolve('../src/middleware/authenticate');
   const originalAuthModule = require('../src/supabaseAuth');
@@ -93,7 +93,7 @@ async function run() {
   assert.strictEqual(invalidToken.state.jsonPayload?.error, 'Authentication failed');
   assert.strictEqual(invalidTokenNext, false);
 
-  // Stub fetchUser to simulate a valid token and ensure req.auth is populated.
+  // fetchUser stubben, um ein gueltiges Token zu simulieren und req.auth zu fuellen.
   require.cache[authModulePath].exports = {
     ...originalAuthModule,
     fetchUser: async () => ({ id: 'user-1', email: 'user@example.com' }),

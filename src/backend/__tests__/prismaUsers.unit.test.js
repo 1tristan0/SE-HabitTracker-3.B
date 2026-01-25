@@ -56,7 +56,7 @@ function getRouteHandler(router, method, path) {
 }
 
 async function run() {
-  // GET /animal: success path returns animal fields.
+  // GET /animal: Erfolgsfall liefert Tier-Felder.
   {
     const prismaMock = {
       users: {
@@ -81,7 +81,7 @@ async function run() {
     assert.strictEqual(state.statusCode, null);
   }
 
-  // GET /animal: missing user should return 404.
+  // GET /animal: fehlender Benutzer soll 404 liefern.
   {
     const prismaMock = {
       users: {
@@ -99,7 +99,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'User not found' });
   }
 
-  // GET /animal: prisma failure should return 500.
+  // GET /animal: Prisma-Fehler soll 500 liefern.
   {
     const prismaMock = {
       users: {
@@ -119,7 +119,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'Failed to fetch user animal data' });
   }
 
-  // PUT /animal: missing payload should return 400 before any DB calls.
+  // PUT /animal: fehlendes Payload soll 400 liefern, bevor DB-Aufrufe passieren.
   {
     const prismaMock = {
       users: {
@@ -139,7 +139,7 @@ async function run() {
     assert.strictEqual(prismaMock.users.findUnique.calls.length, 0);
   }
 
-  // PUT /animal: invalid animal_type should return 400.
+  // PUT /animal: ungueltiger animal_type soll 400 liefern.
   {
     const prismaMock = {
       users: {
@@ -159,7 +159,7 @@ async function run() {
     assert.strictEqual(prismaMock.users.findUnique.calls.length, 0);
   }
 
-  // PUT /animal: invalid animal_mood should return 400.
+  // PUT /animal: ungueltiger animal_mood soll 400 liefern.
   {
     const prismaMock = {
       users: {
@@ -179,7 +179,7 @@ async function run() {
     assert.strictEqual(prismaMock.users.findUnique.calls.length, 0);
   }
 
-  // PUT /animal: user not found should return 404 and not update.
+  // PUT /animal: Benutzer nicht gefunden soll 404 liefern und kein Update ausfuehren.
   {
     const prismaMock = {
       users: {
@@ -199,7 +199,7 @@ async function run() {
     assert.strictEqual(prismaMock.users.update.calls.length, 0);
   }
 
-  // PUT /animal: success path updates and returns new animal data.
+  // PUT /animal: Erfolgsfall aktualisiert und liefert neue Tierdaten.
   {
     const prismaMock = {
       users: {
@@ -225,7 +225,7 @@ async function run() {
     });
   }
 
-  // PUT /animal: prisma failure should return 500.
+  // PUT /animal: Prisma-Fehler soll 500 liefern.
   {
     const prismaMock = {
       users: {

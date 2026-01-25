@@ -60,7 +60,7 @@ function isDate(value) {
 }
 
 async function run() {
-  // GET /: success path should reset streaks when needed and map DB types to API payload.
+  // GET /: Erfolgsfall setzt Streaks bei Bedarf zurueck und mappt DB-Typen ins API-Payload.
   {
     const habitsData = [
       {
@@ -114,7 +114,7 @@ async function run() {
     ]);
   }
 
-  // GET /: Prisma updateMany error should return 500 with a stable error payload.
+  // GET /: Prisma-updateMany-Fehler soll 500 mit stabilem Error-Payload liefern.
   {
     const prismaMock = {
       habits_table: {
@@ -135,7 +135,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'Failed to fetch habits' });
   }
 
-  // POST /: missing name should return 400 before touching Prisma create.
+  // POST /: fehlender Name soll 400 liefern, bevor Prisma create aufgerufen wird.
   {
     const prismaMock = {
       habits_table: {
@@ -162,7 +162,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'name is required' });
   }
 
-  // POST /: success path should create defaults (start_date, streak) and return mapped payload.
+  // POST /: Erfolgsfall erstellt Defaults (start_date, streak) und liefert gemapptes Payload.
   {
     const prismaMock = {
       habits_table: {
@@ -208,7 +208,7 @@ async function run() {
     });
   }
 
-  // PUT /: missing id should return 400 (invalid habit id).
+  // PUT /: fehlende id soll 400 liefern (ungueltige habit id).
   {
     const prismaMock = {
       habits_table: {
@@ -236,7 +236,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'Invalid habit id' });
   }
 
-  // PUT /: missing update fields should return 400 (requires name/desc/start_date).
+  // PUT /: fehlende Update-Felder sollen 400 liefern (erfordert name/desc/start_date).
   {
     const prismaMock = {
       habits_table: {
@@ -264,7 +264,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'name, desc or start_date is required' });
   }
 
-  // PUT /: invalid start_date format should return 400.
+  // PUT /: ungueltiges start_date-Format soll 400 liefern.
   {
     const prismaMock = {
       habits_table: {
@@ -296,7 +296,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'Invalid start_date' });
   }
 
-  // PUT /: non-existent habit should return 404.
+  // PUT /: nicht vorhandene Habit soll 404 liefern.
   {
     const prismaMock = {
       habits_table: {
@@ -328,7 +328,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'Habit not found' });
   }
 
-  // PUT /: success path should update fields and map response payload.
+  // PUT /: Erfolgsfall aktualisiert Felder und mappt Response-Payload.
   {
     const prismaMock = {
       habits_table: {
@@ -374,7 +374,7 @@ async function run() {
     });
   }
 
-  // DELETE /: missing id should return 400.
+  // DELETE /: fehlende id soll 400 liefern.
   {
     const prismaMock = {
       habits_table: {
@@ -393,7 +393,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'Invalid habit id' });
   }
 
-  // DELETE /: non-existent habit should return 404.
+  // DELETE /: nicht vorhandene Habit soll 404 liefern.
   {
     const prismaMock = {
       habits_table: {
@@ -412,7 +412,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'Habit not found' });
   }
 
-  // DELETE /: success should return 204 and invoke prisma delete with id.
+  // DELETE /: Erfolg soll 204 liefern und prisma delete mit id aufrufen.
   {
     const prismaMock = {
       habits_table: {
@@ -432,7 +432,7 @@ async function run() {
     assert.deepStrictEqual(prismaMock.habits_table.delete.calls[0][0], { where: { id: '1' } });
   }
 
-  // POST /:id/toggle: missing id should return 400.
+  // POST /:id/toggle: fehlende id soll 400 liefern.
   {
     const prismaMock = {
       habits_table: {
@@ -460,7 +460,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'Invalid habit id' });
   }
 
-  // POST /:id/toggle: non-existent habit should return 404.
+  // POST /:id/toggle: nicht vorhandene Habit soll 404 liefern.
   {
     const prismaMock = {
       habits_table: {
@@ -488,9 +488,9 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'Habit not found' });
   }
 
-  // POST /:id/toggle: if last_checked was yesterday, streak increments and prev_last_checked grows.
+  // POST /:id/toggle: wenn last_checked gestern war, inkrementiert streak und prev_last_checked waechst.
   {
-    // Freeze time to avoid flakiness around midnight.
+    // Zeit einfrieren, um Flakiness um Mitternacht zu vermeiden.
     const realNow = Date.now;
     const fixedNow = new Date('2026-01-25T12:00:00Z');
     Date.now = () => fixedNow.getTime();
@@ -537,9 +537,9 @@ async function run() {
     Date.now = realNow;
   }
 
-  // POST /:id/toggle: if last_checked was today, streak resets and prev_last_checked clears.
+  // POST /:id/toggle: wenn last_checked heute war, setzt streak zurueck und prev_last_checked leert.
   {
-    // Freeze time to avoid flakiness around midnight.
+    // Zeit einfrieren, um Flakiness um Mitternacht zu vermeiden.
     const realNow = Date.now;
     const fixedNow = new Date('2026-01-25T12:00:00Z');
     Date.now = () => fixedNow.getTime();
