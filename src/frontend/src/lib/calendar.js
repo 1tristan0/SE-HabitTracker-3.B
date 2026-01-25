@@ -58,7 +58,9 @@ export function isEveryHabitChecked(habits, day) {
 
   if (!Array.isArray(habits) || habits.length === 0) return 0; // keine Gewohnheiten
   if (!day) return 0; // kein Datum angegeben
-
+// Ein Habit soll nur ab seinem Startdatum zählen.
+// Falls kein Startdatum gesetzt ist, behandeln wir es als "immer aktiv".
+// Dadurch werden Habits nicht rückwirkend für frühere Tage als "nicht erledigt" gewertet.
   const isHabitActiveOn = (habit, d) => {
     const start = dateOnly(habit?.start_date);
     if (!start) return true;
