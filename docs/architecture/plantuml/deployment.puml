@@ -1,0 +1,27 @@
+@startuml
+title Deployment Diagramm - Gewohnheitstier
+
+node "Nutzergeraet\n(Browser)" as client
+
+node "Docker Host\n(Entwicklerrechner/Server)" as host {
+  node "Frontend Container\n(React/CRA)\n:3000" as fe
+  node "Backend Container\n(Node/Express)\n:3001" as be
+  node "Supabase Local\n(Auth/API)\n:54321" as sbl
+  database "PostgreSQL\n(Supabase Local)\n:54322" as db
+  node "Supabase Studio\n:54323" as studio
+}
+
+node "Supabase Cloud\n(Prod)" as cloud {
+  component "Supabase Auth" as auth
+  database "PostgreSQL DB" as clouddb
+}
+
+client --> fe : HTTP
+fe --> be : REST
+be --> sbl : REST (Dev)
+be --> db : SQL (Dev)
+
+be --> auth : HTTPS (Prod)
+be --> clouddb : SQL over HTTPS (Prod)
+
+@enduml

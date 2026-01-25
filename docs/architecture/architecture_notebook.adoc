@@ -192,7 +192,25 @@ include::{plantumlsdir}/c4-level3.puml[]
 
 === Verteilungsdiagramm (Deployment Diagramm)
 //Beschreibt die physischen Knoten (Rechner) des Systems und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
-Verteilungsdiagramm (Deployment Diagramm) folgt in späteren Iterationen
+[plantuml, "{diagramsdir}/deployment", svg]
+....
+include::{plantumlsdir}/deployment.puml[]
+....
+==== Erklärung:
+* **Nutzergerät (Browser)**:  
+  Öffnet das Frontend im Browser und kommuniziert über HTTP/REST.
+
+* **Docker Host**:  
+  Führt die Container für Frontend (React/CRA), Backend (Node/Express) und die lokale Supabase-Instanz aus.
+
+* **Supabase Local (Dev)**:  
+  Stellt Auth/API, PostgreSQL und Studio lokal bereit (Ports 54321–54323).
+
+* **Supabase Cloud (Prod)**:  
+  Externer Dienst für Authentifizierung und PostgreSQL-Datenhaltung in der Produktionsumgebung.
+
+* **Kommunikation**:  
+  Browser → Frontend → Backend per HTTP/REST; Backend → Supabase lokal (Dev) bzw. Supabase Cloud (Prod).
 
 === Sequenzdiagramme
 //Beschreibt die Interaktionen zwischen Objekten in einem bestimmten Szenario einer Funktionalität des Systems. Diese Sicht wird verwendet, um die Zusammenarbeit zwischen Objekten zu verdeutlichen und den Ablauf von Nachrichten und Methodenaufrufen zu zeigen.
