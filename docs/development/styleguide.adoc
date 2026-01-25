@@ -138,6 +138,11 @@ Empfohlen:
 Empfohlen:
 `bg-primaryRed text-white px-4 py-2 rounded-xl font-medium shadow-sm hover:opacity-90 transition`
 
+Hinweis zur Wiederverwendung:
+
+Wiederkehrende Buttons (z. B. „Schließen“-Button, Close-Icon in Modals, Bestätigungs-Buttons) sollen als wiederverwendbare UI-Komponenten umgesetzt werden.
+Bestehende Button-Komponenten sind bevorzugt zu verwenden, anstatt neue Varianten pro View zu definieren, um ein konsistentes Erscheinungsbild und wartbaren Code sicherzustellen.
+
 === Karten (Cards)
 
 Cards sind generische Container-Komponenten und dienen als Grundlage für spezialisierte Varianten wie HabitCards oder Modals.
