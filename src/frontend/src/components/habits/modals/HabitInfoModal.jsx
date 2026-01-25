@@ -26,8 +26,8 @@ export default function HabitInfoModal({ habit, onClose }) {
       <div className="space-y-6">
         {/* Beschreibung */}
         {habit.description && (
-          <div className="rounded-xl bg-primary3/80 border border-slate-700 px-4 py-3">
-            <p className="text-sm text-primary1 leading-snug">{habit.description}</p>
+          <div className="rounded-xl bg-primary3/80 border border-slate-700 px-4 py-3 max-h-40 overflow-auto">
+            <p className="text-sm text-primary1 leading-snug break-words">{habit.description}</p>
           </div>
         )}
 
