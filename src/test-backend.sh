@@ -8,13 +8,13 @@ export SUPABASE_URL="http://supabase.local"
 export SUPABASE_ANON_KEY="anon-key"
 
 tests=(
-  "backend/tests/smoke.test.js"
-  "backend/tests/prismaUsers.unit.test.js"
-  "backend/tests/prismaHabits.unit.test.js"
-  "backend/tests/supabaseAuth.test.js"
-  "backend/tests/routesAuth.test.js"
-  "backend/tests/routesHabits.test.js"
-  "backend/tests/routesUsers.test.js"
+  "backend/__tests__/smoke.test.js"
+  "backend/__tests__/prismaUsers.unit.test.js"
+  "backend/__tests__/prismaHabits.unit.test.js"
+  "backend/__tests__/supabaseAuth.test.js"
+  "backend/__tests__/routesAuth.test.js"
+  "backend/__tests__/routesHabits.test.js"
+  "backend/__tests__/routesUsers.test.js"
 )
 
 echo "== Backend Unit Tests =="

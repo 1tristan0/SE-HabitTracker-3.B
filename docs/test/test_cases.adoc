@@ -24,6 +24,7 @@ Die einzelnen Testfälle werden in den User-Stories im Github dokumentiert und a
 == Tests
 
 === Frontend Unit Tests 
+`/src/frontend/src/__tests__/*.test.js`
 Wir haben Unit Tests für die folgenden Komponenten implementiert:
 * Navbar-Komponente:
 ** rendert korrekt die Navigations-Links
@@ -104,8 +105,12 @@ Wir haben Unit Tests für die folgenden Komponenten implementiert:
 ** Submit ruft onSubmit mit E-Mail und Passwort auf
 ** Login-Button ruft switchToLogin auf
 
+
 === Backend Unit/Handler Tests
+`/src/backend/__tests__/*.test.js`
+
 Wir haben Unit/Handler-Tests für folgende Backend-Bausteine implementiert:
+
 * Prisma Habits (Handler-Logik):
 ** Validierung von Input (z. B. fehlende ID/Felder)
 ** Mapping/Formatierung der Response-Daten
@@ -126,6 +131,34 @@ Wir haben Unit/Handler-Tests für folgende Backend-Bausteine implementiert:
 * Smoke Test:
 ** Express-Router sind korrekt verdrahtet
 ** Auth-Middleware verhält sich korrekt
+
+=== API Integration Tests
+`http://localhost:3001/api/docs/`
+
+Wir haben API-Integrationstests für folgende Backend-Routen implementiert:
+
+* Auth:
+** POST `/api/auth/login` – Nutzeranmeldung
+** POST `/api/auth/register` – Nutzerregistrierung
+** POST `/api/auth/session` – Tokenprüfung und User-Rückgabe
+** POST `/api/auth/logout` – Abmeldung / Token-Invalidierung
+
+* Habits:
+** GET `/api/habits` – Laden aller Habits des angemeldeten Nutzers
+** POST `/api/habits` – Anlegen eines neuen Habits
+** PUT `/api/habits/{id}` – Bearbeiten eines bestehenden Habits
+** DELETE `/api/habits/{id}` – Löschen eines Habits
+** POST `/api/habits/{id}/toggle` – Erledigt-Status für den aktuellen Tag setzen/zurücknehmen
+
+* Users:
+** GET `/api/users/animal` – Tier-Typ und Stimmung des Nutzers abrufen
+** PUT `/api/users/animal` – Tier-Typ und/oder Stimmung setzen
+
+* Übergreifend:
+** Prüfung geschützter Routen mittels Auth-Middleware
+** Validierung korrekter HTTP-Statuscodes und Response-Strukturen
+** Sicherstellung des Zusammenspiels von Routing, Handler-Logik und Persistenz
+
 
 == Systemtests / Akzeptanztests
 Die folgenden Akzeptanztests wurden definiert, um die Hauptfunktionen der Habit Tracker Anwendung zu überprüfen:
