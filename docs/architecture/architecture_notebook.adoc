@@ -158,10 +158,6 @@ include::{plantumlsdir}/context.puml[]
 * **Web-Frontend** (React):  
   Browser-UI für Nutzerinteraktion; kommuniziert per REST mit der Backend API.
 
-//Nicht umgesetzt - aus Diagramm entfernen!
-* **Mobile App** (JavaScript/Expo, optional):  
-  Mobile UI-Variante; ebenfalls REST-Calls an die Backend API.
-
 * **Backend API** (Node.js/Express):  
   Verarbeitet HTTP/HTTPS-Anfragen, enthält Geschäftslogik und führt SQL-CRUD-Operationen auf die Datenbank aus.
 
