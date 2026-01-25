@@ -57,7 +57,10 @@ jobs:
             up -d
       
       # Tests
-
+      - name: Run Frontend Unit Tests
+        run: docker exec --env CI=true frontend-dev npm run test -- --watchAll=false < /dev/null
+        env:
+          CI: true  
 
       # Aufräumen, Container herunterfahren
 
