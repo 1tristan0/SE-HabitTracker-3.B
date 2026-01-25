@@ -7,15 +7,16 @@ Dieses Dokument beschreibt die Testfälle für die Habit Tracker Anwendung. Es u
 Es dient als Referenz für Tester, Entwickler und Stakeholder, um die Qualität der Software zu gewährleisten.
 
 == Testkonzept
-Wir haben in unserem Programm 3 verschiedene Testarten implementiert:
-- **Unit Tests**: Diese Tests überprüfen einzelne Funktionen und Komponenten der Anwendung isoliert, um sicherzustellen, dass sie wie erwartet funktionieren, unabhängig von anderen Teilen des Systems.
-- **Integration Tests**: Diese Tests überprüfen das Zusammenspiel mehrerer Komponenten oder Module, um sicherzustellen, dass sie zusammen korrekt arbeiten.
-- **Systemtests**: Diese Tests werden von Testern durchgeführt, um die Benutzeroberfläche und die Benutzererfahrung zu überprüfen. Sie stellen sicher, dass die Anwendung aus Sicht des Endbenutzers funktioniert.
+Wir verwenden aktuell folgende Testarten:
+- **Unit Tests**: Überprüfen einzelne Funktionen und Komponenten isoliert.
+- **Modul-/Handler-Tests (Backend)**: Testen einzelne Express-Handler mit gestubbten Abhängigkeiten.
+- **Systemtests/Abnahmetests (manuell)**: Prüfung der UI und Benutzerflüsse durch Tester.
 
 == Testtechnologien
 Für die verschiedenen Testarten verwenden wir unterschiedliche Technologien:
-- **Unit Tests Frontend**: Wir verwenden Jest als Testframework für unsere Unit Tests zusammen mit der React Testing Library. Jest ermöglicht es uns, einzelne Funktionen und Komponenten der Anwendung zu testen und sicherzustellen, dass sie korrekt funktionieren. Es können Mock-Daten und -Funktionen verwendet werden, um Abhängigkeiten zu isolieren.
-- **Systemtests**: Die Systemtests werden von Testern durchgeführt, die die Anwendung in verschiedenen Szenarien verwenden, um sicherzustellen, dass sie den Anforderungen entspricht und eine gute Benutzererfahrung bietet.
+- **Unit Tests Frontend**: Jest + React Testing Library für Komponenten- und Utility-Tests.
+- **Unit/Handler Tests Backend**: Node.js + `assert`, Stubs/Mocks für Prisma und Supabase.
+- **Systemtests (manuell)**: Durchführung durch Tester anhand der Akzeptanzkriterien.
 
 == Dokumentation der Tests
 Die einzelnen Testfälle werden in den User-Stories im Github dokumentiert und auch in diesem Dokument festgehalten. Dort sind die Akzeptanzkriterien und die erwarteten Ergebnisse festgehalten. 
@@ -23,6 +24,7 @@ Die einzelnen Testfälle werden in den User-Stories im Github dokumentiert und a
 == Tests
 
 === Frontend Unit Tests 
+`/src/frontend/src/__tests__/*.test.js`
 Wir haben Unit Tests für die folgenden Komponenten implementiert:
 * Navbar-Komponente:
 ** rendert korrekt die Navigations-Links
@@ -87,6 +89,14 @@ Wir haben Unit Tests für die folgenden Komponenten implementiert:
 ** zeigt Streak, Start-Datum, letztes Erledigt-Datum mit Fallbacks
 ** zeigt Abschlussraten und 30-Tage-Statistik
 
+* Calendar-Utilities (calendar.js):
+** berechnet Erledigungsgrad pro Tag
+** ermittelt erledigte und nicht erledigte Habits pro Datum
+
+* API/HTTP-Utilities:
+** `httpClient` setzt Header/Body korrekt und behandelt Fehler
+** `habitsApi` ruft die richtigen Endpunkte/Methoden auf und propagiert Fehler
+
 * Login-Komponente:
 ** Submit ruft onSubmit mit E-Mail und Passwort auf
 ** Register-Button ruft switchToRegister auf
@@ -94,6 +104,61 @@ Wir haben Unit Tests für die folgenden Komponenten implementiert:
 * Signup-Komponente:
 ** Submit ruft onSubmit mit E-Mail und Passwort auf
 ** Login-Button ruft switchToLogin auf
+
+
+=== Backend Unit/Handler Tests
+`/src/backend/__tests__/*.test.js`
+
+Wir haben Unit/Handler-Tests für folgende Backend-Bausteine implementiert:
+
+* Prisma Habits (Handler-Logik):
+** Validierung von Input (z. B. fehlende ID/Felder)
+** Mapping/Formatierung der Response-Daten
+** Fehlerpfade (z. B. Prisma-Fehler)
+
+* Prisma Users (Handler-Logik):
+** Validierung von Input
+** Fehlerpfade (User nicht gefunden, Prisma-Fehler)
+
+* Routen/Handler (Auth, Habits, Users):
+** Validierung von Pflichtfeldern (z. B. Login/Logout/Session)
+** Rückgabe korrekter Statuscodes
+
+* Supabase Auth Helper:
+** korrekte URL/Headers/Bodies
+** Fehlerbehandlung bei API-Fehlern
+
+* Smoke Test:
+** Express-Router sind korrekt verdrahtet
+** Auth-Middleware verhält sich korrekt
+
+=== API Integration Tests
+`http://localhost:3001/api/docs/`
+
+Wir haben API-Integrationstests für folgende Backend-Routen implementiert:
+
+* Auth:
+** POST `/api/auth/login` – Nutzeranmeldung
+** POST `/api/auth/register` – Nutzerregistrierung
+** POST `/api/auth/session` – Tokenprüfung und User-Rückgabe
+** POST `/api/auth/logout` – Abmeldung / Token-Invalidierung
+
+* Habits:
+** GET `/api/habits` – Laden aller Habits des angemeldeten Nutzers
+** POST `/api/habits` – Anlegen eines neuen Habits
+** PUT `/api/habits/{id}` – Bearbeiten eines bestehenden Habits
+** DELETE `/api/habits/{id}` – Löschen eines Habits
+** POST `/api/habits/{id}/toggle` – Erledigt-Status für den aktuellen Tag setzen/zurücknehmen
+
+* Users:
+** GET `/api/users/animal` – Tier-Typ und Stimmung des Nutzers abrufen
+** PUT `/api/users/animal` – Tier-Typ und/oder Stimmung setzen
+
+* Übergreifend:
+** Prüfung geschützter Routen mittels Auth-Middleware
+** Validierung korrekter HTTP-Statuscodes und Response-Strukturen
+** Sicherstellung des Zusammenspiels von Routing, Handler-Logik und Persistenz
+
 
 == Systemtests / Akzeptanztests
 Die folgenden Akzeptanztests wurden definiert, um die Hauptfunktionen der Habit Tracker Anwendung zu überprüfen:
@@ -184,104 +249,6 @@ Die Gewohnheiten sind nach Startdatum sortiert
 
 - [ ] bestanden
 - [ ] nicht bestanden
-
-= Test Cases: {project-name}
-include::../_includes/default-attributes.inc.adoc[]
-// Platzhalter für weitere Dokumenten-Attribute
-
-== Zweck des Dokuments
-Dieses Dokument beschreibt die Testfälle für die Habit Tracker Anwendung. Es umfasst Akzeptanztests, die sicherstellen, dass die Anwendung den Anforderungen entspricht und korrekt funktioniert.
-Es dient als Referenz für Tester, Entwickler und Stakeholder, um die Qualität der Software zu gewährleisten.
-
-== Testkonzept
-Wir haben in unserem Programm 3 verschiedene Testarten implementiert:
-- **Unit Tests**: Diese Tests überprüfen einzelne Funktionen und Komponenten der Anwendung isoliert, um sicherzustellen, dass sie wie erwartet funktionieren, unabhängig von anderen Teilen des Systems.
-- **Integration Tests**: Diese Tests überprüfen das Zusammenspiel mehrerer Komponenten oder Module, um sicherzustellen, dass sie zusammen korrekt arbeiten.
-- **Manuelle Tests/Abnahmetests**: Diese Tests werden von Testern durchgeführt, um die Benutzeroberfläche und die Benutzererfahrung zu überprüfen. Sie stellen sicher, dass die Anwendung aus Sicht des Endbenutzers funktioniert.
-
-== Testtechnologien
-Für die verschiedenen Testarten verwenden wir unterschiedliche Technologien:
-- **Unit Tests Frontend**: Wir verwenden Jest als Testframework für unsere Unit Tests zusammen mit der React Testing Library. Jest ermöglicht es uns, einzelne Funktionen und Komponenten der Anwendung zu testen und sicherzustellen, dass sie korrekt funktionieren. Es können Mock-Daten und -Funktionen verwendet werden, um Abhängigkeiten zu isolieren.
-- **Integration Tests**: Auch für die Integration Tests verwenden wir Jest in Kombination mit der React Testing Library. Diese Kombination ermöglicht es uns, das Zusammenspiel mehrerer Komponenten zu testen und sicherzustellen, dass sie zusammen korrekt arbeiten.
-- **Manuelle Tests**: Die manuellen Tests werden von Testern durchgeführt, die die Anwendung in verschiedenen Szenarien verwenden, um sicherzustellen, dass sie den Anforderungen entspricht und eine gute Benutzererfahrung bietet.
-
-== Dokumentation der Tests
-Die einzelnen Testfälle werden in den user-Stories im Github dokumentiert. Dort sind die Akzeptanzkriterien und die erwarteten Ergebnisse festgehalten. 
-
-== Tests
-
-=== Frontend Unit Tests 
-Wir haben Unit Tests für die folgenden Komponenten implementiert:
-* Navbar-Komponente:
-** rendert korrekt die Navigations-Links
-** prüft aktive Zustände für Übersicht und Hinzufügen
-** verlinkt auf die richtigen Pfade
-** zeigt Logout-Button und ruft onLogout auf
-
-* Begleiter-Komponente:
-** zeigt je nach Stimmung (glücklich/traurig) das passende Bild
-** klick auf Begleiter ruft onClick-Callback auf
-
-* BegleiterModal-Komponente:
-** rendert alle verfügbaren Begleiter (Katze, Hund, Wurm, Hamster)
-** Auswahl markiert Begleiter visuell und wechselbar
-** Speichern ruft setAnimal mit Token/Typ/Stimmung auf
-** Speichern ohne Auswahl schließt ohne API-Call
-** Close-Button schließt ohne zu speichern
-** API-Fehler werden geloggt, onSelect wird nicht aufgerufen
-
-* HabitCard-Komponente:
-** zeigt Habit-Name, Beschreibung und Streak
-** Kartenklick triggert onClick
-** Löschen-Button ruft onDelete mit ID auf
-** Checkbox toggelt onCheck mit ID und Zustand
-** Löschen klickt ohne Card-Click-Propagation
-
-* HabitGrid-Komponente:
-** zeigt Kopfzeile „Bereits heute erledigt“ an
-** trennt erledigte von offenen Habits
-** Klick auf Checkbox ruft onCheck auf
-** Löschen-Button ruft onDelete auf
-** rendert auch bei leerer Liste stabil
-** zeigt Habit-Details und Streak-Informationen
-
-* CalendarModal-Komponente:
-** zeigt Titel mit ausgewähltem Datum
-** listet erledigte und nicht erledigte Habits
-** zeigt leere Zustände bei fehlenden Einträgen
-** Close-Button ruft setOpenModal(false) auf
-
-* Calender-Komponente:
-** rendert Monats-Header und Wochentage
-** rendert Tage des Monats
-** Navigation zu vorherigem/nächstem Monat über Buttons
-** funktioniert mit leerem Habit-Array
-
-* HabitChangeModal-Komponente:
-** Speichern mit geändertem Namen ruft edit(id, {name, description}) auf
-** Speichern mit geänderter Beschreibung ruft edit korrekt auf
-** rendert initiale Habit-Daten
-** Speichert sowohl Änderungen bei Name und Beschreibung, wenn beide geändert wurden
-
-* HabitCreateContent-Komponente:
-** Submit-Button deaktiviert ohne Name, aktiviert mit Name
-** Submit ruft onSubmit(name, description) auf
-** verhindert Submit, wenn der Name nur aus Leerzeilen besteht
-** erlaubt leere Beschreibung (übermittelt leeren String)
-** loggt Fehler bei fehlgeschlagenem Submit
-
-* HabitInfoModal-Komponente:
-** zeigt Habit-Namen und optionale Beschreibung
-** zeigt Streak, Start-Datum, letztes Erledigt-Datum mit Fallbacks
-** zeigt Abschlussraten und 30-Tage-Statistik
-
-* Login-Komponente:
-** Submit ruft onSubmit mit E-Mail und Passwort auf
-** Register-Button ruft switchToRegister auf
-
-* Signup-Komponente:
-** Submit ruft onSubmit mit E-Mail und Passwort auf
-** Login-Button ruft switchToLogin auf
 
 == Test Cases
 
@@ -833,4 +800,3 @@ Abweichungen treten nur auf, wenn sie als Variante im Konzept vorgesehen sind.
 ### Testergebnis:
 - [ ] bestanden
 - [ ] nicht bestanden
-
