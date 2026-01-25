@@ -46,7 +46,8 @@ Kurzer, klickbarer Überblick über Struktur und Funktionen des Projekts (Backen
 ** `toggleHabitToday(token, habitId)` – Toggle/Uncheck-Logik liegt im Backend; Endpoint liefert aktualisierte Zeile zurück.
 
 === Seiten & Komponenten
-* link:../../src/frontend/src/pages/HabitsPage.jsx[HabitsPage.jsx] – Main-Layout: Navbar, Animal-Section, HabitGrid, Calendar.
+* link:../../src/frontend/src/pages/HabitsPage.jsx[HabitsPage.jsx] – Startseite, Main-Layout: Navbar, Animal, HabitGrid, Calendar.
+* link:../../src/frontend/src/pages/CreateHabitPage.jsx[CreateHabitPage.jsx] – Seite zum Anlegen eines neuen Habits.
 * **Auth**:
 ** link:../../src/frontend/src/components/auth/Login.jsx[Login.jsx], link:../../src/frontend/src/components/auth/Signup.jsx[Signup.jsx]
 * **Habits**:
@@ -57,9 +58,10 @@ Kurzer, klickbarer Überblick über Struktur und Funktionen des Projekts (Backen
 ** link:../../src/frontend/src/components/habits/HabitCreateContent.jsx[HabitCreateContent.jsx] – UI zum Anlegen eines Habits(wird auf CreateHabitPage gerendert).
 ** link:../../src/frontend/src/components/habits/calendar/Calender.jsx[Calender.jsx] – Kalender-Ansicht.
 ** link:../../src/frontend/src/components/habits/calendar/modals/CalenderModal.jsx[CalenderModal.jsx] – Detailansicht des Calender.
-** link:../../src/frontend/src/components/habits/modals/HabitChangeModal.jsx[HabitChangeModal.jsx], link:../../src/frontend/src/components/habits/modals/HabitInfoModal.jsx[HabitInfoModal.jsx]
+** link:../../src/frontend/src/components/habits/modals/HabitChangeModal.jsx[HabitChangeModal.jsx] - Modal zum Ändern eines Habits.
+** link:../../src/frontend/src/components/habits/modals/HabitInfoModal.jsx[HabitInfoModal.jsx] - Modal mit Detailinformationen zu einem Habit.
 * **Animal**:
-** link:../../src/frontend/src/components/animal/Animal.jsx[Animal.jsx] - Visuelle Darstellung des Avatars (Hund, Katze, etc.).
+** link:../../src/frontend/src/components/animal/Animal.jsx[Animal.jsx] - Visuelle Darstellung des Animals/Gewohnheitstiers (Hund, Katze, etc.).
 ** link:../../src/frontend/src/components/animal/modals/AnimalModal.jsx[AnimalModal.jsx] - UI zum Ändern des Animals.
 * **Layout**:
 ** link:../../src/frontend/src/components/layout/Navbar.jsx[Navbar.jsx] – Navigation und Logout.
@@ -71,6 +73,7 @@ Kurzer, klickbarer Überblick über Struktur und Funktionen des Projekts (Backen
 * link:../../src/frontend/src/lib/calendar.js[lib/calendar.js] – Kalender-Logik-Helper.
 * link:../../src/frontend/src/lib/habit.js[lib/habit.js] - Habit-Logik-Helper.
 * link:../../src/frontend/src/App.css[App.css], link:../../src/frontend/src/index.css[index.css] – Styles; Bootstrap 5 eingebunden.
+* link:../../src/frontend/tailwind.config.js[tailwind.config.js] – Tailwind CSS Konfiguration.
 
 == Container/Dev
 * link:../../src/docker-compose.yml[docker-compose.yml] – Services `backend` (Port 3001) und `frontend` (Port 3000); `backend` lädt `backend/.env`.
