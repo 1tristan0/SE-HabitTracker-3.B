@@ -27,8 +27,10 @@ System_Boundary(system, "Habit Tracker") {
     Component(swagger, "swagger.js", "OpenAPI builder", "Swagger Configs")
   }
 
+Container_Boundary(External, "Supabase Platform") {
   ContainerDb(db, "PostgreSQL Database", "Supabase/Postgres", "users, habits_table")
   System_Ext(supabase, "Supabase Auth API", "External Auth Service")
+}
 }
 
 Rel(user, spa, "Uses", "HTTPS")
