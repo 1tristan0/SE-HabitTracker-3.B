@@ -69,68 +69,71 @@ Die Navigationsleiste ermöglicht den Wechsel zwischen:
 
 == Zentrale Funktionen (User Stories)
 
-Die folgenden Abschnitte beschreiben die wichtigsten Nutzeraufgaben Schritt für Schritt.
+Die folgenden Abschnitte beschreiben die wichtigsten Nutzeraktionen Schritt für Schritt.
 
 === Registrierung und Login
 
 Ein Nutzender kann:
 
-* ein neues Benutzerkonto anlegen oder
-* sich mit E-Mail und Passwort anmelden
+//* ein neues Benutzerkonto anlegen oder
+//* sich mit E-Mail und Passwort anmelden
 
-image::registry.png[Login, width=50%]
-image::login.png[Login, width=50%]
+// Bilder untereinander
+//image::registry.png[Login, width=50%]
+//image::login.png[Login, width=50%]
 
-// zum Setzen beider Bilder nebeneinander:
-//[cols="a,a", frame=none, grid=none]
-//|===
-//| image::foo.png[]
-//| image::bar.png[]
-//|===
+// Bilder nebeneinander
+[cols="a,a", frame=none, grid=none]
+|===
+| ein neues *Benutzerkonto anlegen*
+| sich mit E-Mail und Passwort *anmelden*
+| image::registry.png[Login, width=100%]
+| image::login.png[Login, width=100%]
+|===
 
 Nach erfolgreichem Login wird die persönliche Startseite angezeigt.
 
 === Übersicht anstehender Gewohnheiten
 
-Auf der Startseite sieht der Nutzer:
+Auf der Startseite sieht der Nutzende:
 
-* eine Liste aller angelegten Gewohnheiten
-* eine individuelle Streak-Anzeige pro Gewohnheit
+* eine Liste aller angelegten Gewohnheiten (1)
+* welche Gewohnheiten heute bereits erledigt sind (2)
+* eine individuelle Streak-Anzeige pro Gewohnheit (3)
 
 image::habits_overview.png[Habit-Übersicht, width=85%]
 
 === Neue Gewohnheit erstellen
 
-Über den Menüpunkt **Hinzufügen** kann eine neue Gewohnheit angelegt werden.
+Über den Menüpunkt **Hinzufügen** in der Navigationsleiste kann eine neue Gewohnheit angelegt werden.
 
 Vorgehen:
 
 . Klick auf *Hinzufügen* in der Navigationsleiste
 . Eingabe eines Namens (Pflichtfeld)
-. Optional: kurze Beschreibung der Gewohnheit
-. Klick auf *Hinzufügen*
+. kurze Beschreibung der Gewohnheit (optional)
+. Klick auf den Button *Hinzufügen*
 
 image::add_habbit.png[Neue Gewohnheit erstellen, width=85%]
 
-=== Gewohnheiten bearbeiten, löschen und abhaken
+=== Aktionen für Gewohnheiten
 
 Für jede Gewohnheit stehen folgende Aktionen zur Verfügung:
 
-* **abhaken** – Gewohnheit für den heutigen Tag als erledigt markieren
-* **unabhaken** – Markierung rückgängig machen
-* **bearbeiten** – Name oder Beschreibung ändern
-* **löschen** – Gewohnheit dauerhaft entfernen
+* **aktivieren** – Gewohnheit für den heutigen Tag als erledigt markieren (1)
+* **deaktivieren** – Markierung rückgängig machen (1)
+* **bearbeiten** – Name oder Beschreibung ändern (2)
+* **löschen** – Gewohnheit dauerhaft entfernen (3)
 
 image::habit_actions.png[Habit-Aktionen, width=85%]
 
+=== Streak-Logik
 Jede Gewohnheit besitzt eine eigene Streak, die anzeigt, wie viele Tage in Folge sie erfüllt wurde.
 
-=== Streak-Logik
-
 * Die Streak erhöht sich, wenn eine Gewohnheit an aufeinanderfolgenden Tagen erfüllt wird.
-* Wird eine Gewohnheit länger als einen Tag nicht erfüllt, wird die Streak zurückgesetzt.
+* Wird eine Gewohnheit länger als einen Tag nicht erfüllt, wird die Streak für diese Gewohnheit auf "0" zurückgesetzt.
 
-Die Streak wird visuell hervorgehoben:
+Die Länge der Streak wird farblich gekennzeichnet:
 
 * **Grau** – weniger als 3 Tage
 * **Grün** – ab 3 Tagen in Folge
@@ -140,12 +143,12 @@ Die Streak wird visuell hervorgehoben:
 
 Der Kalender zeigt für jeden Tag:
 
-* den Anteil erfüllter Gewohnheiten
-* eine farbliche Darstellung des Tageserfolgs
+* den Anteil erfüllter Gewohnheiten in Form einer kreisförmigen Fortschrittsanzeige (Fortschrittsring). Der Fortschritt wird als farbiger Anteil eines kreisförmigen Umrings dargestellt, wobei der Umfang des farbigen Segments proportional zum erreichten Fortschritt ist (z.B. 50 % = halber Kreis) (1)
+* einen grünen Punkt, wenn alle Gewohnheiten des Tages erledigt sind (2)
+
+//(Tage vor dem Startdatum der Gewohnheiten enthalten keine Einträge.)
 
 image::calendar.png[Kalenderansicht, width=85%]
-
-Tage vor dem Startdatum der Gewohnheiten enthalten keine Einträge.
 
 === Tagesdetails im Kalender
 
@@ -160,39 +163,34 @@ image::day_details.png[Tagesdetails, width=60%]
 
 === Gewohnheitstier auswählen
 
-Der Nutzer kann ein persönliches Gewohnheitstier auswählen, indem er auf das aktuell angezeigte Tier klickt.
+Der Nutzende kann ein persönliches Gewohnheitstier auswählen, indem er auf das aktuell angezeigte Tier klickt. Es öffnet sich ein Dialogfenster mit der Übersicht aller verfügbaren Tiere. Durch Klick auf ein Tier wird dieses ausgewählt und mit Klick auf den Button Speichern für den Nutzenden dauerhaft gespeichert.
 
 image::choose_pet.png[Gewohnheitstier auswählen, width=70%]
 
-Das Gewohnheitstier reagiert auf das Verhalten des Nutzers:
+Das Gewohnheitstier reagiert auf das Verhalten des Nutzenden:
 
-* ist glücklich, wenn mindestens eine Gewohnheit pro Tag erfüllt wird
-* ist traurig, wenn keine Gewohnheit erfüllt wurde
+* ist glücklich, wenn mindestens eine Gewohnheit pro Tag erfüllt ist
+* ist traurig oder wütend, wenn am aktuellen Tag noch keine Gewohnheit erfüllt wurde
 
 == Selten genutzte Funktionen & FAQ
 
 === Wann wird eine Streak zurückgesetzt?
-Eine Streak wird zurückgesetzt, wenn eine Gewohnheit länger als einen Tag nicht erfüllt wird.
+Eine Streak wird auf "0" zurückgesetzt, wenn eine Gewohnheit länger als einen Tag nicht erfüllt wird.
 
-=== Wann ändert sich die Farbe der Streak?
-Die visuelle Darstellung der Streak verändert sich abhängig von der Länge:
+=== Wann und wie ändert sich die Farbe der Streak?
+Die farbliche Darstellung der Streak verändert sich abhängig von der Anzahl der Tage, an denen die Gewohnheit erledigt wurde:
 
 * ab **3 Tagen** wechselt die Anzeige von Grau zu Grün
-* ab **7 Tagen** wechselt sie von Grün zu Rot
+* ab **7 Tagen** wechselt die Anzeige von Grün zu Rot
 
 === Warum sind manche Kalendertage grau?
-Graue Tage liegen entweder:
-
-* in der Zukunft
-* oder vor dem Startdatum der ersten Gewohnheit
-
-Für diese Tage existieren keine Habit-Daten.
+Graue Tage liegen in der Zukunft. Für diese Tage existieren noch keine Habit-Daten.
 
 === Warum ist mein Gewohnheitstier traurig?
 Das Gewohnheitstier reagiert auf die tägliche Aktivität:
 
-* mindestens eine erfüllte Gewohnheit → zufrieden
-* keine erfüllte Gewohnheit → traurig
+* Ist mindestens eine Gewohnheit am aktuellen Tag erfüllt, ist das Tier zufrieden.
+* Ist am aktuellen Tag noch keine Gewohnheit erfüllt, ist das Tier traurig oder wütend.
 
 Dies dient als zusätzliche Motivation zur regelmäßigen Nutzung.
 
@@ -205,4 +203,3 @@ Dies dient als zusätzliche Motivation zur regelmäßigen Nutzung.
 ---
 
 *Stand der Dokumentation: aktueller Entwicklungsstand*
-
