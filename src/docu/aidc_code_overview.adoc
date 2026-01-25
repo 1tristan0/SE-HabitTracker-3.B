@@ -7,7 +7,7 @@ Kurzer, klickbarer Überblick über Struktur und Funktionen des Projekts (Backen
 == Struktur
 * Backend (Express + Prisma): link:../../src/backend[index.js, Prisma-Setup]
 * Frontend (React + API-Layer): link:../../src/frontend/src[React-App mit Auth und Habits-UI]
-* Container/Dev: link:../../src/docker-compose.yml[docker-compose], link:../../src/Dockerfile.dev[Dockerfile]
+* Container/Dev: link:../../src/docker-compose.yml[docker-compose], link:../../src/backend/Dockerfile[Dockerfile]
 
 == Backend (Express + Prisma)
 === link:../../src/backend/index.js[index.js]
@@ -15,24 +15,28 @@ Kurzer, klickbarer Überblick über Struktur und Funktionen des Projekts (Backen
 - `GET /` liefert kurzen Hello-Text.
 - `POST /api/auth/*` – Login/Register/Session/Logout via Supabase Auth REST (siehe link:../../src/backend/src/routes/auth.js[auth.js]).
 - `GET/POST/DELETE /api/habits` – CRUD + Toggle mit Prisma inkl. Auth-Middleware (siehe link:../../src/backend/src/routes/habits.js[habits.js]).
+- `GET /api/public/files/*` - Statischer File-Server (Bilder etc).
+- `GET/PATCH /api/users` - User-Daten und Animal-Status (siehe link:../../src/backend/src/routes/users.js[users.js]).
 - Serverstart auf `PORT` (Default 5000) und `0.0.0.0`.
 
 === Prisma
 * link:../../src/backend/src/prisma.js[src/prisma.js] – erstellt `PrismaClient` mit Log-Ausgaben und exportiert Instanz.
 * link:../../src/backend/prisma/schema.prisma[prisma/schema.prisma] – Modelle:
-** `habits_table` mit Feldern wie `habit_name`, `description`, `start_date`, `streak`, `last_checked`, `prev_last_checked`, `user_id`.
-** `users` Modell mit Basisfeldern (id, created_at, name, streak_duration, streak_freezes, food_points, recovery_on).
+** `habits_table` mit Feldern wie `id`, `userId` (FK), `habit_name`, `description`, `start_date`, `streak`, `last_break`, `last_checked`, `prev_last_checked`.
+** `users` Modell mit `id`, `habits` (1-n Relation), `animal_type`, `animal_mood`.
 * link:../../src/backend/prisma.config.js[prisma.config.js] – Prisma-Konfiguration (Schema-Pfad, Migrationspfad, Engine „classic“, Datasource aus `DATABASE_URL`).
 * link:../../src/backend/.env[.env] – `DATABASE_URL` (Supabase-Postgres).
 * link:../../src/backend/package.json[package.json] – Skripte: `dev` (nodemon), `start` (node), `prisma:generate`.
 * link:../../src/backend/src/supabaseAuth.js[src/supabaseAuth.js] – REST-Client für Supabase Auth (URL + anon Key).
 * link:../../src/backend/src/middleware/authenticate.js[middleware/authenticate.js] – validiert Bearer-Token über Supabase.
+* link:../../src/backend/src/swagger.js[src/swagger.js] - Swagger/OpenAPI Definitionen.
 
 == Frontend (React + API)
 === App und Auth
 * link:../../src/frontend/src/App.jsx[App.jsx] – Lädt gespeicherten Token, Login/Registrierung/Logout; zeigt Login-Form oder `HabitsPage` nach Auth.
 * link:../../src/frontend/src/api/httpClient.js[api/httpClient.js] – Backend-HTTP-Client mit optionalem Bearer-Token.
 * link:../../src/frontend/src/api/authApi.js[api/authApi.js] – Auth-Funktionen: `login`, `register`, `logout`, `fetchSession` + Persistierung in `localStorage`.
+* link:../../src/frontend/src/api/userApi.js[api/userApi.js] - User-Funktionen: `fetchUser` (inkl. Animal-Daten).
 
 === Habits-API-Layer
 * link:../../src/frontend/src/api/habitsApi.js[api/habitsApi.js]
@@ -42,19 +46,32 @@ Kurzer, klickbarer Überblick über Struktur und Funktionen des Projekts (Backen
 ** `toggleHabitToday(token, habitId)` – Toggle/Uncheck-Logik liegt im Backend; Endpoint liefert aktualisierte Zeile zurück.
 
 === Seiten & Komponenten
-* link:../../src/frontend/src/pages/HabitsPage.jsx[HabitsPage.jsx] – lädt Habits, delegiert Add/Delete/Check an API, rendert Navbar, HabitForm, HabitGrid, Calender.
-* link:../../src/frontend/src/components/HabitForm.jsx[HabitForm.jsx] – Formular zum Anlegen (Name, Beschreibung), ruft `onAdd`.
-* link:../../src/frontend/src/components/HabitGrid.jsx[HabitGrid.jsx] – trennt Habits in „heute erledigt“ vs. „offen“, rendert `HabitCard`s.
-* link:../../src/frontend/src/components/HabitCard.jsx[HabitCard.jsx] – zeigt Habit-Daten, Löschen-Button, Toggle-Switch für „heute erledigt“.
-* link:../../src/frontend/src/components/Calender.jsx[Calender.jsx] – Monatsmatrix, Fortschrittsanzeige pro Tag (Kreis/Progress), Navigation Monate, Heutestatus.
-* link:../../src/frontend/src/components/Navbar.jsx[Navbar.jsx] – einfache Hash-Navigation (Übersicht/Hinzufügen) und Logout-Button.
-* link:../../src/frontend/src/components/HabitList.jsx[HabitList.jsx] – ältere Demo-Snippets für Habits-Render/Check (nicht im Flow genutzt).
+* link:../../src/frontend/src/pages/HabitsPage.jsx[HabitsPage.jsx] – Main-Layout: Navbar, Animal-Section, HabitGrid, Calendar.
+* **Auth**:
+** link:../../src/frontend/src/components/auth/Login.jsx[Login.jsx], link:../../src/frontend/src/components/auth/Signup.jsx[Signup.jsx]
+* **Habits**:
+** link:../../src/frontend/src/components/habits/HabitForm.jsx[HabitForm.jsx] – Formular zum Anlegen(veraltet).
+** link:../../src/frontend/src/components/habits/HabitList.jsx[HabitList.jsx] – UI für die Liste der Habits(veraltet).
+** link:../../src/frontend/src/components/habits/HabitGrid.jsx[HabitGrid.jsx] – Container für Habit-Liste.
+** link:../../src/frontend/src/components/habits/HabitCard.jsx[HabitCard.jsx] – Einzelne Habit-Karte mit Toggle, Delete-Button, Edit-Button.
+** link:../../src/frontend/src/components/habits/HabitCreateContent.jsx[HabitCreateContent.jsx] – UI zum Anlegen eines Habits(wird auf CreateHabitPage gerendert).
+** link:../../src/frontend/src/components/habits/calendar/Calender.jsx[Calender.jsx] – Kalender-Ansicht.
+** link:../../src/frontend/src/components/habits/calendar/modals/CalenderModal.jsx[CalenderModal.jsx] – Detailansicht des Calender.
+** link:../../src/frontend/src/components/habits/modals/HabitChangeModal.jsx[HabitChangeModal.jsx], link:../../src/frontend/src/components/habits/modals/HabitInfoModal.jsx[HabitInfoModal.jsx]
+* **Animal**:
+** link:../../src/frontend/src/components/animal/Animal.jsx[Animal.jsx] - Visuelle Darstellung des Avatars (Hund, Katze, etc.).
+** link:../../src/frontend/src/components/animal/modals/AnimalModal.jsx[AnimalModal.jsx] - UI zum Ändern des Animals.
+* **Layout**:
+** link:../../src/frontend/src/components/layout/Navbar.jsx[Navbar.jsx] – Navigation und Logout.
+* **UI**:
+** `components/ui` - Wiederverwendbare UI-Elemente (Buttons, Modal, InputField, etc.).
 
 === Utilities & Styles
-* link:../../src/frontend/src/lib/convert.js[lib/convert.js] – `dateOnly(ts)`, `monthAndYear(y,m)`, `todayAsString()`.
-* link:../../src/frontend/src/lib/calendar.js[lib/calendar.js] – `getMonthMatrix` (Kalendergrid, Mo-Start), `isEveryHabitChecked` (true oder %-Wert pro Tag).
-* link:../../src/frontend/src/App.css[App.css], link:../../src/frontend/src/index.css[index.css] – Styles; Bootstrap 5 eingebunden; Tailwind konfiguriert in link:../../src/frontend/tailwind.config.js[tailwind.config.js] (aktuell minimal genutzt).
+* link:../../src/frontend/src/lib/convert.js[lib/convert.js] – Datums-Helper.
+* link:../../src/frontend/src/lib/calendar.js[lib/calendar.js] – Kalender-Logik-Helper.
+* link:../../src/frontend/src/lib/habit.js[lib/habit.js] - Habit-Logik-Helper.
+* link:../../src/frontend/src/App.css[App.css], link:../../src/frontend/src/index.css[index.css] – Styles; Bootstrap 5 eingebunden.
 
 == Container/Dev
-* link:../../src/docker-compose.yml[docker-compose.yml] – Services `backend` (npm install → prisma:generate → dev/start, Port 3001) und `frontend` (npm install → dev/start, Ports 5173/3000); `backend` lädt `backend/.env`.
-* link:../../src/Dockerfile.dev[Dockerfile.dev] – Basis für beide Services (Node + Arbeitsverzeichnis `/app`).
+* link:../../src/docker-compose.yml[docker-compose.yml] – Services `backend` (Port 3001) und `frontend` (Port 3000); `backend` lädt `backend/.env`.
+* link:../../src/backend/Dockerfile[Dockerfile] – Basis-Image für Backend-Service (Node + Arbeitsverzeichnis `/app`).
