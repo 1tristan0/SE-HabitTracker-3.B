@@ -44,7 +44,7 @@ function getRouteHandler(router, method, path) {
 }
 
 async function run() {
-  // POST /login: missing credentials should return 400.
+  // POST /login: fehlende Zugangsdaten sollen 400 liefern.
   {
     const router = loadAuthRouter({});
     const handler = getRouteHandler(router, 'post', '/login');
@@ -57,7 +57,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'email and password are required' });
   }
 
-  // POST /login: success should map session tokens to response payload.
+  // POST /login: Erfolg soll Session-Tokens ins Response-Payload abbilden.
   {
     const router = loadAuthRouter({
       loginWithPassword: async () => ({
@@ -84,7 +84,7 @@ async function run() {
     });
   }
 
-  // POST /login: invalid credentials should return 401.
+  // POST /login: ungueltige Zugangsdaten sollen 401 liefern.
   {
     const router = loadAuthRouter({
       loginWithPassword: async () => {
@@ -103,7 +103,7 @@ async function run() {
     assert.strictEqual(state.jsonPayload.error, 'Login failed');
   }
 
-  // POST /register: missing credentials should return 400.
+  // POST /register: fehlende Zugangsdaten sollen 400 liefern.
   {
     const router = loadAuthRouter({});
     const handler = getRouteHandler(router, 'post', '/register');
@@ -116,7 +116,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'email and password are required' });
   }
 
-  // POST /session: missing accessToken should return 400.
+  // POST /session: fehlender accessToken soll 400 liefern.
   {
     const router = loadAuthRouter({});
     const handler = getRouteHandler(router, 'post', '/session');
@@ -129,7 +129,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'accessToken is required' });
   }
 
-  // POST /logout: missing accessToken should return 400.
+  // POST /logout: fehlender accessToken soll 400 liefern.
   {
     const router = loadAuthRouter({});
     const handler = getRouteHandler(router, 'post', '/logout');

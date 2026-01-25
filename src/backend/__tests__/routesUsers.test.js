@@ -48,7 +48,7 @@ function getRouteHandler(router, method, path) {
 }
 
 async function run() {
-  // PUT /animal: missing body should return 400 before DB calls.
+  // PUT /animal: fehlender Body soll 400 liefern, bevor DB-Aufrufe passieren.
   {
     const router = loadUsersRouter({});
     const handler = getRouteHandler(router, 'put', '/animal');
@@ -61,7 +61,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'animal_type or animal_mood is required' });
   }
 
-  // GET /animal: user not found should return 404.
+  // GET /animal: Benutzer nicht gefunden soll 404 liefern.
   {
     const router = loadUsersRouter({
       users: { findUnique: async () => null },

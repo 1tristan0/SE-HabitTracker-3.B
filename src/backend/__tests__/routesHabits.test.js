@@ -48,7 +48,7 @@ function getRouteHandler(router, method, path) {
 }
 
 async function run() {
-  // POST /: missing name should return 400 before hitting Prisma.
+  // POST /: fehlender Name soll 400 liefern, bevor Prisma aufgerufen wird.
   {
     const router = loadHabitsRouter({});
     const handler = getRouteHandler(router, 'post', '/');
@@ -61,7 +61,7 @@ async function run() {
     assert.deepStrictEqual(state.jsonPayload, { error: 'name is required' });
   }
 
-  // DELETE /:id with missing id should return 400.
+  // DELETE /:id mit fehlender id soll 400 liefern.
   {
     const router = loadHabitsRouter({
       habits_table: { delete: async () => ({ id: '1' }) },
