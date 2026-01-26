@@ -128,10 +128,10 @@ Für jede Gewohnheit stehen folgende Aktionen zur Verfügung:
 image::habit_actions.png[Habit-Aktionen, width=85%]
 
 === Streak-Logik
-Jede Gewohnheit besitzt eine eigene Streak, die anzeigt, wie viele Tage in Folge sie erfüllt wurde.
 
-* Die Streak erhöht sich, wenn eine Gewohnheit an aufeinanderfolgenden Tagen erfüllt wird.
-* Wird eine Gewohnheit länger als einen Tag nicht erfüllt, wird die Streak für diese Gewohnheit auf "0" zurückgesetzt.
+Jede Gewohnheit besitzt eine eigene Streak, die anzeigt, wie viele Tage in Folge sie erfüllt wurde.
+Die Streak erhöht sich, wenn eine Gewohnheit an aufeinanderfolgenden Tagen erfüllt wird.
+Wird eine Gewohnheit länger als einen Tag nicht erfüllt, wird die Streak für diese Gewohnheit auf "0" zurückgesetzt.
 
 Die Länge der Streak wird farblich gekennzeichnet:
 
