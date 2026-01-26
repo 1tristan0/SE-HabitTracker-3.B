@@ -48,7 +48,7 @@ Die App ist für alle Nutzenden geeignet, die über ein internetfähiges Endger�
 
 Die Anwendung ist webbasiert wird von Ihrem Administrator bereitgestellt. Bitte fragen Sie dort nach der URL zum Gewohnheitstier.
 
-Ein Benutzerkonto ist erforderlich. Nutzende können sich registrieren oder mit bestehenden Zugangsdaten anmelden. Näheres dazu im Abschnitt "Registrierung und Login"
+Ein Benutzerkonto ist erforderlich. Nutzende können sich registrieren oder mit bestehenden Zugangsdaten anmelden. Näheres dazu im Abschnitt "Registrierung und Login".
 
 == Überblick über die Benutzeroberfläche
 
@@ -57,7 +57,7 @@ Nach dem Login gelangt der Nutzende auf die Startseite der Anwendung. Diese best
 * Navigationsleiste zum Wechseln der Ansichten (1)
 * Übersicht der eigenen Gewohnheiten (2)
 * Kalenderansicht mit Tagesauswertung (3)
-* den aktuellen Zustand seines Gewohnheitstiers (4)
+* Aktueller Zustand seines Gewohnheitstiers (4)
 
 image::dashboard.png[Übersicht & Kalender, width=85%]
 
@@ -111,7 +111,7 @@ Vorgehen:
 
 . Klick auf *Hinzufügen* in der Navigationsleiste
 . Eingabe eines Namens (Pflichtfeld)
-. kurze Beschreibung der Gewohnheit (optional)
+. Eingabe einer kurzen Beschreibung der Gewohnheit (optional)
 . Klick auf den Button *Hinzufügen*
 
 image::add_habbit.png[Neue Gewohnheit erstellen, width=85%]
@@ -172,6 +172,8 @@ Das Gewohnheitstier reagiert auf das Verhalten des Nutzenden:
 * ist glücklich, wenn mindestens eine Gewohnheit pro Tag erfüllt ist
 * ist traurig oder wütend, wenn am aktuellen Tag noch keine Gewohnheit erfüllt wurde
 
+Dies dient als zusätzliche Motivation zur regelmäßigen Nutzung.
+
 == Selten genutzte Funktionen & FAQ
 
 === Wann wird eine Streak zurückgesetzt?
@@ -185,14 +187,6 @@ Die farbliche Darstellung der Streak verändert sich abhängig von der Anzahl de
 
 === Warum sind manche Kalendertage grau?
 Graue Tage liegen in der Zukunft. Für diese Tage existieren noch keine Habit-Daten.
-
-=== Warum ist mein Gewohnheitstier traurig?
-Das Gewohnheitstier reagiert auf die tägliche Aktivität:
-
-* Ist mindestens eine Gewohnheit am aktuellen Tag erfüllt, ist das Tier zufrieden.
-* Ist am aktuellen Tag noch keine Gewohnheit erfüllt, ist das Tier traurig oder wütend.
-
-Dies dient als zusätzliche Motivation zur regelmäßigen Nutzung.
 
 == Hinweise zur Nutzung
 
