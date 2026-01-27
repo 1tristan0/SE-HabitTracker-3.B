@@ -162,6 +162,7 @@ Wir haben API-Integrationstests für folgende Backend-Routen implementiert:
 
 == Systemtests / Akzeptanztests
 Die folgenden Akzeptanztests wurden definiert, um die Hauptfunktionen der Habit Tracker Anwendung zu überprüfen:
+
 === Akzeptanztest AT-01
 Anzeige der geplanten Habits des aktuellen Tages
 
