@@ -1,0 +1,39 @@
+== Felix
+
+=== Ausgangssituation und Aufgabenstellung
+
+Im Projekt *Gewohnheitstier* war ich im Frontend-Bereich tätig. Zu Beginn des Semesters existierte bereits eine funktionale Grundstruktur der Benutzeroberfläche. Meine Aufgaben lagen dabei weniger in der vollständigen Neuentwicklung fachlicher Komponenten, sondern primär in der gestalterischen Ausarbeitung, Vereinheitlichung und qualitativen Weiterentwicklung des bestehenden Frontends.
+
+Ausgangslage war eine Benutzeroberfläche, die zwar funktional korrekt war, jedoch in Bezug auf Farbverwendung, Abstände, Zustände (z. B. Hover-, Fokus- und deaktivierte Zustände) sowie die Kombination von Tailwind CSS und Bootstrap noch nicht vollständig konsistent umgesetzt war. Ziel meines Beitrags war es daher, ein einheitliches, ruhiges und benutzerfreundliches Design zu schaffen, das sich durch die gesamte Anwendung zieht und zukünftige Erweiterungen erleichtert.
+
+Konkret umfassten meine Aufgaben die Gestaltung und Implementierung einzelner UI-Bestandteile, die visuelle Überarbeitung bestehender Komponenten, die Vereinheitlichung des Kalender-Designs, die Gestaltung der Habits-Übersichtsseite sowie die Erstellung eines projektweiten Styleguides, der die getroffenen Designentscheidungen dokumentiert.
+
+
+=== Lösungsweg und eingesetzte Methoden
+
+Zur Bearbeitung meiner Aufgaben habe ich mich an grundlegenden Entwurfsprinzipien des Software Engineerings orientiert, insbesondere an den Prinzipien der Konsistenz, Wiederverwendbarkeit und Trennung von Struktur und Darstellung. Als technische Grundlage kamen im Frontend vor allem React in Kombination mit Tailwind CSS zum Einsatz, wobei zusätzlich global eingebundene Bootstrap-Styles berücksichtigt werden mussten.
+
+Eine eigenständig von mir umgesetzte Komponente ist die  
+link:https://github.com/1tristan0/SE-HabitTracker-3.B/blob/dev/src/frontend/src/components/habits/HabitCreateContent.jsx[HabitCreateContent],  
+welche die Erstellung neuer Gewohnheiten ermöglicht. Bei der Implementierung habe ich besonderen Wert auf eine klare visuelle Struktur, eine verständliche Nutzerführung sowie eine konsistente Einbindung in das bestehende Design gelegt. Die Komponente orientiert sich dabei an der im Projekt verwendeten Farb- und Layoutlogik.
+
+Darüber hinaus habe ich bestehende Komponenten, die von Patrick implementiert wurden, gestalterisch überarbeitet und vereinheitlicht. Dies betraf insbesondere die Darstellung der link:src/frontend/src/components/habits/HabitCard.jsx[Habits auf der Übersichtsseite] sowie die visuelle Ausgestaltung des link:src/frontend/src/components/habits/calendar/Calender.jsx[Kalenders]. Ziel war es, die einzelnen Komponenten nicht neu zu entwickeln, sondern sie durch gezielte Anpassungen von Farben, Abständen, Typografie und Zuständen in ein konsistentes Gesamtbild zu überführen.
+
+Aufbauend auf diesen praktischen Arbeiten habe ich einen link:https://github.com/1tristan0/SE-HabitTracker-3.B/blob/dev/docs/development/styleguide.adoc[Styleguide des Projekts] erstellt, der die zentralen Designentscheidungen des Projekts dokumentiert. Dieser umfasst unter anderem die Farbpalette mit semantischer Bedeutung, Typografie, Spacing, Button-Varianten, Cards, Modals, Formulare sowie wiederkehrende UI-Elemente. Der Styleguide dient als gemeinsame Referenz für das Team und stellt sicher, dass zukünftige Erweiterungen konsistent umgesetzt werden können.
+Die Arbeit am projektweiten Styleguide sowie an der Vereinheitlichung des Farb- und CSS-Benennungskonzepts wurde dabei auch über entsprechende GitHub-Issues koordiniert und dokumentiert, insbesondere über link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues/113[#113] und link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues/164[#164].
+
+
+Ergänzend zu meinen gestalterischen Aufgaben habe ich mich um die Erstellung und Überarbeitung der link:belegabgabe_se2/se2_4-testdoku_3B.adoc[Testdokumentation] des Projekts gekümmert. Dabei habe ich insbesondere die Dokumente zur Teststrategie und zu den Testfällen strukturiert, inhaltlich präzisiert und formal vereinheitlicht. Ziel war es, die vorhandenen automatisierten Tests sowie die definierten manuellen Akzeptanztests nachvollziehbar zu dokumentieren und eine klare Grundlage für die Qualitätssicherung der Anwendung zu schaffen.
+
+Die Testdokumentation dient sowohl als Referenz für das Entwicklungsteam als auch als Grundlage für die Bewertung der umgesetzten User Stories. Durch die klare Trennung von Teststrategie, Testfällen und Verweisen auf automatisierte Tests wird die Wartbarkeit der Tests verbessert und die Nachvollziehbarkeit von Änderungen erhöht.
+
+Des Weiteren habe ich zudem im Rahmen des Fachaustauschs eine Präsentation zum Thema Projektmanagement gehalten, in der projektbezogene Methoden und Vorgehensweisen vorgestellt und reflektiert wurden.
+
+
+=== Bewertung und persönliche Erkenntnisse
+
+Rückblickend hat mein Beitrag wesentlich zur visuellen Konsistenz und Benutzerfreundlichkeit des Frontends beigetragen. Durch die Vereinheitlichung der Farben, Layouts und Zustände wirkt die Anwendung insgesamt strukturierter und ruhiger, was insbesondere bei der täglichen Nutzung der App von Bedeutung ist. Der erstellte Styleguide erleichtert zudem die weitere Entwicklung, da Designentscheidungen nachvollziehbar dokumentiert und reproduzierbar sind.
+
+Persönlich habe ich aus dem Projekt mitgenommen, dass ein relevanter Teil der Frontend-Entwicklung nicht ausschließlich in der Implementierung neuer Funktionalität besteht, sondern in der Weiterentwicklung, Pflege und Dokumentation bestehender Komponenten. Insbesondere die Arbeit an Konsistenz, Designsystemen und Styleguides hat mir gezeigt, wie wichtig klare gestalterische Leitlinien für die langfristige Wartbarkeit und Erweiterbarkeit eines Systems sind.
+
+Darüber hinaus habe ich ein besseres Verständnis für die enge Verzahnung von Entwurf, Implementierung und Projektmanagement im Software Engineering entwickelt. Die Kombination aus praktischer Frontend-Arbeit, teaminterner Abstimmung und dokumentierender Tätigkeit hat mir verdeutlicht, dass nachhaltige Softwareentwicklung sowohl technische als auch konzeptionelle und kommunikative Fähigkeiten erfordert. Diese Erkenntnisse werde ich in zukünftigen Studien- und Praxisprojekten gezielt einsetzen.
