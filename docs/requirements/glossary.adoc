@@ -24,7 +24,7 @@ include::../_includes/default-attributes.inc.adoc[]
 | Fortschrittsring | kreisförmige Darstellung in der Kalenderansicht zur Darstellung des Erfüllungsgrads einer Gewohnheit. Der Fortschritt wird als farbiger Anteil eines kreisförmigen Umrings dargestellt, wobei die Länge des farbigen Segments proportional zum erreichten Fortschritt ist (z. B. 50 % = halber Kreis). Der Fortschrittsring dient der schnellen, intuitiven Einschätzung des aktuellen Status. | Progress Ring
 // | Frequency | Anzahl der benötigten Ausführungen einer Gewohnheit pro Zeitraum (z. B. „3×/Woche“).| Frequenz 
 | Gamification | Einsatz spieltypischer Elemente (Badges, Level, Ranglisten) zur Steigerung von Engagement und Motivation. |
-| Gewohnheit | regelmäßig wiederholte Handlung, die automatisiert und ohne hohe Willenskraft ausgeführt wird. | Habit
+| Gewohnheit | regelmäßig wiederholte Handlung. | Habit
 // | Gewohnheitsreise | persönlicher Entwicklungsprozess, bei dem bestehende Verhaltensmuster reflektiert, gezielt verändert und neue, nachhaltige Gewohnheiten aufgebaut werden. |
 | Gewohnheitstier | Icon eines Tieres, das Emotionen zeigt und zum Durchhalten motiviert | Maskottchen, Avatar
 // | Habit Loop | Modell aus Cue → Routine → Reward, das den Entstehungs- und Verstärkungsprozess einer Gewohnheit beschreibt.| 
@@ -32,12 +32,7 @@ include::../_includes/default-attributes.inc.adoc[]
 // | Habit-Statistiken | grafisch aufbreitete Übersicht der gesammelten Daten über abgeschlossene Habits. | Statistik
 // | Heatmap | Farbkodierte Matrix, die zeigt, an welchen Tagen/Wochen eine Gewohnheit erfüllt wurde (je dunkler, desto häufiger). |
 // | Leaderboard | Vergleichende Darstellung der Fortschritte mehrerer Nutzer zur Förderung eines Wettkampfeffekts. | Rangliste
-// | Mediengewohnheiten | individuelle, regelmäßig ablaufende Verhaltensmuster im Umgang mit analogen und digitalen Medien. |
-// | Offline-Aktivitäten | regelmäßig ausgeführte Handlungen oder Beschäftigungen, die ohne die Nutzung digitaler Medien stattfinden. |
 // | Performance | messbare Leistung oder das sichtbare Verhalten einer Person in Bezug auf bestimmte Aufgaben, Ziele oder Anforderungen.|
-// | Positive Verstärkung | Methode, bei der erwünschtes Verhalten durch angenehme Reize oder Belohnungen gefördert und somit langfristig gefestigt wird. |
-// | Psychischer Druck | innerer Spannungszustand, der durch hohe Erwartungen, Stress oder selbst auferlegte Verpflichtungen entsteht und das Denken, Fühlen und Handeln beeinflusst. |
-// | Selbstverbesserung | bewusster Prozess, die eigenen Fähigkeiten, Verhaltensweisen oder Lebensumstände kontinuierlich weiterzuentwickeln und zu optimieren.| Selbstoptimierung
 | Streak | Ununterbrochene Abfolge erfolgreicher Check-ins; gilt als wichtiger Motivationsfaktor. | Serie
 // | Streak Freeze | Feature, das erlaubt, eine Streak bei einmaligem Verpassen (z. B. Krankheit) „einzufrieren“, um Demotivation zu verhindern. | 
 | Tools | unterstützende Mittel oder Anwendungen, die dabei helfen, Gewohnheiten zu planen, zu verfolgen und langfristig zu etablieren. |
