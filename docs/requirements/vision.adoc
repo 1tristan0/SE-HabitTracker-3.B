@@ -30,13 +30,12 @@ Siehe <<#glossary, Glossar>>.
 === Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
 
-Viele junge Erwachsene – insbesondere Studierende und Berufstätige – möchten ihre Alltagsroutinen verbessern, etwa durch regelmäßige Bewegung, strukturierte Tagesplanung oder gesündere Ernährung. Während die Zielsetzung meist klar ist, fehlt es an nachhaltiger Motivation, positiver Verstärkung und emotionaler Bindung zur Gewohnheitsbildung.
+Viele Jugendliche und junge Erwachsene, insbesondere Studierende und Berufstätige, möchten ihre täglichen Routinen gezielt verbessern. Dazu zählen zum Beispiel regelmäßige Bewegung, eine strukturierte Tagesplanung oder eine ausgewogenere Ernährung. Obwohl das Ziel oft klar formuliert ist, scheitert die Umsetzung in der Praxis häufig daran, dass langfristige Motivation, spürbare positive Verstärkung und eine emotionale Bindung an den eigenen Fortschritt fehlen.
+Viele vorhandene Habit-Tracker konzentrieren sich vor allem auf Listen, Statistiken und reine Zahlenwerte. Diese Darstellung unterstützt zwar die Dokumentation, schafft jedoch oft keine ausreichende persönliche Verbindung zum Prozess. Dadurch sinkt die emotionale Beteiligung, und Nutzerinnen und Nutzer brechen die Nutzung nicht selten nach kurzer Zeit wieder ab.
 
-Bestehende Habit-Tracker setzen meist auf Listen oder reine Zahlen, wodurch die emotionale Beteiligung gering bleibt und Nutzer:innen schnell das Interesse verlieren.
-
-{project-system-name} begegnet diesem Problem mit einer spielerischen, emotional ansprechenden Komponente: einem digitalen Begleiter in Form eines Maskottchens (Tier), das die Nutzer:innen auf ihrer Gewohnheitsreise begleitet.
-
-Der Einsatz eines solchen Begleiters schafft emotionale Bindung, stärkt das Verantwortungsgefühl und macht den Prozess der Verhaltensänderung positiv. Die Kombination aus Fortschritten und Gamification erhöht somit die langfristige Nutzungsdauer und Zielerreichung.
+{project-system-name} setzt an genau dieser Stelle an und erweitert die klassische Gewohnheitsverfolgung um eine spielerische und emotional ansprechende Komponente. Im Mittelpunkt steht ein digitaler Begleiter in Form eines tierischen Maskottchens, das die Nutzerinnen und Nutzer während ihrer Gewohnheitsbildung begleitet und Fortschritte sichtbar und erlebbar macht.
+Ein weiteres zentrales Ziel ist eine besonders einfache und schnelle Bedienung. Die Bedienwege werden bewusst kurz gehalten, damit Gewohnheiten ohne unnötige Schritte erfasst und abgehakt werden können. So lässt sich die App auch in einem vollen Alltag „nebenbei“ nutzen, ohne dass der Aufwand selbst zur Hürde wird.
+Durch den Begleiter entsteht eine stärkere emotionale Bindung, die das Verantwortungsgefühl fördern und den Veränderungsprozess positiver gestalten kann. In Kombination mit Gamification-Elementen, klar erkennbaren Fortschritten und einer schlanken Bedienlogik wird die langfristige Nutzung unterstützt und die Wahrscheinlichkeit erhöht, dass gesetzte Ziele nachhaltig verfolgt und erreicht werden.
 
 === Produktvision
 //Eine Produktvision beschreibt das Einsatzziel der Anwendung und sorgt für ein gemeinsames Ziel und Verständnis für alle Beteiligten im Projekt. Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
@@ -78,7 +77,7 @@ Der Einsatz eines solchen Begleiters schafft emotionale Bindung, stärkt das Ver
 // | [Kurze Beschreibung des Stakeholders und seiner Ziele]
 // | [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
 | Zielnutzer:in
-| Junge Erwachsene (studierend oder berufstätig), die ihre Gewohnheiten mit Hilfe eines motivierenden Systems verbessern möchten
+| Jugendliche und junge Erwachsene, die ihre Gewohnheiten mit Hilfe eines motivierenden Systems verbessern möchten
 | Nutzen die App regelmäßig, geben Feedback zu Usability und Motivation, dienen als Grundlage für Personas und Tests
 | Entwicklungsteam
 | Interdisziplinäres Team aus Studierenden, die das System konzipieren, entwickeln und evaluieren
