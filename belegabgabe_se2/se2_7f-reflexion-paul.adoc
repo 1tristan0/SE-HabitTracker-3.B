@@ -1,0 +1,156 @@
+= Einzelreflexion – Projektarbeit
+:doctype: article
+:pdf-theme: default
+:pdf-font-size: 9
+:toc: none
+
+**Name:** Paul Händler +
+**Matrikelnummer:** s87141 +
+**Studiengang / Modul:** Wirtschaftsinformatik / Software Engineering 2 +
+**Projektname:** Gewohnheitstier (Gruppe 3B)
+
+== Eigener Beitrag
+
+=== Eigenständig bearbeitete Aufgaben
+
+=== Eigenständig bearbeitete Aufgaben - Einige Beispiele
+
+[cols="1,4,3", options="header"]
+|===
+| Aufgabe
+| Beschreibung
+| Belege
+
+| Aufgabe 1
+| Erstellung der Auth-Services für die Benutzerverwaltung
+| Auth-Service-Code, Commits im dev-Branch z.B.: https://github.com/1tristan0/SE-HabitTracker-3.B/commit/fb33c1b2eb5d0d1681d8346e3458e75aee8d9141
+
+| Aufgabe 2
+| Implementierung der API-Endpunkte für Gewohnheiten und Useraktionen
+| API-Endpunkte im Backend, entsprechende Commits z.B.: https://github.com/1tristan0/SE-HabitTracker-3.B/pull/181/commits/964b584dfa9ade5a48dea2907ee84e6317a90cc1
+
+| Aufgabe 3
+| Implementierung der Swagger-UI zur Dokumentation der API
+| https://github.com/1tristan0/SE-HabitTracker-3.B/pull/163 http://localhost:3001/api/docs/
+
+| Aufgabe 4
+| Durchführung von Tests und Bugfixing
+| z.B. https://github.com/1tristan0/SE-HabitTracker-3.B/pull/202
+
+| Aufgabe 5
+| Code-Reviews bei sämmtlichen Pull-Requests
+| https://github.com/1tristan0/SE-HabitTracker-3.B/pulls?q=is%3Apr+is%3Aclosed
+
+| Aufgabe 6
+| Erstellung von Dev-Doku und Bash-Skripten als Hilfestellung für das Team
+a|
+* https://github.com/1tristan0/SE-HabitTracker-3.B/blob/dev/src/test-backend.sh
+* https://github.com/1tristan0/SE-HabitTracker-3.B/blob/dev/src/dev-db-setup.sh
+* https://github.com/1tristan0/SE-HabitTracker-3.B/tree/dev/src/docu
+
+
+| Aufgabe 7
+| Erstellung des ersten Docker Setups
+| 
+
+|===
+
+=== Abgrenzung zum Team
+
+==== Welche Aufgaben lagen klar in meiner Verantwortung?
+
+Abgesehen von den üblichen Teamaufgaben, die überwiegend in Gruppen von zwei bis drei Personen bearbeitet wurden, lag die Verantwortung für die Authentifizierungs- und Autorisierungsdienste sowie die API-Dokumentation klar bei mir.  
+Eine weitere Aufgabe, die ich eigenständig übernommen habe, war die Implementierung und das Testen der Endpunkte für Gewohnheiten und Useraktionen. Weiterhin habe ich die Verantwortung für die von mir gepullten Dev-Tasks übernommen und diese eigenständig umgesetzt.
+
+==== Wo habe ich andere unterstützt, ohne die Hauptverantwortung zu tragen?
+
+Ich habe an sämtlichen Code-Reviews teilgenommen und als Pair-Programming-Partner bei der Implementierung einzelner Funktionen unterstützt.  
+Gemeinsam mit Tristan habe ich am Backend-Refactor gearbeitet, bei dem wir von einer einfachen relationalen SQL-Datenbank zu einer Lösung mit Prisma ORM gewechselt sind, um komplexere Zusammenhänge besser abbilden zu können. Um die Funktionalitäten, die aus den User Stories hervorgingen, abbilden zu können, habe ich das Team mit Recherchen und technischen Vorschlägen unterstützt. Darauf basierend haben wir beispielsweise Node.js, Docker, Supabase, Swagger UI und weitere Technologien ausgewählt und eingesetzt. Des Weiteren habe ich in Zusammenarbeit mit dem Team die Dokumentation im Ordner /docs, sowie team-interne Dokumentation im Ordner /src/docu erstellt und gepflegt.
+
+==  Belege für Lösungswege
+*(Nachvollziehbarkeit der eigenen Arbeit)*
+
+* **Code (Commits):**  
+  https://github.com/1tristan0/SE-HabitTracker-3.B/commits/dev/?author=paul-hndlr
+* **Modelle / Konzepte:**  
+  Supabase-Datenbankmodell, API-Design, Authentifizierungs- und Autorisierungskonzepte
+* **Dokumentation / Diagramme:**  
+  *** Swagger-UI der API (http://localhost:3001/api/docs/)  
+  *** Issue: https://github.com/1tristan0/SE-HabitTracker-3.B/pull/163  
+  *** Refactoring: https://github.com/1tristan0/SE-HabitTracker-3.B/pull/153
+* **Repository:**   https://github.com/1tristan0/SE-HabitTracker-3.B
+
+== Bezug zu Aufgaben anderer (vor- / nachgelagert)
+
+Meine Arbeit im Backend stellte die Grundlage für die Frontend-Entwicklung dar.  
+Insbesondere die Authentifizierungsmechanismen sowie die implementierten API-Endpunkte wurden direkt von den Frontend-Komponenten genutzt.  
+Der Backend-Refactor mit Prisma ORM ermöglichte es, weitere Funktionen stabil und konsistent umzusetzen.
+
+== Problemlösung & Reflexion
+
+=== Was hat gut funktioniert? Warum?
+
+Als Team konnten wir auch komplexe technische Aufgaben durch gute Kommunikation und regelmäßige Programming-Sessions erfolgreich lösen.  
+Das Entwirren einer anfangs chaotischen Codebasis mit kollidierenden Arbeitsständen führte durch die Zusammenarbeit mit Tristan und Patrick zu einer klar strukturierten Architektur, die sich an im Modul Software Engineering vermittelten Best Practices orientiert.
+
+Die Entwicklung des Backends als Unterstützung für die Frontend-Entwicklung funktionierte durch die enge Abstimmung mit Patrick sehr gut.  
+Auch die Implementierung der notwendigen Funktionen, um die in den User Stories beschriebenen Anforderungen über den gesamten Tech-Stack hinweg abzubilden, verlief dadurch effizient. Die Entwickler im Frontend erstellten Dev-Tasks für die benötigten Backend-Funktionalitäten, welche dann von uns umgesetzt wurden. Die Teamarbeit mit Tristan zur Implementierung von Prisma ORM im Backend-Refactor hat sehr gut funktioniert, da wir uns gut ergänzten und gemeinsam Lösungen für auftretende Probleme fanden.
+
+=== Was hat nicht gut funktioniert? Warum?
+
+Die anfängliche Implementierung auf Basis einer rein relationalen Datenbank erwies sich als suboptimal, da komplexe Beziehungen zwischen Nutzern und Gewohnheiten nur schwer abbildbar waren.  
+Ein Feature, das letztlich aus zeitlichen Gründen nicht implementiert werden konnte, war die Möglichkeit, für einzelne Gewohnheiten unterschiedliche Wiederholungsraten und Bedingungen zu definieren.  
+Dieses Feature wäre mit einer NoSQL-Datenbank wie MongoDB oder durch eine frühere Nutzung von Prisma ORM deutlich einfacher umzusetzen gewesen.
+
+Zusätzlich war es organisatorisch schwierig, im Team eine klare Arbeitsverteilung und einheitliche Dokumentation zu etablieren.  
+Es wurden viele unterschiedliche Tools verwendet (Miro, Discord, WhatsApp, GitHub, Meeting-Protokolle, Timeful), aber nicht alle wurden konsequent genutzt, was die Übersicht und Abstimmung manchmal erschwerte.
+
+=== Rückblick: Was würde ich anders machen?
+
+Wenn ich das Projekt erneut starten würde, hätte ich mich von Anfang an für eine NoSQL-Datenbank wie MongoDB oder direkt für Prisma ORM entschieden.  
+So hätten wir uns die spätere Umstellung der PostgreSQL-Datenbank auf Prisma ORM sparen können und mehr Zeit für die Implementierung neuer Funktionen gehabt.
+
+Außerdem hätte ich von Beginn an eine klarere Trennung zwischen Backend und Frontend angestrebt. Die Umsetzung der Separation of Concerns und einer sauberen Architektur hätte ich gern zu Beginn ordnungsgemäß umgesetzt, statt diese nachträglich aufwendig zu refactoren.  
+Zu diesem Zeitpunkt fehlte mir jedoch noch wichtiges Fachwissen. Auch hier hätten wir Zeit sparen können, die wir in weitere Funktionalitäten investiert hätten.  
+Zudem hätte ich die Definition und konsequente Einhaltung gemeinsamer Konventionen im Team früher eingeführt und mich selbst stärker an diese gehalten.  
+Mit der Einführung des Pair-Programming und der Code-Reviews wurden wir zu einem eingespielten Team, das effizient zusammenarbeiten konnte. Hierbei habe ich viel gelernt, und durch den Input meiner Teamkollegen konnte ich Probleme oft schneller lösen. Besonders Tristan war hier eine große Hilfe. Unser Fortschritt hätte deutlich zügiger sein können, wenn unsere Programming-Sessions von Anfang an stattgefunden hätten.
+
+== Einordnung in den SE-Prozess
+
+Meine Tätigkeiten lassen sich folgenden Phasen zuordnen:
+
+* **Analyse:**  
+  *** Analyse der User Stories und Evaluation geeigneter Technologien (z. B. Node.js, Express, Supabase, Swagger-UI, Docker, React und diverse nicht genutzte Test-Bibliotheken)
+* **Entwurf / Design:**  
+  *** Entwurf des API-Designs, der Authentifizierungs- und Autorisierungsmechanismen sowie des Supabase-Datenbankmodells
+  *** Mitwirkung an den ORM-Schemata für Prisma
+* **Implementierung:**  
+  *** Implementierung der Auth-Services, der ursprünglichen Datenbankstruktur, der API-Endpunkte und der Swagger-UI 
+  *** Mitwirkung am Backend-Refactor mit PrismaORM
+* **Test / Qualitätssicherung:**  
+  *** Erstellung einfacher Unit-Tests, Durchführung von Integrationstests über Swagger-UI sowie Teilnahme an allen Code-Reviews
+
+== Persönliches Fazit
+
+=== Fachlicher Lernzuwachs
+
+Ich habe meine Kenntnisse in der Backend-Entwicklung mit Node.js und Express deutlich vertieft.  
+Insbesondere habe ich viel über Benutzer-Authentifizierung und Autorisierung gelernt.  
+Zusätzlich habe ich praktische Erfahrungen mit Supabase als Backend-as-a-Service gesammelt, was mir geholfen hat, die Integration von Datenbanken in Webanwendungen besser zu verstehen.
+
+Die Arbeit mit Pull-Requests, Dev-Tasks und Tests/Swagger-UI hat mir verdeutlicht, wie wichtig eine gute Dokumentation für Teamarbeit und Wartbarkeit ist.  
+Darüber hinaus hat das aufwändige Refactoring, um die angestrebte Trennung von Backend und Frontend zu erreichen, mein Verständnis für Softwarearchitekturen im Web deutlich verbessert.
+
+=== Methodischer / organisatorischer Lernzuwachs
+
+Ich habe viel über Teamarbeit und den Umgang mit Git-Versionskontrolle gelernt.  
+Zu Beginn war es schwierig, den Überblick über verschiedene Entwicklungsstände zu behalten, da ohne klare Regeln gearbeitet wurde.  
+Mit der Zeit einigten wir uns auf eine klare Branch-Strategie und feste Regeln für das Mergen in den Hauptbranch, was die Zusammenarbeit deutlich verbesserte.
+
+=== Beitrag zum Projekterfolg
+
+Mein Beitrag zum Projekt war umfangreich, hätte jedoch zu Beginn stärker an Best Practices ausgerichtet sein können.  
+Nachdem wir uns etwa im ersten Drittel des Semesters besser koordiniert hatten, wurden wir deutlich produktiver.
+
+Mein Schwerpunkt lag gegen Ende vor allem in der Backend-Entwicklung, dennoch habe ich an allen Teilen des Projekts mitgewirkt und das Team bestmöglich unterstützt.  
+Meine Arbeit hat dazu beigetragen, eine funktionierende Webanwendung zu entwickeln, die den Anforderungen des Moduls Software Engineering 2 gerecht werden sollte.
