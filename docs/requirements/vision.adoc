@@ -19,7 +19,8 @@ Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das v
 === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
 Siehe <<#glossary, Glossar>>.
-//Siehe <<./glossary.adoc#glossary, Glossar>>.
+
+include::../docs/requirements/glossary.adoc[]
 
 === Referenzen
 (hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
