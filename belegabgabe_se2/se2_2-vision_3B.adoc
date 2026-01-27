@@ -32,4 +32,4 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 include::../docs/requirements/vision.adoc[]
 
 include::../docs/requirements/ux-concept.adoc[]
-//hiervon nur den Abschnitt Nutzungskontekt übernehmen - Personas sollen nicht mit rein
+//hiervon nur den Abschnitt Nutzungskontext übernehmen - Personas sollen nicht mit rein

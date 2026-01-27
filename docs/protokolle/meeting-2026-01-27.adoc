@@ -1,0 +1,61 @@
+= Meeting 27.01.2026 online (discord)
+Anwesend: Monika, Felix, Tristan, Martin, Paul, Nicola, Patrick
+
+== Review
+-   Review und Abnahme Dokumentation
+    -   grundsätzlich: Einzeldateien in Abgabedokumente einbinden wo sinnvoll, ansonsten Text reinkopieren
+    -   Vision (27./28.01.)
+        => Nutzungskontext anfügen (aus ux-concept kopieren)
+        => PDF erzeugen (Nicola)
+    -   Entwicklerdoku (28.01.)
+        => Architecture-Notebook:
+            * Annahmen/Abhängigkeiten: Prisma + Docker (stattdessen mpm?)
+            * Arch.-relevante Anforderungen: Responsives Design?
+        => Design-Dokument bereinigen - nur das lassen, was nicht im arch.noteb. + Link Swagger (Paul, Patrick)
+        => Datenstrukturen (Tristan)
+        => Styleguide fertig
+        => Anleitung für Aufsetzen der Dev-Umgebung (Tristan)
+        => PDF erzeugen (Tristan)
+    -   Testdoku (28.01.)
+        => "Testobjekte" + Buzzwords (Felix, Martin)
+        => Beschreibung Orchestrierung (was wird wo getestet und warum) (evtl. aus project_plan übernehmen) (Tristan)
+        => in Testkonzept: Hinweise aus VL beachten (Miro/VL) (Felix, Martin)
+        => Testmethoden konkret benannt? (Miro/VL) (Felix, Martin)
+        => test_cases.adoc umformatieren und verlinken (Nicola)
+        => PDF erzeugen (??)
+    -   Anwenderdoku (28.01.)
+        => Glossar von nicht verwendeten Begriffen, Überarbeitung (Nicola)
+        => Aktualisierung Screenshots (Martin)
+        => PDF erzeugen (Martin)
+    -   Betriebsdoku (28.01.)
+        => Deployment: Beschreibung, wie Client/Server gestartet wird (Paul, Tristan)
+        => PDF erzeugen (Tristan)
+    -   Gruppenreflexion (Update Martin?) (bis 28.01.)
+        => Ablaufplan verlinken unter 1.3 oder als Anhang (Martin)
+        => Ergänzung Verringerung des Funktionsumfang wegen Refactoring unter 1.6 (Tristan)
+    -   Einzelreflexionen fertigstellen bis 28.01. abends
+
+== To Do's
+-   Beendigung aller Abgabedokumente und Arbeiten am System bis zum 28.01. abends
+-   Infos aus Doku Container in Doku (Doku Deployment: Tristan)
+-   aktuelles Domänenmodell in Doku übernehmen => nach Merge aller Dev-Branches (Nicola)
+-   automatisierte Tests mit Github Actions aufbauen (Tristan) => nach Merge
+-   Frontend-Tests eine Ordner-Ebene weiter hoch sortieren (Patrick)
+-   Check auf richtige Pfade bei Github Actions nach Ordner-Änderung Frontend-Tests (Tristan)
+-   Rückfrage zu Visionsdokument => für wen? (Anwender und/oder Entwicker und/oder Admins) (Monika)
+
+== Done
+-   wichtig ist das Vorliegen einer Teststrategie (was muss wann durch wen getestet werden und was passiert mit den Testergebnissen, insbesondere bei Fails)
+    => vor PR müssen alle Unit-Tests erfolgreich sein
+    => im PR werden Akzeptanztests durchgeführt
+    => im Zuge des PR werden Backend- und Frontendtests mit Swagger durchgeführt
+    => bei Fail: Issue mit Label "Bug"
+-   Review der letzten Systemänderungen und Abnahme durch PO
+-   Styleguide dokumentieren (Patrick, Felix)
+-   Doku React-Komponenten => architecture-notebook (C4 Modelle Ebene 3+4) (Paul, Tristan, Martin)
+
+== Not Done
+-   Wissensaufbau Unit-Tests mit Prisma (Martin)
+-   Datenstrukturen (DB-Tabellen) ergänzen (Doku Glossar: Martin, Tristan, Paul)
+
+=> Team-Event: 20.01.26 13.15 Uhr Foyer (leider ohne Felix)

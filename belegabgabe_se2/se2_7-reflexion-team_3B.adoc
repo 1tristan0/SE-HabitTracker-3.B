@@ -58,9 +58,11 @@ Ein dritter zentraler Erfolg war die konsequente Nutzung von GitHub für das Ver
 
 Neue Features sowie Fehlerbehebungen wurden auf separaten Branches entwickelt. Um Missverständnisse zu vermeiden, wurde eine einheitliche Namenskonvention für Branches eingeführt, die Informationen über Typ, zugehörige User Story oder Issue sowie den verantwortlichen Entwickler enthält. Dadurch war jederzeit klar ersichtlich, welchem Zweck ein Branch dient.
 
-Die Integration in den dev-Branch erfolgte ausschließlich über Pull Requests. Dabei wurden relevante Teammitglieder als Reviewer eingebunden, sodass Änderungen mindestens von zwei Personen getestet und optional einem Code-Review unterzogen wurden. Dieses Vorgehen erhöhte die Codequalität und reduzierte das Risiko von Fehlern im gemeinsamen Codebestand. Inaktive Branches wurden nach dem Merge konsequent entfernt. Zum Ende einer Iteration wurde der dev-Branch in den main-Branch überführt.
+Die Integration von Features in den dev-Branch erfolgte ausschließlich über Pull Requests. Dabei wurden relevante Teammitglieder als Reviewer eingebunden, sodass Änderungen mindestens von zwei Personen getestet und optional einem Code-Review unterzogen wurden. Dieses Vorgehen erhöhte die Codequalität und reduzierte das Risiko von Fehlern im gemeinsamen Codebestand. Inaktive Branches wurden nach dem Merge konsequent entfernt.
 
 Dieser strukturierte Umgang mit Versionsverwaltung stellte sich als äußerst hilfreich heraus und trug maßgeblich zu einem stabilen Entwicklungsprozess bei. Gleichzeitig förderte er Transparenz, Verantwortungsbewusstsein und gemeinsame Qualitätsstandards im Team.
+
+//include:: Diagramm Martin
 
 === Misserfolg: Unzureichendes und inkonsistentes Tracking organisatorischer Aufgaben
 

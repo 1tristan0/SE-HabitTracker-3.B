@@ -35,6 +35,7 @@ Vor der finalen Abnahme durch den Product Owner müssen manuelle Tests durchgef�
 
 * Simulation realistischer Benutzerszenarien
 * Überprüfung der Funktionalität aus Nutzerperspektive
+// ..entsprechend test_cases.adoc (Link)?
 * Validierung des Designs und der Benutzeroberfläche
 * Sicherstellung der Benutzerfreundlichkeit
 
@@ -48,8 +49,8 @@ Eine Änderung oder ein neues Feature wird erst akzeptiert, wenn:
 * Product Owner die Änderung freigegeben hat
 
 == Umgang mit Bugs nach/während der Abnahme
-Sollte ein Bug nach der Abnahme durch den Product Owner/Teammitglied/Externer Stakeholder entdeckt werden, wird folgender Prozess befolgt:
-* Dokumentation des Bugs im Github -> Neue Task mit dem Label "Bug"
-** Beschreibung des Fehlers, ggf mit Screenshots/Schritten zur Reproduktion
+Sollte *während* der Abnahme ein Bug entdeckt werden, erfolgt die Dokumentation innerhalb des Pull-Requests und nicht in einem separaten Issue. Dabei wird gegebenenfalls die Funktion "Request Changes" von Github  genutzt.
 
-Sollte während der Abnahme ein Bug entdeckt werden, erfolgt die Dokumentation innerhalb des Pull-Requests und nicht in einem separaten Issue. Dabei wird gegebenenfalls die Funktion "Request Changes" von Github  genutzt.
+Sollte ein Bug *nach* der Abnahme durch den Product Owner/Teammitglied/Externer Stakeholder entdeckt werden, wird folgender Prozess befolgt:
+* Dokumentation des Bugs im Github -> Neuer Task mit dem Label "Bug"
+** Beschreibung des Fehlers, ggf. mit Screenshots/Schritten zur Reproduktion

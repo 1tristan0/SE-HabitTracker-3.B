@@ -484,8 +484,8 @@ Korrektur innerhalb desselben Tages.
 Überprüfung der Möglichkeit zur Korrektur der Markierung am selben Tag.
 
 ### Vorraussetzung 
-Nutzer befindet sich am selben Kalendertag 
-Ein Habit wurde zuvor als erledigt markiert 
+Nutzer befindet sich am selben Kalendertag
+Ein Habit wurde zuvor als erledigt markiert
 
 ### Aktion:
 Nutzer hebt die Erledigt-Markierung auf
@@ -536,8 +536,8 @@ Der Kalender ist sichtbar
 Nutzer betrachtet die Kalenderansicht.
 
 ### Erwartetes Ergebnis (Ausgabe)
-Tage sind übersichtlich angeordnet   
-Die Darstellung entspricht einer klaren Struktur (z. B. Monats- oder Wochenübersicht) 
+Tage sind übersichtlich angeordnet  
+Die Darstellung entspricht einer klaren Struktur (z. B. Monats- oder Wochenübersicht)
 
 ### Testergebnis:
 - [ ] bestanden
@@ -550,14 +550,14 @@ Die Darstellung entspricht einer klaren Struktur (z. B. Monats- oder Wochenüber
 Überprüfung, dass für einzelne Tage visualisiert wird, ob Habits erledigt wurden.
 
 ### Vorraussetzung 
-Nutzer ist eingeloggt   
-Es existieren Tage mit erledigten und nicht erledigten Habits 
+Nutzer ist eingeloggt  
+Es existieren Tage mit erledigten und nicht erledigten Habits
 
 ### Aktion:
 Nutzer betrachtet verschiedene Tage im Kalender
 
 ### Erwartetes Ergebnis (Ausgabe)
-Tage mit erledigten Habits sind visuell gekennzeichnet.   
+Tage mit erledigten Habits sind visuell gekennzeichnet.  
 Tage ohne erledigte Habits sind entsprechend anders oder neutral dargestellt.
 
 ### Testergebnis:
@@ -620,7 +620,7 @@ Weiterleitung auf die Startseite nach erfolgreicher Anmeldung
 Überprüfung, dass Nutzer nach erfolgreicher Anmeldung automatisch auf die Startseite weitergeleitet werden.
 
 ### Vorraussetzung 
-Nutzerkonto existiert 
+Nutzerkonto existiert
 Nutzer ist nicht eingeloggt
 
 ### Aktion:
@@ -659,14 +659,14 @@ Anzeige relevanter Habits auf der Startseite.
 Überprüfung, dass auf der Startseite relevante Habits angezeigt werden.
 
 ### Vorraussetzung 
-Nutzer ist eingeloggt 
+Nutzer ist eingeloggt
 Es existieren zu erledigende und erledigte Habits für den aktuellen Tag
 
 ### Aktion:
 Nutzer betrachtet die Startseite.
 
 ### Erwartetes Ergebnis (Ausgabe)
-Zu erledigende Habits werden angezeigt 
+Zu erledigende Habits werden angezeigt
 Bereits erledigte Habits werden angezeigt
 
 ### Testergebnis:
@@ -682,14 +682,14 @@ Sichtbarkeit der Navigationseinträge
 Überprüfung, dass die wichtigsten Funktionen in der Navigationsbar sichtbar sind.
 
 ### Vorraussetzung 
-Nutzer ist eingeloggt 
+Nutzer ist eingeloggt
 Anwendung ist geladen
 
 ### Aktion:
 Nutzer betrachtet die Navigationsbar
 
 ### Erwartetes Ergebnis (Ausgabe)
-Der Reiter "Habit anlegen" ist sichtbar 
+Der Reiter "Habit anlegen" ist sichtbar
 Der Reiter "Übersicht" ist sichtbar
 
 ### Testergebnis:
@@ -703,7 +703,7 @@ Navigation zu „Habit anlegen“
 Überprüfung, dass über die Navigationsbar zur Seite „Habit anlegen“ navigiert werden kann.
 
 ### Vorraussetzung 
-Nutzer ist eingeloggt 
+Nutzer ist eingeloggt
 Navigationsbar ist sichtbar
 
 ### Aktion:
@@ -723,7 +723,7 @@ Navigation zur Übersicht der Habits
 Überprüfung, dass über die Navigationsbar zur Übersicht der Habits navigiert werden kann.
 
 ### Vorraussetzung 
-Nutzer ist eingeloggt 
+Nutzer ist eingeloggt
 Navigationsbar ist sichtbar
 
 ### Aktion:
@@ -742,7 +742,7 @@ Die Seite „Übersicht über die Habits“ (Startseite) wird geöffnet
 Konsistentes Farbkonzept wird im gesamten Frontend verwendet
 
 ### Ziel des Tests:
-Überprüfung, dass ein einheitliches Farbkonzept existiert und durchgängig im Frontend angewendet wird. 
+Überprüfung, dass ein einheitliches Farbkonzept existiert und durchgängig im Frontend angewendet wird.
 
 ### Vorraussetzung 
 Das Frontend ist lauffähig und es existieren mehrere UI-Seiten/Ansichten.
@@ -766,14 +766,14 @@ CSS-Klassen folgen einer klaren, einheitlichen Benennungslogik
 Überprüfung, dass CSS-Klassen einem einheitlichen Benennungsschema folgen.
 
 ### Vorraussetzung 
-Ein Benennungsschema ist definiert (z. B. BEM oder teaminternes Schema) 
+Ein Benennungsschema ist definiert (z. B. BEM oder teaminternes Schema)
 Der Quellcode des Frontends ist zugänglich
 
 ### Aktion:
 Stichprobenartig werden CSS/SCSS-Dateien sowie Komponenten-Dateien (z. B. React-Komponenten) überprüft.
 
 ### Erwartetes Ergebnis (Ausgabe)
-CSS-Klassennamen entsprechen dem definierten Schema 
+CSS-Klassennamen entsprechen dem definierten Schema
 Es sind keine uneinheitlichen oder widersprüchlichen Benennungen erkennbar
 
 ### Testergebnis:
