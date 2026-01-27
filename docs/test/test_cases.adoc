@@ -8,15 +8,16 @@ Es dient als Referenz für Tester, Entwickler und Stakeholder, um die Qualität 
 
 == Testkonzept
 Wir verwenden aktuell folgende Testarten:
-- **Unit Tests**: Überprüfen einzelne Funktionen und Komponenten isoliert.
-- **Modul-/Handler-Tests (Backend)**: Testen einzelne Express-Handler mit gestubbten Abhängigkeiten.
-- **Systemtests/Abnahmetests (manuell)**: Prüfung der UI und Benutzerflüsse durch Tester.
+* *Unit Tests*: Überprüfen einzelne Funktionen und Komponenten isoliert.
+* *Modul-/Handler-Tests (Backend)*: Testen einzelne Express-Handler mit gestubbten Abhängigkeiten.
+* *Systemtests/Abnahmetests (manuell)*: Prüfung der UI und Benutzerflüsse durch Tester.
+
 
 == Testtechnologien
 Für die verschiedenen Testarten verwenden wir unterschiedliche Technologien:
-- **Unit Tests Frontend**: Jest + React Testing Library für Komponenten- und Utility-Tests.
-- **Unit/Handler Tests Backend**: Node.js + `assert`, Stubs/Mocks für Prisma und Supabase.
-- **Systemtests (manuell)**: Durchführung durch Tester anhand der Akzeptanzkriterien.
+* *Unit Tests Frontend**: Jest + React Testing Library für Komponenten- und Utility-Tests.
+* *Unit/Handler Tests Backend**: Node.js + `assert`, Stubs/Mocks für Prisma und Supabase.
+* *Systemtests (manuell)**: Durchführung durch Tester anhand der Akzeptanzkriterien.
 
 == Dokumentation der Tests
 Die einzelnen Testfälle werden in den User-Stories im Github dokumentiert und auch in diesem Dokument festgehalten. Dort sind die Akzeptanzkriterien und die erwarteten Ergebnisse festgehalten. 
@@ -356,8 +357,6 @@ und steht nicht mehr zur Bearbeitung zur Verfügung.
 *Testergebnis:*  
 - [ ] bestanden  
 - [ ] nicht bestanden
-
----
 
 === User Story B033
 
