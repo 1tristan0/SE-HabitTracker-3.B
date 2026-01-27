@@ -4,6 +4,16 @@
 
 Dieses Dokument beschreibt die Test-Strategie für die Anwendung. Es umfasst automatisierte Tests nach Feature-Updates sowie manuelle Tests vor der finalen Akzeptanz durch den Product Owner.
 
+== Stichpunkte für Felix
+wichtigste Komponenten:
+
+* Frontend: 
+** alle Components über Unittests
+
+* Backend:
+** Routen, Geschäftslogik, Authentification über Unittests
+** API über Integrationstest (Swagger) 
+
 == Automatisierte Tests nach Feature-Updates
 
 Nach jedem neuen Funktionsupdate müssen alle automatisierten Tests durchgeführt werden.
