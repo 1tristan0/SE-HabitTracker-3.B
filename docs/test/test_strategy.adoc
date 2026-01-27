@@ -4,15 +4,16 @@
 
 Dieses Dokument beschreibt die Test-Strategie für die Anwendung. Es umfasst automatisierte Tests nach Feature-Updates sowie manuelle Tests vor der finalen Akzeptanz durch den Product Owner.
 
-== Stichpunkte für Felix
-wichtigste Komponenten:
+== Testobjekte und Teststufen
 
-* Frontend: 
-** alle Components über Unittests
+Die Teststrategie orientiert sich an der Testpyramide: Unit-Tests bilden die Basis (Frontend und Backend), ergänzt durch manuelle Akzeptanztests vor der Abnahme. Zusätzlich werden API-Prüfungen auf Integrationsebene über Swagger durchgeführt.
+
+* Frontend:
+** alle Komponenten werden über Unit-Tests getestet
 
 * Backend:
-** Routen, Geschäftslogik, Authentification über Unittests
-** API über Integrationstest (Swagger) 
+** Routen, Geschäftslogik und Authentifizierung über Unit-Tests
+** API-Prüfungen auf Integrationsebene (manuell über Swagger)
 
 == Automatisierte Tests nach Feature-Updates
 
@@ -20,9 +21,10 @@ Nach jedem neuen Funktionsupdate müssen alle automatisierten Tests durchgeführ
 
 === Testdurchführung
 
+* Nach der Implementierung eines Features führt der verantwortliche Entwickler die Tests lokal aus
 * Alle bestehenden Tests werden ausgeführt
 * Es gilt das Verursacherprinzip: Der Entwickler des Features ist verantwortlich für die Testdurchführung
-* Bei fehlgeschlagenen Tests muss der Entwickler die Ursache analysieren und beheben.
+* Bei fehlgeschlagenen Tests muss der Entwickler die Ursache analysieren und beheben
 * Es wird kein Pull Request gestellt, bevor alle Tests lokal bestanden sind
 * Ebenfalls werden neue Tests für die hinzugefügten Funktionalitäten implementiert 
 
@@ -30,22 +32,23 @@ Nach jedem neuen Funktionsupdate müssen alle automatisierten Tests durchgeführ
 
 Bei fehlgeschlagenen Tests wird folgendes Vorgehen durchgeführt:
 
-*Analyse*: Ursache des Testfehlers wird untersucht
-*Bewertung*: Bestimmung, ob:
-    - Die neue Funktionalität die Tests erfüllt und Tests angepasst werden müssen, oder
-    - Die neue Funktionalität fehlerhaft ist und überarbeitet werden muss
-*Abklärung*: Bei Bedarf wird mit dem Team und Product Owner geklärt, wie vorzugehen ist
-*Behebung*: Notwendige Anpassungen werden vorgenommen
+- *Analyse:* Ursache des Testfehlers wird untersucht.
+- *Bewertung:* Entscheidung, ob
+  * die neue Funktionalität korrekt ist und bestehende Tests angepasst werden müssen oder
+  * die neue Funktionalität fehlerhaft ist und überarbeitet werden muss.
+- *Abklärung:* Bei Bedarf Abstimmung mit Team und Product Owner.
+- *Behebung:* Notwendige Anpassungen werden vorgenommen.
 
 == Manuelle Tests vor finaler Abnahme der User Storys durch den Product Owner
 
 Vor der finalen Abnahme durch den Product Owner müssen manuelle Tests durchgeführt werden. Diese sollen die Akzeptanzkriterien der einzelnen User Storys abdecken.
+Die manuellen Tests entsprechen Akzeptanztests und orientieren sich an den definierten Akzeptanzkriterien der jeweiligen User Story.
 
 === Testumfang
 
 * Simulation realistischer Benutzerszenarien
 * Überprüfung der Funktionalität aus Nutzerperspektive
-// ..entsprechend test_cases.adoc (Link)?
+* Die konkreten Akzeptanztests sind in `test_cases.adoc` dokumentiert
 * Validierung des Designs und der Benutzeroberfläche
 * Sicherstellung der Benutzerfreundlichkeit
 
@@ -59,8 +62,10 @@ Eine Änderung oder ein neues Feature wird erst akzeptiert, wenn:
 * Product Owner die Änderung freigegeben hat
 
 == Umgang mit Bugs nach/während der Abnahme
+
 Sollte *während* der Abnahme ein Bug entdeckt werden, erfolgt die Dokumentation innerhalb des Pull-Requests und nicht in einem separaten Issue. Dabei wird gegebenenfalls die Funktion "Request Changes" von Github  genutzt.
+Nach der Abnahme werden Bugs immer als Issue dokumentiert, um den Stand der Softwarequalität nachvollziehbar zu machen.
 
 Sollte ein Bug *nach* der Abnahme durch den Product Owner/Teammitglied/Externer Stakeholder entdeckt werden, wird folgender Prozess befolgt:
-* Dokumentation des Bugs im Github -> Neuer Task mit dem Label "Bug"
-** Beschreibung des Fehlers, ggf. mit Screenshots/Schritten zur Reproduktion
+* Dokumentation des Bugs als GitHub Issue mit dem Label `bug`
+** Beschreibung des Fehlers, ggf. mit Screenshots und Schritten zur Reproduktion
