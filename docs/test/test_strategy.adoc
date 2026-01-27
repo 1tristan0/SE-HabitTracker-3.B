@@ -66,6 +66,9 @@ Eine Änderung oder ein neues Feature wird erst akzeptiert, wenn:
 Sollte *während* der Abnahme ein Bug entdeckt werden, erfolgt die Dokumentation innerhalb des Pull-Requests und nicht in einem separaten Issue. Dabei wird gegebenenfalls die Funktion "Request Changes" von Github  genutzt.
 Nach der Abnahme werden Bugs immer als Issue dokumentiert, um den Stand der Softwarequalität nachvollziehbar zu machen.
 
-Sollte ein Bug *nach* der Abnahme durch den Product Owner/Teammitglied/Externer Stakeholder entdeckt werden, wird folgender Prozess befolgt:
-* Dokumentation des Bugs als GitHub Issue mit dem Label `bug`
-** Beschreibung des Fehlers, ggf. mit Screenshots und Schritten zur Reproduktion
+Sollte ein Bug *nach* der Abnahme durch den Product Owner, ein Teammitglied oder externe Stakeholder entdeckt werden, wird dieser als GitHub Issue mit dem Label `bug` dokumentiert.
+
+Alle erfassten Bugs sind zentral im GitHub-Repository einsehbar:
+link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues?q=label%3Abug[GitHub Issues mit Label „bug“]
+
+Jedes Issue enthält eine Beschreibung des Fehlers sowie – sofern erforderlich – Screenshots oder Schritte zur Reproduktion.
