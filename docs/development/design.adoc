@@ -32,4 +32,8 @@ POST `/api/auth/session` - POST-Anfrage an die API senden, um die aktuelle Sitzu
 POST `/api/auth/logout` - POST-Anfrage an die API senden, um den Benutzer abzumelden
 Backend-Datenbank: Das Backend greift per Prisma ORM auf die Datenbank zu
 
+Bei laufendem Docker-Container können die Schnittstellen unter http://localhost:3001/api/docs/ nachvollzogen werden. 
+
 == Datenmodell
+
+
