@@ -31,6 +31,9 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 //Marktüberblick Testbibliotheken und Testplan
 include::../docs/test/testbibliotheken.adoc[]
 
+//Teststrategy
+include::../docs/test/test_strategy.adoc[]
+
 //Testfälle
 include::../docs/test/test_cases.adoc[]
 //TODO nur Übernahme der beschriebenen Testfälle
