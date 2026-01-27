@@ -4,11 +4,11 @@ import Animal from '../components/animal/Animal';
 
 describe('Animal', () => {
   /**
-   * Test: Begleiter zeigt positives (glückliches) Bild, wenn begleiterMood "gluecklich" ist.
+   * Test: Begleiter zeigt positives (glückliches) Bild, wenn animalMood "gluecklich" ist.
    * 
    * Szenario:
    * - Benutzer hat mindestens ein Habit heute erfüllt
-   * - begleiterMood ist "gluecklich"
+   * - animalMood ist "gluecklich"
    * 
    * Erwartet:
    * - Das normale Bild des Begleiters wird angezeigt (z.B. /images/cat(1).png)
