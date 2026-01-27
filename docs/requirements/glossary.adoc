@@ -1,16 +1,12 @@
-= Glossar: {project-name}
+== Glossar
 include::../_includes/default-attributes.inc.adoc[]
 
-include::../_includes/teammitglieder.adoc[]
-
-{localdatetime}
 // Platzhalter für weitere Dokumenten-Attribute
 
+// === Einführung
+// In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der Habit-Tracker definiert. Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
 
-== Einführung
-In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der Habit-Tracker definiert. Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
-
-== Begriffe
+//=== Begriffe
 [%header]
 |===
 | Begriff | Definition und Erläuterung | Synonyme
@@ -49,28 +45,28 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 
 
-== Abkürzungen und Akronyme
-[%header]
-|===
-| Abkürzung | Bedeutung | Erläuterung
+// === Abkürzungen und Akronyme
+// [%header]
+// |===
+// | Abkürzung | Bedeutung | Erläuterung
 //| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
-| SMART Goal | Ziel, das Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert formuliert ist. | Grundlage vieler Habit-Formulierungen.|
-| xx | xx | xx
-|===
+// | SMART Goal | Ziel, das Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert formuliert ist. | Grundlage vieler Habit-Formulierungen.|
+// | xx | xx | xx
+// |===
 
-== Verzeichnis der Datenstrukturen
-[%header]
-|===
-| Bezeichnung | Definition | Format | Gültigkeitsregeln | Aliase
+// == Verzeichnis der Datenstrukturen
+// [%header]
+// |===
+// | Bezeichnung | Definition | Format | Gültigkeitsregeln | Aliase
 
-| Anmeldedaten| Zusammensetzung von Benutzername und Passwort.| String| Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.| Login
-| Cloud Backup | Automatische Sicherung der Habit-Daten in einer Cloud, um Gerätewechsel oder Datenverlust abzufangen. |
-| xx| xx| xx| xx| xx
-|===
+// | Anmeldedaten| Zusammensetzung von Benutzername und Passwort.| String| Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.| Login
+// | Cloud Backup | Automatische Sicherung der Habit-Daten in einer Cloud, um Gerätewechsel oder Datenverlust abzufangen. |
+// | xx| xx| xx| xx| xx
+// |===
 
-== Domänenmodell
+// == Domänenmodell
 // Fügen Sie hier eine Abbildung mit ihrem Domänenmodell ein
 // lokale Einbindung klappt => 
-image::../images/domaenenmodell.drawio.png[]
+// image::../images/domaenenmodell.drawio.png[]
 // Einbindung für Abgabedokument klappt nicht => image::../docs/requirements/images/domaenenmodell.drawio.png[]
 

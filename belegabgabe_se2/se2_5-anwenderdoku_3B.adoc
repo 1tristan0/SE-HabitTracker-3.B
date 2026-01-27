@@ -194,6 +194,7 @@ Graue Tage liegen in der Zukunft. Für diese Tage existieren noch keine Habit-Da
 * Eine Internetverbindung ist erforderlich
 * Alle Daten sind benutzerbezogen gespeichert
 
+include::../docs/requirements/glossary.adoc[]
 ---
 
 *Stand der Dokumentation: aktueller Entwicklungsstand*
