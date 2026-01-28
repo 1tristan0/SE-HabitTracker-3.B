@@ -1,0 +1,85 @@
+name: Docker Image Deplpyment
+
+on:
+  pull_request:
+    branches: [dev, main]
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: src
+
+    permissions:
+      contents: read
+      packages: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup backend .env file
+        run: |
+          cat <<EOF > backend/.env.production
+          DATABASE_URL=${{ secrets.LOCAL_DATABASE_URL }}
+          SUPABASE_URL=${{ secrets.LOCAL_SUPABASE_URL }}
+          SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
+          PORT=${{ vars.PORT }}
+          EOF
+
+      - name: Setup frontend .env file
+        run: |
+          cat <<EOF > frontend/.env
+          REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }}
+          EOF
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+    
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker images
+        run: |
+          docker compose \
+            -f docker-compose.yml \
+            -f docker-compose.prod.yml \
+            build
+
+    # Tags vergeben für letzten commit und latest damit Historie im GHCR erhalten bleibt
+      - name: Tag backend image
+        run: |
+          docker tag \
+          gewohnheitstier-backend \
+          ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:<sha>
+          docker tag \
+          gewohnheitstier-backend \
+          ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:latest
+
+      - name: Tag frontend image
+        run: |
+          docker tag \
+          gewohnheitstier-frontend \
+          ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:<sha>
+          docker tag \
+          gewohnheitstier-frontend \
+          ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:latest
+      
+      - name: Push backend image
+        run: |
+          docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:<sha>
+          docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:latest
+
+      - name: Push frontend image
+        run: |
+          docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:<sha>
+          docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:latest
