@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Login from '../components/auth/Login';
+import Login from '../src/components/auth/Login';
 
 describe('Login', () => {
 

@@ -1,9 +1,9 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import HabitInfoModal from '../components/habits/modals/HabitInfoModal';
+import HabitInfoModal from '../src/components/habits/modals/HabitInfoModal';
 
 // Mock der Utility-Funktionen
-jest.mock('../lib/convert', () => ({
+jest.mock('../src/lib/convert', () => ({
   convertToGermanDateString: (date) => {
     if (!date) return '';
     return new Date(date).toLocaleDateString('de-DE', {
@@ -14,7 +14,7 @@ jest.mock('../lib/convert', () => ({
   },
 }));
 
-jest.mock('../lib/habit', () => ({
+jest.mock('../src/lib/habit', () => ({
   getNumberOfCompletedHabits: jest.fn((habit) => habit?.prev_last_checked?.length || 0),
   getNumberOfCompletedHabitsLastMonth: jest.fn(() => 12),
   getPercentageOfCompletedHabits: jest.fn(() => 85),

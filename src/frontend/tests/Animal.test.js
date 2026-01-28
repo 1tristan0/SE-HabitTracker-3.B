@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Animal from '../components/animal/Animal';
+import Animal from '../src/components/animal/Animal';
 
 describe('Animal', () => {
   /**

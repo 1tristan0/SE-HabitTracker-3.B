@@ -15,16 +15,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-  },
-  "jest": {
-    "testMatch": [
-      "<rootDir>/tests/**/*.test.js",
-      "<rootDir>/src/**/*.test.js"
-    ]
   },
   "eslintConfig": {
     "extends": [
