@@ -1,53 +1,32 @@
 ## Selbstreflexion als Product Owner im Semesterprojekt „Gewohnheitstier“
 
-### Ausgangssituation und Aufgabenstellung
-
 Im Projekt hatte ich die Rolle des Product Owners. Mein Schwerpunkt lag darauf, die fachlichen Anforderungen so zu formulieren und weiterzuentwickeln, dass das DEV-Team damit zuverlässig arbeiten kann und wir im Review klar bewerten können, ob eine Anforderung erfüllt ist. Dafür habe ich die typischen PO-Aufgaben übernommen: User Stories ausarbeiten und priorisieren, Feedback aus Reviews aufnehmen und so verarbeiten, dass daraus klare nächste Schritte wurden, also überarbeitete Stories, neue Akzeptanzkriterien oder eine angepasste Priorisierung. Diese Feedback-Schleife aus Review und anschließender Anpassung passt genau zu dem, was wir auch in den Scrum-Abläufen in der Vorlesung als Kernmechanik gelernt haben. 
-
-### Konkrete Aufgaben und Belege aus dem Projektalltag
-
 Mein Beitrag war vor allem dann sichtbar, wenn Anforderungen „von vage zu umsetzbar“ werden mussten. Konkret bedeutet das:
-
 Ich habe priorisierte Features in Stories übersetzt, den Scope aktiv geschnitten, Akzeptanzkriterien ergänzt und offene Punkte so geklärt, dass das Team daraus Dev-Tasks ableiten konnte. Im Review habe ich Rückmeldungen aufgenommen, Unklarheiten dokumentiert und die Stories anschließend so überarbeitet, dass daraus eine bessere Grundlage für den nächsten Sprint entstand. Das war für mich kein einmaliger Schritt, sondern ein wiederkehrender Arbeitszyklus.
-
 Als Belege kann ich dabei auf die Artefakte verweisen, die ohnehin im Projekt entstanden sind: Product Backlog und überarbeitete User Stories mit Akzeptanzkriterien. 
+Neben den Anforderungen habe ich außerdem an einem konkreten Teil des Produkts mitgearbeitet, der für die Nutzerwirkung wichtig ist. Für den Begleiter haben wir eine kleine Auswahl an Tieren vorgesehen, um das Ganze persönlicher zu machen. Diese Tiere habe ich im Semesterverlauf gezeichnet und vorbereitet, damit sie in der Anwendung genutzt werden können. Das war für mich ein greifbarer Beitrag, weil er direkt sichtbar macht, was an unserem Ansatz anders ist als bei vielen Habit-Trackern.
 
 ### Vorgehen und eingesetzte Methoden
 
 Ein Problem ist dabei schon früh sichtbar geworden: Die User Stories waren anfangs häufig zu grob formuliert. In der Umsetzung hat sich das direkt ausgewirkt, weil die Ableitung konkreter Tasks schwerer war und Detailfragen erst während der Implementierung aufgetaucht sind. Rückblickend war das kein „kleiner Formulierungsfehler“, sondern ein echter Produktivitätsfaktor, weil große, unklare Stories die Sprintplanung instabil machen.
-
 Mir war deshalb relativ schnell klar, dass ich als PO nicht nur Stories schreiben darf, sondern dafür sorgen muss, dass die Anforderungen vor dem Planning ausreichend vorbereitet sind. Ich habe Refinement stärker genutzt und bewusst als Arbeitsformat verstanden, um Stories in Richtung „implementierbar“ zu bringen. Das passt auch zu dem Vorgehen aus den Vorlesungsunterlagen, wo eine Story als konkret genug gelten soll, dass sie sich sinnvoll zerlegen lässt. 
-
 Vor den Plannings habe ich die Stories, die als Nächstes anstehen, gezielt mit dem Team im Detail durchgesprochen. Das Ziel war, den Scope klarer abzugrenzen, offene Punkte früh zu klären und Akzeptanzkriterien so zu formulieren, dass man sie später wirklich als Abnahmegrundlage verwenden kann. Aus Testsicht ist das auch sauber anschlussfähig: Testfälle lassen sich direkt aus Akzeptanzkriterien und Spezifikationen ableiten, statt erst im Nachhinein zu raten, was „gemeint“ war. 
-
 Dadurch wurde die Task-Aufteilung im Team spürbar präziser, weil weniger Interpretationsspielraum übrig blieb.
 
-### Bezug zu Aufgaben anderer und Abgrenzung meiner Verantwortung
-
 Abgrenzung und Verantwortlichkeit waren in meiner Rolle relativ klar. Ich habe die Verantwortung dafür getragen, dass Anforderungen und Prioritäten verständlich und umsetzbar sind. Die technische Umsetzung lag beim Development-Team, aber meine Arbeit war eng damit verzahnt.
-
 Vor dem Team war meine Arbeit vor allem vorgelagert: Aus gut vorbereiteten User Stories wurden Dev-Tasks abgeleitet. Nachgelagert kam das Ergebnis über Reviews und laufende Rückfragen wieder zurück zu mir: Wenn das Team in Reviews Probleme oder Unklarheiten angesprochen hat, war es meine Aufgabe, das wieder in saubere Anforderungen zurückzuübersetzen und Prioritäten gegebenenfalls anzupassen. Genau diese Vor- und Nachgelagertheit war im Projektalltag ständig spürbar. Wenn eine Story nicht präzise genug war, hat sich das sofort in der Umsetzung gezeigt. Wenn die Umsetzung neue Randfälle sichtbar gemacht hat, war das mein Signal, Akzeptanzkriterien und Schnittstellen der Anforderung nachzuschärfen.
 
 ### Umgang mit dem Refactoring und Auswirkungen auf Priorisierung
 
 Im Verlauf des Semesters hatte das Team außerdem mit einem größeren technischen Thema zu tun: Es wurde deutlich, dass die Systemstruktur in der damaligen Form die Weiterentwicklung erschwert. Daraufhin wurde ein umfangreiches Refactoring durchgeführt. Ich habe daraus vor allem eine Aufgabe mitgenommen: Prioritäten realistisch neu bewerten, statt am ursprünglichen Wunsch-Backlog festzuhalten.
-
 Für mich als PO hatte das einen klaren Effekt. Ich musste die Prioritäten im Backlog neu bewerten, weil sich Zeit und Entwicklungskapazitäten verschoben haben. Anstatt viele zusätzliche Features weiterzuverfolgen, habe ich den Fokus stärker auf den Kern der Anwendung gelegt und dafür gesorgt, dass die wichtigsten Funktionen sauber umgesetzt und abnehmbar bleiben. Das war weniger eine kreative Entscheidung, sondern eine Konsequenz aus den realen Projektbedingungen und der technischen Notwendigkeit, die Basis stabil zu bekommen.
 
-### Bewertung: Was gut funktioniert hat und was nicht
-
 Rückblickend hat aus meiner Sicht besonders gut funktioniert, dass wir im Team immer besser darin geworden sind, Anforderungen gemeinsam zu klären und Qualität über Zusammenarbeit abzusichern. Pair Programming, kurze Abstimmungswege und Reviews haben dazu beigetragen, dass Entscheidungen nicht isoliert getroffen wurden und Probleme früher sichtbar wurden. Inhaltlich deckt sich das mit dem, was wir zur Wirkung von Code Reviews und dem Vier-Augen-Prinzip besprochen haben, auch wenn das natürlich eher im Dev-Team liegt. 
-
 Für mich als PO war der Nutzen trotzdem direkt: Je besser das Team im Review seine Beobachtungen formulieren konnte, desto besser konnte ich daraus konkrete Anforderungen und Abnahmekriterien machen.
-
 Gleichzeitig gab es Punkte, die nicht gut gelaufen sind. Die anfänglich groben Stories und die unsichere Aufwandseinschätzung haben uns spürbar Zeit gekostet. Das war kein reines Planungsthema, sondern hat sich konkret in Nacharbeit, Rückfragen und Verschiebungen gezeigt. Außerdem hat das Refactoring verdeutlicht, wie teuer späte Architekturentscheidungen werden können, weil sich dadurch Prioritäten und Zeitpläne zwangsläufig verschieben. Für zukünftige Projekte nehme ich deshalb mit, Anforderungen früher kleiner zu schneiden und Akzeptanzkriterien noch konsequenter mitzudenken, damit Planung und Umsetzung stabiler werden.
-
-### Zusätzlicher eigener Beitrag mit direkter Produktwirkung
-
-Neben den Anforderungen habe ich außerdem an einem konkreten Teil des Produkts mitgearbeitet, der für die Nutzerwirkung wichtig ist. Für den Begleiter haben wir eine kleine Auswahl an Tieren vorgesehen, um das Ganze persönlicher zu machen. Diese Tiere habe ich im Semesterverlauf gezeichnet und vorbereitet, damit sie in der Anwendung genutzt werden können. Das war für mich ein greifbarer Beitrag, weil er direkt sichtbar macht, was an unserem Ansatz anders ist als bei vielen Habit-Trackern.
 
 ### Einordnung meiner Tätigkeiten in den Softwareentwicklungsprozess
 
 Wenn ich meine Tätigkeiten im Softwareentwicklungsprozess einordne, lag mein Schwerpunkt in Analyse und Anforderungsarbeit. Dazu kamen Aspekte aus Entwurf, weil ich Stories strukturiert, gesplittet und mit Abnahmekriterien versehen habe. Über Reviews und die Rückführung von Feedback war ich außerdem an der Qualitätssicherung beteiligt, weil diese Schleife entscheidend dafür war, Anforderungen und Umsetzung schrittweise zu verbessern. In den Vorlesungen wird diese Kette aus Planung, Umsetzung, Integration und Review genau als wiederkehrender Ablauf beschrieben, und in der Praxis habe ich gemerkt, wie stark die Qualität dieser Schleife am Detailgrad der Anforderungen hängt. 
-
 Insgesamt habe ich im Projekt vor allem gelernt, dass PO-Arbeit nicht durch einzelne große Entscheidungen wirkt, sondern durch kontinuierliches Nachschärfen, Priorisieren und das Übersetzen von Feedback in klare nächste Schritte.
+
