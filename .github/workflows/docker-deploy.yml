@@ -1,4 +1,4 @@
-name: Docker Image Deplpyment
+name: Docker Image Deployment
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - closed
 
 jobs:
-  if_merged:
+  build-and-deploy:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
