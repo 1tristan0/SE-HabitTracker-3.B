@@ -1,10 +1,10 @@
-= Testing-Strategie
+== Testing-Strategie
 
-== Übersicht
+=== Übersicht
 
 Dieses Dokument beschreibt die Test-Strategie für die Anwendung. Es umfasst automatisierte Tests nach Feature-Updates sowie manuelle Tests vor der finalen Akzeptanz durch den Product Owner.
 
-== Testobjekte und Teststufen
+=== Testobjekte und Teststufen
 
 Die Teststrategie orientiert sich an der Testpyramide: Unit-Tests bilden die Basis (Frontend und Backend), ergänzt durch manuelle Akzeptanztests vor der Abnahme. Zusätzlich werden API-Prüfungen auf Integrationsebene über Swagger durchgeführt.
 
@@ -15,7 +15,7 @@ Die Teststrategie orientiert sich an der Testpyramide: Unit-Tests bilden die Bas
 ** Routen, Geschäftslogik und Authentifizierung über Unit-Tests
 ** API-Prüfungen auf Integrationsebene (manuell über Swagger)
 
-== Automatisierte Tests nach Feature-Updates
+=== Automatisierte Tests nach Feature-Updates
 
 Nach jedem neuen Funktionsupdate müssen alle automatisierten Tests durchgeführt werden.
 
