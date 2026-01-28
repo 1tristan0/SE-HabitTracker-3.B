@@ -41,7 +41,11 @@ Das Datenmodell wurde nach Vorgaben des Domänenmodell abgeleiteitet und entworf
 
 Das folgende UML-Diagramm stellt das interne Datenmodell dar:
 
-image::prisma-uml.jpg["Datenmodell", width=65%]
+image::prisma-uml.png["Datenmodell", width=65%]
+
+// Codestruktur und Überblick
+// NICHT AKTUELL -> Überarbeiten
+include::../../src/docu/full_code_overview.adoc[]
 
 
 

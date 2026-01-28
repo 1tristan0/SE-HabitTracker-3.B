@@ -1,15 +1,15 @@
-= Docker-Setup Dokumentation: Gewohnheitstier
+== Docker-Setup Dokumentation: Gewohnheitstier
 :author: Paul Händler
 :module: SE2 – Software Engineering II
 :toc: left
 :sectnums:
 :doctype: book
 
-== Zielsetzung
+=== Zielsetzung
 Ziel dieses Dokuments ist die Containerisierung des Projekts *Gewohnheitstier*, bestehend aus einem Node.js-Server und einem React-Client, um die Entwicklungsumgebung unabhängig von Hostsystemen bereitzustellen.  
 Dadurch wird eine einheitliche und portable Laufzeitumgebung für alle Teammitglieder geschaffen.
 
-== Architekturübersicht
+=== Architekturübersicht
 
 [plantuml, target="docker-arch", format=svg]
 ....
@@ -22,7 +22,7 @@ node "Docker Host" {
 @enduml
 ....
 
-== Containerstruktur
+=== Containerstruktur
 
 * **Server-Container**
   - Basierend auf `node:20-bullseye`
@@ -34,7 +34,7 @@ node "Docker Host" {
   - Enthält React-Anwendung (Vite/CRA)
   - Startbefehl: `npm run dev`
 
-== Dockerfile.dev
+=== Dockerfile.dev
 
 [source,dockerfile]
 ----
@@ -52,7 +52,7 @@ USER appuser
 CMD ["npm", "run", "dev"]
 ----
 
-== docker-compose.yml
+=== docker-compose.yml
 
 [source,yaml]
 ----
@@ -81,9 +81,9 @@ services:
     command: npm run dev
 ----
 
-== Nutzung
+=== Nutzung
 
-=== Projekt starten
+==== Projekt starten
 [source,bash]
 ----
 docker compose up --build
@@ -92,25 +92,25 @@ docker compose up --build
 Dadurch werden beide Container gebaut und gestartet.  
 Der Client ist anschließend unter `http://localhost:5173` und der Server unter `http://localhost:5000` erreichbar.
 
-=== Projekt stoppen
+==== Projekt stoppen
 [source,bash]
 ----
 docker compose down
 ----
 
-=== Logs anzeigen
+==== Logs anzeigen
 [source,bash]
 ----
 docker compose logs -f
 ----
 
-== Vorteile
+=== Vorteile
 
 * Einheitliche Entwicklungsumgebung für alle Teammitglieder
 * Keine lokale Node-Installation nötig
 * Leicht portierbar auf andere Rechner oder CI/CD-Pipelines
 * Isolation der Abhängigkeiten
 
-== Fazit
+=== Fazit
 Durch die Dockerisierung ist das Projekt *Gewohnheitstier* plattformunabhängig, reproduzierbar und teamfähig.  
 Alle Entwickler können ohne komplexe Setups sofort starten.

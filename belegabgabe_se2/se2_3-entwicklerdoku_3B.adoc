@@ -37,15 +37,21 @@ include::../docs/architecture/architecture_notebook.adoc[]
 //Design-Beschreibung
 include::../docs/development/design.adoc[]
 
+//Code-Übersicht 
+// jetzt in design.adoc
+// include::../src/docu/full_code_overview.adoc[]
+
+= Setup und Guidelines
 //Docker-Setup
 include::../src/docu/Doku-Docker.adoc[]
-
-//Code-Übersicht
-include::../src/docu/full_code_overview.adoc[]
 
 //Prisma-Guide
 include::../src/docu/prisma_guide.adoc[]
 
 //Supabase-Guide
 include::../src/docu/supabase_guide.adoc[]
+
+= Integration und Deployment 
+//Deployment-Doku
+include::../docs/deployment/deployment.adoc[]
 

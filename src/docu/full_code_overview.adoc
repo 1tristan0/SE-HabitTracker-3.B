@@ -1,11 +1,11 @@
-= Vollständige Code-Übersicht (leicht erklärt)
+== Vollständige Code-Übersicht 
 :toc:
 :toclevels: 3
 :doctype: book
 
 Kerngedanke: Der Browser spricht nur mit unserem eigenen Server. Der Server regelt Anmeldung und Datenbankzugriffe; die Datenbank liegt bei Supabase. Supabase selbst nutzen wir nur für Authentifizierung, nicht direkt aus dem Browser.
 
-== Verzeichnisstruktur (kurz)
+=== Verzeichnisstruktur (kurz)
 ----
 src/
 ├── backend/          # Server-Code (Node/Express + Prisma)
@@ -35,10 +35,10 @@ src/
         └── weitere CRA-Standarddateien (index.js, tests, Styles)
 ----
 
-== Backend (Server)
+=== Backend (Server)
 Der Server läuft mit Node.js/Express. Er hat zwei Aufgaben: (1) Nutzer anmelden/abmelden, (2) Gewohnheiten eines Nutzers lesen/anlegen/löschen/umschalten. Die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur vom Server angesprochen, nie direkt aus dem Browser.
 
-=== index.js
+==== index.js
 * Startet den Server, erlaubt Browser-Aufrufe (CORS) und versteht JSON-Anfragen.
 * `GET /` → kurzer „API läuft“-Text.
 * Leitet Anfragen an:
@@ -46,19 +46,19 @@ Der Server läuft mit Node.js/Express. Er hat zwei Aufgaben: (1) Nutzer anmelden
 ** `/api/habits` (Gewohnheiten)
 * Startet auf konfigurierter Port-Nummer (im Docker-Setup Port 3001).
 
-=== prisma.config.js
+==== prisma.config.js
 * Sagt Prisma, wo das Datenbankmodell liegt und wohin der erzeugte DB-Client geschrieben wird.
 
-=== prisma/schema.prisma
+==== prisma/schema.prisma
 * Beschreibt die Tabellen:
 ** `habits_table`: Gewohnheiten eines Nutzers (Name, Beschreibung, Startdatum, Fortschritt/Streak, letzte/prior Checks, user_id).
 ** `users`: Grunddaten der Nutzer.
 * Verbindet sich per `DATABASE_URL` mit Postgres (Supabase).
 
-=== src/prisma.js
+==== src/prisma.js
 * Baut den Datenbank-Zugriff (PrismaClient) auf und stellt ihn den Routen zur Verfügung.
 
-=== src/supabaseAuth.js
+==== src/supabaseAuth.js
 * Spricht mit Supabase für alles rund um Anmeldung.
 * Braucht `SUPABASE_URL` und `SUPABASE_ANON_KEY` aus der Server-Umgebung.
 * Kernfunktionen:
@@ -67,19 +67,19 @@ Der Server läuft mit Node.js/Express. Er hat zwei Aufgaben: (1) Nutzer anmelden
 ** `fetchUser(accessToken)`: prüft, ob ein Token gültig ist, liefert Nutzer zurück.
 ** `signOut(accessToken)`: meldet ein Token ab.
 
-=== src/middleware/authenticate.js
+==== src/middleware/authenticate.js
 * „Türsteher“ für geschützte Routen.
 * Erwartet Header `Authorization: Bearer <token>`.
 * Prüft das Token bei Supabase; bei Erfolg hängt der geprüfte Nutzer an `req.auth`. Sonst 401/403 mit klarer JSON-Fehlermeldung.
 
-=== src/routes/auth.js
+==== src/routes/auth.js
 * Schnittstelle für Anmeldung im Browser (JSON rein, JSON raus):
 ** `POST /api/auth/login`: E-Mail/Passwort → Token + Nutzer.
 ** `POST /api/auth/register`: legt Nutzer an → Nutzer (+ ggf. Token).
 ** `POST /api/auth/session`: prüft ein Token → Nutzer.
 ** `POST /api/auth/logout`: meldet ein Token ab → Bestätigung.
 
-=== src/routes/habits.js
+==== src/routes/habits.js
 * Nur mit gültigem Token erreichbar (Middleware oben prüft).
 * Helfer:
 ** `serializeHabit`: macht Daten browserfreundlich (große Zahlen/Datumswerte als Strings/ISO).
@@ -90,10 +90,10 @@ Der Server läuft mit Node.js/Express. Er hat zwei Aufgaben: (1) Nutzer anmelden
 ** `DELETE /api/habits/:id`: löscht eine Gewohnheit des Nutzers, antwortet mit 204 bei Erfolg.
 ** `POST /api/habits/:id/toggle`: schaltet „heute erledigt“ um; erhöht oder verringert den Streak und führt eine kleine Historie (`prev_last_checked`).
 
-== Frontend (Browser-App)
+=== Frontend (Browser-App)
 Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach die Gewohnheiten. Sie spricht ausschließlich mit dem eigenen Backend; Datenbank und Supabase-Schlüssel bleiben verborgen.
 
-=== App.jsx
+==== App.jsx
 * Oberste React-Komponente.
 * Beim Start: lädt ggf. gespeicherte Sitzung (Token/Nutzer) aus dem Browser, kann beim Server prüfen, ob das Token gültig ist.
 * Stellt bereit:
@@ -102,35 +102,35 @@ Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach 
 ** `handleLogout()`: meldet ab, räumt gespeicherte Daten weg.
 * Zeigt je nach Zustand das Login/Registrieren oder die Habit-Seite.
 
-=== api/httpClient.js
+==== api/httpClient.js
 * Kleiner Helfer für alle Server-Aufrufe.
 * Baut die Zieladresse aus `REACT_APP_API_BASE_URL` (Standard `http://localhost:5000`).
 * Hängt JSON-Header und bei Bedarf den `Authorization: Bearer`-Header an.
 * Liefert Daten oder eine verständliche Fehlermeldung.
 
-=== api/authApi.js
+==== api/authApi.js
 * Funktionen für Anmeldung/Registrierung, alle sprechen den Server:
 ** `login`, `register`, `fetchSession`, `logout`.
 * Speichert/liest/löscht die Sitzung im Browser (`persistSession`, `loadSession`, `clearSession`).
 
-=== api/habitsApi.js
+==== api/habitsApi.js
 * Bündelt Aufrufe rund um Gewohnheiten (alle erwarten ein gültiges Token):
 ** `fetchHabits` → lädt die Liste.
 ** `addHabit` → legt eine neue Gewohnheit an (Name Pflicht, Beschreibung optional).
 ** `deleteHabit` → löscht eine Gewohnheit.
 ** `toggleHabitToday` → schaltet „heute erledigt“ um und gibt das aktualisierte Objekt zurück.
 
-=== pages/HabitsPage.jsx
+==== pages/HabitsPage.jsx
 * Die Seite nach erfolgreichem Login.
 * Holt Token und Nutzer aus den übergebenen Daten.
 * Lädt, legt an, löscht und toggelt Gewohnheiten; aktualisiert die Anzeige entsprechend.
 * Zeigt Navigationsbar (`Navbar`), Formular (`HabitForm`), Kartenübersicht (`HabitGrid` mit `HabitCard` + `ToggleSwitch`) und die Monatsansicht (`Calender` mit Tag-Modal).
 
-=== hooks/useHabits.js
+==== hooks/useHabits.js
 * Wiederverwendbarer Baustein für Habit-Listen.
 * Hält Liste und Ladezustand; ruft dieselben API-Funktionen wie die Habit-Seite.
 
-=== components
+==== components
 * Layout: 
 ** `Navbar.jsx`: Navigationsbar mit Links, Logout und Titel.
 * Auth: 
@@ -165,7 +165,7 @@ Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach 
 ** `DeleteIcon.jsx`, 
 ** `EditIcon.jsx`.
 
-=== lib
+==== lib
 * `convert.js`:
 ** `dateOnly(ts)`: Datum als `YYYY-MM-DD`.
 ** `monthAndYear(year, month)`: deutscher Monatsname + Jahr.
@@ -186,5 +186,5 @@ Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach 
 ** `getPercentageOfCompletedHabits(habit)`: Prozentsatz erledigter Gewohnheiten insgesamt.
 ** `getPercentageOfCompletedHabitsLastMonth(habit)`: Prozentsatz erledigter Gewohnheiten im letzten Monat(letzte 30 Tage).
 
-=== index.js / index.css / App.css / tests
+==== index.js / index.css / App.css / tests
 * Standard-Dateien von Create React App: Einstiegspunkt, globale Styles, Test-Setup und Beispiel-Test.
