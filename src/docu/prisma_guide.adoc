@@ -1,20 +1,8 @@
-== Prisma ORM Guide
+= Prisma ORM Guide
 :toc:
 :toclevels: 2
-:doctype: book
 
-<<<<<<< HEAD
-=== ACHTUNG nicht aktuell -> readme.md nutzen
-
-Kurzer Leitfaden zur Prisma-Nutzung in diesem Projekt.
-
-=== Projektanbindung
-* Schema: link:../../src/backend/prisma/schema.prisma[prisma/schema.prisma]
-* Config: link:../../src/backend/prisma.config.js[prisma.config.js] (Schema-Pfad, Migration-Ordner, Datasource-URL)
-* Client-Output: `./src/generated/prisma` relativ zu `src/backend/src` (Generator-Einstellung)
-* Client-Import: link:../../src/backend/src/prisma.js[src/prisma.js] erzeugt `PrismaClient` mit Logging und exportiert Instanz für das Backend (siehe link:../../src/backend/index.js[index.js])
-* DB-URL: `DATABASE_URL` aus link:../../src/backend/.env[.env] (Supabase-Postgres)
-=======
+== Überblick
 Kurzer Leitfaden zur Prisma-Nutzung im aktuellen Projektstand.
 
 == Projektanbindung
@@ -23,36 +11,26 @@ Kurzer Leitfaden zur Prisma-Nutzung im aktuellen Projektstand.
 * Client: Standard-Output von `@prisma/client` (kein eigenes `output` gesetzt)
 * Client-Import: link:../../src/backend/src/prisma.js[backend/src/prisma.js] erzeugt `PrismaClient` mit Logging und exportiert Instanz für das Backend (siehe link:../../src/backend/index.js[backend/index.js])
 * DB-URL: `DATABASE_URL` aus link:../../src/backend/.env[backend/.env] (lokal) bzw. `backend/.env.local` im Docker-Dev-Setup
->>>>>>> 4c02953 (Aktualisierung der Docu. Bitte nochmal prüfen)
 
-=== Modelle im Schema
+== Modelle im Schema
+* Enums: `animal_type` (hund/katze/hamster/wurm), `animal_mood` (gluecklich/traurig)
 * `habits_table`
-** Primärschlüssel `id` (UUID als String)
+** Primärschlüssel `id` (String mit `uuid()` Default)
 ** Felder u.a. `userId` (FK auf `users.id`), `habit_name`, `description`, `start_date`, `streak` (BigInt), `last_break`, `last_checked`, `prev_last_checked` (Array)
 * `users`
-** Primärschlüssel `id` (UUID als String)
+** Primärschlüssel `id` (String mit `uuid()` Default)
 ** Felder für Tier-Status: `animal_type`, `animal_mood`
 ** Relation: 1-n zu `habits_table`
 
-=== Generierung & Migrationskommandos
+== Generierung & Migrationskommandos
 Aus dem Backend-Ordner (`src/backend`):
+
 * Client generieren (lokal oder im Container): `npm run prisma:generate`
 * Schema validieren: `npx prisma validate`
 * Migration erzeugen (falls benötigt): `npx prisma migrate dev --name <msg>` (setzt lokale DB voraus)
 * Schema ohne Migration in die DB pushen (nur wenn gewollt): `npx prisma db push`
+* Migrations liegen in link:../../src/backend/prisma/migrations[backend/prisma/migrations]
 
-<<<<<<< HEAD
-=== Docker-Flow
-* `docker compose up --build` (aus `src/`) führt im Backend `npm install && npm run prisma:generate && (npm run dev || npm start)` aus. Damit wird der Client im Container erzeugt.
-
-=== Nutzung im Code
-* Beispiel-Query: link:../../src/backend/index.js[index.js] Route `/api/habits` ruft `prisma.habits_table.findMany()`, konvertiert BigInt-Felder zu Strings für JSON-Ausgabe.
-* BigInt-Hinweis: Node JSON kann BigInt nicht serialisieren – deshalb werden IDs/Streak in Strings gewandelt (siehe `/api/habits`).
-
-=== Umgebungsvariablen
-* `DATABASE_URL` muss vor Prisma-Aufrufen gesetzt sein. In Docker via `env_file: backend/.env` geladen, lokal z.B. über `.env` + Shell (`export $(cat .env | xargs)`).
-* Supabase-URL in Repo-`.env` ist commitbar laut Kommentar, enthält aber dennoch Verbindungsdetails – bei eigener DB URL anpassen.
-=======
 == Docker-Flow
 * `docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build` (aus `src/`) nutzt `backend/.env.local` für Prisma + Supabase-Auth und startet Backend/Frontend im Dev-Container.
 * Die reine `docker-compose.yml` enthält nur Images/Ports; Environment wird dort nicht gesetzt.
@@ -65,10 +43,10 @@ Aus dem Backend-Ordner (`src/backend`):
 * `DATABASE_URL` muss vor Prisma-Aufrufen gesetzt sein.
 ** Lokal: link:../../src/backend/.env[backend/.env]
 ** Docker-Dev: `backend/.env.local` (siehe `docker-compose.dev.yml`)
+** Docker-Prod: `backend/.env.production` (falls vorhanden, siehe `docker-compose.prod.yml`)
 * Hinweis: `prisma.config.js` nutzt `env("DATABASE_URL")` aus Prisma Config; die `.env` wird nicht automatisch geladen, wenn die Umgebung nicht gesetzt ist.
->>>>>>> 4c02953 (Aktualisierung der Docu. Bitte nochmal prüfen)
 
-=== Troubleshooting
+== Troubleshooting
 * Fehlende Client-Dateien: `npm run prisma:generate`
 * Schema-Änderungen greifen nicht: neu generieren, ggf. Migration/Push auf DB
 * Verbindung schlägt fehl: `DATABASE_URL` prüfen, Netzwerkzugriff zum DB-Host sicherstellen

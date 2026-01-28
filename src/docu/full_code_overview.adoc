@@ -1,20 +1,11 @@
-<<<<<<< HEAD
-== Vollständige Code-Übersicht 
-=======
 = Vollständige Code-Übersicht 
->>>>>>> 817aa89 (fix full_code_overview)
 :toc:
 :toclevels: 3
-:doctype: book
 
 == Überblick
 Kerngedanke: Der Browser spricht nur mit unserem eigenen Server. Der Server regelt Anmeldung und Datenbankzugriffe; die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur serverseitig genutzt, nie direkt im Browser.
 
-<<<<<<< HEAD
-=== Verzeichnisstruktur (kurz)
-=======
-== Projektstruktur 
->>>>>>> 817aa89 (fix full_code_overview)
+== Projektstruktur
 ----
 src/
 ├── docker-compose.yml
@@ -91,21 +82,12 @@ src/
             └── httpClient.test.js
 ----
 
-<<<<<<< HEAD
-=== Backend (Server)
-Der Server läuft mit Node.js/Express. Er hat zwei Aufgaben: (1) Nutzer anmelden/abmelden, (2) Gewohnheiten eines Nutzers lesen/anlegen/löschen/umschalten. Die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur vom Server angesprochen, nie direkt aus dem Browser.
-
-==== index.js
-* Startet den Server, erlaubt Browser-Aufrufe (CORS) und versteht JSON-Anfragen.
-* `GET /` → kurzer „API läuft“-Text.
-=======
 == Backend (Server)
 Der Server läuft mit Node.js/Express. Er hat drei Aufgaben: (1) Nutzer anmelden/abmelden, (2) Gewohnheiten verwalten, (3) User-Status (Begleiter) laden/setzen. Die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur vom Server angesprochen.
 
 === index.js
 * Startet den Server, erlaubt Browser-Aufrufe (CORS) und verarbeitet JSON-Anfragen.
 * `GET /` → kurzer "API läuft"-Text.
->>>>>>> 817aa89 (fix full_code_overview)
 * Leitet Anfragen an:
 ** `/api/auth` (Anmeldung/Registrierung/Session/Logout)
 ** `/api/habits` (Gewohnheiten)
@@ -113,31 +95,6 @@ Der Server läuft mit Node.js/Express. Er hat drei Aufgaben: (1) Nutzer anmelden
 ** `/api/docs` (Swagger UI)
 * Port: `PORT` aus der Umgebung (in `backend/.env` auf 3001 gesetzt), Fallback 5000.
 
-<<<<<<< HEAD
-==== prisma.config.js
-* Sagt Prisma, wo das Datenbankmodell liegt und wohin der erzeugte DB-Client geschrieben wird.
-
-==== prisma/schema.prisma
-* Beschreibt die Tabellen:
-** `habits_table`: Gewohnheiten eines Nutzers (Name, Beschreibung, Startdatum, Fortschritt/Streak, letzte/prior Checks, user_id).
-** `users`: Grunddaten der Nutzer.
-* Verbindet sich per `DATABASE_URL` mit Postgres (Supabase).
-
-==== src/prisma.js
-* Baut den Datenbank-Zugriff (PrismaClient) auf und stellt ihn den Routen zur Verfügung.
-
-==== src/supabaseAuth.js
-* Spricht mit Supabase für alles rund um Anmeldung.
-* Braucht `SUPABASE_URL` und `SUPABASE_ANON_KEY` aus der Server-Umgebung.
-* Kernfunktionen:
-** `loginWithPassword(email, password)`: fragt ein Anmelde-Token ab.
-** `registerUser(email, password)`: legt einen neuen Benutzer an.
-** `fetchUser(accessToken)`: prüft, ob ein Token gültig ist, liefert Nutzer zurück.
-** `signOut(accessToken)`: meldet ein Token ab.
-
-==== src/middleware/authenticate.js
-* „Türsteher“ für geschützte Routen.
-=======
 === prisma.config.js
 * Verweist auf `prisma/schema.prisma` und `prisma/migrations`.
 * Nutzt `DATABASE_URL` aus der Umgebung.
@@ -164,21 +121,9 @@ Der Server läuft mit Node.js/Express. Er hat drei Aufgaben: (1) Nutzer anmelden
 
 === src/middleware/authenticate.js
 * Middleware für geschützte Routen.
->>>>>>> 817aa89 (fix full_code_overview)
 * Erwartet Header `Authorization: Bearer <token>`.
 * Prüft Token per Supabase und hängt `req.auth.user` an (sonst 401/403).
 
-<<<<<<< HEAD
-==== src/routes/auth.js
-* Schnittstelle für Anmeldung im Browser (JSON rein, JSON raus):
-** `POST /api/auth/login`: E-Mail/Passwort → Token + Nutzer.
-** `POST /api/auth/register`: legt Nutzer an → Nutzer (+ ggf. Token).
-** `POST /api/auth/session`: prüft ein Token → Nutzer.
-** `POST /api/auth/logout`: meldet ein Token ab → Bestätigung.
-
-==== src/routes/habits.js
-* Nur mit gültigem Token erreichbar (Middleware oben prüft).
-=======
 === src/routes/auth.js
 * JSON-Schnittstellen für Auth:
 ** `POST /api/auth/login`
@@ -188,7 +133,6 @@ Der Server läuft mit Node.js/Express. Er hat drei Aufgaben: (1) Nutzer anmelden
 
 === src/routes/habits.js
 * Geschützt durch `authenticate`.
->>>>>>> 817aa89 (fix full_code_overview)
 * Helfer:
 ** `serializeHabit` (Dates + BigInt sauber nach JSON)
 ** `normalizeDateArray` (stellt Date-Arrays sicher)
@@ -211,106 +155,6 @@ Der Server läuft mit Node.js/Express. Er hat drei Aufgaben: (1) Nutzer anmelden
 === Tests (__tests__)
 * Unit- und Routen-Tests für Auth, Habits, Users, Prisma-Zugriffe und Supabase-Auth.
 
-<<<<<<< HEAD
-=== Frontend (Browser-App)
-Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach die Gewohnheiten. Sie spricht ausschließlich mit dem eigenen Backend; Datenbank und Supabase-Schlüssel bleiben verborgen.
-
-==== App.jsx
-* Oberste React-Komponente.
-* Beim Start: lädt ggf. gespeicherte Sitzung (Token/Nutzer) aus dem Browser, kann beim Server prüfen, ob das Token gültig ist.
-* Stellt bereit:
-** `handleLogin(email, password)`: ruft den Server, speichert Token/Nutzer, zeigt danach die Habits.
-** `handleRegister(email, password)`: legt Nutzer an, speichert Token falls Supabase eines liefert, sonst Hinweis auf Bestätigungs-Mail.
-** `handleLogout()`: meldet ab, räumt gespeicherte Daten weg.
-* Zeigt je nach Zustand das Login/Registrieren oder die Habit-Seite.
-
-==== api/httpClient.js
-* Kleiner Helfer für alle Server-Aufrufe.
-* Baut die Zieladresse aus `REACT_APP_API_BASE_URL` (Standard `http://localhost:5000`).
-* Hängt JSON-Header und bei Bedarf den `Authorization: Bearer`-Header an.
-* Liefert Daten oder eine verständliche Fehlermeldung.
-
-==== api/authApi.js
-* Funktionen für Anmeldung/Registrierung, alle sprechen den Server:
-** `login`, `register`, `fetchSession`, `logout`.
-* Speichert/liest/löscht die Sitzung im Browser (`persistSession`, `loadSession`, `clearSession`).
-
-==== api/habitsApi.js
-* Bündelt Aufrufe rund um Gewohnheiten (alle erwarten ein gültiges Token):
-** `fetchHabits` → lädt die Liste.
-** `addHabit` → legt eine neue Gewohnheit an (Name Pflicht, Beschreibung optional).
-** `deleteHabit` → löscht eine Gewohnheit.
-** `toggleHabitToday` → schaltet „heute erledigt“ um und gibt das aktualisierte Objekt zurück.
-
-==== pages/HabitsPage.jsx
-* Die Seite nach erfolgreichem Login.
-* Holt Token und Nutzer aus den übergebenen Daten.
-* Lädt, legt an, löscht und toggelt Gewohnheiten; aktualisiert die Anzeige entsprechend.
-* Zeigt Navigationsbar (`Navbar`), Formular (`HabitForm`), Kartenübersicht (`HabitGrid` mit `HabitCard` + `ToggleSwitch`) und die Monatsansicht (`Calender` mit Tag-Modal).
-
-==== hooks/useHabits.js
-* Wiederverwendbarer Baustein für Habit-Listen.
-* Hält Liste und Ladezustand; ruft dieselben API-Funktionen wie die Habit-Seite.
-
-==== components
-* Layout: 
-** `Navbar.jsx`: Navigationsbar mit Links, Logout und Titel.
-* Auth: 
-** `Login.jsx` und `Signup.jsx` für Anmeldung/Registrierung.
-* Habits: 
-** `HabitForm.jsx` legt neue Gewohnheiten an(veraltete Version); 
-** `HabitGrid.jsx` gruppiert erledigt/offen und nutzt 
-** `HabitCard.jsx` mit ToggleSwitch und Edit/Delete-Icons; 
-** `HabitCreateContent.jsx` angeleitete Erstellung; 
-** `HabitList.jsx` alternative Listen-Ansicht(veraltet).
-* Kalender: 
-** `Calender.jsx` Monatsübersicht mit Tagesbuttons; 
-** `CalendarModal.jsx` zeigt Tagesdetails.
-* Habit-Modale: 
-** `HabitChangeModal.jsx` (Bearbeiten), 
-** `HabitInfoModal.jsx` (Details).
-* Begleiter: 
-** `Animal.jsx` zeigt aktuelles Gewohnheitstier an (glücklich, wenn mindestens eine Gewohnheit heute erledigt);
-** `AnimalModal.jsx` zur Auswahl eines Gewohnheitstieres.
-* UI-Primitives: 
-** Buttons 
-*** `CalendarDayButton.jsx`, 
-*** `CloseButton.jsx`, 
-*** `SaveButton.jsx`; 
-** `ToggleSwitch.jsx`; 
-** `Modal.jsx`; 
-** `ProgressCircle.jsx`; 
-** `StreakBadge.jsx`; 
-** `InputField.jsx`; 
-** `Titel.jsx`.
-* Icons: 
-** `DeleteIcon.jsx`, 
-** `EditIcon.jsx`.
-
-==== lib
-* `convert.js`:
-** `dateOnly(ts)`: Datum als `YYYY-MM-DD`.
-** `monthAndYear(year, month)`: deutscher Monatsname + Jahr.
-** `todayAsString()`: heutiges Datum als String.
-** `convertToGermanDateString(dateString)`: `YYYY-MM-DD` → `DD.MM.YYYY`.
-** `dateOnlyBerlin(ts)`: Datum in Berliner Zeitzone als `YYYY-MM-DD`.
-** `todayAsStringBerlin()`: heutiges Datum in Berliner Zeitzone als String.
-** `isInFuture(dateString)`: ob Datum in der Zukunft liegt.
-* `calendar.js`:
-** `getMonthMatrix(year, month)`: baut eine Monats-Matrix ab Montag.
-** `isEveryHabitChecked(habits, day)`: liefert `true` wenn alle für den Tag erledigt, sonst Prozentzahl.
-** `getCheckedHabiitsFromDay(habits, day)`: liefert Liste der erledigten Gewohnheiten für den Tag.
-** `getUncheckedHabitsFromDay(habits, day)`: liefert Liste der offenen Gewohnheiten für den Tag.
-** `daysBetween(date1, date2)`: Anzahl Tage zwischen zwei Daten.
-* `habit.js`:
-** `getNumberOfCompletedHabits(habit)`: zählt erledigte Gewohnheiten.
-** `getNumberOfCompletedHabitsLastMonth(habit)`: zählt erledigte Gewohnheiten im letzten Monat(letzte 30 Tage).
-** `getPercentageOfCompletedHabits(habit)`: Prozentsatz erledigter Gewohnheiten insgesamt.
-** `getPercentageOfCompletedHabitsLastMonth(habit)`: Prozentsatz erledigter Gewohnheiten im letzten Monat(letzte 30 Tage).
-
-==== index.js / index.css / App.css / tests
-* Standard-Dateien von Create React App: Einstiegspunkt, globale Styles, Test-Setup und Beispiel-Test.
-=======
 == Frontend (Browser-App)
 Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach die Gewohnheiten. Sie spricht ausschließlich mit dem eigenen Backend; Supabase-Schlüssel bleiben verborgen.
 
@@ -347,6 +191,7 @@ Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach 
 
 === hooks/useHabits.js
 * Wiederverwendbarer Hook für Habit-Listen (load/add/remove/update).
+* Existiert und ist funktionsfähig, wird derzeit aber in den Seiten nicht genutzt.
 
 === components
 * Layout:
@@ -388,9 +233,8 @@ Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach 
 === Tests (__tests__)
 * UI-, API- und Utility-Tests (siehe Verzeichnisstruktur oben).
 
-== Docker/Dev-Skripte 
+== Docker/Dev-Skripte (kurz)
 * `docker-compose.yml`: einfache Container-Definitionen (Ports, keine envs).
 * `docker-compose.dev.yml`: Dev-Setup mit Volumes und `backend/.env.local`.
 * `docker-compose.prod.yml`: Prod-Setup mit `backend/.env.production` (falls vorhanden) und `frontend/.env`.
 * `dev-start.*` und `dev-db-setup.*`: Hilfsskripte für lokalen Start und DB-Setup.
->>>>>>> 817aa89 (fix full_code_overview)
