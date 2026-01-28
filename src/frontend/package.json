@@ -20,6 +20,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js",
+      "<rootDir>/src/**/*.test.js"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
