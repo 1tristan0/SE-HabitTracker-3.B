@@ -32,19 +32,42 @@ Ziel dieser Betriebsdokumentation ist es, Administratoren beim Einrichten, Konfi
 Dieses Dokument beschreibt ausschließlich systemspezifische Besonderheiten. Allgemeine Software-Dokumentationen (z.B. Docker, Supabase/PostgreSQL, React, Prisma) werden bei Bedarf verlinkt.
 
 === Übersicht der verwendeten Technologien
-Eine detailreichere Auflistung der verwendeten Technologien ist der xref:./se2_3-entwicklerdoku_3B.adoc[Entwicklerdokumentation] zu entnehmen. Die folgende Auflistung dient lediglich dem Zweck einen Kontext zum Gesamtsystem herstellen zu können.
+Die Anwendung arbeitet über ein Mehrcontainer-System. Das heißt die Anwendung wurde nach Schichten getrennt und in etwaige Container aufgeteilt, in welchen Prozesse losgelöst voneinander laufen. Die Trennung dient dabei der erleichterten Wartbarkeit und erfolgt nach dem Prinzip der "Seperation of Concerns". 
 
-* Frontend: React-SPA (CRA)
-* Backend: Node.js mit Express
-* ORM: Prisma
-* Datenbank: PostgreSQL (Supabase)
+Die Containersisierung erfolgt mittels link:https://docs.docker.com/compose/[Docker Compose] und erzeugt die folgenden Images bzw. Container:
 
-* Containerisierung: Docker Compose
-** Umgebungen: Unterscheidung in Development (DEV) und Production (PROD)
+* *gewohnheitstier-frontend*:
+** Web-UI als React-SPA (Create React App) 
+** Schnittstellen zum Backend
+** veröffentlicht auf Port 3000 des Hostgerätes
 
-Die Anwendung ist als Mehrcontainer-System realisiert worden. Das heißt es existiert jeweils ein Container für Front- und Backend. Die Trennung dient der erleichterten Wartbarkeit sowie Testbarkeit (siehe xref:./se2_4-testdoku_3B.adoc[Testdoku]) und erfolgt nach dem Prinzip der "Seperation of Concerns".  
+* *gewohnheitstier-backend*:
+** Logikschicht
+** Schnittstellen zum Frontend
+** Schnittstellen zur Datenbank sowie Authentifizierung (link:https://supabase.com/[Supabase])
+** veröffentlicht auf Port 3001 des Hostgerätes
+
 
 === Systemvorraussetzungen
 ==== Hardware-Mindestanforderungen
-Eine Abschätzung der benötigten Ressourcen kann zum aktuellen Zeitpunkt nur durch lokales Beobachten der Container erfolgen. Eine gemittelte Messung der Aktivitäten unter Last (Mehrnutzer-Betrieb) ist noch offen und könnte hier zu genaueren Angaben beitragen.
+Eine Abschätzung der benötigten Ressourcen kann zum aktuellen Zeitpunkt nur durch lokales Beobachten der Container erfolgen. Eine gemittelte Messung der Aktivitäten unter Last (Mehrnutzer-Betrieb) ist noch offen und könnte hier zu genaueren Angaben beitragen. Die folgende Abschätzung benötigter Hardwareressourcen ist daher keine untere Schranke. Die Anwendung kann unter Umständen auf geringeren Spezifikationen ausgeführt werden, jedoch können wir nicht dafür garantieren. Daher empfehlen wir folgende Spezifikationen:
+
+* 64-bit Architektur
+* Multicore-CPU oder 2vCPU (>1GHz)
+* KVM Virtualisierung unterstützt
+* min. 4GB RAM
+* 50 GB freier Speicherplatz
+* Ubuntu LTS 24.xx.x Desktop oder Server
+* stabile, schnelle Internetverbindung
+
+==== Softwarevorraussetzungen
+Auf dem System muss Docker bzw. Docker Compose installiert und lauffähig sein. Dafür kann die offizielle Dokumentation herangezogen werden (link:https://docs.docker.com/[Docker]).
+Der Admin oder Betreiber benötigt Zugriff auf das Terminal des Hostgeräts und ggf. Sudo-Rechte um Portfreigaben tätigen zu dürfen.
+
+Die Anwendung ist durchaus auf anderen Betriebssystem ausführbar, wie in etwa andere Linux-Distributionen, MacOS oder Windows. Sollten Sie Schwierigkeiten dabei haben die Anwendung auf einem anderen Betriebssystem auszuführen, so kontaktieren Sie bitte die genannten Personen am Ende des Dokuments.  
+
+=== In-Betriebnahme
+==== Umgebung einrichten
+
+
 
