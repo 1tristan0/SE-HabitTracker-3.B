@@ -1,29 +1,30 @@
 = Vision: Gewohnheitstier
-include::../_includes/default-attributes.inc.adoc[]
+// include::../_includes/default-attributes.inc.adoc[]
 
-include::../_includes/teammitglieder.adoc[]
+// include::../_includes/teammitglieder.adoc[]
 
-{localdatetime}
+// {localdatetime}
 // Platzhalter für weitere Dokumenten-Attribute
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-system-name} überblicksartig zu beschreiben. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie das System {project-system-name} diese Bedarfe erfüllt, werden durch User Stories im Product Backlog sowie dem UX-Konzept beschrieben.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-system-name} überblicksartig zu beschreiben. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie das System {project-system-name} diese Bedarfe erfüllt.
 
 === Zweck
-Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
+Dieses Dokument beschreibt die wesentlichen Anforderungen an das System aus der Perspektive der zukünftigen Anwenderinnen und Anwender.
 
-=== Gültigkeitsbereich (Scope)
+=== Gültigkeitsbereich 
 Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von {project-name} entwickelt wird. Das System wird es Jugendlichen und Erwachsenen erlauben, spielerische und soziale Komponenten zu nutzen, um die Motivation während der Umstellung der Gewohnheiten nicht zu verlieren.
 
-=== Definitionen, Akronyme und Abkürzungen
+=== Nutzungskontext
+{project-system-name} ist als webbasiertes Habit-Tracking-System konzipiert und wird typischerweise von einer einzelnen Person genutzt. Die Interaktionen sind bewusst kurz gehalten: Das Anlegen neuer Gewohnheiten sowie der tägliche Check-in sollen jeweils weniger als eine Minute dauern.Die Anwendung ist plattformunabhängig über gängige Webbrowser zugänglich und erfordert keine Installation. Es bestehen keine funktionalen Abhängigkeiten zu anderen Anwendungen oder Systemen.
+
+// === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
-Siehe <<#glossary, Glossar>>.
+// Siehe <<#glossary, Glossar>>.
 
-include::../docs/requirements/glossary.adoc[]
+//include::../docs/requirements/glossary.adoc[]
 
-=== Referenzen
-(hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
 
 
 == Positionierung
@@ -91,7 +92,7 @@ Durch den Begleiter entsteht eine stärkere emotionale Bindung, die das Verantwo
 | Einhaltung aller Vorschriften und Vorgaben
 |===
 
-Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
+// Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
 
 
 == Produktüberblick
@@ -104,26 +105,26 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 | Bedarf | Priorität | Features / Funktionen | Geplantes Release
 
 | Aufbau und Pflege täglicher Gewohnheiten | Hoch
-| Anlegen und Verwalten individueller Gewohnheiten mit Zielvorgaben, Wiederholungsintervallen und Erinnerungen |
+| Anlegen und Verwalten individueller Gewohnheiten | 30.01.2026
 
-| Sichern der persönlichen Daten und Fortschritte | Hoch | Registrierung und Nutzerkonto |
+| Sichern der persönlichen Daten und Fortschritte | Hoch | Registrierung und Nutzerkonto | 30.01.2026
 
 | Motivation durch emotionale Bindung | Hoch
-| Interaktives Maskottchen („Gewohnheitstier“), das sich je nach Fortschritt positiv oder negativ entwickelt |
+| Interaktives Maskottchen („Gewohnheitstier“), das sich je nach Fortschritt positiv oder negativ entwickelt | 30.01.2026
 
 | Übersicht über Fortschritte | Hoch
-| Visuelles Tracking mit Kalender, Fortschrittsanzeige und Erfolgsstatistiken |
+| Visuelles Tracking mit Kalender, Fortschrittsanzeige und Erfolgsstatistiken | 30.01.2026
 
 | Soziale Interaktion und externe Motivation | Mittel
-| Möglichkeit, Fortschritte mit Freund:innen zu teilen, Challenges zu erstellen oder Erfolge öffentlich zu machen |
+| Möglichkeit, Fortschritte mit Freund:innen zu teilen, Challenges zu erstellen oder Erfolge öffentlich zu machen | TBD
 
 | Flexibilität bei Routinen und Tagesplanung | Mittel
-| Anpassbare Wochenplanung inkl. Pausentagen und spontanen Änderungen |
+| Anpassbare Wochenplanung inkl. Pausentagen mit Zielvorgaben, Wiederholungsintervallen und Erinnerungen  | TBD
 
 | Spielerische Langzeitmotivation | Mittel
-| Level-System, Belohnungen, Trophäen oder freischaltbare Inhalte durch regelmäßiges Erreichen von Zielen |
+| Level-System, Belohnungen, Trophäen oder freischaltbare Inhalte durch regelmäßiges Erreichen von Zielen | TBD
 
-| Dokumentation persönlicher Erfahrungen mit dem Gewohnheitsmanagement | Niedrig | Tagebuch für persönliche Doku |
+| Dokumentation persönlicher Erfahrungen mit dem Gewohnheitsmanagement | Niedrig | Tagebuch für persönliche Doku | TBD
 |===
 
 
@@ -144,45 +145,45 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 | Einfache Bedienbarkeit auf mobilen Endgeräten 
 | Hoch 
 | Das System muss vollständig responsive sein und auf Smartphones (iOS, Android) sowie Tablets intuitiv bedienbar bleiben. Layout und Interaktion sollen sich automatisch an Displaygröße und Eingabemethode (Touch) anpassen.
-| 
+| 30.01.2026
 
 | DSGVO-konforme Datenspeicherung
 | Hoch
 | Alle personenbezogenen Daten (z. B. E-Mail, Fortschritte, Nutzungsverhalten) müssen gemäß der Datenschutz-Grundverordnung verarbeitet und gespeichert werden. Nutzer:innen müssen aktiv in die Datennutzung einwilligen können.
-| 
+| TBD
 
 | Systemfeedback (Usability)
 | Hoch
 | Das System soll durchgehend Rückmeldung über Nutzeraktionen geben – etwa durch visuelle Bestätigung, Ladeindikatoren oder Erfolgsmeldungen. Außerdem wird ein kontinuierlicher Usability-Testprozess etabliert, um die Nutzerfreundlichkeit sicherzustellen.
-| 
+| TBD
 
 | Plattformunabhängigkeit
 | Mittel
 | Das System soll als Progressive Web App (PWA) konzipiert sein, um plattformübergreifend (Browser, Android, iOS) verfügbar zu sein, ohne separate native Apps zu erfordern.
-| 
+| TBD
 
 | Performance und Skalierbarkeit
 | Mittel
 | Ladezeiten sollen unter drei Sekunden bleiben, selbst bei steigender Nutzerzahl. Das Backend (z. B. Supabase) muss so ausgelegt sein, dass zukünftige Skalierung ohne Funktionsverlust möglich ist.
-| 
+| 30.01.2026
 
 | Offline-Funktionalität
 | Mittel
 | Nutzer:innen sollen ihre Gewohnheiten auch ohne Internetverbindung erfassen können; Daten werden bei der nächsten Verbindung automatisch synchronisiert.
-| 
+| TBD
 
 | Barrierefreiheit
 | Mittel
 | Das System soll grundlegende WCAG-Richtlinien erfüllen (z. B. ausreichende Kontraste, Screenreader-Kompatibilität, große Klickflächen).
-| 
+| TBD
 
 | Wartbarkeit und Erweiterbarkeit
 | Niedrig
 | Der Quellcode soll modular aufgebaut und dokumentiert werden, um zukünftige Feature-Erweiterungen (z. B. zusätzliche Maskottchen oder Social-Features) zu erleichtern.
-| 
+| 30.01.2026
 
 | Dokumentation
 | Niedrig
 | Es soll eine kurze Onlinehilfe (Onboarding-Tutorial + FAQ) bereitgestellt werden, die den Einstieg für neue Nutzer:innen erleichtert. Für Entwickler:innen wird eine interne technische Dokumentation gepflegt.
-| 
+| TBD
 |===
