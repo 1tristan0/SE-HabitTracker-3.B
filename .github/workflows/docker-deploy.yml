@@ -68,10 +68,10 @@ jobs:
       
       - name: Push backend image
         run: |
-          docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:<sha>
+          docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:${{ github.sha }}
           docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:latest
 
       - name: Push frontend image
         run: |
-          docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:<sha>
+          docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:${{ github.sha }}
           docker push ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:latest
