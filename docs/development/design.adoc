@@ -5,6 +5,7 @@ include::../_includes/default-attributes.inc.adoc[]
 
 //{localdatetime}
 // Platzhalter für weitere Dokumenten-Attribute
+:imagesdir: images
 :doctype: book
 
 == Zweck
@@ -40,7 +41,7 @@ Das Datenmodell wurde nach Vorgaben des Domänenmodell abgeleiteitet und entworf
 
 Das folgende UML-Diagramm stellt das interne Datenmodell dar:
 
-image::"images/prisma-uml.png"["Datenmodell"]
+image::prisma-uml.jpg["Datenmodell", width=65%]
 
 
 
