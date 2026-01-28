@@ -160,9 +160,9 @@ Die folgenden API-Endpunkte werden über Swagger manuell geprüft (Integrationst
 ** Validierung korrekter HTTP-Statuscodes und Response-Strukturen
 ** Sicherstellung des Zusammenspiels von Routing, Handler-Logik und Persistenz
 
-== Test Cases
+=== Systemtests
 
-=== User Story B011
+// === User Story B011
 
 ==== Akzeptanztest AT-01
 Anzeige der geplanten Habits des aktuellen Tages
@@ -180,9 +180,9 @@ Nutzer öffnet die Startseite der App.
 *Erwartetes Ergebnis (Ausgabe):*  
 Eine Liste aller für den aktuellen Tag geplanten Habits wird angezeigt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
 ==== Akzeptanztest AT-02
@@ -201,9 +201,9 @@ Nutzer betrachtet die Habit-Übersicht.
 *Erwartetes Ergebnis (Ausgabe):*  
 Erledigte Gewohnheiten sind visuell eindeutig von offenen unterscheidbar.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
 ==== Akzeptanztest AT-03
@@ -227,9 +227,9 @@ Nutzer navigiert über den Menüpunkt zur Übersicht.
 *Erwartetes Ergebnis:*  
 Die Übersicht kann über den Menüpunkt aufgerufen werden.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
 ==== Akzeptanztest AT-04
@@ -247,14 +247,14 @@ Nutzer betrachtet die Habit-Übersicht.
 *Erwartetes Ergebnis (Ausgabe):*  
 Die Gewohnheiten sind nach Startdatum sortiert.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-=== User Story B030
+//=== User Story B030
 
-==== Akzeptanztest AT-01
+==== Akzeptanztest AT-05
 Öffnen eines bestehenden Habits zur Bearbeitung
 
 *Ziel des Tests:*  
@@ -270,12 +270,12 @@ Nutzer wählt ein bestehendes Habit aus.
 *Erwartetes Ergebnis (Ausgabe):*  
 Eine Bearbeitungsansicht für den ausgewählten Habit wird angezeigt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-02
+==== Akzeptanztest AT-06
 Änderung von Habit-Eigenschaften
 
 *Ziel des Tests:*  
@@ -292,12 +292,12 @@ und speichert die Änderungen.
 Die Änderungen werden übernommen.  
 Die aktualisierten Werte werden angezeigt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-03
+==== Akzeptanztest AT-07
 Speicherung von Änderungen
 
 *Ziel des Tests:*  
@@ -312,12 +312,12 @@ Nutzer schließt die Bearbeitungsansicht und öffnet dasselbe Habit erneut.
 *Erwartetes Ergebnis (Ausgabe):*  
 Die zuvor vorgenommenen Änderungen sind weiterhin vorhanden.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-04
+==== Akzeptanztest AT-08
 Feedback nach erfolgreicher Änderung
 
 *Ziel des Tests:*  
@@ -332,12 +332,12 @@ Nutzer beobachtet die Oberfläche nach dem Speichern.
 *Erwartetes Ergebnis (Ausgabe):*  
 Eine sichtbare Rückmeldung über den erfolgreichen Abschluss wird angezeigt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-05
+==== Akzeptanztest AT-09
 Löschen eines Habits
 
 *Ziel des Tests:*  
@@ -354,13 +354,13 @@ Nutzer löscht ein Habit.
 Das Habit wird nicht mehr angezeigt  
 und steht nicht mehr zur Bearbeitung zur Verfügung.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
-=== User Story B033
+//=== User Story B033
 
-==== Akzeptanztest AT-01
+==== Akzeptanztest AT-10
 „Erledigte“ Habits sind visuell erkennbar
 
 *Ziel des Tests:*  
@@ -375,12 +375,12 @@ Nutzer betrachtet die Habit-Übersicht.
 *Erwartetes Ergebnis (Ausgabe):*  
 Das erledigte Habit ist visuell eindeutig von nicht erledigten Habits unterscheidbar.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-02
+==== Akzeptanztest AT-11
 Korrektur innerhalb desselben Tages
 
 *Ziel des Tests:*  
@@ -397,14 +397,14 @@ Nutzer hebt die Erledigt-Markierung auf.
 Der Habit gilt wieder als offen.  
 Eine erneute Markierung ist möglich.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-=== User Story B065
+//=== User Story B065
 
-==== Akzeptanztest AT-01
+==== Akzeptanztest AT-12
 Anzeige des Kalenders auf der Startseite
 
 *Ziel des Tests:*  
@@ -420,12 +420,12 @@ Nutzer befindet sich auf der Startseite.
 *Erwartetes Ergebnis (Ausgabe):*  
 Auf der Startseite wird ein Kalender angezeigt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-02
+==== Akzeptanztest AT-13
 Strukturierte Darstellung der Kalenderansicht
 
 *Ziel des Tests:*  
@@ -442,12 +442,12 @@ Nutzer betrachtet die Kalenderansicht.
 Tage sind übersichtlich angeordnet.  
 Die Darstellung entspricht einer klaren Struktur (z. B. Monats- oder Wochenübersicht).
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-03
+==== Akzeptanztest AT-14
 Visualisierung erledigter Habits pro Tag
 
 *Ziel des Tests:*  
@@ -464,14 +464,14 @@ Nutzer betrachtet verschiedene Tage im Kalender.
 Tage mit erledigten Habits sind visuell gekennzeichnet.  
 Tage ohne erledigte Habits sind neutral oder anders dargestellt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-=== User Story B023
+//=== User Story B023
 
-==== Akzeptanztest AT-01
+==== Akzeptanztest AT-15
 Validierung fehlerhafter Anmeldedaten
 
 *Ziel des Tests:*  
@@ -488,12 +488,12 @@ und bestätigt die Anmeldung.
 Die Anmeldung ist nicht erfolgreich.  
 Eine verständliche Fehlermeldung wird angezeigt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-02
+==== Akzeptanztest AT-16
 Anzeige ausschließlich eigener Habits nach Login
 
 *Ziel des Tests:*  
@@ -509,14 +509,14 @@ Nutzer öffnet die Habit-Übersicht.
 *Erwartetes Ergebnis (Ausgabe):*  
 Es werden ausschließlich die eigenen Habits des Nutzers angezeigt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-=== User Story B061
+//=== User Story B061
 
-==== Akzeptanztest AT-01
+==== Akzeptanztest AT-17
 Weiterleitung auf die Startseite nach erfolgreicher Anmeldung
 
 *Ziel des Tests:*  
@@ -532,12 +532,12 @@ Nutzer meldet sich mit gültigen Zugangsdaten an.
 *Erwartetes Ergebnis (Ausgabe):*  
 Die Startseite wird unmittelbar nach der Anmeldung angezeigt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-02
+==== Akzeptanztest AT-18
 Zugriff auf die Startseite nur für angemeldete Nutzer
 
 *Ziel des Tests:*  
@@ -552,12 +552,12 @@ Nutzer ruft die URL der Startseite direkt auf.
 *Erwartetes Ergebnis (Ausgabe):*  
 Der Nutzer wird auf die Login-Seite weitergeleitet.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-03
+==== Akzeptanztest AT-19
 Anzeige relevanter Habits auf der Startseite
 
 *Ziel des Tests:*  
@@ -574,14 +574,14 @@ Nutzer betrachtet die Startseite.
 Zu erledigende Habits werden angezeigt.  
 Bereits erledigte Habits werden angezeigt.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-=== User Story B161
+//=== User Story B161
 
-==== Akzeptanztest AT-01
+==== Akzeptanztest AT-20
 Sichtbarkeit der Navigationseinträge
 
 *Ziel des Tests:*  
@@ -598,12 +598,12 @@ Nutzer betrachtet die Navigationsbar.
 Der Reiter „Habit anlegen“ ist sichtbar.  
 Der Reiter „Übersicht“ ist sichtbar.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-02
+==== Akzeptanztest AT-21
 Navigation zu „Habit anlegen“
 
 *Ziel des Tests:*  
@@ -619,12 +619,12 @@ Nutzer klickt auf den Reiter „Habit anlegen“.
 *Erwartetes Ergebnis (Ausgabe):*  
 Die Seite „Habit anlegen“ wird geöffnet.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-03
+==== Akzeptanztest AT-22
 Navigation zur Übersicht der Habits
 
 *Ziel des Tests:*  
@@ -640,14 +640,14 @@ Nutzer klickt auf den Reiter „Übersicht“.
 *Erwartetes Ergebnis (Ausgabe):*  
 Die Seite „Übersicht über die Habits“ (Startseite) wird geöffnet.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-=== User Story B170
+//=== User Story B170
 
-==== Akzeptanztest AT-01
+==== Akzeptanztest AT-23
 Konsistentes Farbkonzept im Frontend
 
 *Ziel des Tests:*  
@@ -665,12 +665,12 @@ und visuell überprüft.
 Farben werden konsistent gemäß dem festgelegten Farbkonzept verwendet.  
 Es sind keine abweichenden Ad-hoc-Farben erkennbar.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-02
+==== Akzeptanztest AT-24
 Einheitliche Benennung von CSS-Klassen
 
 *Ziel des Tests:*  
@@ -688,12 +688,12 @@ sowie React-Komponenten.
 CSS-Klassennamen entsprechen dem definierten Schema.  
 Es sind keine uneinheitlichen oder widersprüchlichen Benennungen erkennbar.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
 
-==== Akzeptanztest AT-03
+==== Akzeptanztest AT-25
 Einheitliche Darstellung gleicher UI-Elemente
 
 *Ziel des Tests:*  
@@ -711,7 +711,7 @@ UI-Elemente besitzen identische oder klar definierte konsistente Varianten
 (z. B. Primary/Secondary).  
 Abweichungen treten nur bei vorgesehenen Varianten auf.
 
-*Testergebnis:*  
-- [ ] bestanden  
-- [ ] nicht bestanden
+//*Testergebnis:*  
+//- [ ] bestanden  
+//- [ ] nicht bestanden
 
