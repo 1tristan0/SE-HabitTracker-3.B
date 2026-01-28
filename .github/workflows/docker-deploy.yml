@@ -1,4 +1,4 @@
-name: Docker Image Deplpyment
+name: Docker Image Deployment
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - closed
 
 jobs:
-  if_merged:
+  build-and-deploy:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
@@ -58,21 +58,13 @@ jobs:
     # Tags vergeben für letzten commit und latest damit Historie im GHCR erhalten bleibt
       - name: Tag backend image
         run: |
-          docker tag \
-          gewohnheitstier-backend \
-          ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:<sha>
-          docker tag \
-          gewohnheitstier-backend \
-          ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:latest
+          docker tag gewohnheitstier-backend ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:${{ github.sha }}
+          docker tag gewohnheitstier-backend ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-backend:latest
 
       - name: Tag frontend image
         run: |
-          docker tag \
-          gewohnheitstier-frontend \
-          ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:<sha>
-          docker tag \
-          gewohnheitstier-frontend \
-          ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:latest
+          docker tag gewohnheitstier-frontend ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:${{ github.sha }}
+          docker tag gewohnheitstier-frontend ghcr.io/1tristan0/se-habittracker-3b/gewohnheitstier-frontend:latest
       
       - name: Push backend image
         run: |
