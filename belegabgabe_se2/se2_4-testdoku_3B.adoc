@@ -28,8 +28,6 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 
 // --- Testdokumentation ---
 == Testdokumentation
-//Marktüberblick Testbibliotheken und Testplan
-include::../docs/test/testbibliotheken.adoc[]
 
 //Teststrategy
 include::../docs/test/test_strategy.adoc[]
