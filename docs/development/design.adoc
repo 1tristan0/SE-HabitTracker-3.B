@@ -1,11 +1,11 @@
-= Design: {project-name}
+= Design
 include::../_includes/default-attributes.inc.adoc[]
 
-include::../_includes/teammitglieder.adoc[]
+//include::../_includes/teammitglieder.adoc[]
 
-{localdatetime}
+//{localdatetime}
 // Platzhalter für weitere Dokumenten-Attribute
-
+:doctype: book
 
 == Zweck
 Dieses Dokument beschreibt wesentliche Entwurfsentscheidungen auf Ebene der Komponenten und Module. Diese dienen als Vorgabe für die Implementierung und erleichtern das Systemverständnis.

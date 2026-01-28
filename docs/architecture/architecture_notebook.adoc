@@ -1,7 +1,8 @@
-= Architecture Notebook:
+
 include::../_includes/default-attributes.inc.adoc[]
 include::attributes.inc.adoc[]
 
+= Architecture Notebook
 //include::../_includes/teammitglieder.adoc[]
 
 //{localdatetime}
@@ -9,7 +10,7 @@ include::attributes.inc.adoc[]
 :imagesdir: images 
 :diagramsdir: diagrams 
 :plantumlsdir: plantuml 
-
+:doctype: book
 
 == Zweck
 Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Begründungen, wesentliche Elemente und andere übergreifende Aspekte des Systems, die Einfluss auf Entwurf und Implementierung haben.

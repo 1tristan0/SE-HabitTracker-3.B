@@ -1,6 +1,6 @@
 include::../docs/_includes/default-attributes.inc.adoc[]
 // ---
-:doctype: book
+
 //:toc:
 //:toclevels: 2
 //:toc-title: Inhaltsverzeichnis
@@ -25,9 +25,10 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 :docs-architecture: {docs}/architecture
 :docs-test: {docs}/test
 :docs-development: {docs}/development
+:doctype: book
 
-// --- Entwicklerdokumentation ---
-== Entwicklerdokumentation
+= Entwicklerdokumentation
+
 *Link zum Repository:* https://github.com/1tristan0/SE-HabitTracker-3.B
 
 //Architektur-Beschreibung

@@ -1,6 +1,7 @@
 = Vollständige Code-Übersicht (leicht erklärt)
 :toc:
 :toclevels: 3
+:doctype: book
 
 Kerngedanke: Der Browser spricht nur mit unserem eigenen Server. Der Server regelt Anmeldung und Datenbankzugriffe; die Datenbank liegt bei Supabase. Supabase selbst nutzen wir nur für Authentifizierung, nicht direkt aus dem Browser.
 

@@ -1,6 +1,7 @@
 = Prisma ORM Guide
 :toc:
 :toclevels: 2
+:doctype: book
 
 == ACHTUNG nicht aktuell -> readme.md nutzen
 

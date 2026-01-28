@@ -3,6 +3,7 @@
 :module: SE2 – Software Engineering II
 :toc: left
 :sectnums:
+:doctype: book
 
 == Zielsetzung
 Ziel dieses Dokuments ist die Containerisierung des Projekts *Gewohnheitstier*, bestehend aus einem Node.js-Server und einem React-Client, um die Entwicklungsumgebung unabhängig von Hostsystemen bereitzustellen.  
