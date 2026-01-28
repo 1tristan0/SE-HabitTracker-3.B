@@ -1,51 +1,119 @@
+<<<<<<< HEAD
 == Vollständige Code-Übersicht 
+=======
+= Vollständige Code-Übersicht 
+>>>>>>> 817aa89 (fix full_code_overview)
 :toc:
 :toclevels: 3
 :doctype: book
 
-Kerngedanke: Der Browser spricht nur mit unserem eigenen Server. Der Server regelt Anmeldung und Datenbankzugriffe; die Datenbank liegt bei Supabase. Supabase selbst nutzen wir nur für Authentifizierung, nicht direkt aus dem Browser.
+== Überblick
+Kerngedanke: Der Browser spricht nur mit unserem eigenen Server. Der Server regelt Anmeldung und Datenbankzugriffe; die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur serverseitig genutzt, nie direkt im Browser.
 
+<<<<<<< HEAD
 === Verzeichnisstruktur (kurz)
+=======
+== Projektstruktur 
+>>>>>>> 817aa89 (fix full_code_overview)
 ----
 src/
-├── backend/          # Server-Code (Node/Express + Prisma)
+├── docker-compose.yml
+├── docker-compose.dev.yml
+├── docker-compose.prod.yml
+├── dev-start.sh / dev-start.ps1
+├── dev-db-setup.sh / dev-db-setup.ps1
+├── backend/
+│   ├── .env / .env.local
+│   ├── Dockerfile
 │   ├── index.js
+│   ├── package.json / package-lock.json
+│   ├── eslint.config.mjs
+│   ├── __tests__/
+│   │   ├── prismaHabits.unit.test.js
+│   │   ├── prismaUsers.unit.test.js
+│   │   ├── routesAuth.test.js
+│   │   ├── routesHabits.test.js
+│   │   ├── routesUsers.test.js
+│   │   ├── smoke.test.js
+│   │   └── supabaseAuth.test.js
+│   ├── prisma/
+│   │   ├── schema.prisma
+│   │   └── migrations/
 │   ├── prisma.config.js
-│   ├── prisma/schema.prisma
 │   └── src/
 │       ├── prisma.js
 │       ├── supabaseAuth.js
+│       ├── swagger.js
 │       ├── middleware/authenticate.js
-│       └── routes/{auth.js, habits.js}
-└── frontend/         # Browser-App (React)
-    ├── package.json
+│       └── routes/{auth.js, habits.js, users.js}
+└── frontend/
+    ├── .env
+    ├── Dockerfile
+    ├── package.json / package-lock.json
     └── src/
         ├── App.jsx / App.css
-        ├── api/{httpClient.js, authApi.js, habitsApi.js}
+        ├── index.js / index.css
+        ├── setupTests.js / reportWebVitals.js / logo.svg
+        ├── api/{httpClient.js, authApi.js, habitsApi.js, userApi.js}
+        ├── hooks/useHabits.js
+        ├── pages/{HabitsPage.jsx, CreateHabitPage.jsx}
         ├── components/
-        Kurzüberblick (feature-basiert, wichtigste Bausteine mit Pfadlinks):
-        - [layout/Navbar.jsx](src/frontend/src/components/layout/Navbar.jsx): Kopfzeile mit Logout und Titel.
-        - Auth: [Login.jsx](src/frontend/src/components/auth/Login.jsx) und [Signup.jsx](src/frontend/src/components/auth/Signup.jsx) für Anmeldung/Registrierung.
-        - Habits: [HabitForm.jsx](src/frontend/src/components/habits/HabitForm.jsx) legt neue Gewohnheiten an; [HabitGrid.jsx](src/frontend/src/components/habits/HabitGrid.jsx) gruppiert erledigt/offen und nutzt [HabitCard.jsx](src/frontend/src/components/habits/HabitCard.jsx) mit ToggleSwitch und Edit/Delete-Icons; [HabitCreateContent.jsx](src/frontend/src/components/habits/HabitCreateContent.jsx) angeleitete Erstellung; [HabitList.jsx](src/frontend/src/components/habits/HabitList.jsx) alternative Listen-Ansicht.
-        - Kalender: [Calender.jsx](src/frontend/src/components/habits/calendar/Calender.jsx) Monatsübersicht mit Tagesbuttons; [CalendarModal.jsx](src/frontend/src/components/habits/calendar/modals/CalendarModal.jsx) zeigt Tagesdetails.
-        - Habit-Modale: [HabitChangeModal.jsx](src/frontend/src/components/habits/modals/HabitChangeModal.jsx) (Bearbeiten), [HabitInfoModal.jsx](src/frontend/src/components/habits/modals/HabitInfoModal.jsx) (Details).
-        - Begleiter: [Animal.jsx](src/frontend/src/components/animal/Animal.jsx) und [AnimalModal.jsx](src/frontend/src/components/animal/modals/AnimalModal.jsx).
-        - UI-Primitives: Buttons [CalendarDayButton.jsx](src/frontend/src/components/ui/Buttons/CalendarDayButton.jsx), [CloseButton.jsx](src/frontend/src/components/ui/Buttons/CloseButton.jsx), [SaveButton.jsx](src/frontend/src/components/ui/Buttons/SaveButton.jsx); [ToggleSwitch.jsx](src/frontend/src/components/ui/ToggleSwitch.jsx); [Modal.jsx](src/frontend/src/components/ui/Modal.jsx); [ProgressCircle.jsx](src/frontend/src/components/ui/ProgressCircle.jsx); [StreakBadge.jsx](src/frontend/src/components/ui/StreakBadge.jsx); [InputField.jsx](src/frontend/src/components/ui/InputField.jsx); [Titel.jsx](src/frontend/src/components/ui/Titel.jsx).
-        - Icons: [DeleteIcon.jsx](src/frontend/src/components/icons/DeleteIcon.jsx), [EditIcon.jsx](src/frontend/src/components/icons/EditIcon.jsx).
-        └── weitere CRA-Standarddateien (index.js, tests, Styles)
+        │   ├── auth/{Login.jsx, Signup.jsx}
+        │   ├── layout/Navbar.jsx
+        │   ├── habits/{HabitGrid.jsx, HabitCard.jsx, HabitCreateContent.jsx, HabitForm.jsx, HabitList.jsx}
+        │   ├── habits/modals/{HabitChangeModal.jsx, HabitInfoModal.jsx}
+        │   ├── habits/calendar/Calender.jsx
+        │   ├── habits/calendar/modals/CalendarModal.jsx
+        │   ├── animal/Animal.jsx
+        │   ├── animal/modals/AnimalModal.jsx
+        │   ├── icons/{DeleteIcon.jsx, EditIcon.jsx}
+        │   └── ui/
+        │       ├── Buttons/{CalendarDayButton.jsx, CloseButton.jsx, SaveButton.jsx}
+        │       ├── InputField.jsx / Modal.jsx / ProgressCircle.jsx / StreakBadge.jsx / Titel.jsx / ToggleSwitch.jsx
+        ├── lib/{convert.js, calendar.js, habit.js}
+        └── __tests__/
+            ├── Animal.test.js
+            ├── AnimalModal.test.js
+            ├── CalendarModal.test.js
+            ├── Calender.test.js
+            ├── HabitCard.test.js
+            ├── HabitChangeModal.test.js
+            ├── HabitCreateContent.test.js
+            ├── HabitGrid.test.js
+            ├── HabitInfoModal.test.js
+            ├── Login.test.js
+            ├── Navbar.test.js
+            ├── Signup.test.js
+            ├── calendar.test.js
+            ├── habitsApi.errors.test.js
+            ├── habitsApi.test.js
+            ├── httpClient.basic.test.js
+            └── httpClient.test.js
 ----
 
+<<<<<<< HEAD
 === Backend (Server)
 Der Server läuft mit Node.js/Express. Er hat zwei Aufgaben: (1) Nutzer anmelden/abmelden, (2) Gewohnheiten eines Nutzers lesen/anlegen/löschen/umschalten. Die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur vom Server angesprochen, nie direkt aus dem Browser.
 
 ==== index.js
 * Startet den Server, erlaubt Browser-Aufrufe (CORS) und versteht JSON-Anfragen.
 * `GET /` → kurzer „API läuft“-Text.
-* Leitet Anfragen an:
-** `/api/auth` (Anmeldung/Registrierung/Abmeldung)
-** `/api/habits` (Gewohnheiten)
-* Startet auf konfigurierter Port-Nummer (im Docker-Setup Port 3001).
+=======
+== Backend (Server)
+Der Server läuft mit Node.js/Express. Er hat drei Aufgaben: (1) Nutzer anmelden/abmelden, (2) Gewohnheiten verwalten, (3) User-Status (Begleiter) laden/setzen. Die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur vom Server angesprochen.
 
+=== index.js
+* Startet den Server, erlaubt Browser-Aufrufe (CORS) und verarbeitet JSON-Anfragen.
+* `GET /` → kurzer "API läuft"-Text.
+>>>>>>> 817aa89 (fix full_code_overview)
+* Leitet Anfragen an:
+** `/api/auth` (Anmeldung/Registrierung/Session/Logout)
+** `/api/habits` (Gewohnheiten)
+** `/api/users` (Tier-Typ/Stimmung)
+** `/api/docs` (Swagger UI)
+* Port: `PORT` aus der Umgebung (in `backend/.env` auf 3001 gesetzt), Fallback 5000.
+
+<<<<<<< HEAD
 ==== prisma.config.js
 * Sagt Prisma, wo das Datenbankmodell liegt und wohin der erzeugte DB-Client geschrieben wird.
 
@@ -69,9 +137,38 @@ Der Server läuft mit Node.js/Express. Er hat zwei Aufgaben: (1) Nutzer anmelden
 
 ==== src/middleware/authenticate.js
 * „Türsteher“ für geschützte Routen.
-* Erwartet Header `Authorization: Bearer <token>`.
-* Prüft das Token bei Supabase; bei Erfolg hängt der geprüfte Nutzer an `req.auth`. Sonst 401/403 mit klarer JSON-Fehlermeldung.
+=======
+=== prisma.config.js
+* Verweist auf `prisma/schema.prisma` und `prisma/migrations`.
+* Nutzt `DATABASE_URL` aus der Umgebung.
+* Prisma-Client geht auf den Standard-Output von `@prisma/client` (kein eigenes `output`).
 
+=== prisma/schema.prisma
+* Enums: `animal_type` (hund/katze/hamster/wurm), `animal_mood` (gluecklich/traurig).
+* `habits_table`:
+** `id` (String mit `uuid()` Default)
+** `userId` (String, FK auf `users.id`)
+** `habit_name`, `description`, `start_date`, `streak` (BigInt), `last_break`, `last_checked`, `prev_last_checked` (Array)
+* `users`:
+** `id` (String mit `uuid()` Default)
+** `animal_type`, `animal_mood`
+** 1-n Relation zu `habits_table`
+
+=== src/prisma.js
+* Erstellt und exportiert `PrismaClient` mit Logging.
+
+=== src/supabaseAuth.js
+* Spricht die Supabase-Auth-REST-API an.
+* Braucht `SUPABASE_URL` und `SUPABASE_ANON_KEY`.
+* Kernfunktionen: `loginWithPassword`, `registerUser`, `fetchUser`, `signOut`.
+
+=== src/middleware/authenticate.js
+* Middleware für geschützte Routen.
+>>>>>>> 817aa89 (fix full_code_overview)
+* Erwartet Header `Authorization: Bearer <token>`.
+* Prüft Token per Supabase und hängt `req.auth.user` an (sonst 401/403).
+
+<<<<<<< HEAD
 ==== src/routes/auth.js
 * Schnittstelle für Anmeldung im Browser (JSON rein, JSON raus):
 ** `POST /api/auth/login`: E-Mail/Passwort → Token + Nutzer.
@@ -81,15 +178,40 @@ Der Server läuft mit Node.js/Express. Er hat zwei Aufgaben: (1) Nutzer anmelden
 
 ==== src/routes/habits.js
 * Nur mit gültigem Token erreichbar (Middleware oben prüft).
-* Helfer:
-** `serializeHabit`: macht Daten browserfreundlich (große Zahlen/Datumswerte als Strings/ISO).
-** `normalizeDateArray`: stellt sicher, dass Datumslisten wirklich Listen sind.
-* Endpunkte:
-** `GET /api/habits`: alle Gewohnheiten des angemeldeten Nutzers (sortiert nach Startdatum).
-** `POST /api/habits`: erwartet mindestens `name`, legt eine Gewohnheit an (Startdatum = heute, Streak = 0).
-** `DELETE /api/habits/:id`: löscht eine Gewohnheit des Nutzers, antwortet mit 204 bei Erfolg.
-** `POST /api/habits/:id/toggle`: schaltet „heute erledigt“ um; erhöht oder verringert den Streak und führt eine kleine Historie (`prev_last_checked`).
+=======
+=== src/routes/auth.js
+* JSON-Schnittstellen für Auth:
+** `POST /api/auth/login`
+** `POST /api/auth/register`
+** `POST /api/auth/session`
+** `POST /api/auth/logout`
 
+=== src/routes/habits.js
+* Geschützt durch `authenticate`.
+>>>>>>> 817aa89 (fix full_code_overview)
+* Helfer:
+** `serializeHabit` (Dates + BigInt sauber nach JSON)
+** `normalizeDateArray` (stellt Date-Arrays sicher)
+* Endpunkte:
+** `GET /api/habits`: lädt alle Habits des Users; setzt `streak` auf 0, wenn `last_checked` > 48h her ist (und schreibt `last_break`).
+** `POST /api/habits`: legt Habit an (Startdatum heute, Streak 0, `prev_last_checked` leer).
+** `PUT /api/habits/:id`: aktualisiert Name/Beschreibung/Startdatum.
+** `DELETE /api/habits/:id`: löscht Habit.
+** `POST /api/habits/:id/toggle`: schaltet "heute erledigt"; aktualisiert `streak`, `last_checked`, `prev_last_checked`.
+
+=== src/routes/users.js
+* Geschützt durch `authenticate`.
+* `GET /api/users/animal`: liefert `animal_type` und `animal_mood` des Nutzers.
+* `PUT /api/users/animal`: setzt `animal_type` und/oder `animal_mood` (validiert gegen Enums).
+
+=== src/swagger.js
+* Konfiguriert Swagger/OpenAPI (Schemas für Auth, Habit, UserAnimal).
+* UI ist unter `/api/docs` verfügbar.
+
+=== Tests (__tests__)
+* Unit- und Routen-Tests für Auth, Habits, Users, Prisma-Zugriffe und Supabase-Auth.
+
+<<<<<<< HEAD
 === Frontend (Browser-App)
 Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach die Gewohnheiten. Sie spricht ausschließlich mit dem eigenen Backend; Datenbank und Supabase-Schlüssel bleiben verborgen.
 
@@ -188,3 +310,87 @@ Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach 
 
 ==== index.js / index.css / App.css / tests
 * Standard-Dateien von Create React App: Einstiegspunkt, globale Styles, Test-Setup und Beispiel-Test.
+=======
+== Frontend (Browser-App)
+Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach die Gewohnheiten. Sie spricht ausschließlich mit dem eigenen Backend; Supabase-Schlüssel bleiben verborgen.
+
+=== App.jsx
+* Oberste React-Komponente mit React Router.
+* Lädt gespeicherte Session und prüft Token per `/api/auth/session`.
+* Routen:
+** `/` → link:../../src/frontend/src/pages/HabitsPage.jsx[HabitsPage.jsx]
+** `/add` → link:../../src/frontend/src/pages/CreateHabitPage.jsx[CreateHabitPage.jsx]
+
+=== api/httpClient.js
+* Hilfsfunktion für HTTP-Requests.
+* Basis-URL: `REACT_APP_API_BASE_URL` (Repo-`.env` ist `http://localhost:3001`), Fallback `http://localhost:5000`.
+* Setzt JSON-Header und optional `Authorization: Bearer <token>`.
+
+=== api/authApi.js
+* Backend-Calls: `login`, `register`, `fetchSession`, `logout`.
+* Lokale Session: `persistSession`, `loadSession`, `clearSession`.
+
+=== api/habitsApi.js
+* Calls für Gewohnheiten: `fetchHabits`, `addHabit`, `updateHabit`, `deleteHabit`, `toggleHabitToday`.
+
+=== api/userApi.js
+* Calls für User-Begleiter: `fetchAnimal`, `setAnimal`.
+
+=== pages/HabitsPage.jsx
+* Seite nach erfolgreichem Login.
+* Lädt Habits und Begleiterdaten; aktualisiert Habits bei Toggle/Edit/Delete.
+* Rendert Habit-Grid, Info-/Change-Modal, Kalender sowie Begleiter-UI.
+
+=== pages/CreateHabitPage.jsx
+* Seite zum Anlegen neuer Gewohnheiten.
+* Nutzt `HabitCreateContent` und ruft `addHabit` über das Backend.
+
+=== hooks/useHabits.js
+* Wiederverwendbarer Hook für Habit-Listen (load/add/remove/update).
+
+=== components
+* Layout:
+** link:../../src/frontend/src/components/layout/Navbar.jsx[Navbar.jsx]
+* Auth:
+** link:../../src/frontend/src/components/auth/Login.jsx[Login.jsx]
+** link:../../src/frontend/src/components/auth/Signup.jsx[Signup.jsx]
+* Habits:
+** link:../../src/frontend/src/components/habits/HabitGrid.jsx[HabitGrid.jsx]
+** link:../../src/frontend/src/components/habits/HabitCard.jsx[HabitCard.jsx]
+** link:../../src/frontend/src/components/habits/HabitCreateContent.jsx[HabitCreateContent.jsx]
+** link:../../src/frontend/src/components/habits/HabitForm.jsx[HabitForm.jsx] (aktuell nicht verdrahtet)
+** link:../../src/frontend/src/components/habits/HabitList.jsx[HabitList.jsx] (aktuell nicht verdrahtet)
+** link:../../src/frontend/src/components/habits/modals/HabitChangeModal.jsx[HabitChangeModal.jsx]
+** link:../../src/frontend/src/components/habits/modals/HabitInfoModal.jsx[HabitInfoModal.jsx]
+* Kalender:
+** link:../../src/frontend/src/components/habits/calendar/Calender.jsx[Calender.jsx]
+** link:../../src/frontend/src/components/habits/calendar/modals/CalendarModal.jsx[CalendarModal.jsx]
+* Begleiter:
+** link:../../src/frontend/src/components/animal/Animal.jsx[Animal.jsx]
+** link:../../src/frontend/src/components/animal/modals/AnimalModal.jsx[AnimalModal.jsx]
+* UI:
+** link:../../src/frontend/src/components/ui/ToggleSwitch.jsx[ToggleSwitch.jsx]
+** link:../../src/frontend/src/components/ui/Modal.jsx[Modal.jsx]
+** link:../../src/frontend/src/components/ui/ProgressCircle.jsx[ProgressCircle.jsx]
+** link:../../src/frontend/src/components/ui/StreakBadge.jsx[StreakBadge.jsx]
+** link:../../src/frontend/src/components/ui/InputField.jsx[InputField.jsx]
+** link:../../src/frontend/src/components/ui/Titel.jsx[Titel.jsx]
+** Buttons in link:../../src/frontend/src/components/ui/Buttons[components/ui/Buttons]
+* Icons:
+** link:../../src/frontend/src/components/icons/DeleteIcon.jsx[DeleteIcon.jsx]
+** link:../../src/frontend/src/components/icons/EditIcon.jsx[EditIcon.jsx]
+
+=== lib
+* link:../../src/frontend/src/lib/convert.js[convert.js]: Datums-/Format-Utilities (`dateOnly`, `monthAndYear`, `todayAsString`, `convertToGermanDateString`, Berlin-Zeitzonenvarianten, `isInFuture`).
+* link:../../src/frontend/src/lib/calendar.js[calendar.js]: Monatsmatrix, Tagesauswertung (`isEveryHabitChecked`, `getCheckedHabiitsFromDay`, `getUncheckedHabitsFromDay`), `daysBetween`.
+* link:../../src/frontend/src/lib/habit.js[habit.js]: Statistiken (`getNumberOfCompletedHabits`, `getNumberOfCompletedHabitsLastMonth`, `getPercentageOfCompletedHabits`, `getPercentageOfCompletedHabitsLastMonth`).
+
+=== Tests (__tests__)
+* UI-, API- und Utility-Tests (siehe Verzeichnisstruktur oben).
+
+== Docker/Dev-Skripte 
+* `docker-compose.yml`: einfache Container-Definitionen (Ports, keine envs).
+* `docker-compose.dev.yml`: Dev-Setup mit Volumes und `backend/.env.local`.
+* `docker-compose.prod.yml`: Prod-Setup mit `backend/.env.production` (falls vorhanden) und `frontend/.env`.
+* `dev-start.*` und `dev-db-setup.*`: Hilfsskripte für lokalen Start und DB-Setup.
+>>>>>>> 817aa89 (fix full_code_overview)
