@@ -1,104 +1,116 @@
-== Docker-Setup Dokumentation: Gewohnheitstier
+== Containerisierung mittels Docker
 :author: Paul Händler
 :module: SE2 – Software Engineering II
 :toc: left
 :sectnums:
 :doctype: book
 
-=== Zielsetzung
-Ziel dieses Dokuments ist die Containerisierung des Projekts *Gewohnheitstier*, bestehend aus einem Node.js-Server und einem React-Client, um die Entwicklungsumgebung unabhängig von Hostsystemen bereitzustellen.  
-Dadurch wird eine einheitliche und portable Laufzeitumgebung für alle Teammitglieder geschaffen.
 
-=== Architekturübersicht
+== Übersicht Containerstruktur
 
-[plantuml, target="docker-arch", format=svg]
-....
-@startuml
-node "Docker Host" {
-  frame "Docker Compose" {
-    [Server Container\n(Node.js API)] --> [Client Container\n(React Frontend)]
-  }
-}
-@enduml
-....
-
-=== Containerstruktur
-
-* **Server-Container**
+* **gewohnheitstier-backend**
   - Basierend auf `node:20-bullseye`
   - Enthält Express-Server, REST-API und Business-Logik
-  - Startbefehl: `npm run dev` (über Nodemon)
 
-* **Client-Container**
+* **gewohnheitstier-frontend**
   - Basierend auf `node:20-bullseye`
-  - Enthält React-Anwendung (Vite/CRA)
-  - Startbefehl: `npm run dev`
+  - Enthält React-SPA (CRA)
 
-=== Dockerfile.dev
-
-[source,dockerfile]
+[plantuml, docker-compose-setup, png]
 ----
-FROM node:20-bullseye
-WORKDIR /app
+@startuml
+skinparam componentStyle rectangle
+skinparam shadowing false
 
-COPY package*.json ./
-RUN apt-get update && apt-get install -y --no-install-recommends tini \
-    && npm install && rm -rf /var/lib/apt/lists/*
+actor "Developer" as User
 
-COPY . .
-RUN useradd -m appuser && chown -R appuser:appuser /app
-USER appuser
+package "Docker Compose" {
+  component " -f docker-compose.yml\n(Basis)" as Base
 
-CMD ["npm", "run", "dev"]
-----
+  package "DEV Environment" {
+    component "-f docker-compose.dev.yml\n(Override mit .env.local)" as DevCompose
+    component "Backend (DEV)\nContainer" as DevBackend
+    component "Frontend (DEV)\nContainer" as DevFrontend
+  }
 
-=== docker-compose.yml
+  package "PROD Environment" {
+    component "-f docker-compose.prod.yml\n(Override mit .env.production)" as ProdCompose
+    component "Backend (PROD)\nContainer" as ProdBackend
+    component "Frontend (PROD)\nContainer" as ProdFrontend
+  }
+}
 
-[source,yaml]
-----
-version: "3.9"
-services:
-  server:
-    build:
-      context: ./test/server
-      dockerfile: ../../Dockerfile.dev
-    container_name: gewohnheitstier-server
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./test/server:/app
-    command: npm run dev
+User --> Base : docker compose up
+Base --> DevCompose 
+Base --> ProdCompose 
 
-  client:
-    build:
-      context: ./test/client
-      dockerfile: ../../Dockerfile.dev
-    container_name: gewohnheitstier-client
-    ports:
-      - "5173:5173"
-    volumes:
-      - ./test/client:/app
-    command: npm run dev
+DevCompose --> DevBackend
+DevCompose --> DevFrontend
+
+ProdCompose --> ProdBackend
+ProdCompose --> ProdFrontend
+
+DevFrontend <--> DevBackend : HTTP / API
+ProdFrontend <--> ProdBackend : HTTP / API
+
+@enduml
 ----
 
-=== Nutzung
+Die DEV-Umgebung kommuniziert dabei mit der lokalen Instanz con Supabase, während die PROD-Umgebung mit der Cloud-Instanz kommuniziert.
 
-==== Projekt starten
+== .env - Dateien
+Die .env-Dateien setzte den nötigen Umgebungskontext via der entsprechenden Variablen.
+=== env (Frontend)
+```
+REACT_APP_API_BASE_URL=http://localhost:3001
+```
+=== env.local
+```
+NODE_ENV=development
+# Mac 
+#DATABASE_URL="postgresql://postgres:postgres@host.docker.internal:54322/postgres"
+# Linux 
+DATABASE_URL="postgresql://postgres:postgres@172.17.0.1:54322/postgres"
+
+# Mac
+#SUPABASE_URL=http://host.docker.internal:54321
+# Linux
+SUPABASE_URL=http://172.17.0.1:54321
+
+SUPABASE_ANON_KEY=****
+PORT=3001
+```
+=== env.production
+```
+NODE_ENV=production
+DATABASE_URL="postgresql://<user>.<project_ref>>:g<password>@aws-0-eu-central-1.pooler.supabase.com:5432/postgres"
+SUPABASE_URL=https://<project_ref>.supabase.co/
+SUPABASE_ANON_KEY=****
+PORT=3001
+```
+== Nutzung
+
+=== Projekt starten
 [source,bash]
 ----
-docker compose up --build
+docker compose up -f docker-compose.yml -f docker-compose.dev.yml up --build
 ----
-
+bzw.
+[source,bash]
+----
+docker compose up -f docker-compose.yml -f docker-compose.prod.yml up --build
+----
 Dadurch werden beide Container gebaut und gestartet.  
-Der Client ist anschließend unter `http://localhost:5173` und der Server unter `http://localhost:5000` erreichbar.
+Der Client ist anschließend unter `http://localhost:3000` und der Server unter `http://localhost:3001` erreichbar.
 
-==== Projekt stoppen
+=== Projekt stoppen
 [source,bash]
 ----
-docker compose down
+docker compose down -v
 ----
+`-v` entfernt dabei alle erstellten Volumes. Wichtig wenn Änderungen an den Nodemodules vorgenommen wurde.
 
-==== Logs anzeigen
+=== Logs anzeigen
 [source,bash]
 ----
 docker compose logs -f
@@ -107,10 +119,10 @@ docker compose logs -f
 === Vorteile
 
 * Einheitliche Entwicklungsumgebung für alle Teammitglieder
-* Keine lokale Node-Installation nötig
-* Leicht portierbar auf andere Rechner oder CI/CD-Pipelines
+* Trennung von Entwicklung und Produktion
+* Ermöglicht gleichzeitige Arbeit an Front- und Backend
+* Leicht portierbar
 * Isolation der Abhängigkeiten
 
-=== Fazit
 Durch die Dockerisierung ist das Projekt *Gewohnheitstier* plattformunabhängig, reproduzierbar und teamfähig.  
 Alle Entwickler können ohne komplexe Setups sofort starten.
