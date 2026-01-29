@@ -1,8 +1,8 @@
-= ESLint Leitfaden (Frontend & Backend)
+== ESLint Leitfaden (Frontend & Backend)
 
 Dieser kurze Leitfaden erklärt, was Linting ist, warum es die Codequalität verbessert und wie wir ESLint in diesem Projekt nutzen.
 
-== Was ist Linting?
+=== Was ist Linting?
 Linting analysiert Quellcode automatisch und erkennt typische Fehler, Stilbrüche und unsichere Muster. Vorteile:
 
 - Einheitlicher Stil und bessere Lesbarkeit
@@ -10,12 +10,12 @@ Linting analysiert Quellcode automatisch und erkennt typische Fehler, Stilbrüch
 - Einhaltung von Best Practices (Framework-/Sprachregeln)
 - Weniger Review-Aufwand und höhere Wartbarkeit
 
-== Voraussetzungen
+=== Voraussetzungen
 - ESLint ist als Dev-Dependency installiert (Frontend und Backend)
 - ESLint-Konfiguration wurde per `npx eslint --init` erzeugt (z.B. `eslint.config.js` oder `.eslintrc.*`)
 - Container laufen für Befehle innerhalb von Docker
 
-== Lint ausführen
+=== Lint ausführen
 Frontend:
 [source,bash]
 ----
@@ -28,7 +28,7 @@ Backend:
 docker-compose -f docker-compose.dev.yml exec backend npm run lint
 ----
 
-== Automatische Korrekturen (Auto-Fix)
+=== Automatische Korrekturen (Auto-Fix)
 Viele Probleme lassen sich automatisch beheben:
 
 Frontend:
@@ -43,7 +43,7 @@ Backend:
 docker-compose -f docker-compose.dev.yml exec backend npm run lint:fix
 ----
 
-== Nützliche VS Code Einstellungen
+=== Nützliche VS Code Einstellungen
 Aktiviert automatische ESLint-Fixes beim Speichern (optional):
 [source,json]
 ----
@@ -56,7 +56,7 @@ Aktiviert automatische ESLint-Fixes beim Speichern (optional):
 }
 ----
 
-== Dateien/Ordner ignorieren
+=== Dateien/Ordner ignorieren
 Erstellen/ergänzen von `.eslintignore` in Frontend und Backend (empfohlen):
 [source]
 ----
@@ -67,12 +67,12 @@ coverage
 .eslintcache
 ----
 
-== Tipps & Troubleshooting
+=== Tipps & Troubleshooting
 - Container muss laufen, sonst schlägt `docker-compose exec …` fehl: `docker-compose -f docker-compose.dev.yml up -d`
 - Fehlende Konfiguration? Führe `npx eslint --init` im jeweiligen Service aus.
 - Viele Warnungen? Nutze `lint:fix` und passe Regeln in der ESLint-Konfiguration an.
 
-=== React (Frontend)
+==== React (Frontend)
 - Bei React ≥ 17 ist `React` in JSX-Dateien nicht mehr nötig. Deaktiviere die Regel:
 	- Installiere Plugins:
 	[source,bash]
@@ -82,12 +82,12 @@ coverage
 	- In der ESLint-Konfiguration: `react/react-in-jsx-scope: off` und `react/jsx-uses-react: off`
 	- Optional: Hooks-Regeln aktivieren (`react-hooks/rules-of-hooks`, `react-hooks/exhaustive-deps`)
 
-=== ESLint v8/v9 Konfiguration
+==== ESLint v8/v9 Konfiguration
 - Fehler wie „Package subpath './config' is not defined by exports …“ deuten auf eine Flat-Config, die `eslint/config` importiert (nur in ESLint v9 vorhanden).
 - Lösung:
 	- Auf ESLint v9 aktualisieren: `docker-compose -f docker-compose.dev.yml exec <service> npm i -D eslint@^9`
 
-=== NPM-Skripte prüfen
+==== NPM-Skripte prüfen
 - Stelle sicher, dass in `package.json` je Service folgende Skripte existieren:
 [source,json]
 ----
@@ -99,7 +99,7 @@ coverage
 }
 ----
 
-== Was bringt Linting konkret?
+=== Was bringt Linting konkret?
 - Klare, konsistente Codebasis an der sich das gesamte Team orientieren kann
 - Schnellere Fehlerfindung vor Laufzeit/Build
 - Höhere Code-Qualität und bessere Wartbarkeit langfristig
