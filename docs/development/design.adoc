@@ -11,10 +11,6 @@ include::../_includes/default-attributes.inc.adoc[]
 == Zweck
 Dieses Dokument beschreibt wesentliche Entwurfsentscheidungen auf Ebene der Komponenten und Module. Diese dienen als Vorgabe für die Implementierung und erleichtern das Systemverständnis.
 
-== Ausgewählte Sichten
-//Entwurfsklassendiagramme, Sequenzdiagramme
-Die Sequenzdiagramme finden Sie im Architecture Notebook
-
 == Schnittstellen
 //Dokumentation oder Verweise auf Schnittstellen, z.B. REST-APIs
 Frontend-Backend: Das Frontend kommuniziert mit dem Backend über eine Rest-API Schnittstelle:
