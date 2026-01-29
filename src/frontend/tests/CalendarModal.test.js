@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import CalendarModal from '../components/habits/calendar/modals/CalendarModal';
+import CalendarModal from '../src/components/habits/calendar/modals/CalendarModal';
 
 describe('CalendarModal', () => {
   const mockCheckedHabits = [

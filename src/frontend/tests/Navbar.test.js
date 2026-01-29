@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
-import Navbar from '../components/layout/Navbar';
+import Navbar from '../src/components/layout/Navbar';
 
 describe('Navbar', () => {
   /**

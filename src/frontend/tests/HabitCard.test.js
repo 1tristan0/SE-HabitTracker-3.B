@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import HabitCard from '../components/habits/HabitCard';
+import HabitCard from '../src/components/habits/HabitCard';
 
 describe('HabitCard', () => {
   const mockHabit = {

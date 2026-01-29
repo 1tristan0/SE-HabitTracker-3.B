@@ -33,7 +33,7 @@ Ziel dieser Betriebsdokumentation ist es, Administratoren beim Einrichten, Konfi
 Dieses Dokument beschreibt ausschließlich systemspezifische Besonderheiten. Allgemeine Software-Dokumentationen (z.B. Docker, Supabase/PostgreSQL, React, Prisma) werden bei Bedarf verlinkt.
 
 == Übersicht der verwendeten Technologien
-Die Anwendung arbeitet über ein Mehrcontainer-System. Das heißt die Anwendung wurde nach Schichten getrennt und in etwaige Container aufgeteilt, in welchen Prozesse losgelöst voneinander laufen. Die Trennung dient dabei der erleichterten Wartbarkeit und erfolgt nach dem Prinzip der "Seperation of Concerns". 
+Die Anwendung arbeitet über ein Mehrcontainer-System. Das heißt, die Anwendung wurde nach Schichten getrennt und in einzelne Container aufgeteilt, in welchen Prozesse losgelöst voneinander laufen. Die Trennung dient dabei der erleichterten Wartbarkeit und folgt dem Prinzip der "Seperation of Concerns".
 
 Die Containersisierung erfolgt mittels link:https://docs.docker.com/compose/[Docker Compose] und erzeugt die folgenden Images bzw. Container:
 
@@ -65,21 +65,21 @@ Eine Abschätzung der benötigten Ressourcen kann zum aktuellen Zeitpunkt nur du
 Auf dem System muss Docker bzw. Docker Compose installiert und lauffähig sein. Dafür kann die offizielle Dokumentation herangezogen werden (link:https://docs.docker.com/[Docker]).
 Der Admin oder Betreiber benötigt Zugriff auf das Terminal des Hostgeräts und ggf. Root-Rechte um Portfreigaben tätigen zu dürfen sowie Konfigurationsdateien erstellen und bearbeiten zu können.
 
-Die Anwendung ist durchaus auf anderen Betriebssystem ausführbar, wie in etwa andere Linux-Distributionen, MacOS oder Windows. Sollten Sie Schwierigkeiten dabei haben die Anwendung auf einem anderen Betriebssystem auszuführen, so kontaktieren Sie bitte die genannten Personen am Ende des Dokuments.  
+Die Anwendung ist durchaus auf anderen Betriebssystem ausführbar, wie in etwa andere Linux-Distributionen, MacOS oder Windows. Sollten Sie Schwierigkeiten dabei haben, die Anwendung auf einem anderen Betriebssystem auszuführen, so kontaktieren Sie bitte die am Ende des Dokuments genannten Personen.  
 
 == In-Betriebnahme
 === Umgebungsvariablen
-Damit die Dienste innerhalb der Container auf Services der Datenbank und das Authentifizierungsverfahren zugreifen können müssen gewisse Umgebungsvariablen gesetzt werden. Diese Variablen beinhalten zum Teil sensible Informationen, die erweiterten Zugang zur Datenbank und deren Authentifizierungsverfahren ermöglichen und sollten daher *niemals öffentlich zugänglich* gemacht werden. Bitte wenden sie sich an das Entwicklungsteam oder den PO, um Zugang zu diesen Informationen zu erhalten, sollten Sie diese noch nicht besitzen.
+Damit die Dienste innerhalb der Container auf Services der Datenbank und das Authentifizierungsverfahren zugreifen können, müssen gewisse Umgebungsvariablen gesetzt werden. Diese Variablen beinhalten zum Teil sensible Informationen, die erweiterten Zugang zur Datenbank und deren Authentifizierungsverfahren ermöglichen und sollten daher *niemals öffentlich zugänglich* gemacht werden. Bitte wenden sie sich an das Entwicklungsteam oder den PO, um Zugang zu diesen Informationen zu erhalten, sollten Sie diese noch nicht besitzen.
 
 Alle Umgebungsvariablen müssen in der Textdatei `.env.production` gespeichert werden. Die Variablen müssen dabei durch einen Zeilenumbruch voneinander getrennt sein und nach den folgenden Konventionen formuliert werden.
 
 ==== Database-URL
-Die Database-URL ist die Adresse unter der der Backend-Container die Datenbank abruft und ist folgendermaßen aufgebaut:
+Die Database-URL ist die Adresse, unter der der Backend-Container die Datenbank abruft. Sie ist folgendermaßen aufgebaut:
 ```
 DATABASE_URL="postgresql://<user>.<project_reference>:<password>@aws-0-eu-central-1.pooler.supabase.com:5432/postgres"
 ``` 
-`user`, `project_reference` und `password` wird ihnen vom Entwicklungsteam bereitgestellt.
-Mit dieser URL haben sie vollen Zugriff auf alle Tabellen der Datenbank die für die Anwendung benötigt werden. Davon ausgenommen ist die Authentifizierungstabelle in der Nutzerdaten gespeichert werden.
+`user`, `project_reference` und `password` werden Ihnen vom Entwicklungsteam bereitgestellt.
+Mit dieser URL haben Sie vollen Zugriff auf alle Tabellen der Datenbank, die für die Anwendung benötigt werden. Davon ausgenommen ist die Authentifizierungstabelle, in der Nutzerdaten gespeichert werden.
 
 ==== Supabase-URL
 Die Supabase-URL verbindet die Anbindung mit der API von Supabase. Diese wird für die Authentifizierung benötigt, welche losgelöst von der Anwendung über Supabase geschieht.
@@ -87,20 +87,20 @@ Die Supabase-URL verbindet die Anbindung mit der API von Supabase. Diese wird f�
 SUPABASE_URL=https://<project_reference>.supabase.co/
 ```
 ==== Supabase-Anon-Key
-Der Anon-Key wird benötigt um den eigenen Dienst bei Supabase authentifizieren zu können. Er authentifiziert Sie als rechtmäßigen Nutzer der und ermöglicht somit den Zugriff auf zuvor gennante Dienste und Daten.
+Der Anon-Key wird benötigt, um den eigenen Dienst bei Supabase authentifizieren zu können. Er authentifiziert Sie als rechtmäßigen Nutzer und ermöglicht somit den Zugriff auf zuvor gennante Dienste und Daten.
 
 ```
 SUPABASE_ANON_KEY=****
 ```
 ==== Node-Env und Port
-Node-Env und Port geben den Containern den nötigen Kontext, um in einer Produktionsumgebung zu laufen. Dabei legt Node-Env fest, welche Node Pakete des Containers zur Laufzeit aktiv sein sollen und Port bestimmt den Port an dem das Backend zu erreichen ist. Damit nur der Produktionsbuild ausgeführt wird und keine Entwicklungspakete eingebunden werden muss die folgende Konfiguration eingehalten werden:
+Node-Env und Port geben den Containern den nötigen Kontext, um in einer Produktionsumgebung zu laufen. Dabei legt Node-Env fest, welche Node Pakete des Containers zur Laufzeit aktiv sein sollen und Port bestimmt den Port, an dem das Backend zu erreichen ist. Damit nur der Produktionsbuild ausgeführt wird und keine Entwicklungspakete eingebunden werden, muss die folgende Konfiguration eingehalten werden:
 
 ```
 NODE_ENV=production
 PORT=3001
 ```
 === Docker-Compose Instruktionen
-Damit die Anwendung über Docker Compose gestartet werden kann muss im Verzeichnis in dem die `.env.production`-Datei liegt eine sog. `docker-compose.yml`-Datei gespeichert sein. Diese ennthält die nötigen Anweisungen, bzw. Kontext, damit Docker die Container ordnungsgemäß orchestrieren kann. Sie enthält keine sensiblen Informationen und kann wie hier dokumentiert übernommen werden:
+Damit die Anwendung über Docker Compose gestartet werden kann, muss im Verzeichnis, in dem die `.env.production`-Datei liegt, eine sog. `docker-compose.yml`-Datei gespeichert sein. Diese enthält die nötigen Anweisungen bzw. den Kontext, damit Docker die Container ordnungsgemäß orchestrieren kann. Sie enthält keine sensiblen Informationen und kann wie hier dokumentiert übernommen werden:
 
 ```yaml
 services:
@@ -125,32 +125,32 @@ services:
       NODE_ENV: production
     restart: unless-stopped
 ```
-In dieser Datei werden weitere Informationen festgelegt, wie der Containername und welche Imageversion der Container verwendet werden soll. Die Imageversion wird über `image: ...` definiert. `:latest` steht hier für die aktuellste Version die im Repository veröffentlicht wurde. Über die Angabe einer bestimmten Commit-ID, kann hier auch auf ältere Versionen zugegriffen werden. Schauen Sie dazu im GitHub Container Repository nach oder wenden Sie sich an das Entwicklungsteam. Sollte Ihnen keine andere spezifische Version gennannt werden, so belassen Sie die Imageversion bei `:latest`.
+In dieser Datei werden weitere Informationen - wie der Containername und welche Imageversion der Container verwendet - festgelegt. Die Imageversion wird über `image: ...` definiert. `:latest` steht hier für die aktuellste Version, die im Repository veröffentlicht wurde. Über die Angabe einer bestimmten Commit-ID, kann hier auch auf ältere Versionen zugegriffen werden. Schauen Sie dazu im GitHub Container Repository (GHCR) nach oder wenden Sie sich an das Entwicklungsteam. Sollte Ihnen keine andere spezifische Version genannt werden, so belassen Sie die Imageversion bei `:latest`.
 
-Achten Sie darauf das die Ports 3000, 3001 und 5432 Ihres Hostgeräts nicht durch andere Anwendungen belegt werden.
+Achten Sie darauf, dass die Ports 3000, 3001 und 5432 Ihres Hostgeräts nicht bereits durch andere Anwendungen belegt sind.
 
 === Container Starten
-Sind die oberen Vorraussetzungen erfüllt, dann wechseln Sie in das Verzeichnis, in dem die beiden Dateien `.env.production` und `docker-compose.yml` liegen. Führen Sie den folgenden Befehl in der Kommandozeile aus:
+Sind die oberen Voraussetzungen erfüllt, wechseln Sie in das Verzeichnis, in dem die beiden Dateien `.env.production` und `docker-compose.yml` liegen. Führen Sie den folgenden Befehl in der Kommandozeile aus:
 
 ```sh
 docker compose up
 ```
-Docker beginnt nun nach den spezifizierten Images zu schauen und die Container zu bauen und schließlich auszuführen. Bei der ersten Ausführung müssen die Images erst vom GHCR geladen werden. Dies kann etwas Zeit in Anspruch nehmen.
+Docker beginnt nun nach den spezifizierten Images zu schauen, die Container zu bauen und schließlich auszuführen. Bei der ersten Ausführung müssen die Images zunächst vom GHCR geladen werden. Dies kann etwas Zeit in Anspruch nehmen.
 
-Schließlich sollte in der Konsole zu erkennen sein, dass die beiden Container gestartet wurden. Hier werden ggf. Fehlermeldungen und Warnungen geloggt, diese können Sie bei Bedarf an uns weiterleiten, sollten Sie Schwierigkeiten haben bei der Ausführung. Um die Containeransicht zu verlassen drücken Sie `d` auf Ihrer Tastatur.
+Schließlich sollte in der Konsole zu erkennen sein, dass die beiden Container gestartet wurden. Hier werden ggf. Fehlermeldungen und Warnungen geloggt, die Sie bei Bedarf an uns weiterleiten können, falls Sie Schwierigkeiten bei der Ausführung haben sollten. Um die Containeransicht zu verlassen, drücken Sie die Taste `d` auf Ihrer Tastatur.
 
-Die Webanwendung ist nun über `http://localhost:3000/` erreichbar.
+Die Webanwendung ist nun über `http://localhost:3000/` per Browser erreichbar.
 
 === Container Stoppen
-Um die Container herunterzufahren geben Sie folgenden Befehl in der Konsole ein:
+Um die Container herunterzufahren, geben Sie folgenden Befehl in der Konsole ein:
 ```sh
 docker compose down -v
 ```
-Mit der Option `-v` entfernen Sie zusätzliche Volumes die die Container zur Laufzeit erstellt haben.
+Mit der Option `-v` entfernen Sie zusätzliche Volumes, die die Container zur Laufzeit erstellt haben.
 
 === Login und Browser
 Die Anwendung funktioniert auf allen aktuellen Browserversionen von Chrome, Firefox und Safari.
-Für den Login können Sie den bereitgestellten Test-Account verwenden oder einen neuen anlegen. Begeben Sie sich hierfür auf die Startseite und wechseln Sie zur Ansicht "Registrieren". Ihnen wird eine Bestätigunsmail zugesendet, mit der Sie sich authentifizieren können. Die Weiterleitung führt aktuell nur auf eine leere Seite. Anschließend können Sie Ihren erstellten Account nuzten.
+Für den Login können Sie den bereitgestellten Test-Account verwenden oder einen neuen anlegen. Begeben Sie sich hierfür auf die Startseite und wechseln Sie zur Ansicht "Registrieren". Ihnen wird eine Bestätigunsmail zugesendet, mit der Sie sich authentifizieren können. Die Weiterleitung führt aktuell nur auf eine leere Seite. Anschließend können Sie Ihren erstellten Account nutzen.
 
 == Kontakt - Entwicklungsteam
 Bei Fragen wenden Sie sich bitte nach Art der Frage an die folgenden Personen:

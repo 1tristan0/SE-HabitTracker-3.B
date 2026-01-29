@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import HabitChangeModal from '../components/habits/modals/HabitChangeModal';
+import HabitChangeModal from '../src/components/habits/modals/HabitChangeModal';
 
 describe('HabitChangeModal', () => {
   const mockHabit = {

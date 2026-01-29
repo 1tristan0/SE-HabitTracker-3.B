@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import AnimalModal from '../components/animal/modals/AnimalModal';
-import { setAnimal } from '../api/userApi';
+import AnimalModal from '../src/components/animal/modals/AnimalModal';
+import { setAnimal } from '../src/api/userApi';
 
 // Mock der API
-jest.mock('../api/userApi', () => ({
+jest.mock('../src/api/userApi', () => ({
   setAnimal: jest.fn(),
 }));
 
