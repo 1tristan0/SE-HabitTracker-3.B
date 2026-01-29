@@ -46,3 +46,49 @@ stop
 == Deployment
 === GitHub Actions Workflow - docker-deploy.yml
 * siehe `.github/workflows/docker-deploy.yml`
+
+[plantuml, integration-workflow, png]
+----
+@startuml
+title Docker Image Deployment Workflow
+
+start
+
+:Pull Request closed\n(target: main, dev);
+
+if (PR merged?) then (yes)
+  :GitHub Actions Runner\n(ubuntu-latest);
+
+  partition "Preparation" {
+    :Checkout Repository;
+    :Create Backend .env.production;
+    :Create Frontend .env;
+  }
+
+  partition "Docker Setup" {
+    :Login to GitHub Container Registry\n(ghcr.io);
+    :Setup Docker Buildx;
+  }
+
+  partition "Build" {
+    :Build Docker Images\n(docker compose prod);
+  }
+
+  partition "Tagging" {
+    :Tag Backend Image\n(sha, latest);
+    :Tag Frontend Image\n(sha, latest);
+  }
+
+  partition "Publish" {
+    :Push Backend Image to GHCR;
+    :Push Frontend Image to GHCR;
+  }
+
+  stop
+else (no)
+  :Workflow skipped;
+  stop
+endif
+
+@enduml
+----
