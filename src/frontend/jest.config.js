@@ -2,7 +2,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
   testMatch: [
-    '<rootDir>/tests/**/*.test.js',
+    '<rootDir>/__tests__/**/*.test.js',
     '<rootDir>/src/**/*.test.js'
   ],
   moduleNameMapper: {
@@ -13,5 +13,5 @@ module.exports = {
   },
   moduleDirectories: ['node_modules', 'src'],
   testPathIgnorePatterns: ['/node_modules/'],
-  roots: ['<rootDir>/src', '<rootDir>/tests'],
+  roots: ['<rootDir>/src', '<rootDir>/__tests__'],
 };
