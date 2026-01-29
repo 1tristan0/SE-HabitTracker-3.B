@@ -1,0 +1,73 @@
+= Einzelreflexion – Projektarbeit
+:doctype: article
+:pdf-theme: default
+:pdf-font-size: 9
+:toc: none
+
+**Name:** Tristan Weiland +
+**Matrikelnummer:** s87561 +
+**Studiengang / Modul:** Informatik / Software Engineering 2 +
+**Projektname:** Gewohnheitstier (Gruppe 3B)
+
+== Tristan Weiland
+
+=== Abgrenzung zu SEI
+Im ersten Semester hatte ich Schwierigkeiten mich in den Entwicklungsprozess einzugliedern. Mir waren die verwendeteten Technologien neu und ich habe eine Weile benötigt um den passenden Einstiegspunkt zu finden. Damals habe ich viele Aufgaben des Projektmanagements übernommen, um fehlende Beiträge auszugleichen. Zu Beginn des zweiten Semesters habe ich mich mit Monika und Paul ausgetauscht, die so wie ich, unzufrieden mit der Note des ersten Semesters waren. Daraus ergaben sich für mich zwei Änderungen die ich konsequent durchsetzte. Ich widmete mich von nun an primär und strikt Aufgaben des Development und verließ mich darauf, dass andere Teammitglieder ihren Aufgaben nachkamen. Des Weiteren begann ich ein Projektjournal zu führen in dem ich meinen Workload, Gedanken, To Do's etc. aufzeichnete und regelmäßig reflektierte.
+
+=== Verantwortungsbereiche
+Da ich zuvor wenig zum Code beitragen konnte galt es für mich eine Lücke zu finden, die ich füllen konnte. Im Zusammenspiel mit Paul und Patrick ergab sich sehr schnell eine natürliche und für uns praktische Aufteilung der Verantwortlichkeiten. Paul war von Beginn an sehr gefestigt im gesamten Projekt. Patrick hatte sich sehr schnell in React und die Frontendentwicklung eingearbeitet, sodass ich dort deutlich langsamer gewesen wäre. Also entschied ich mich dafür, mich um die Entwicklung der Datenbank zu kümmern. Ich musste kein JS lernen, welches die Beiden bereits besser beherrschten und ich konnte mein Fachwissen als einziger "Informatiker" dort gut einbringen. Es folgt eine kurze Auflistung meiner Hauptaufgaben sortiert nach Methoden und Praktiken sowie mein Verlauf im Projekt, bzw. wie ich zu diesen Aufgaben kam.
+
+**Projektmanagement**
+
+* Erstellen und Verwalten von Developertasks (link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues?q=is%3Aissue%20label%3Atask%20author%3A1tristan0%20DT[GitHub-Projects: DTs])
+
+**Entwurf:**
+
+  * Anpassen und Entwickeln des Datenbankschemas (link:https://github.com/1tristan0/SE-HabitTracker-3.B/pull/181[PR-181])
+
+**Implementierung und Test:**
+
+  * Branch Naming Konvention, dev-Branch, main Protection, Arbeit mit PRs (link:https://github.com/1tristan0/SE-HabitTracker-3.B/blob/dev/docs/protokolle/meeting-2025-10-27-devteam.adoc[Protokoll Dev-Meeting])
+  * Testautomatisierung und Orchestration (link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues/157[DT-157])
+
+**Bereitstellung:** 
+
+  * erweiterte Containeriesierung und Umgebungstrennung (link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues/159[DT-159])
+  * Automatisierung der Integration (link:https://github.com/1tristan0/SE-HabitTracker-3.B/blob/dev/.github/workflows/ci.yml[ci.yml])
+  * Automatisierung des Deployments (link:https://github.com/1tristan0/SE-HabitTracker-3.B/blob/dev/.github/workflows/docker-deploy.yml[docker-deploy.yml])
+
+==== Hauptverantwortungen
+Früh stellte ich fest, dass unser Datenbankschema sehr rudimentär war. Wir verwendeten eine Tabelle für die gesamte Geschäftslogik, das widersprach nicht nur unserem Domänenmodell, weitere Featureimplementierungen waren schwer bis gar nicht umsetzbar. Hier half mir mein Kommilitone Frederic Egle aus Gruppe 2B. Er fragte mich wieso wir keinen ORM nutzen und machte mich darauf aufmerksam wie schwer wir es uns dadurch gemacht haben. Hier kam ein Punkt auf, der sich immer wieder bemerkbar machte: schlechte Architekturentscheidungen im ersten Semester. Ich beschäftigte mich mit dem Thema und kam so zum Prisma ORM. Ich unterbreitete die Idee diesen einzubinden zuerst ggü. Paul und dem restlichen Devteam und dann der gesamten Gruppe gegenüber. Ich testete prototypisch die Einbindung auf einem Testbranch und realisierte später zusammen mit Paul die komplette Integrierung als Teil des ersten großen Refactoring (link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues/144[Issue_#144]). 
+
+Als ich den Fachvortrag zu Entwurf und Design hielt und in den Austausch mit anderen Gruppen sowie Herr Prof. Anke kam wurde mir bestätigt den Fokus aufs Refactoring zu legen und Qualität ggü. Featuredichte zu priorisieren. Gemeinsam mit Paul und Patrick haben wir so die gesamte Anwendung von Grund auf restrukturiert und uns dabei an den Prinzipien aus SEII orientiert. "Seperation of Concerns" war ein großer Punkt, den wir mMn. sehr erfolgreich umgesetzt haben, jeder in seiner jeweiligen Domäne. Dadurch ging die Implementierung des Gewohnheitstiers gegen Ende des Semsters überraschend leicht von Hand und mir wurde erstmals richtig bewusst wie wichtig alle vorherigen Entscheidungen waren. Die Arbeit hat zu diesem Zeitpunkt so viel Spaß wie noch nie gemacht.
+
+Nachdem der ORM integriert wurde fiel mir auf, dass Entwicklungen am DB-Schema schwierig sein würden, da wir alle gemeinsam auf der gleichen Cloud-Instanz von Supabase arbeiteten. Paul und ich konnten nicht am Backend arbeiten ohne Patrick die Datengrundlage "kaputt zu experimentieren". Dort fand ich meinen Einstieg in den DevOps-Bereich und erweiterte unsere Anwendung in geteilte Umgebungen. Eine DEV-Umgebung, welche eine lokale Instanz von Supabase verwendet, auf dem Hostgerät des Entwicklers sowie eine PROD-Umgebung die mit der vorhandenen Cloud-Instanz von Supabase arbeitet. Dabei legte ich eine neue Arbeitsweise fest, die mithilfe von Prisma, Migrationen lokal erzeugt und später auf die Cloud-Instanz anwendet (link:https://github.com/1tristan0/SE-HabitTracker-3.B/pull/162[PR-162]). Ich musste mich aktiv bemühen nicht über das Ziel hinaus zu schießen, da anfangs ein neuer PostgreSQL Container unabhängig von Supabase einfacher zu integrieren schien. "DRY" und "KISS" haben hier tatsächlich sehr geholfen. Mein Ziel war es also keine neuen Abhängigkeiten ins Projekt zu bringen und mich nicht mehrfach zu wiederholen. Ich erweiterte die compose.yml um zwei zusätzliche .yml für die Unterscheidung der Umgebungen (.dev und .production), so wurde der Workflow beibehalten und nur der docker-compose Befehl angepasst. Anstelle einen dritten Container zu integrieren, las ich mich in Supabase's CLI für lokale Anwendungen ein und integrierte dieses im Workflow, wodurch alle Supabase-Funktionen (bspw. Authentifizierung) auf lokaler Ebene ohne weitere Anpassungen funktionierten.
+
+Nachdem ich zur Ansprechperson für Docker/Container und Git(Hub) wurde übernahm ich zudem die Automatisierung der Tests die Paul und Patrick schrieben und integrierte diese in unseren Pull-Requests. Zudem kümmerte ich mich um die Verwaltung unserer Repo-Secrets. Später erweiterte ich unsere Integration um ein automatisiertes Deployment auf dem GHCR. 
+
+==== Nebenverantwortungen
+Neben meinen zuvor erwähnten Aufgaben verteilte sich meine Aufmerksamkeit über das gesamte Projekt hinweg. Ich habe mich darum gekümmert Pakete zu updaten und somit Sicherheitslücken zu minimieren (React Update nach React-2-Shell: link:https://github.com/1tristan0/SE-HabitTracker-3.B/pull/193[PR-193]). Ich habe die Änderungen der Anderen reviewt und ggf. Bugs gefixed wo ich es konnte (link:https://github.com/1tristan0/SE-HabitTracker-3.B/pull/169[PR-169]) bzw. diese dokumentiert wenn ich welche finden konnte (link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues/187[Bug-187]). Zum Teil habe ich Branch-Konflikte gelöst und das Rebasing mehrerer aktiver Branches übernommen (link:https://github.com/1tristan0/SE-HabitTracker-3.B/pull/186[PR-186]).
+
+
+=== Was lief gut?
+Als sehr positiv empfand ich die Entwicklung unserer Teamarbeit, vor Allem im Dev-Team. Nachdem wir unsere Rollen klarer voneinander differenzierten, konnte ich mich gezielt auf meine Stärken (Datenbankdesign, Architektur und DevOps) konzentrieren. Die Zusammenarbeit mit Paul und Patrick funktionierte dabei ausgesprochen gut, da wir uns fachlich ergänzten und unseren Verantwortungen fristgerecht nachkamen. Insbesondere während des ersten "großen" Refactorings zeigte sich, wie wertvoll diese Aufteilung war: Entscheidungen konnten schnell getroffen und effizient umgesetzt werden.
+
+Ein weiterer Aspekt, der sehr gut funktionierte, war der Fokus auf Codequalität und Architektur. Die Entscheidung, Zeit in Refactoring, (Separation of Concerns, Entfernen von totem Code, etc.) zu investieren, zahlte sich gegen Ende des Projekts deutlich aus. Die neuen Features ließen sich stabil und vergleichsweise schnell umsetzen, was mir den Mehrwert nachhaltiger Architekturentscheidungen verdeutlichte.
+
+Auch mein persönlicher Lernprozess verlief sehr positiv. Durch die Arbeit mit Docker, GitHub Actions, CI/CD-Pipelines und Prisma konnte ich mein Wissen eigenständig über reine Anwendungsentwicklung hinaus erweitern. Besonders motivierend war für mich, dass ich mit zunehmender Projektdauer zu einer festen Ansprechperson für Infrastruktur- und Automatisierungsthemen wurde und mein Beitrag mMn. so merkbar zum Projekterfolg beigetragen hat. Die Arbeit fühlte sich gegen Ende nicht nur produktiv, sondern auch fachlich erstmals sehr erfüllend und sinnvoll an. Durch mein Projekt-Journal konnte ich außerdem gut nachvollziehen wie viel Arbeit ich an welchen Stellen investieren musste.
+
+=== Was lief schlecht?
+Problematisch waren vor allem die Architektur- und Technologieentscheidungen aus dem ersten Semester, die uns im zweiten Semester mehrfach ausbremsten. Die anfänglich sehr einfache Datenbankstruktur sowie das Fehlen klarer Konventionen führten dazu, dass viele Aufgaben erst nach einem umfassenden Refactoring umsetzbar waren bzw. gar nicht umgesetzt wurden. Rückblickend hätten diese Probleme durch frühere technische Diskussionen und eine stärkere Orientierung an Best Practices vermieden werden können, das nötige Wissen fehlte uns zu diesem Zeitpunkt.
+
+Auch organisatorisch gab es zu Beginn des Projekts Defizite. Es fehlte an klaren Regeln für Branching, Merging und Dokumentation, was zeitweise zu Konflikten im Repository führte, händisches Ausklamüsern von Merge-Konflikten hat dort Zeit geraubt. Zudem war die Nutzung vieler paralleler Kommunikationstools nicht immer zielführend und führte dazu dass Dinge übersehen wurden. Uns fiel es zudem schwer Termine für Meetings zu finden. Ich ließ mich hier von Lara aus Gruppe 2B inspirieren und schlug Timeful als Alternative zu unserem Miro-Stundenplan vor. Ein großer Vorteil ergab sich daraus leider trotzdem nicht. Oftmals war der einzige Termin an dem alle Zeit hatten kurz vor und während der Vorlesung, wodurch ich leider oft die Vorlesung verpasste. 
+
+Auf persönlicher Ebene fiel es mir schwer andere Teammitglieder mehr in die Entwicklung miteinzubeziehen. Anfangs versuchte ich Anderen den Einstieg in die Entwicklung zu erleichtern, indem ich von meinen Schwierigkeiten (einen Einstieg zu finden) und deren Überwindung berichtete. Dabei habe ich versucht in Ich-Botschaften zu kommunizieren und Mut zuzusprechen. Das reichte leider nicht aus, hier hätte ich direkter werden müssen und Leistungen einfordern sollen. Letztendlich waren fast ausschließlich Patrick, Paul und ich für die Entwicklung verantwortlich. Das resultierende Arbeitsmenge war definitiv zu groß für drei Personen. Auswirkungen zeigten sich in der Qualität unserer Dokumentation während des Semesters sowie in der generellen Qualität der Arbeit. Es gibt einige Punkte die wir/ich hätten umsetzen wollen, uns aber schlichtweg die Zeit und Arbeitskraft fehlte. Dazu gehört bspw. die Dokumentation mittels JSDOC oder der Umstieg von CRA auf Vite (Sicherheitslücken).
+
+=== Fazit
+Ich konnte über das Projekt hinweg meine Fertigkeiten deutlich verbessern und Wissen aufbauen, insbesondere im Hinblick auf Architektur und DevOps. Mir wurde bewusst, wie entscheidend frühe Designentscheidungen für den späteren Projektverlauf sein können und wie stark sich "Best Practices", Automatisierungen sowie Kommunikation im Team und klare Verantwortlichkeiten auf Produktivität und Qualität auswirken.
+
+Ich habe während des Projektverlaufs festgestellt, dass ich mir neue Technologien etc. viel schneller aneignen konnnte, als ich dachte. Containerisierung bspw. wirkte zu Beginn abschreckend auf mich, nach kurzer Einarbeitung stellte ich jedoch fest, dass ich durchaus in der Lage dazu bin solche Tools zu verstehen und verwenden.
+
+Verglichen mit meiner Reflexion zu SEI konnte ich eine klare Entwicklung bei mir selbst feststellen, worauf ich durchaus stolz bin. 
+
+Trotz anfänglicher Schwierigkeiten ist es uns als Team gelungen, eine stabile und gut strukturierte Anwendung zu entwickeln, die den Anforderungen des Moduls entspricht. Dieses Projekt hat mein Interesse an den Bereichen Softwarearchitektur und DevOps nachhaltig gestärkt und stellt für mich einen wichtigen Schritt in meiner fachlichen Weiterentwicklung dar.
