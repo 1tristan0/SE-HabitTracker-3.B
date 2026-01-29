@@ -8,13 +8,7 @@
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-system-name} überblicksartig zu beschreiben. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie das System {project-system-name} diese Bedarfe erfüllt.
-
-=== Zweck
-Dieses Dokument beschreibt die wesentlichen Anforderungen an das System aus der Perspektive der zukünftigen Anwenderinnen und Anwender.
-
-=== Gültigkeitsbereich 
-Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von {project-name} entwickelt wird. Das System wird es Jugendlichen und Erwachsenen erlauben, spielerische und soziale Komponenten zu nutzen, um die Motivation während der Umstellung der Gewohnheiten nicht zu verlieren.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-system-name} überblicksartig zu beschreiben. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie das System {project-system-name} diese Bedarfe erfüllt.Dieses Dokument beschreibt die wesentlichen Anforderungen an das System aus der Perspektive der zukünftigen Anwenderinnen und Anwender. Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von {project-name} entwickelt wird. Das System wird es Jugendlichen und Erwachsenen erlauben, spielerische und soziale Komponenten zu nutzen, um die Motivation während der Umstellung der Gewohnheiten nicht zu verlieren.
 
 === Nutzungskontext
 {project-system-name} ist als webbasiertes Habit-Tracking-System konzipiert und wird typischerweise von einer einzelnen Person genutzt. Die Interaktionen sind bewusst kurz gehalten: Das Anlegen neuer Gewohnheiten sowie der tägliche Check-in sollen jeweils weniger als eine Minute dauern.Die Anwendung ist plattformunabhängig über gängige Webbrowser zugänglich und erfordert keine Installation. Es bestehen keine funktionalen Abhängigkeiten zu anderen Anwendungen oder Systemen.
