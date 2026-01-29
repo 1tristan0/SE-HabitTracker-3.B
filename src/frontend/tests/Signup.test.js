@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Signup from '../components/auth/Signup';
+import Signup from '../src/components/auth/Signup';
 
 describe('Signup', () => {
 
