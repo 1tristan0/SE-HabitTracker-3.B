@@ -37,7 +37,16 @@ jobs:
         run: |
           cat <<EOF > frontend/.env
           REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }}
-          EOF    
+          EOF
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      - name: Install backend dependencies
+        working-directory: src/backend
+        run: npm ci
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
