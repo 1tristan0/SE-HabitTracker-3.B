@@ -52,7 +52,7 @@ include::../src/docu/prisma_guide.adoc[]
 include::../src/docu/supabase_guide.adoc[]
 
 //Styleguide
-include::../docs/development/styleguide.adoc
+include::../docs/development/styleguide.adoc[]
 
 = Integration und Deployment 
 //Deployment-Doku
