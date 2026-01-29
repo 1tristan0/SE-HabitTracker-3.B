@@ -139,7 +139,7 @@ Verwenden für Elemente, die **vorhanden sein müssen**.
 
 [source,javascript]
 ----
-// getByRole: Empfohlen – findet Elemente über ihre semantische Rolle
+// getByRole: Empfohlen - findet Elemente über ihre semantische Rolle
 screen.getByRole('button', { name: /submit/i })
 screen.getByRole('heading', { level: 1 })
 
@@ -166,7 +166,7 @@ Wird verwendet um zu überprüfen, dass etwas **nicht** im DOM ist.
 expect(screen.queryByText('Error occurred')).not.toBeInTheDocument();
 ----
 
-==== findBy* (async – wartet auf Element)
+==== findBy* (async - wartet auf Element)
 Async-Varianten, die warten, bis ein Element erscheint.
 Wird verwendet für asynchrone Operationen (API-Calls, Delayed Renders).
 
@@ -180,11 +180,11 @@ expect(successMessage).toBeInTheDocument();
 === Priorität der Query-Selektoren
 React-Testing-Library empfiehlt diese Priorität (from best to worst):
 
-1. **getByRole** – Am besten für Accessibility
-2. **getByLabelText** – Gut für Form-Elemente
-3. **getByPlaceholderText** – Für Input-Felder
-4. **getByText** – Für andere Texte
-5. **getByTestId** – Fallback, wenn andere nicht funktionieren
+1. **getByRole** - Am besten für Accessibility
+2. **getByLabelText** - Gut für Form-Elemente
+3. **getByPlaceholderText** - Für Input-Felder
+4. **getByText** - Für andere Texte
+5. **getByTestId** - Fallback, wenn andere nicht funktionieren
 == Benutzerinteraktionen mit userEvent
 `userEvent` simuliert reale Benutzerinteraktionen mit der UI.
 
