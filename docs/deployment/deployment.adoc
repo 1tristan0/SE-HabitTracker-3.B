@@ -1,0 +1,48 @@
+== Integration
+=== GitHub Actions Workflow - ci.yml
+* siehe `.github/workflows/ci.yml`
+
+[plantuml, integration-workflow, png]
+----
+@startuml
+title Integration Testing
+
+start
+
+:Pull Request\n(auf: main, dev);
+
+:GitHub Actions Runner\n(ubuntu-latest);
+
+partition "Setup" {
+  :Checkout Repository;
+  :Setup Supabase CLI;
+  :Start Supabase;
+  :Create Backend .env.local;
+  :Create Frontend .env;
+  :Setup Docker Buildx;
+}
+
+partition "Build & Run" {
+  :Build Docker Images\n(docker compose build);
+  :Start Containers\n(docker compose up -d);
+}
+
+partition "Frontend Tests" {
+  :Run Frontend Unit Tests\n(npm run test);
+}
+
+partition "Backend Tests" {
+  :Run Backend Tests\n(./test-backend.sh);
+}
+
+partition "Cleanup" {
+  :Shutdown Containers\n(docker compose down -v);
+}
+
+stop
+@enduml
+----
+
+== Deployment
+=== GitHub Actions Workflow - docker-deploy.yml
+* siehe `.github/workflows/docker-deploy.yml`
