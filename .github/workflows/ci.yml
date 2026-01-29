@@ -61,6 +61,9 @@ jobs:
         run: docker exec --env CI=true frontend-dev npm run test -- --watchAll=false < /dev/null
         env:
           CI: true  
+        
+      - name: Run Backend Unit Tests
+        run: ./test-backend.sh 
 
       # Aufräumen, Container herunterfahren
 
