@@ -75,15 +75,11 @@ src/
             ├── Login.test.js
             ├── Navbar.test.js
             ├── Signup.test.js
-            ├── calendar.test.js
-            ├── habitsApi.errors.test.js
-            ├── habitsApi.test.js
-            ├── httpClient.basic.test.js
-            └── httpClient.test.js
+            └── calendar.test.js
 ----
 
 == Backend (Server)
-Der Server läuft mit Node.js/Express. Er hat drei Aufgaben: (1) Nutzer anmelden/abmelden, (2) Gewohnheiten verwalten, (3) User-Status (Begleiter) laden/setzen. Die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur vom Server angesprochen.
+Der Server läuft mit Node.js/Express. Er hat drei Aufgaben: (1) Nutzer registrieren/anmelden/abmelden, (2) Gewohnheiten verwalten, (3) User-Status (Begleiter) laden/setzen. Die Datenbank liegt bei Supabase (Postgres). Supabase-Auth wird nur vom Server angesprochen.
 
 === index.js
 * Startet den Server, erlaubt Browser-Aufrufe (CORS) und verarbeitet JSON-Anfragen.
@@ -187,7 +183,7 @@ Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach 
 
 === pages/CreateHabitPage.jsx
 * Seite zum Anlegen neuer Gewohnheiten.
-* Nutzt `HabitCreateContent` und ruft `addHabit` über das Backend.
+* Nutzt `HabitCreateContent` und ruft `addHabit` über das Backend auf, wenn Formular abgesendet wird.
 
 === hooks/useHabits.js
 * Wiederverwendbarer Hook für Habit-Listen (load/add/remove/update).
@@ -195,32 +191,54 @@ Die React-Anwendung läuft im Browser. Sie zeigt Login/Registrierung und danach 
 
 === components
 * Layout:
-** link:../../src/frontend/src/components/layout/Navbar.jsx[Navbar.jsx]
+** link:../../src/frontend/src/components/layout/Navbar.jsx[Navbar.jsx] 
+*** zeigt Logo, Titel, Links zu HabitsPage und CreateHabitPage, sowie Logout-Button.
 * Auth:
 ** link:../../src/frontend/src/components/auth/Login.jsx[Login.jsx]
+*** zeigt Login-Formular.
 ** link:../../src/frontend/src/components/auth/Signup.jsx[Signup.jsx]
+*** zeigt Registrierungs-Formular.
 * Habits:
 ** link:../../src/frontend/src/components/habits/HabitGrid.jsx[HabitGrid.jsx]
+*** zeigt Raster aller Habits mit Toggle-Buttons.
 ** link:../../src/frontend/src/components/habits/HabitCard.jsx[HabitCard.jsx]
+*** zeigt einzelne Habit-Karte mit Name, Streak, Edit/Delete-Icons.
 ** link:../../src/frontend/src/components/habits/HabitCreateContent.jsx[HabitCreateContent.jsx]
-** link:../../src/frontend/src/components/habits/HabitForm.jsx[HabitForm.jsx] (aktuell nicht verdrahtet)
-** link:../../src/frontend/src/components/habits/HabitList.jsx[HabitList.jsx] (aktuell nicht verdrahtet)
+*** zeigt Formular zum Anlegen neuer Gewohnheiten + Tipps.
+** link:../../src/frontend/src/components/habits/HabitForm.jsx[HabitForm.jsx] (aktuell nicht verknüpft)
+** link:../../src/frontend/src/components/habits/HabitList.jsx[HabitList.jsx] (aktuell nicht verknüpft)
 ** link:../../src/frontend/src/components/habits/modals/HabitChangeModal.jsx[HabitChangeModal.jsx]
+*** zeigt Modal zum Ändern von Habit-Details => Name und Beschreibung können geändert werden.
 ** link:../../src/frontend/src/components/habits/modals/HabitInfoModal.jsx[HabitInfoModal.jsx]
+*** zeigt Modal mit Habit-Statistiken (Streak, Startdatum,...).
 * Kalender:
 ** link:../../src/frontend/src/components/habits/calendar/Calender.jsx[Calender.jsx]
+*** zeigt Monatsübersicht mit Habit-Erledigungen(als Fortschrittskreis).
 ** link:../../src/frontend/src/components/habits/calendar/modals/CalendarModal.jsx[CalendarModal.jsx]
+*** zeigt Modal mit Details zu einem Kalendertag (erledigte/nicht erledigte Habits).
 * Begleiter:
 ** link:../../src/frontend/src/components/animal/Animal.jsx[Animal.jsx]
+*** zeigt das Begleiter-Tier mit Stimmung und öffnet AnimalModal beim Klick zum Ändern des Tiers.
 ** link:../../src/frontend/src/components/animal/modals/AnimalModal.jsx[AnimalModal.jsx]
+*** zeigt Modal zum Auswählen des Tiers.
 * UI:
 ** link:../../src/frontend/src/components/ui/ToggleSwitch.jsx[ToggleSwitch.jsx]
+*** Umschalt-Schalter-Komponente (für Habit "heute erledigt").
 ** link:../../src/frontend/src/components/ui/Modal.jsx[Modal.jsx]
+*** generische Modal-Komponente, welche in allen Modals wiederverwendet wird
 ** link:../../src/frontend/src/components/ui/ProgressCircle.jsx[ProgressCircle.jsx]
+*** zeigt Fortschrittskreis (für Kalender-Übersicht).
 ** link:../../src/frontend/src/components/ui/StreakBadge.jsx[StreakBadge.jsx]
+*** zeigt Streak-Badge bei einzelnen Habits mit Farblogik.
 ** link:../../src/frontend/src/components/ui/InputField.jsx[InputField.jsx]
+*** generische Input-Feld-Komponente mit Label und Fehleranzeige.
 ** link:../../src/frontend/src/components/ui/Titel.jsx[Titel.jsx]
+*** Header-Komponente zur Wiederverwendung
 ** Buttons in link:../../src/frontend/src/components/ui/Buttons[components/ui/Buttons]
+*** verschiedene Button-Komponenten:
+**** link:../../src/frontend/src/components/ui/Buttons/SaveButton.jsx[SaveButton.jsx]
+**** link:../../src/frontend/src/components/ui/Buttons/CloseButton.jsx[CloseButton.jsx]
+**** link:../../src/frontend/src/components/ui/Buttons/CalendarDayButton.jsx[CalendarDayButton.jsx]
 * Icons:
 ** link:../../src/frontend/src/components/icons/DeleteIcon.jsx[DeleteIcon.jsx]
 ** link:../../src/frontend/src/components/icons/EditIcon.jsx[EditIcon.jsx]

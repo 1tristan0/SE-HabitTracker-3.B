@@ -5,29 +5,29 @@
 Überblick über Verzeichnisstruktur, Aufgaben der Dateien, aktuelle Abweichungen von Best Practices/Separation of Concerns, Testideen und ein sinnvoller Zielzustand.
 
 == Verzeichnis & Dateien (kurz)
-* Root-Doku: link:../../README.md[README.md] – Vorlagehinweise (AsciiDoc).
-* Projekt-Docs: link:../../docs[docs] – SE-Dokumente, Projektplan etc.
-* App-Code: link:../../src[src] – enthält Backend, Frontend, Docker-Setup.
-** link:../../src/docker-compose.yml[docker-compose.yml] – Dev-Compose, startet Backend (Express/Prisma) und Frontend (CRA/Vite-Ports).
-** link:../../src/Dockerfile.dev[Dockerfile.dev] – Basis-Dockerfile für beide Services.
-** link:../../src/backend[backend] – Node/Express + Prisma.
-*** link:../../src/backend/package.json[package.json] – Dependencies (`express`, `@prisma/client`, `cors`, `nodemon`), Skripte (`dev`, `start`, `prisma:generate`).
-*** link:../../src/backend/index.js[index.js] – Express-Server, bindet Auth-/Habit-Routen ein.
-*** link:../../src/backend/.env[.env] – `DATABASE_URL` (Supabase-Postgres).
-*** link:../../src/backend/prisma/schema.prisma[schema.prisma] – Prisma-Schema (Modelle `habits_table`, `users`).
-*** link:../../src/backend/prisma.config.js[prisma.config.js] – Prisma-Konfiguration (Schema, Migrationspfad, Engine).
-*** link:../../src/backend/src/prisma.js[src/prisma.js] – PrismaClient-Factory mit Logging.
-*** link:../../src/backend/src/routes[ routes] – REST-API (`/api/auth`, `/api/habits`) + Auth-Middleware gegen Supabase.
-** link:../../src/frontend[frontend] – React (Create React App).
-*** link:../../src/frontend/package.json[package.json] – CRA-Skripte, Bootstrap, Tests mit react-scripts.
-*** link:../../src/frontend/tailwind.config.js[tailwind.config.js] – minimale Tailwind-Konfiguration (derzeit kaum genutzt).
-*** link:../../src/frontend/src/api/httpClient.js[api/httpClient.js] – HTTP-Wrapper zum Backend (Bearer-Token).
-*** link:../../src/frontend/src/api/authApi.js[api/authApi.js] – Auth-Funktionen (Login, Register, Logout, Session) via Backend.
-*** link:../../src/frontend/src/api/habitsApi.js[api/habitsApi.js] – CRUD/Toggle auf `habits_table` via Backend.
-*** link:../../src/frontend/src/App.jsx[App.jsx] – Auth-Flow, rendert Login/Registrierung oder HabitsPage.
-*** link:../../src/frontend/src/pages/HabitsPage.jsx[pages/HabitsPage.jsx] – Daten laden und an UI-Komponenten weiterreichen.
-*** link:../../src/frontend/src/components/*[components] – UI (Navbar, HabitForm, HabitGrid/Card, Calender, HabitList-Demos).
-*** link:../../src/frontend/src/lib/*[lib] – Hilfen (Datum/Monatsformat, Kalendermatrix).
+* Root-Doku: link:../../README.md[README.md] - Vorlagehinweise (AsciiDoc).
+* Projekt-Docs: link:../../docs[docs] - SE-Dokumente, Projektplan etc.
+* App-Code: link:../../src[src] - enthält Backend, Frontend, Docker-Setup.
+** link:../../src/docker-compose.yml[docker-compose.yml] - Dev-Compose, startet Backend (Express/Prisma) und Frontend (CRA/Vite-Ports).
+** link:../../src/Dockerfile.dev[Dockerfile.dev] - Basis-Dockerfile für beide Services.
+** link:../../src/backend[backend] - Node/Express + Prisma.
+*** link:../../src/backend/package.json[package.json] - Dependencies (`express`, `@prisma/client`, `cors`, `nodemon`), Skripte (`dev`, `start`, `prisma:generate`).
+*** link:../../src/backend/index.js[index.js] - Express-Server, bindet Auth-/Habit-Routen ein.
+*** link:../../src/backend/.env[.env] - `DATABASE_URL` (Supabase-Postgres).
+*** link:../../src/backend/prisma/schema.prisma[schema.prisma] - Prisma-Schema (Modelle `habits_table`, `users`).
+*** link:../../src/backend/prisma.config.js[prisma.config.js] - Prisma-Konfiguration (Schema, Migrationspfad, Engine).
+*** link:../../src/backend/src/prisma.js[src/prisma.js] - PrismaClient-Factory mit Logging.
+*** link:../../src/backend/src/routes[ routes] - REST-API (`/api/auth`, `/api/habits`) + Auth-Middleware gegen Supabase.
+** link:../../src/frontend[frontend] - React (Create React App).
+*** link:../../src/frontend/package.json[package.json] - CRA-Skripte, Bootstrap, Tests mit react-scripts.
+*** link:../../src/frontend/tailwind.config.js[tailwind.config.js] - minimale Tailwind-Konfiguration (derzeit kaum genutzt).
+*** link:../../src/frontend/src/api/httpClient.js[api/httpClient.js] - HTTP-Wrapper zum Backend (Bearer-Token).
+*** link:../../src/frontend/src/api/authApi.js[api/authApi.js] - Auth-Funktionen (Login, Register, Logout, Session) via Backend.
+*** link:../../src/frontend/src/api/habitsApi.js[api/habitsApi.js] - CRUD/Toggle auf `habits_table` via Backend.
+*** link:../../src/frontend/src/App.jsx[App.jsx] - Auth-Flow, rendert Login/Registrierung oder HabitsPage.
+*** link:../../src/frontend/src/pages/HabitsPage.jsx[pages/HabitsPage.jsx] - Daten laden und an UI-Komponenten weiterreichen.
+*** link:../../src/frontend/src/components/*[components] - UI (Navbar, HabitForm, HabitGrid/Card, Calender, HabitList-Demos).
+*** link:../../src/frontend/src/lib/*[lib] - Hilfen (Datum/Monatsformat, Kalendermatrix).
 
 == Auffälligkeiten / Verstöße gegen Best Practices & SoC
 * Auth/Token-Handling: Backend validiert jeden Request live gegen Supabase (`/auth/v1/user`), aber es gibt kein Refresh-Handling/Token-Rotation und keine Rate-Limits.

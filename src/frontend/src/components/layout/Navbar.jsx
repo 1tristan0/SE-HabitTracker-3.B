@@ -45,7 +45,7 @@ export default function Navbar({ onLogout }) {
             Hinzufügen
           </NavLink>
 
-          {/* Logout-Button (nur auf größeren Bildschirmen sichtbar) */}
+          {/* Logout-Button  */}
           <button
             className="btn btn-outline-secondary hidden sm:inline-block bg-primary3 text-primary1 hover:bg-primary4"
             onClick={onLogout}

@@ -205,7 +205,7 @@ include::{plantumlsdir}/deployment.puml[]
   Führt die Container für Frontend (React/CRA), Backend (Node/Express) und die lokale Supabase-Instanz aus.
 
 * **Supabase Local (Dev)**:  
-  Stellt Auth/API, PostgreSQL und Studio lokal bereit (Ports 54321–54323).
+  Stellt Auth/API, PostgreSQL und Studio lokal bereit (Ports 54321-54323).
 
 * **Supabase Cloud (Prod)**:  
   Externer Dienst für Authentifizierung und PostgreSQL-Datenhaltung in der Produktionsumgebung.

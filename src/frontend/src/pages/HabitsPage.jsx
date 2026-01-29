@@ -65,7 +65,7 @@ export default function HabitsPage({ session}) {
     
     setOpenChangeModal(false);
   };
-  //Öffnen des Änderungsmodals
+  // Öffnen des Änderungsmodals
   const openChangeModalComponent = (habit) => {
     setSelectedHabit(habit);
     setOpenChangeModal(true);
@@ -75,7 +75,6 @@ export default function HabitsPage({ session}) {
     try {
       const data = await fetchAnimal(token);
       setSelectedAnimal(data.animal_type);
-      console.log("Begleiter geladen:", data);
     } catch (err) {
       console.error('Laden des Gewohnheitstiers fehlgeschlagen:', err.message);
     }
@@ -86,19 +85,14 @@ export default function HabitsPage({ session}) {
       load();
       getAnimal();
     }
-    if (userId && token) {
-      load();
-      getAnimal();
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, token]);
   const setAnimal = async (animalType, animalmood) => {
     const data = await setAnimal(token, animalType, animalmood);
     setSelectedAnimal(data.animal_type);
-    console.log("Begleiter gesetzt:", data);
   }
 
-  const opennModal = (habit) => {
+  const openInfoModal = (habit) => {
     setSelectedHabit(habit);
     setOpenModal(true);
     
@@ -116,7 +110,7 @@ export default function HabitsPage({ session}) {
         </div>
       ) : (
         <>
-          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={opennModal} onClose={closeModal} onEdit={openChangeModalComponent} setAnimalMood={setAnimalMood}/>
+          <HabitGrid habits={habits} onDelete={remove} onCheck={check} onClick={openInfoModal} onClose={closeModal} onEdit={openChangeModalComponent} setAnimalMood={setAnimalMood}/>
           { openModal && <HabitInfoModal habit={selectedHabit} onClose={closeModal} /> }
           {openChangeModal && <HabitChangeModal habit={selectedHabit} onClose={() => setOpenChangeModal(false)} edit={edit}/>}
           <Calender habits={habits} />

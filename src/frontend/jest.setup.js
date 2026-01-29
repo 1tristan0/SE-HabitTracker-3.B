@@ -1,4 +1,3 @@
-   // jest.setup.js
 require('@testing-library/jest-dom');
 
 // Suppress console output during tests to see only failures clearly

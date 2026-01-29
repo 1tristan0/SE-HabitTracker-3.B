@@ -1,5 +1,4 @@
-// client/src/components/HabitForm.jsx
-
+//veraltet
 // Importiere useState aus React, um lokale Zustände (Formularwerte) zu verwalten
 import { useState } from 'react';
 

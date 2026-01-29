@@ -14,7 +14,7 @@ export default function ToggleSwitch({ id, checked, onToggle, ariaLabel = 'Toggl
         onClick={(e) => e.stopPropagation()}
         onMouseDown={(e) => e.stopPropagation()}
         onKeyDown={(e) => {
-          // Prevent card-level key handlers (e.g., Enter/Space) from firing
+          // Verhindert das Auslösen von onClick des übergeordneten Elements 
           e.stopPropagation();
         }}
         onChange={(e) => {

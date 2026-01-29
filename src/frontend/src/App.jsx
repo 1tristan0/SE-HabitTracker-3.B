@@ -32,6 +32,7 @@ export default function App() {
       .catch(() => clearSession());
   }, []);
 
+  // Login-Handler
   const handleLogin = async (email, password) => {
     try {
       const result = await login(email, password);
@@ -47,6 +48,7 @@ export default function App() {
     }
   };
 
+  // Registrierungs-Handler
   const handleRegister = async (email, password) => {
     try {
       const result = await register(email, password);
@@ -66,6 +68,7 @@ export default function App() {
     }
   };
 
+  // Logout-Handler
   const handleLogout = async () => {
     try {
       if (session?.accessToken) {
@@ -79,6 +82,7 @@ export default function App() {
     }
   };
 
+  // Sollte keine Sitzung vorhanden sein, wird Login/Registrierung angezeigt
   if (!session) {
     return isLoginView ? (
       <Login
@@ -93,7 +97,7 @@ export default function App() {
     );
   }
 
-  // ==== Authentifizierte Ansicht ====
+  // Sollte eine Sitzung vorhanden sein, wird die Hauptanwendung angezeigt
   return (
     <>
       <Navbar onLogout={handleLogout} />

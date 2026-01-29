@@ -27,6 +27,10 @@ Folgende Endpunkte sind definiert:
 * DELETE `/api/habits/${habitId}` - DELETE-Anfrage an die API senden, um eine Gewohnheit zu löschen
 * POST `/api/habits/${habitId}/toggle` - POST-Anfrage an die API senden, um die Streak zu aktualisieren
 
+=== Arbeit mit Gewohnheitstieren:
+* GET `/api/users/animal` - GET-Anfrage an die API senden, um das Tier des Benutzers abzurufen
+* PUT `/api/users/animal` - PUT-Anfrage an die API senden, um das Tier des Benutzers zu aktualisieren
+
 === Login
 * POST `/api/auth/login` - POST-Anfrage an die API senden, um einen Benutzer zu authentifizieren und ein JWT-Token zu erhalten
 * POST `/api/auth/register` - POST-Anfrage an die API senden, um einen neuen Benutzer zu registrieren
