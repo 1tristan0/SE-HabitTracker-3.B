@@ -153,11 +153,8 @@ Die Anwendung funktioniert auf allen aktuellen Browserversionen von Chrome, Fire
 Für den Login können Sie den bereitgestellten Test-Account verwenden oder einen neuen anlegen. Begeben Sie sich hierfür auf die Startseite und wechseln Sie zur Ansicht "Registrieren". Ihnen wird eine Bestätigunsmail zugesendet, mit der Sie sich authentifizieren können. Die Weiterleitung führt aktuell nur auf eine leere Seite. Anschließend können Sie Ihren erstellten Account nuzten.
 
 == Kontakt - Entwicklungsteam
+Bei Fragen wenden Sie sich bitte nach Art der Frage an die folgenden Personen:
 
-Bei Fragen zur Containeriesierung wenden Sie sich bitte an folgende Person:
-
-Tristan Weiland
-
-Bei Fragen zu Supabase wenden Sie sich bitte an folgende Personen:
-
-Tristan Weiland und Paul Händler
+* Containerisierung, GHCR: Tristan Weiland
+* Supabase (Login, DB): Paul Händler, Tristan Weiland 
+* Fehlermeldungen, Logfiles: Paul Händler, Patrick Eger, Tristan Weiland
