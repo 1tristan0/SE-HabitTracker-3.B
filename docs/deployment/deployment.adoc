@@ -19,6 +19,8 @@ partition "Setup" {
   :Start Supabase;
   :Create Backend .env.local;
   :Create Frontend .env;
+  :Setup Node.js;
+  :Install Backend dependencies";
   :Setup Docker Buildx;
 }
 
@@ -46,6 +48,8 @@ stop
 == Deployment
 === GitHub Actions Workflow - docker-deploy.yml
 * siehe `.github/workflows/docker-deploy.yml`
+
+Das Image-Tag ist abhängig vom Target-Branch, d.h. bei einem Merge auf den main-Branch wird das Image mit `stable` getaggt, bei einem Merge auf den dev-Branch mit `latest`. Dies ermöglicht uns mehrere Versionen gleichzeitig verwalten zu können.  
 
 [plantuml, integration-workflow, png]
 ----
@@ -75,8 +79,8 @@ if (PR merged?) then (yes)
   }
 
   partition "Tagging" {
-    :Tag Backend Image\n(sha, latest);
-    :Tag Frontend Image\n(sha, latest);
+    :Tag Backend Image\n(sha, stable/latest);
+    :Tag Frontend Image\n(sha, stable/latest);
   }
 
   partition "Publish" {
