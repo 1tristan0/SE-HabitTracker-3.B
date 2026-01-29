@@ -15,11 +15,7 @@ Die Teststrategie orientiert sich an der Testpyramide: Unit-Tests bilden die Bas
 ** Routen, Geschäftslogik und Authentifizierung über Unit-Tests
 ** API-Prüfungen auf Integrationsebene (manuell über Swagger)
 
-=== Automatisierte Tests nach Feature-Updates
-
-Nach jedem neuen Funktionsupdate müssen alle automatisierten Tests durchgeführt werden.
-
-=== Testdurchführung
+=== Testdurchführung - Entwickler
 
 * Nach der Implementierung eines Features führt der verantwortliche Entwickler die Tests lokal aus
 * Alle bestehenden Tests werden ausgeführt
@@ -27,6 +23,11 @@ Nach jedem neuen Funktionsupdate müssen alle automatisierten Tests durchgeführ
 * Bei fehlgeschlagenen Tests muss der Entwickler die Ursache analysieren und beheben
 * Es wird kein Pull Request gestellt, bevor alle Tests lokal bestanden sind
 * Ebenfalls werden neue Tests für die hinzugefügten Funktionalitäten implementiert 
+
+=== Testdurchführung - Integration Workflow
+Pull-Requests auf dev und main lösen den Integrations-Workflow aus. Dabei werden alle definierten Tests nocheinmal automatisiert innherhalb eines GitHub Runners ausgeführt und das Ergebnis als Check im Pull-Request aufgeführt. Das Bestehen aller Checks ist Vorraussetzung für den Merge. Checks dienen als zweite Rückfallebene, für den Fall dass ein Entwickler vergisst eine der Testroutinen lokal auszuführen und helfen dabei Testergebnisse an einer zentralen Stelle zu dokumentieren. Workflows werden im Projektverzeichnis unter link:https://github.com/1tristan0/SE-HabitTracker-3.B/tree/dev/.github/workflows[.github/workflows/] abgelegt.
+
+Ein ausführliches Ablaufdiagramm ist der Entwicklerdokumentation unter dem Abschnitt _Integration und Deployment_ zu entnehmen.
 
 === Umgang mit fehlgeschlagenen Tests
 
