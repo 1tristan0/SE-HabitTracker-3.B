@@ -5,10 +5,11 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
+    // Wenn das Formular abgeschickt wird
    const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name.trim()) return; // simple Validation
+    if (!name.trim()) return; // sollte ein Nutzer keinen Namen/nur Leerzeichen eingeben
 
     if (onSubmit) {
       try {
@@ -16,7 +17,6 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
           name.trim(),
           description.trim()
         );
-        console.log("Habit created:", { name, description });
       } catch (err) {
         console.error("Failed to create habit:", err);
       }
@@ -39,12 +39,12 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
 
           {/* Inhalt */}
           <div className="grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-            {/* Formular-Card */}
+            {/* Formular */}
             <form
               onSubmit={handleSubmit}
               className="rounded-2xl bg-primary3 shadow-sm border border-slate-200 px-6 py-6 space-y-6"
             >
-              {/* Name */}
+              {/* Name der Gewohnheit */}
               <div className="space-y-2">
                 <label
                   htmlFor="habit-name"
@@ -67,7 +67,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
                 </p>
               </div>
 
-              {/* Beschreibung */}
+              {/* Beschreibung der Gewohnheit */}
               <div className="space-y-2">
                 <label
                   htmlFor="habit-description"
@@ -88,7 +88,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
                 </p>
               </div>
 
-              {/* Aktionen */}
+              {/* Hinzufügen Button */}
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                 <p className="text-xs text-primary1">
                   Felder mit <span className="text-primaryRed">*</span> sind erforderlich.
@@ -106,7 +106,7 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
               </div>
             </form>
 
-            {/* Tipp- / Info-Card (rechte Seite) */}
+            {/* Tipp- / Info-Karte (rechte Seite) */}
             <aside className="rounded-2xl border border-slate-200 bg-primary3 px-5 py-5 space-y-3 text-sm text-primary1">
               <h2 className="text-sm font-semibold text-primary1">
                 Tipps für gute Gewohnheiten
@@ -114,17 +114,17 @@ export default function HabitCreateContent({ onSubmit, onCancel }) {
               <ul className="space-y-2 text-xs leading-relaxed">
                 <li>
                   Formuliere die Gewohnheit positiv:
-                  <span className="font-medium"> „Mehr Wasser trinken“</span> statt
-                  „Keine Softdrinks“.
+                  <span className="font-medium"> "Mehr Wasser trinken"</span> statt
+                  "Keine Softdrinks".
                 </li>
                 <li>
-                  Mach sie klein und machbar –{" "}
+                  Mach sie klein und machbar -{" "}
                   <span className="font-medium">5 Minuten Bewegung</span> sind besser als
                   gar keine.
                 </li>
                 <li>
                   Verknüpfe sie mit einem Auslöser, z. B.{" "}
-                  <span className="font-medium">„nach dem Zähneputzen“</span>.
+                  <span className="font-medium">"nach dem Zähneputzen"</span>.
                 </li>
                 <li>
                   Je klarer Name & Beschreibung, desto besser kann unser Tracker dir

@@ -1,10 +1,9 @@
 export default function DeleteIcon({ size = 18 }) {
-  const s = size;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={s}
-      height={s}
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

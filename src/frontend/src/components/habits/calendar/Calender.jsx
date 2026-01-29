@@ -18,6 +18,7 @@ export default function Calender({ habits }) {
 
   const todayStr = todayAsStringBerlin();
 
+  // Matrix für den aktuellen Ansichtmonat erstellen
   const matrix = useMemo(() => getMonthMatrix(view.year, view.month), [view]);
 
   // Wechsel zum vorherigen/nächsten Monat
@@ -35,6 +36,7 @@ export default function Calender({ habits }) {
       return { year: v.year, month: m };
     });
   };
+  // Funktion, die aufgerufen wird, wenn ein Tag ausgewählt wird
   function onDaySelected(dateStr){
     setOpenModal(true);
     setCheckedHabits(getCheckedHabiitsFromDay(habits, dateStr));
@@ -45,7 +47,7 @@ export default function Calender({ habits }) {
   return (
     <div className="mx-auto max-w-3xl p-4">
       <div className="flex items-center justify-between mb-4">
-        
+        {/* Navigation für den Monat */}
 
         <div className="flex justify-between items-center w-full">
           <button onClick={prevMonth} className="px-3 py-1 rounded bg-primary3 hover:bg-primary4 text-primary1">vorheriger Monat</button>
@@ -60,7 +62,7 @@ export default function Calender({ habits }) {
         {WEEKDAYS.map((w) => (
           <div key={w} className="text-sm font-medium text-primary3 py-2 ">{w}</div>
         ))}
-
+        {/* Jeder Tag der Monatsmatrix wird gerendert */}
         {matrix.map((week, wi) => (
           week.map((cell, di) => {
             const dateStr = dateOnlyBerlin(cell.date);

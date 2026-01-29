@@ -5,7 +5,7 @@ import Modal from '../../ui/Modal';
 export default function HabitChangeModal({ habit, onClose, edit }) {
   const [name, setName] = useState(habit?.habit_name || '');
   const [description, setDescription] = useState(habit?.description || '');
-
+  // Funktion zum Speichern der Änderungen
   const handleSave = () => {
     edit(habit.id, { name, description });
   };
@@ -28,9 +28,9 @@ export default function HabitChangeModal({ habit, onClose, edit }) {
         </div>
       }
     >
-      {/* Content */}
+      {/* Content des Modals */}
       <div className="space-y-5">
-        {/* Name Feld */}
+        {/* Habitname Feld */}
         <div>
           <label className="block text-sm font-medium text-primary4 mb-2">Name</label>
           <input
@@ -42,7 +42,7 @@ export default function HabitChangeModal({ habit, onClose, edit }) {
           />
         </div>
 
-        {/* Beschreibung Feld */}
+        {/* Habitbeschreibung Feld */}
         <div>
           <label className="block text-sm font-medium text-primary4 mb-2">Beschreibung</label>
           <textarea

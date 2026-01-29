@@ -4,32 +4,22 @@ import Titel from "../ui/Titel";
 import HabitCard from "./HabitCard";         // Einzelkomponente zur Darstellung einer Gewohnheit
 
 // Komponente zur Darstellung aller Gewohnheiten in einem Grid (Liste)
-// Props:
-//  - habits: Array aller Gewohnheiten
-//  - onDelete: Callback zum Löschen einer Gewohnheit
-//  - onCheck: Callback zum Markieren als erledigt
 export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose, onEdit, setAnimalMood }) {
 
     // Heutiges Datum im Format YYYY-MM-DD
     const today = todayAsString();
 
     // Gewohnheiten filtern:
-    // 1. "completed" → alle, die heute erledigt wurden
+    // 1. "completed" → alle Gewohnheiten, die heute erledigt wurden
     const completed = habits.filter((h) => dateOnly(h.last_checked) === today);
+    // Wenn mindestens eine Gewohnheit erledigt wurde, setze Animal Mood auf "gluecklich", sonst auf "traurig"
     if (completed.length > 0) {
         setAnimalMood("gluecklich");
     } else {
         setAnimalMood("traurig");
-        console.log("Keine erledigten Gewohnheiten heute. Animal Mood set to traurig.");
-    }
-    if (completed.length > 0) {
-        setAnimalMood("gluecklich");
-    } else {
-        setAnimalMood("traurig");
-        console.log("Keine erledigten Gewohnheiten heute. Animal Mood set to traurig.");
     }
 
-    // 2. "remaining" → alle, die noch nicht (oder an einem anderen Tag) erledigt wurden
+    // 2. "remaining" → alle Gewohnheiten, die noch nicht (oder an einem anderen Tag) erledigt wurden
     const remaining = habits.filter((h) => dateOnly(h.last_checked) !== today);
 
     return (
@@ -50,9 +40,6 @@ export default function HabitGrid({ habits, onDelete, onCheck, onClick, onClose,
             {/* Abschnitt für heute bereits erledigte Gewohnheiten */}
 
             <Titel>Bereits heute erledigt</Titel>
-
-            {/* Wenn es bereits erledigte Gewohnheiten gibt, zeige sie an,
-                ansonsten einen Hinweistext */}
             {completed.length > 0 ? (
                 completed.map((h) => (
                     <HabitCard

@@ -1,5 +1,4 @@
-// client/src/components/habits/HabitList.jsx
-
+// veraltet
 // Funktion zum Aktualisieren (Abhaken) einer Gewohnheit
 // Sie sendet eine PUT-Anfrage an die API, um das Feld `last_checked` auf das aktuelle Datum zu setzen
 async function handleCheck(habitId) {

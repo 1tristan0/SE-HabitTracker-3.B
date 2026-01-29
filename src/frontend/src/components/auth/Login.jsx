@@ -5,6 +5,7 @@ export default function Login({ onSubmit, switchToRegister }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // Wenn das Formular abgeschickt wird
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(email, password);

@@ -7,31 +7,35 @@ import Modal from "../../ui/Modal";
 
 export default function HabitInfoModal({ habit, onClose }) {
   if (!habit) return null;
-
+  // Kennzahlen berechnen
+  //1. Wie viele Habits wurden im letzten Monat erledigt
   const completedLast30 = getNumberOfCompletedHabitsLastMonth(habit) ?? 0;
+  //2. Abschlussrate der Habits im letzten Monat
   const completionRate = getPercentageOfCompletedHabitsLastMonth(habit) ?? 0;
   const completionRateLabel = `${completionRate}%`;
 
+  //3. Startdatum und letztes Erledigungsdatum formatieren
   const startedAt = habit.start_date
     ? convertToGermanDateString(habit.start_date)
     : "—";
 
+  // Letztes Erledigungsdatum formatieren
   const lastDoneAt = habit.last_checked
     ? convertToGermanDateString(habit.last_checked)
     : "Noch nie erledigt";
 
   return (
     <Modal title={habit.habit_name} onClose={onClose} size="md">
-      {/* Content */}
+      {/* Content des Modals */}
       <div className="space-y-6">
-        {/* Beschreibung */}
+        {/* Habitbeschreibung */}
         {habit.description && (
           <div className="rounded-xl bg-primary3/80 border border-slate-700 px-4 py-3 max-h-40 overflow-auto">
             <p className="text-sm text-primary1 leading-snug break-words">{habit.description}</p>
           </div>
         )}
 
-        {/* Kennzahlen */}
+        {/* Habitkennzahlen */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <StatCard name="Letzte 30 Tage" value={completedLast30} />
           <StatCard name="Abschlussrate" value={completionRateLabel} />
@@ -55,7 +59,7 @@ export default function HabitInfoModal({ habit, onClose }) {
 }
 
 /**
- * Kleiner Helper-Component für Kennzahlen-Karten
+ * Kleine Komponente für Kennzahlen-Karten
  */
 function StatCard({ name, value}) {
   return (

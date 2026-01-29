@@ -1,5 +1,5 @@
 
-import { dateOnly } from "../../lib/convert";
+import { dateOnly, todayAsString } from "../../lib/convert";
 import DeleteIcon from "../icons/DeleteIcon";
 import EditIcon from "../icons/EditIcon";
 import StreakBadge from "../ui/StreakBadge";
@@ -15,12 +15,13 @@ export default function HabitCard({
   onEdit = () => {},
 }) {
   // Heutiges Datum im Format YYYY-MM-DD (zum Vergleich mit last_checked)
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayAsString();
 
   // Sicherer Umgang mit optionalem last_checked
   const lastCheckedDate = habit.last_checked ? dateOnly(habit.last_checked) : null;
   const isDoneToday = lastCheckedDate === today;
 
+  // Tastatur-Event-Handler für Barrierefreiheit
   const handleCardKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -30,36 +31,30 @@ export default function HabitCard({
 
   return (
     <div
-      className="card mb-1 bg-primary3 habitcard mx-auto max-w-3xl"
+      className="card mb-1 bg-primary3 habitcard mx-auto max-w-3xl cursor-pointer rounded-[10px] shadow-sm"
       role="button"
       tabIndex={0}
       onClick={() => onClick(habit)}
       onKeyDown={handleCardKeyDown}
-      style={{
-        cursor: "pointer",
-        borderRadius: 10,
-        boxShadow: "0 1px 2px rgba(0,0,0,0.06)",
-      }}
     >
       <div className="card-body py-1 px-2">
         <div className="d-flex align-items-center">
-          {/* LEFT: Toggle */}
+          {/* Links: Toggle zum Erledigen/Nicht erledigen des Habits */}
           <div className="flex-shrink-0 me-2">
             <ToggleSwitch
               id={`check-${habit.id}`}
               checked={isDoneToday}
               onToggle={(nextChecked) => onCheck(habit.id, nextChecked)}
               ariaLabel="Heute erledigt"
-              style={{ transform: "scale(0.9)" }}
+              className="scale-90"
             />
           </div>
 
-          {/* MIDDLE: Name + Beschreibung */}
-          <div className="flex-grow-1 me-2" style={{ minWidth: 0 }}>
+          {/* Mitte: Name + Beschreibung */}
+          <div className="flex-grow-1 me-2 min-w-0">
             <div className="d-flex align-items-center justify-content-between mb-1">
               <h5
-                className="mb-0 text-primary1 text-truncate"
-                style={{ fontSize: "1.2rem", fontWeight: 600 }}
+                className="mb-0 text-primary1 truncate text-[1.2rem] font-semibold"
                 title={habit.habit_name}
               >
                 {habit.habit_name}
@@ -68,14 +63,7 @@ export default function HabitCard({
 
             {habit.description && (
               <p
-                className="mb-0 text-primary1 text-truncate"
-                style={{
-                  fontSize: "0.9rem",
-                  opacity: 0.9,
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }}
+                className="mb-0 text-primary1 truncate text-[0.9rem] opacity-90"
                 title={habit.description}
               >
                 {habit.description}
@@ -83,32 +71,27 @@ export default function HabitCard({
             )}
           </div>
 
-          {/* AFTER MIDDLE: Streak */}
+          {/* Nach der Mitte: Streak */}
           <div className="me-3 flex-shrink-0 d-flex align-items-center">
             <StreakBadge streak={habit.streak} />
           </div>
 
-          {/* RIGHT: Edit + Delete */}
+          {/* Rechts: Bearbeiten + Löschen */}
           <div className="d-flex align-items-center flex-shrink-0">
             <button
-              className="btn btn-link btn-sm text-secondary p-0 me-2"
+              className="btn btn-link btn-sm text-secondary p-0 me-2 inline-flex items-center justify-center"
               onClick={(e) => {
                 e.stopPropagation();
                 onEdit(habit);
               }}
               aria-label={`Bearbeite "${habit.habit_name}"`}
               title="Bearbeiten"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
             >
               <EditIcon size={16} />
             </button>
 
             <button
-              className="btn btn-link btn-sm text-danger p-0"
+              className="btn btn-link btn-sm text-danger p-0 inline-flex items-center justify-center"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -117,11 +100,6 @@ export default function HabitCard({
               aria-label={`Lösche "${habit.habit_name}"`}
               title="Löschen"
               role="löschen"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
             >
               <DeleteIcon size={16} />
             </button>

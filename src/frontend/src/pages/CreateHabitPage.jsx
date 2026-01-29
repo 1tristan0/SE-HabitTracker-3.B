@@ -9,19 +9,17 @@ export default function CreateHabitPage({userId, session}) {
   const navigate = useNavigate();
   const token = session?.accessToken;
 
-  
+  // Funktion zum Hinzufügen eines neuen Habits
   const add = async (name, desc) => {
       try {
         await apiAddHabit(token, { name, desc });
-        console.log("Habit successfully added.");
           navigate("/");
       } catch (err) {
         console.error('Anlegen fehlgeschlagen:', err.message);
       }
   };
-
+  // Zurück zur Übersichtsseite navigieren
   const handleCancel = () => {
-    // zurück zur Startseite
      navigate("/");
   };
 
