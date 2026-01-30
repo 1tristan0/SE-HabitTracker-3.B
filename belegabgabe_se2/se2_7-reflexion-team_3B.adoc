@@ -56,16 +56,12 @@ Trotz des hohen Aufwands erwies sich das Refactoring als nachhaltige Investition
 
 Ein dritter zentraler Erfolg war die konsequente Nutzung von GitHub für das Versions- und Konfigurationsmanagement. Das Team einigte sich frühzeitig auf einen strukturierten Workflow mit Branching und Pull Requests, um Änderungen nachvollziehbar und konfliktarm in das Projekt zu integrieren. Siehe <<A1>>
 
-
 Neue Features sowie Fehlerbehebungen wurden auf separaten Branches entwickelt. Um Missverständnisse zu vermeiden, wurde eine einheitliche Namenskonvention für Branches eingeführt, die Informationen über Typ, zugehörige User Story oder Issue sowie den verantwortlichen Entwickler enthält. Dadurch war jederzeit klar ersichtlich, welchem Zweck ein Branch dient.
 
 Die Integration von Features in den dev-Branch erfolgte ausschließlich über Pull Requests. Dabei wurden relevante Teammitglieder als Reviewer eingebunden, sodass Änderungen mindestens von zwei Personen getestet und optional einem Code-Review unterzogen wurden. Dieses Vorgehen erhöhte die Codequalität und reduzierte das Risiko von Fehlern im gemeinsamen Codebestand. Inaktive Branches wurden nach dem Merge konsequent entfernt.
 
 Dieser strukturierte Umgang mit Versionsverwaltung stellte sich als äußerst hilfreich heraus und trug maßgeblich zu einem stabilen Entwicklungsprozess bei. Gleichzeitig förderte er Transparenz, Verantwortungsbewusstsein und gemeinsame Qualitätsstandards im Team.
 
-=== Erfolg: Umsetzung der wichtigsten Hauptfunktionen 
-
-Trotz großer Umstrukturierungen der Softwarearchitektur und dem daraus resultierenden Verlust an Ressourcen für die Entwicklung neuer Features, gelang es unserem Team die wichtigsten Funktionen der Produktvision umzusetzen. Dabei wurde die Entscheidung getroffen jene Features zu realisieren, die das Produkt im Kern definieren. So wurde bewusst darauf verzichtet Features wie Wiederholungsintervalle oder Habit-Stacking umzusetzen und im Gegenzug das Gewohnheitstier umzusetzen. irgendwas fehlt hier noch (und kommata)
 //include:: Diagramm Martin
 
 === Misserfolg: Unzureichendes und inkonsistentes Tracking organisatorischer Aufgaben
@@ -96,9 +92,11 @@ Ein weiterer Misserfolg zeigte sich in der späten Konkretisierung zentraler Arc
 
 Ein konkretes Beispiel hierfür war die Gestaltung der Datenbankstruktur. Eine zunächst einfach gehaltene Tabelle zur Verwaltung von Gewohnheiten erwies sich im weiteren Projektverlauf als unzureichend, da sie unterschiedliche fachliche Verantwortlichkeiten vermischte. Die notwendige Aufteilung in separate Entitäten, etwa für Nutzer und Gewohnheiten, machte eine grundlegende Umstrukturierung der Datenbank erforderlich. Diese Änderung war mit erheblichem Aufwand verbunden und zog Anpassungen in mehreren Teilen des Systems nach sich.
 
-Die Ursachen lagen vor allem in der fehlenden Erfahrung des Teams im Bereich Webentwicklung sowie in einer zu späten Anwendung der in der Vorlesung behandelten Architektur- und Entwurfsprinzipien. Aspekte wie Modularisierung, klare Verantwortlichkeiten und saubere Schichtenbildung wurden zwar theoretisch verstanden, jedoch zunächst nicht konsequent umgesetzt.
+Die Ursachen lagen vor allem in der fehlenden Erfahrung des Teams im Bereich Webentwicklung sowie in einer zu späten Anwendung der in der Vorlesung behandelten Architektur- und Entwurfsprinzipien. Aspekte wie Modularisierung, klare Verantwortlichkeiten und saubere Schichtenbildung wurden zwar theoretisch verstanden, jedoch zunächst nicht konsequent umgesetzt. Als Konsequenz musste im späteren Projektverlauf ein umfangreiches Refactoring durchgeführt werden, das viel Zeit und Koordinationsaufwand erforderte.
 
-Als Konsequenz musste im späteren Projektverlauf ein umfangreiches Refactoring durchgeführt werden, das viel Zeit und Koordinationsaufwand erforderte. Rückblickend wurde deutlich, dass architektonische Entscheidungen möglichst früh getroffen und regelmäßig überprüft werden sollten. Gleichzeitig zeigte sich aber auch, dass Refactoring ein unvermeidlicher Bestandteil iterativer Softwareentwicklung ist. Die zentrale Erkenntnis aus diesem Misserfolg besteht darin, dass eine frühzeitige und bewusste Auseinandersetzung mit Architektur und Datenmodell den späteren Aufwand erheblich reduzieren kann.
+Trotz großer Umstrukturierungen der Softwarearchitektur und dem daraus resultierenden Verlust an Ressourcen für die Entwicklung neuer Features gelang es unserem Team, die wichtigsten Funktionen der Produktvision umzusetzen. Dabei wurde die Entscheidung getroffen, jene Features zu realisieren, die das Produkt im Kern definieren. So wurde bewusst darauf verzichtet, Features wie Wiederholungsintervalle oder Habit-Stacking umzusetzen und im Gegenzug das Gewohnheitstier einzubinden. <<irgendwas fehlt hier noch>>
+
+Rückblickend wurde deutlich, dass architektonische Entscheidungen möglichst früh getroffen und regelmäßig überprüft werden sollten. Gleichzeitig zeigte sich aber auch, dass Refactoring ein unvermeidlicher Bestandteil iterativer Softwareentwicklung ist. Die zentrale Erkenntnis aus diesem Misserfolg besteht darin, dass eine frühzeitige und bewusste Auseinandersetzung mit Architektur und Datenmodell den späteren Aufwand erheblich reduzieren kann.
 
 == Einzelleistungen
 
