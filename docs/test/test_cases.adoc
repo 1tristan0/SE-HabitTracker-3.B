@@ -16,15 +16,16 @@ Wir verwenden aktuell folgende Testarten:
 === Testtechnologien
 Für die verschiedenen Testarten verwenden wir unterschiedliche Technologien:
 
-* *Unit Tests Frontend**: Jest + React Testing Library für Komponenten- und Utility-Tests.
-* *Unit/Handler Tests Backend**: Node.js + `assert`, Stubs/Mocks für Prisma und Supabase.
-* *Systemtests (manuell)**: Durchführung durch Tester anhand der Akzeptanzkriterien.
+* *Unit Tests Frontend*: Jest + React Testing Library für Komponenten- und Utility-Tests.
+* *Unit/Handler Tests Backend*: Node.js + `assert`, Stubs/Mocks für Prisma und Supabase.
+* *Systemtests (manuell)*: Durchführung durch Tester anhand der Akzeptanzkriterien.
 
 === Tests
 
 ==== Frontend Unit Tests 
 `/src/frontend/__tests__/*.test.js`
 Wir haben Unit Tests für die folgenden Komponenten implementiert:
+
 * Navbar-Komponente:
 ** rendert korrekt die Navigations-Links
 ** prüft aktive Zustände für Übersicht und Hinzufügen
