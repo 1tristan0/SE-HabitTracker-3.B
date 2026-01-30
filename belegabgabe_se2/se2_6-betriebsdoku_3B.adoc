@@ -1,6 +1,6 @@
 include::../docs/_includes/default-attributes.inc.adoc[]
 // ---
-:doctype: book
+:doctype: article
 //:toc:
 //:toclevels: 2
 //:toc-title: Inhaltsverzeichnis
@@ -125,7 +125,7 @@ services:
       NODE_ENV: production
     restart: unless-stopped
 ```
-In dieser Datei werden weitere Informationen - wie der Containername und welche Imageversion der Container verwendet - festgelegt. Die Imageversion wird über `image: ...` definiert. `:latest` steht hier für die aktuellste Version, die im Repository veröffentlicht wurde. Über die Angabe einer bestimmten Commit-ID, kann hier auch auf ältere Versionen zugegriffen werden. Schauen Sie dazu im GitHub Container Repository (GHCR) nach oder wenden Sie sich an das Entwicklungsteam. Sollte Ihnen keine andere spezifische Version genannt werden, so belassen Sie die Imageversion bei `:latest`.
+In dieser Datei werden weitere Informationen - wie der Containername und welche Imageversion der Container verwendet - festgelegt. Die Imageversion wird über `image: ...` definiert. `:latest` steht hier für die aktuellste Version, die im Repository unter dem dev-Branch veröffentlicht wurde und beinhaltet immer die neusten Änderungen. `:stable` bezieht das aktuellste Image, das über den main-Branch veröffentlicht wurde und ist daher die sicherste Option. Über die Angabe einer bestimmten Commit-ID, kann hier auch auf ältere oder andere neue Versionen zugegriffen werden. Schauen Sie dazu im link:https://github.com/1tristan0?tab=packages&repo_name=SE-HabitTracker-3.B[GitHub Container Repository] nach oder wenden Sie sich an das Entwicklungsteam. Sollte Ihnen keine andere spezifische Version genannt werden, so belassen Sie die Imageversion bei `:latest` oder `:stable`.
 
 Achten Sie darauf, dass die Ports 3000, 3001 und 5432 Ihres Hostgeräts nicht bereits durch andere Anwendungen belegt sind.
 
