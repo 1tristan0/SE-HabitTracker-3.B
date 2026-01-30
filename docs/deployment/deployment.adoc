@@ -1,0 +1,98 @@
+=== Integration
+==== GitHub Actions Workflow - ci.yml
+* siehe `.github/workflows/ci.yml`
+
+[plantuml, integration-workflow, png]
+----
+@startuml
+title Integration Testing
+
+start
+
+:Pull Request\n(auf: main, dev);
+
+:GitHub Actions Runner\n(ubuntu-latest);
+
+partition "Setup" {
+  :Checkout Repository;
+  :Setup Supabase CLI;
+  :Start Supabase;
+  :Create Backend .env.local;
+  :Create Frontend .env;
+  :Setup Node.js;
+  :Install Backend dependencies";
+  :Setup Docker Buildx;
+}
+
+partition "Build & Run" {
+  :Build Docker Images\n(docker compose build);
+  :Start Containers\n(docker compose up -d);
+}
+
+partition "Frontend Tests" {
+  :Run Frontend Unit Tests\n(npm run test);
+}
+
+partition "Backend Tests" {
+  :Run Backend Tests\n(./test-backend.sh);
+}
+
+partition "Cleanup" {
+  :Shutdown Containers\n(docker compose down -v);
+}
+
+stop
+@enduml
+----
+
+=== Deployment
+==== GitHub Actions Workflow - docker-deploy.yml
+* siehe `.github/workflows/docker-deploy.yml`
+
+Das Image-Tag ist abhängig vom Target-Branch, d.h. bei einem Merge auf den main-Branch wird das Image mit `stable` getaggt, bei einem Merge auf den dev-Branch mit `latest`. Dies ermöglicht uns mehrere Versionen gleichzeitig verwalten zu können.  
+
+[plantuml, integration-workflow, png]
+----
+@startuml
+title Docker Image Deployment Workflow
+
+start
+
+:Pull Request closed\n(target: main, dev);
+
+if (PR merged?) then (yes)
+  :GitHub Actions Runner\n(ubuntu-latest);
+
+  partition "Preparation" {
+    :Checkout Repository;
+    :Create Backend .env.production;
+    :Create Frontend .env;
+  }
+
+  partition "Docker Setup" {
+    :Login to GitHub Container Registry\n(ghcr.io);
+    :Setup Docker Buildx;
+  }
+
+  partition "Build" {
+    :Build Docker Images\n(docker compose prod);
+  }
+
+  partition "Tagging" {
+    :Tag Backend Image\n(sha, stable/latest);
+    :Tag Frontend Image\n(sha, stable/latest);
+  }
+
+  partition "Publish" {
+    :Push Backend Image to GHCR;
+    :Push Frontend Image to GHCR;
+  }
+
+  stop
+else (no)
+  :Workflow skipped;
+  stop
+endif
+
+@enduml
+----

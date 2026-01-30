@@ -1,0 +1,61 @@
+= Analyse des Codes im Frontend + Verbesserungspotentiale
+Patrick Eger, Tristan Wieland, Paul Händler
+2026-01-20
+Updated 2026-01-21
+
+== Folgende Probleme wurden festgestellt im Frontend-Code und Doku:
+1. Einzelne Komponenten sind Deutsch beschrieben:
+** Begleiter.jsx
+** BegleiterModal.jsx
+** HabitErstellen.jsx
+-> hierzu bitte nochmal ein Dokument schreiben, indem die angewendeten Code-Qualitätsrichtlinien eingetragen werden zum nachlesen
+2. Es werden einzelne Codeabschnitte öfters wiederholt codiert, obwohl man sie auch wiederverwenden könnte -> DRY-Prinzip anwenden (Don't Repeat Yourself)
+** Speicher-Button in HabitChangeModal, HabitCreateContent,...
+** Schließen-Button ,,X" in jedem Modal
+** Input-Felder wie im Login/Signup
+** Modal in jeder Modalkomponente
+** H1 auf den einzelnen Seiten wie HabitsPage.jsx
+3. Einzelne Codeabschnitte in separate Komponenten unterteilen, damit Dateien nicht unnötig groß und komplex werden
+** Login
+** Signup
+** Kalendertag
+** Habit Toggle Button
+** Fortschrittsanzeige im Kalendertag
+4. Einzelne Funktionen wurden unkommentiert erstellt
+** getPercentageOfCompletedHabitsLastMonth
+** dateOnly
+** monthAndYear
+** convertToGermanDateString
+** dateOnlyBerlin
+** todayAsStringBerlin
+5. Komponentenordner sehr groß 
+
+== Folgende Lösungen sollen nun im Frontend umgesetzt werden:
+1. Umbenennung der einzelnen Komponenten
+** Begleiter.jsx -> Animal.jsx
+** BegleiterModal.jsx -> AnimalModal.jsx
+** HabitErstellen.jsx -> CreateHabitPage.jsx
+2. Erstellung einzelner, wiederverwendbarer Komponenten
+** Speicher-Button -> SaveButton.jsx
+** Schließen-Button -> CloseButton.jsx
+** Input-Felder -> InputField.jsx
+** Modal -> Modal.jsx
+** H1 -> Title.jsx
+3. Separate Komponenten erstellen
+** Login.jsx
+** Signup.jsx
+** CalendarDayButton.jsx
+** ToggleSwitch.jsx
+** ProgressCircle.jsx
+4. Bitte die oben genannten Funktionen kommentieren
+5. Komponentenordner unterteilen in separate Unterordner
+** Animal
+** Auth
+** Habits
+** Icons
+** Layout
+** UI
+
+
+  
+

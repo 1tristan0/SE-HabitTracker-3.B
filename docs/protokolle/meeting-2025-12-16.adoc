@@ -1,0 +1,47 @@
+= Meeting 16.12.2025 (weekly Teil 1)
+Anwesend: Monika, Felix (online), Tristan, Martin, Paul, Nicola, Patrick
+= Meeting 16.12.2025 (weekly Teil 2)
+Anwesend online discord: Monika, Felix, Tristan, Martin, Nicola, Patrick
+
+== Besprechen
+-   Dokumentation Testfälle für Akzeptanzkriterien der abgeschlossenen UserStories => doc/test_cases.adoc (Issue von Tristan)
+-   Doku / Reflexion:
+    -   Aufwandsschätzung schwierig => anfangs Story-Zuordnung nicht gut => Erläuterung Vergabe Story-Points (aus Miro)
+    -   Datenbankstruktur ändern (eine Tabelle mit allen Habits splitten in user/ habits)
+
+== Besprechen - Änderungen / Ergänzungen Doku:
+-   Architecture-Notebook:
+    * Annahmen/Abhängigkeiten: Prisma + Docker (stattdessen mpm?)
+    * Arch.-relevante Anforderungen: Responsives Design?
+    
+-   Project-Plan:
+    * Deployment: Beschreibung, wie Client/Server gestartet wird (Paul, Tristan)
+
+== To Do's
+-   Überlegung / Beschreibung der Anwendung von Methoden, die gut bzw. nicht gut funktioniert haben (Team-Tops/Team-Flops) (alle => Miro)
+-   Doku Datenbankschema erzeugen mit Prisma-UML => Entwicklerdoku bzw. architecture-notebook.adoc (Tristan)
+-   aktuelles Domänenmodell in Doku übernehmen => nach Merge aller Dev-Branches
+-   Update Anwenderdoku nach Merge Branch von Patrick/Felix (Felix, Martin)
+-   Datenstrukturen (DB-Tabellen) ergänzen (Doku Glossar: Martin)
+-   Infos aus Doku Container in Doku (Doku Deployment: Martin)
+-   Wissensaufbau Unit-Tests mit Prisma (Martin)
+-   Sequenzdiagramm entwerfen, z.B. Habit anlegen und/oder Login (Patrick, Paul)
+-   Styleguide und Linter festlegen (Patrick)
+-   automatisierte Tests mit Github Actions aufbauen (Tristan)
+-   Doku zu Entscheidung und Umsetzung Farbschema (Felix, Patrick)
+-   Doku React-Komponenten => architecture-notebook (C4 Modelle Ebene 3+4) (Paul, Tristan, Martin)
+
+
+== Done
+-   Termin für Präsentation (20. oder 27.01.26) => Entscheidung für 20.01.26 (Martin)
+-   Präsentation Farbkonzept (Felix) => Entscheidung => Anpassung und Ausarbeitung (Felix)
+-   DOR anpassen (Tristan)
+-   API-Doku vorhanden - Swagger (Paul)
+-   Datenbankmodell: automatisierte Erzeugung von UML-Datenbankschema mit Prisma-UML (Tristan) möglich
+-   Beginn Anwenderdoku (Felix, Martin)
+-   Domänenmodell anpassen (Nicola)
+-   Überarbeitung Layout (Flexboxen) (Felix)
+-   Frontend-Tests implementieren (Patrick)
+
+
+=> Retro/Planning:   06.01. 13.00 Uhr in Z 136c

@@ -1,0 +1,82 @@
+name: Integration Testing
+
+on:
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
+    steps:
+      # Setup: Einrichten der DB, Container bauen/starten
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Supabase Cli  
+        uses: supabase/setup-cli@v1
+        with:
+          version: 2.65.5
+
+      - name: Start Supabase
+        run: supabase start
+
+      - name: Setup backend .env file
+        run: |
+          cat <<EOF > backend/.env.local
+          DATABASE_URL=${{ secrets.LOCAL_DATABASE_URL }}
+          SUPABASE_URL=${{ secrets.LOCAL_SUPABASE_URL }}
+          SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
+          PORT=${{ vars.PORT }}
+          EOF
+
+      - name: Setup frontend .env file
+        run: |
+          cat <<EOF > frontend/.env
+          REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }}
+          EOF
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      - name: Install backend dependencies
+        working-directory: src/backend
+        run: npm ci
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+          
+      - name: Build Docker images
+        run: |
+          docker compose \
+            -f docker-compose.yml \
+            -f docker-compose.dev.yml \
+            build
+
+      - name: Start containers
+        run: |
+          docker compose \
+            -f docker-compose.yml \
+            -f docker-compose.dev.yml \
+            up -d
+      
+      # Tests
+      - name: Run Frontend Unit Tests
+        run: docker exec --env CI=true frontend-dev npm run test -- --watchAll=false < /dev/null
+        env:
+          CI: true  
+        
+      - name: Run Backend Unit Tests
+        run: ./test-backend.sh 
+
+      # Aufräumen, Container herunterfahren
+
+      - name: Shutdown containers
+        if: always()
+        run: |
+          docker compose down -v

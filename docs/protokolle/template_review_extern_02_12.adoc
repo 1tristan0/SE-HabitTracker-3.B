@@ -1,0 +1,121 @@
+= MEETINGNOTIZ – 02.12.25
+
+--
+* Typ: Review  (extern)
+* Raum: S308b
+* Dauer: 15.30
+* Anwesend: Team 2.B (Frederic, Marius, Johann, Lara) + Team 3.B (Felix, Patrick, Monika, Paul, Nicola online) + Team 4.B ()
+--
+
+== ZIELE DES MEETINGS
+
+--
+* Vorstellung Anwendung
+* Feedback der Stakeholder
+* Gemeinsamer Fachaustausch
+--
+
+
+== VORGEHENSWEISE
+
+--
+1. Vorstellung der Anwendung durch das Team
+2. Live-Demo mit einem externen Nutzer
+3. Feedback-Runde mit Stakeholdern
+4. Fachaustausch nach Rollen
+5. Abschluss
+--
+
+
+== Team 2.B
+
+=== Vorstellung (Team)
+
+--
+* Vision:
+* Wichtigste Funktionen:
+* Aktueller Stand:
+--
+
+
+=== Externer Nutzertest
+
+--
+* Beobachtungen:
+* Besondere Reaktionen:
+* Probleme / Stolpersteine:
+--
+
+
+=== Feedbackrunde
+
+--
+* Stärken/Lob:
+** ...
+** ...
+
+* Verbesserungen:
+** "Frage Hinzufügen", 
+** zuerst Login, dann Quiz erstellen
+
+* Probleme/Fragen:
+** ...
+** ...
+
+* gewünschte Features:
+** ...
+** ...
+
+* Sonstiges:
+** ...
+** ...
+--
+
+
+== Mini-Fachaustausch
+
+=== Product Owner
+
+--
+* ..
+* ..
+--
+
+
+=== Scrum Master
+
+--
+* ..
+* ..
+--
+
+
+=== Architekt:innen
+
+--
+* ..
+* ..
+-- 
+
+
+=== Entwickler:innen
+
+--
+* ..
+* ..
+--
+
+
+=== Tester:innen
+
+--
+* ..
+* ..
+--
+
+
+== Abschluss
+
+=== Wichtigste Erkenntnisse
+
+

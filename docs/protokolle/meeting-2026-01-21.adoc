@@ -1,0 +1,44 @@
+= Meeting 21.01.2026
+Anwesend (discord): Monika, Felix, Tristan, Martin, Paul, Nicola, Patrick
+
+== Infos
+-   wichtig ist das Vorliegen einer Teststrategie (was muss wann durch wen getestet werden und was passiert mit den Testergebnissen, insbesondere bei Fails)
+    => vor PR müssen alle Unit-Tests erfolgreich sein
+    => im PR werden Akzeptanztests durchgeführt
+    => im Zuge des PR werden Backend- und Frontendtests mit Swagger durchgeführt
+    => bei Fail: Issue mit Label "Bug"
+
+== Besprechen - Änderungen / Ergänzungen Doku:
+-   Architecture-Notebook:
+    * Annahmen/Abhängigkeiten: Prisma + Docker (stattdessen mpm?)
+    * Arch.-relevante Anforderungen: Responsives Design?
+    
+-   Project-Plan:
+    * Deployment: Beschreibung, wie Client/Server gestartet wird (Paul, Tristan)
+
+== To Do's
+-   Beendigung aller Abgabedokumente und Arbeiten am System bis zum 27.01.
+-   in Doku Erstellen Ablaufdiagramm für "Way of Working" (was passiert nach Ziehen einer Aufgabe bis zum Pull Request) (Martin)
+-   Update Anwenderdoku (Martin, Monika)
+-   Glossar in Anwenderdoku und Entwicklerdoku einbinden => nur Begriffe aus UserStories und Anwendung (Nicola)
+-   Infos aus Doku Container in Doku (Doku Deployment: Tristan)
+-   Wissensaufbau Unit-Tests mit Prisma (Martin)
+-   Styleguide dokumentieren (Patrick, Felix)
+-   aktuelles Domänenmodell in Doku übernehmen => nach Merge aller Dev-Branches (Nicola)
+-   automatisierte Tests mit Github Actions aufbauen (Tristan) => nach Merge
+-   Doku React-Komponenten => architecture-notebook (C4 Modelle Ebene 3+4) (Paul, Tristan, Martin)
+-   Datenstrukturen (DB-Tabellen) ergänzen (Doku Glossar: Martin, Tristan, Paul)
+
+== Done
+-   Nicola: Dokumentation Testfälle für Akzeptanzkriterien der abgeschlossenen UserStories => doc/test_cases.adoc (Issue von Tristan) => Nachfrage bei Prof. Anke: Vorgehen bestätigt
+-   Vorbereitung Folien für Präsi am 20.01. (Felix, Monika, Nicola?)
+-   Sequenzdiagramm überarbeiten, z.B. Habit anlegen und/oder Login (Patrick, Paul)
+-   Doku / Reflexion:
+    -   Aufwandsschätzung schwierig => anfangs Story-Zuordnung nicht gut => Erläuterung Vergabe Story-Points (aus Miro)
+    -   bei Aufwandsschätzung anfangs das Schreiben und Durchführen der Tests ignoriert
+    -   Datenbankstruktur ändern (eine Tabelle mit allen Habits splitten in user/ habits)
+-   Überlegung / Beschreibung der Anwendung von Methoden, die gut bzw. nicht gut funktioniert haben (Team-Tops/Team-Flops) (alle => Miro) z.B. Zusammenführen von Testfällen aus PR in "test_cases.adoc" (Monika)
+-   Bereitstellung Laptop für Präsentation bis spätestens Montag 19.01. (Martin)
+
+
+=> review:   27.01. 15.15 Uhr in Z 136c

@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+  //output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum animal_type {
+  hund
+  katze
+  hamster
+  wurm
+}
+
+enum animal_mood {
+  gluecklich
+  traurig
+}
+
+model habits_table {
+  id                String     @id @default(uuid())
+
+  user              users      @relation(fields: [userId], references: [id])
+  userId            String     // Fremdschlüssel auf users
+
+  habit_name        String?    @db.VarChar
+  description       String?
+
+  start_date        DateTime?  @db.Date
+  streak            BigInt?
+  last_break        DateTime?  @db.Date
+  last_checked      DateTime?  @db.Timestamptz(6)
+  prev_last_checked DateTime[] @db.Timestamptz
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model users {
+  id                String       @id @default(uuid())
+  habits            habits_table[] // 1-n-Relation zu habits_table
+
+  animal_type animal_type      @default(hund)
+  animal_mood animal_mood      @default(gluecklich)
+}

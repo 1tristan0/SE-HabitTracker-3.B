@@ -1,0 +1,11 @@
+services:
+  backend:
+    image: gewohnheitstier-backend
+    ports:
+      - "3001:3001"
+
+  frontend:
+    image: gewohnheitstier-frontend
+    ports:
+      - "3000:3000"   
+

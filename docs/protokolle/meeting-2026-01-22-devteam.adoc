@@ -1,0 +1,95 @@
+= Development-Team Meeting-Protokoll
+:doctype: book
+:revdate: 2026-01-22
+:revnumber: 1.1
+:toc: left
+:toclevels: 2
+:icons: font
+
+== Meeting-Informationen
+
+*Meeting-Typ:* Development Team Sync  
+*Datum:* 22.01.2026  
+*Uhrzeit:* 17:00 - 20:00
+*Ort / Plattform:* Discord  
+*Mod:* Verteilt  
+*Protokoll:*   
+*Iteration:* Iteration xx (DD.MM.–DD.MM.YYYY)  
+*Teilnehmende:* Patrick Eger, Tristan Wieland, Paul Händler
+
+== Zweck
+
+Diese Meetings sind ausschließlich für das **Devteam** vorgesehen und dienen der Absprache bzw. sind für u.A. folgende Zwecke gedacht:
+
+- Austausch über technischen Fortschritt in Iteration  
+- Identifizierung und Lösung aktueller Blocker  
+- Abstimmung zu Architektur- und Tooling-Themen
+- interne Verteilung von technischen Tasks
+- Absprache über Coding-Practices / Reviews  
+- Vorbereitung von Fragen an den PO für das nächste Refinement
+
+In diesem Meeting wurden folgende Themen zusammen bearbeitet:
+- es wurde die von Patrick erstellte Teststrategie und testcases reviewt und gemeinsam überarbeitet
+- gemeinsam wurde abgestimmt, ob zusätzliche E2E-Tests wie Playwright eingesetzt werden sollen
+- Tristans Pull-Request zum Update der React-Version wurde gemeinsam von Paul und Patrick reviewt und akzeptiert
+- gemeinsam wurden die erstellten Sequenzdiagramme und C4-Sichten( Level 3 und 4) überprüft und überarbeitet
+
+== Agenda
+
+. Kurzes Check-in
+. review Teststrategie + testcases
+. Review Tristans Pull-Request
+. Abstimmung Einsatz von E2E-Tests mit Playwright ( Entschluss: nein)
+. review Sequenzdiagramme
+. review + neuerstellung C4-Sichten
+
+== Umsetzungen / Änderungen
+
+|===
+| Thema/US/Task | Beschreibung | Entscheidungen / Aktionen | Verantwortlich | Bemerkungen
+
+| Teststrategie Dokument angepasst
+| gemeinsam wurde sich das Dokument (xref:../docs/test/test_strategy.adoc[Teststrategie]) überarbeitet
+| ---
+| Patrick
+| ---
+
+| Testcases Dokument angepasst
+| gemeinsam wurde sich das Dokument (xref:../docs/test/test_cases.adoc[Testcases]) reviewt
+| ---
+| Patrick
+| ---
+
+| Review Tristans Pull-Request
+| gemeinsam wurde der Pull-Request fix/updating-pkgs-for-security/tristan (#193) reviewt und akzeptiert
+| Nach fehlerfreiem Test des Branches wurde der Pull-Request akzeptiert
+| Tristan
+| ---
+|===
+
+== Diskussionszusammenfassung
+
+|===
+| Thema/US/Task | Diskussionspunkte | Entscheidungen / Aktionen | Fällig am
+
+| Abstimmung E2E-Tests mit Playwright
+| Da wir noch keine E2E Tests haben, sondern aktuell nur einige Unit-Tests im Frontend, wurde von Patrick angefragt, ob noch Playwright Tests implementiert werden sollen
+| Nach einer Abstimmung wurde festgelegt, dass wir lieber bei unseren aktuellen Tests bleiben sollen
+| ---
+
+|===
+
+== To-Do / Action Items
+
+|===
+| # | Aktion | Verantwortlich | Status | Fällig am
+
+| 1
+| Pull-Request für beide lokalen Branches (testDokumentation und update/codequalität/patrick) sollen erstellt werden
+| Patrick
+| Pull-Request gestellt
+| 23.01.2026
+ |===
+
+
+

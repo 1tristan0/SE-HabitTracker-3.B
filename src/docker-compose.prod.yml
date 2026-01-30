@@ -1,0 +1,22 @@
+services:
+  backend:
+    container_name: backend-prod
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - backend/.env.production
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+
+  frontend:
+    container_name: frontend-prod
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    env_file:
+      - frontend/.env
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped

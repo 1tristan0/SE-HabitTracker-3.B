@@ -1,0 +1,472 @@
+= Testing-Leitfaden: Jest & React-Testing-Library
+:toc:
+:toclevels: 3
+:imagesdir: ../docs/images
+
+== Zweck
+Dieses Dokument dient als Leitfaden für das Schreiben von Tests im Projekt *Gewohnheitstier* mit **Jest** und **React-Testing-Library**.
+Jest ist das Test-Framework, React-Testing-Library eine Utility-Bibliothek für das Testen von React-Komponenten.
+Ziel ist es, aussagekräftige Tests zu schreiben, die das Benutzerverhalten prüfen und nicht Implementierungsdetails.
+
+== Überblick: Jest & React-Testing-Library
+
+=== Jest
+Jest ist ein Test-Framework von Facebook, das speziell für JavaScript und React optimiert ist.
+Es bietet:
+
+* **Test-Runner**: Findet und führt automatisch alle `.test.js` oder `.spec.js` Dateien aus
+* **Assertion Library**: `expect()` und Matcher für Assertions
+* **Mocking & Spying**: Funktionen, Module und Timer mocken
+* **Code Coverage**: Automatische Analyse, welcher Code durch Tests abgedeckt ist
+* **Snapshot Testing**: Visuelle Regression für Komponenten
+
+=== React-Testing-Library
+React-Testing-Library ist eine Utility-Bibliothek, die das Testen von React-Komponenten aus **Benutzerperspektive** ermöglicht.
+Kernprinzipien:
+
+* **User-Centric Testing**: Tests prüfen, wie ein Benutzer mit der App interagiert, nicht wie die Implementierung funktioniert
+* **Accessibility-First**: Bevorzugt das Testen über behindertengerechte Selektoren (z. B. `getByRole`)
+* **Minimal Mock**: So wenig Mocking wie möglich
+
+Vorteile:
+- Tests sind resistent gegen Refactoring
+- Encourages best practices für Accessibility
+- Verhindert Tests, die zu tief in Implementierungsdetails graben
+
+== Setup & Konfiguration
+
+=== Installation
+Jest und React-Testing-Library sind bereits im Projekt installiert. Die Dependencies sind in `src/frontend/package.json`:
+
+[source,json]
+----
+"@testing-library/react": "^16.3.0",
+"@testing-library/jest-dom": "^6.9.1",
+"@testing-library/user-event": "^14.6.1",
+"jest": "via react-scripts"
+----
+
+=== Jest-Konfiguration
+Jest wird automatisch von `react-scripts` konfiguriert. Eine explizite `jest.config.js` ist nicht nötig.
+Die Standardkonfiguration findet Test-Dateien unter:
+
+* `**/__tests__/**/*.{js,jsx}`
+* `**/*.{spec,test}.{js,jsx}`
+
+Im Projekt sind Test-Dateien im `src/frontend/src/__tests__/` Verzeichnis organisiert.
+
+=== Setup-Datei
+Falls eine globale Setup-Datei benötigt wird, kann eine `src/frontend/src/setupTests.js` erstellt werden.
+Diese wird automatisch vor allen Tests geladen. Beispiel:
+
+[source,javascript]
+----
+// src/frontend/src/setupTests.js
+import '@testing-library/jest-dom'; // für DOM Matcher wie .toBeInTheDocument()
+----
+
+== Test-Struktur
+
+=== Anatomie eines Tests
+Ein typischer Test mit Jest und React-Testing-Library hat diese Struktur:
+
+[source,javascript]
+----
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import MyComponent from '../components/MyComponent';
+
+describe('MyComponent', () => {
+  // Arrange: Setup
+  it('renders the component', () => {
+    render(<MyComponent />);
+    
+    // Act: Benutzerinteraktion
+    // (z. B. Klick, Eingabe)
+    
+    // Assert: Überprüfung
+    expect(screen.getByText('Hello')).toBeInTheDocument();
+  });
+});
+----
+
+=== Arrange-Act-Assert (AAA) Muster
+Alle Tests sollten dem AAA-Muster folgen:
+
+1. **Arrange**: Setup der Komponente, Mock-Daten, Initialisierung
+2. **Act**: Benutzerinteraktion simulieren (Klick, Input, etc.)
+3. **Assert**: Überprüfen, dass das Ergebnis korrekt ist
+
+[source,javascript]
+----
+it('adds a habit when form is submitted', async () => {
+  // Arrange
+  const mockOnAdd = jest.fn();
+  render(<HabitForm onAdd={mockOnAdd} />);
+  
+  // Act
+  const input = screen.getByPlaceholderText('Habit name');
+  await userEvent.type(input, 'Morning Run');
+  await userEvent.click(screen.getByRole('button', { name: /add/i }));
+  
+  // Assert
+  expect(mockOnAdd).toHaveBeenCalledWith({ name: 'Morning Run' });
+});
+----
+
+== Rendering & Querying
+
+=== render() Funktion
+`render()` ist die Haupt-API von React-Testing-Library. Sie rendert eine React-Komponente in einen virtuellen DOM.
+
+[source,javascript]
+----
+import { render } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('renders MyComponent', () => {
+  const { container } = render(<MyComponent />);
+  // container enthält den gerenderten DOM
+});
+----
+
+=== Query-Methoden (screen)
+React-Testing-Library bietet mehrere Methoden zum Abfragen von DOM-Elementen über `screen`:
+
+==== getBy* (wirft Error, wenn nicht gefunden)
+Werfen einen Error, wenn das Element nicht gefunden wird.
+Verwenden für Elemente, die **vorhanden sein müssen**.
+
+[source,javascript]
+----
+// getByRole: Empfohlen - findet Elemente über ihre semantische Rolle
+screen.getByRole('button', { name: /submit/i })
+screen.getByRole('heading', { level: 1 })
+
+// getByText: Findet Elemente über ihren Text-Content
+screen.getByText('Hello World')
+
+// getByPlaceholderText: Findet Input-Felder über Placeholder
+screen.getByPlaceholderText('Enter name')
+
+// getByLabelText: Findet Form-Elemente über Label
+screen.getByLabelText('Email')
+
+// getByTestId: Findet Elemente über data-testid Attribut
+screen.getByTestId('submit-button')
+----
+
+==== queryBy* (gibt null zurück, wenn nicht gefunden)
+Geben `null` zurück, wenn das Element nicht gefunden wird.
+Wird verwendet um zu überprüfen, dass etwas **nicht** im DOM ist.
+
+[source,javascript]
+----
+// Überprüft, dass Error-Message nicht angezeigt wird
+expect(screen.queryByText('Error occurred')).not.toBeInTheDocument();
+----
+
+==== findBy* (async - wartet auf Element)
+Async-Varianten, die warten, bis ein Element erscheint.
+Wird verwendet für asynchrone Operationen (API-Calls, Delayed Renders).
+
+[source,javascript]
+----
+// Wartet bis zu 1000ms, bis das Element vorhanden ist
+const successMessage = await screen.findByText('Success!');
+expect(successMessage).toBeInTheDocument();
+----
+
+=== Priorität der Query-Selektoren
+React-Testing-Library empfiehlt diese Priorität (from best to worst):
+
+1. **getByRole** - Am besten für Accessibility
+2. **getByLabelText** - Gut für Form-Elemente
+3. **getByPlaceholderText** - Für Input-Felder
+4. **getByText** - Für andere Texte
+5. **getByTestId** - Fallback, wenn andere nicht funktionieren
+== Benutzerinteraktionen mit userEvent
+`userEvent` simuliert reale Benutzerinteraktionen mit der UI.
+
+=== Häufige userEvent Methoden
+[source,javascript]
+----
+// Typing in Input-Felder
+await userEvent.type(screen.getByPlaceholderText('Name'), 'John');
+
+// Clicks
+await userEvent.click(screen.getByRole('button', { name: /submit/i }));
+
+// Doppelklick
+await userEvent.dblClick(element);
+
+// Hover
+await userEvent.hover(element);
+
+// Select aus Dropdown
+await userEvent.selectOptions(
+  screen.getByRole('combobox'),
+  'Option 1'
+);
+
+// Tab-Navigation
+await userEvent.tab();
+
+// Keyboard Events
+await userEvent.keyboard('{Enter}'); // Enter-Taste drücken
+----
+
+=== Async Operationen mit userEvent
+Alle `userEvent`-Aktionen sind **async**. Verwende immer `await`:
+
+[source,javascript]
+----
+it('updates input value', async () => {
+  render(<InputComponent />);
+  
+  const input = screen.getByPlaceholderText('Enter name');
+  await userEvent.type(input, 'John Doe'); // Async!
+  
+  expect(input.value).toBe('John Doe');
+});
+----
+
+== Mocking: Jest Mocks & Spies
+
+=== Jest Mocks für Funktionen
+Mocks ersetzen echte Funktionen für Tests.
+
+[source,javascript]
+----
+// Mock erstellen
+const mockFn = jest.fn();
+
+// Mock aufrufen
+mockFn('arg1', 'arg2');
+
+// Assertions auf Mocks
+expect(mockFn).toHaveBeenCalled();
+expect(mockFn).toHaveBeenCalledWith('arg1', 'arg2');
+expect(mockFn).toHaveBeenCalledTimes(1);
+
+// Return-Wert setzen
+mockFn.mockReturnValue('result');
+expect(mockFn()).toBe('result');
+
+// Oder mit mockImplementation
+mockFn.mockImplementation((arg) => arg + 1);
+expect(mockFn(5)).toBe(6);
+----
+
+=== Module mocken
+Externe Module oder API-Calls mocken:
+
+[source,javascript]
+----
+// Modul mocken
+jest.mock('../api/authApi');
+import * as authApi from '../api/authApi';
+
+// Mock implementieren
+authApi.login.mockResolvedValue({ token: 'abc123' });
+
+// In Test verwenden
+const token = await authApi.login('user', 'pass');
+expect(token.token).toBe('abc123');
+----
+
+=== Spies
+Spies überwachen echte Funktionen, ohne sie zu ersetzen:
+
+[source,javascript]
+----
+// Spy erstellen
+const spy = jest.spyOn(Math, 'abs');
+
+// Echte Funktion wird aufgerufen
+Math.abs(-5);
+
+// Spy gibt Informationen
+expect(spy).toHaveBeenCalledWith(-5);
+expect(spy).toHaveReturnedWith(5);
+
+// Cleanup
+spy.mockRestore();
+----
+
+== Asynchrone Tests
+
+=== Async/Await
+Tests können async sein und `await` verwenden:
+
+[source,javascript]
+----
+it('loads data from API', async () => {
+  render(<DataComponent />);
+  
+  // Wartet auf asynchrone Operation
+  const data = await screen.findByText('Loaded Data');
+  expect(data).toBeInTheDocument();
+});
+----
+
+=== Mocking von API-Calls
+Mocke API-Calls über Module oder Dependencies:
+
+[source,javascript]
+----
+// Mock API-Funktion
+jest.mock('../api/habitsApi');
+import * as habitsApi from '../api/habitsApi';
+
+it('displays habits from API', async () => {
+  habitsApi.fetchHabits.mockResolvedValue([
+    { id: 1, habit_name: 'Morning Run' },
+    { id: 2, habit_name: 'Meditation' }
+  ]);
+  
+  render(<HabitList />);
+  
+  // Wartet bis Daten geladen sind
+  expect(await screen.findByText('Morning Run')).toBeInTheDocument();
+});
+----
+
+=== waitFor für komplexe Assertions
+`waitFor` wartet, bis eine Bedingung erfüllt ist:
+
+[source,javascript]
+----
+import { render, screen, waitFor } from '@testing-library/react';
+
+it('updates UI after state change', async () => {
+  render(<MyComponent />);
+  
+  await userEvent.click(screen.getByRole('button'));
+  
+  // Wartet bis Element erscheint
+  await waitFor(() => {
+    expect(screen.getByText('Updated!')).toBeInTheDocument();
+  });
+});
+----
+
+== Props & Dependencies testen
+
+=== Props als Parameter übergeben
+Komponenten-Tests sollten realistische Props übergeben:
+
+[source,javascript]
+----
+import { render, screen } from '@testing-library/react';
+import HabitCard from '../components/habits/HabitCard';
+
+describe('HabitCard', () => {
+  const mockHabit = {
+    id: '1',
+    habit_name: 'Morning Jog',
+    description: 'Run 4km',
+    start_date: '2025-01-01',
+    streak: 5,
+    last_checked: null,
+    prev_last_checked: []
+  };
+  
+  it('renders habit name and description', () => {
+    render(
+      <HabitCard
+        habit={mockHabit}
+        onDelete={() => {}}
+        onCheck={() => {}}
+        onClick={() => {}}
+      />
+    );
+    
+    expect(screen.getByText('Morning Jog')).toBeInTheDocument();
+    expect(screen.getByText('Run 4km')).toBeInTheDocument();
+  });
+});
+----
+
+=== Callbacks testen
+Überprüfen, dass Callbacks mit korrekten Argumenten aufgerufen werden:
+
+[source,javascript]
+----
+it('calls onDelete when delete button is clicked', async () => {
+  const mockOnDelete = jest.fn();
+  
+  render(
+    <HabitCard
+      habit={mockHabit}
+      onDelete={mockOnDelete}
+      onCheck={() => {}}
+      onClick={() => {}}
+    />
+  );
+  
+  const deleteBtn = screen.getByRole('button', { name: /delete/i });
+  await userEvent.click(deleteBtn);
+  
+  expect(mockOnDelete).toHaveBeenCalledWith(mockHabit.id);
+});
+----
+
+== Assertions & Matchers
+
+=== DOM Matchers (von @testing-library/jest-dom)
+[source,javascript]
+----
+// Element existiert
+expect(element).toBeInTheDocument();
+expect(element).toBeVisible();
+
+// Element ist sichtbar
+expect(element).toBeHidden();
+expect(element).toHaveDisplay('none');
+
+// Attribute
+expect(input).toHaveAttribute('type', 'text');
+expect(input).toHaveValue('John');
+expect(button).toBeDisabled();
+expect(button).toBeEnabled();
+
+// CSS Klassen
+expect(element).toHaveClass('active');
+
+// Text
+expect(element).toHaveTextContent('Hello');
+expect(element).toHaveFormValues({ username: 'john' });
+----
+
+=== Standard Jest Matchers
+[source,javascript]
+----
+// Gleichheit
+expect(value).toBe(5);
+expect(obj).toEqual({ name: 'John' });
+
+// Wahr/Falsch
+expect(value).toBeTruthy();
+expect(value).toBeFalsy();
+expect(value).toBeNull();
+expect(value).toBeUndefined();
+
+// Zahlen
+expect(value).toBeGreaterThan(5);
+expect(value).toBeLessThan(10);
+expect(array).toHaveLength(3);
+
+// Arrays
+expect(array).toContain('item');
+expect(array).toEqual(['a', 'b']);
+
+// Funktionen
+expect(mockFn).toHaveBeenCalled();
+expect(mockFn).toHaveBeenCalledWith(arg1, arg2);
+expect(mockFn).toHaveBeenCalledTimes(1);
+
+// Regular Expressions
+expect(text).toMatch(/hello/i);
+----
+

@@ -1,0 +1,283 @@
+=== Styleguide
+Dieses Dokument dient als Leitfaden für die Gestaltung von Frontend-Komponenten und die Einhaltung von Stilrichtlinien im Projekt Gewohnheitstier.
+Es soll sicherstellen, dass das Design konsistent, benutzerfreundlich und ansprechend ist. Das Projekt nutzt Tailwind CSS für das Design-System (Farben, Spacing, Typografie). 
+Zusätzlich ist Bootstrap global eingebunden (Layout-Utilities/Grundstyles), daher können Bootstrap-Klassen einzelne Komponenten beeinflussen. 
+Empfehlung: Wenn möglich, pro Komponente konsistent bleiben (Tailwind-only oder Bootstrap-only), um Style-Konflikte zu vermeiden.
+
+==== Farbpalette & Semantik
+
+Die Farbpalette von *Gewohnheitstier* basiert auf einer ruhigen, natürlichen Grün-Farbwelt. Ziel ist es, eine positive, motivierende Atmosphäre zu schaffen,
+die Gewohnheitsbildung unterstützt, ohne visuell zu überfordern.
+
+Die Farben sind bewusst semantisch definiert und werden projektweit konsistent verwendet.
+
+[options="header",cols="1,1,2,3"]
+|===
+| Farbe | Hex-Code | Tailwind-Klasse | Verwendung
+| Creme | #FBF6E9 | `bg-primary1` / `text-primary1` | Flächen in Cards/Modals, Kontrastflächen auf dunkleren Hintergründen
+| Hellgrün | #E3F0AF | `bg-primary2` / `text-primary2` | Standard-Seitenhintergrund, Hover-Flächen, ruhige Akzentflächen
+| Teal | #5DB996 | `bg-primary3` / `text-primary3` | Karten-/Icon-Flächen, sekundäre UI-Bereiche, visuelle Gruppierung
+| Dunkelgrün | #118B50 | `bg-primary4` / `text-primary4` | Primäre Akzente, aktive Zustände, Hervorhebungen, Fokus/Farbring
+| Rot | #FF6B6B | `bg-primaryRed` / `text-primaryRed` | Kritische Aktionen (Fehler, Warnung, Löschen)
+|===
+
+Hinweis:
+Je nach Kontext können Cards sowohl auf `primary1` (hell, ruhig) als auch auf `primary3` (stärkerer Akzent, Fokuszustand) basieren, um visuelle Hierarchien zu unterstützen.
+
+===== Kontrast & Zugänglichkeit
+
+Zur Sicherstellung ausreichender Lesbarkeit gelten folgende Regeln:
+
+* Auf hellen Hintergründen (`primary1`, `primary2`) wird bevorzugt *primary4* (#118B50) oder schwarzer Text verwendet.
+* Auf dunkleren Flächen (`primary3`, `primary4`) wird *primary1* (#FBF6E9) als Textfarbe eingesetzt.
+* *primaryRed* ist ausschließlich für kritische Aktionen (z. B. Löschen) oder Fehlermeldungen vorgesehen und darf nicht für reguläre Interaktionen verwendet werden.
+* Zukünftige (nicht klickbare) Zustände werden neutral über Grautöne dargestellt (z. B. `bg-gray-300`), um sich klar von der Farbsemantik der App abzugrenzen.
+
+==== Typografie
+
+Die Typografie ist bewusst schlicht gehalten, um den Fokus auf Inhalte und Interaktionen zu legen.
+Es werden ausschließlich Tailwind-Utility-Klassen verwendet.
+
+[options="header",cols="2,1,1"]
+|===
+| Element | Größe | Tailwind-Klasse
+| Hauptüberschrift | 32px | `text-4xl font-bold`
+| Unterüberschrift (Seite) | 24px | `text-2xl font-semibold`
+| Abschnittsüberschrift | 20px | `text-xl font-semibold`
+| Body Text (Standard) | 16px | `text-base`
+| Kleiner Text (Labels, Hinweise) | 14px | `text-sm`
+| Sehr kleiner Text (Meta-Informationen) | 12px | `text-xs`
+|===
+
+===== Font-Familie
+
+Das Projekt nutzt die Standard-Systemschriftart (System-Stack), um eine schnelle Ladezeit und plattformübergreifend konsistente Darstellung sicherzustellen.
+
+[source,css]
+----
+font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+----
+
+===== Abstandsskala
+
+Das Projekt folgt einer konsistenten, 4px-basierten Spacing-Skala. Diese wird durchgängig für Padding, Margin und Grid-Abstände verwendet,
+um visuelle Ruhe und einheitliche Layouts zu gewährleisten.
+
+[options="header",cols="1,1,2"]
+|===
+| Größe | Px | Tailwind-Klassen
+| xs | 4px | `p-1`, `m-1`, `gap-1`
+| sm | 8px | `p-2`, `m-2`, `gap-2`
+| md | 16px | `p-4`, `m-4`, `gap-4`
+| lg | 24px | `p-6`, `m-6`, `gap-6`
+| xl | 32px | `p-8`, `m-8`, `gap-8`
+|===
+
+===== Responsive Breakpoints
+
+Das Frontend folgt einem *Mobile-First*-Ansatz. Komponenten werden zunächst für kleine Bildschirme gestaltet und anschließend für größere Viewports erweitert.
+
+[options="header",cols="1,1,2"]
+|===
+| Gerät | Breakpoint | Tailwind-Präfix
+| Mobil | < 640px | `(no prefix)`
+| Tablet | sm: 640px | `sm:`
+| Desktop | lg: 1024px | `lg:`
+| Large Desktop | xl: 1280px | `xl:`
+|===
+
+==== Komponenten-Katalog
+
+Dieses Kapitel beschreibt die zentralen UI-Komponenten des Projekts *Gewohnheitstier*,
+ihre gestalterischen Merkmale sowie empfohlene Tailwind-CSS-Klassen zur konsistenten Umsetzung.
+
+===== Buttons
+
+Ziel:
+Buttons sollen klar verständlich, eindeutig unterscheidbar und barrierearm sein.
+
+Merkmale:
+
+- abgerundete Ecken (`rounded-lg` oder `rounded-xl`)
+- ausreichender Innenabstand für gute Klickbarkeit
+- klare Farbsemantik (Aktion vs. Gefahr)
+- Hover- und Focus-Zustände für visuelles Feedback
+- Hover bevorzugt über leichte Helligkeitsänderung (`hover:opacity-90`) statt starker Farbsprünge
+
+Varianten:
+
+*Primärer Button* (z. B. „Hinzufügen“, Bestätigen):
+
+- Hintergrund: `primary4`
+- Textfarbe: `primary1`
+- Hover: `hover:opacity-90`
+
+Empfohlen:
+`bg-primary4 text-primary1 px-4 py-2 rounded-xl font-medium shadow-sm hover:opacity-90 transition`
+
+Hinweis:
+Primäre Buttons verwenden standardmäßig `primary4` (Bestätigen, Speichern).
+`primary3` kann für primäre, aber weniger kritische Aktionen (z. B. Navigation, Weiter) eingesetzt werden.
+
+
+
+*Sekundärer Button* (z. B. Monat wechseln, Navigation):
+
+- Hintergrund: `primary3` oder `primary2` (je nach Kontext)
+- Textfarbe: `text-black` oder `text-primary4`
+- Hover: leichte Abdunklung oder `hover:bg-primary2`
+
+Empfohlen:
+`bg-primary3 text-black px-4 py-2 rounded-xl font-medium shadow-sm hover:bg-primary2 transition`
+
+*Destruktiver Button* (z. B. Löschen):
+
+- Farbe: `primaryRed`
+- klare visuelle Abgrenzung von anderen Aktionen
+
+Empfohlen:
+`bg-primaryRed text-white px-4 py-2 rounded-xl font-medium shadow-sm hover:opacity-90 transition`
+
+Hinweis zur Wiederverwendung:
+
+Wiederkehrende Buttons (z. B. „Schließen“-Button, Close-Icon in Modals, Bestätigungs-Buttons) sollen als wiederverwendbare UI-Komponenten umgesetzt werden.
+Bestehende Button-Komponenten sind bevorzugt zu verwenden, anstatt neue Varianten pro View zu definieren, um ein konsistentes Erscheinungsbild und wartbaren Code sicherzustellen.
+
+===== Karten (Cards)
+
+Cards sind generische Container-Komponenten und dienen als Grundlage für spezialisierte Varianten wie HabitCards oder Modals.
+
+Merkmale:
+
+- ruhiger Hintergrund mit leichtem Kontrast zum Seitenhintergrund
+- abgerundete Ecken (iOS-ähnliche Anmutung)
+- weicher Schatten für Tiefenwirkung
+- klare visuelle Gruppierung von Inhalt
+
+Empfohlen:
+`bg-primary1 rounded-2xl shadow-md p-4 border border-gray-200`
+
+===== HabitCard (Gewohnheits-Kachel)
+
+Die HabitCard stellt eine einzelne Gewohnheit dar.
+Sie ist als horizontale Listen-Card gestaltet und stellt eine einzelne Gewohnheit kompakt dar.
+
+Merkmale:
+
+- horizontales Layout
+- Status-Toggle links (Erledigt / Nicht erledigt)
+- Inhalt mittig (Name, optionale Beschreibung)
+- Meta-Informationen rechts (Streak, Bearbeiten, Löschen)
+- gesamte Zeile klickbar
+- kompakt, aber gut touch-/klickbar
+
+Gestaltung:
+
+- Hintergrund: `primary3`
+- Text: `primary1`
+- Akzente (Icons / Streak): `primary1` oder `primary4`
+
+Empfohlen:
+`bg-primary3 rounded-xl shadow-sm px-3 py-2 flex items-center justify-between hover:shadow-md transition`
+
+===== Grid / Layout (HabitGrid)
+
+Das HabitGrid ordnet mehrere HabitCards übersichtlich an.
+
+Merkmale:
+
+- Habits-Bereich oben (Liste)
+- Kalender darunter (zentriert)
+- Mobile-first sowieso untereinander
+
+Empfohlen:
+
+- Page-Wrapper: max-w-5xl mx-auto px-4
+- Stack: flex flex-col gap-6 (oder gap-8)
+
+===== Kalender
+
+Der Kalender fungiert zugleich als visuelles Feedback-Instrument zur Motivation und langfristigen Gewohnheitsverfolgung.
+Nicht klickbare Tage (Zukunft) sind bewusst visuell und funktional deaktiviert, um Fehlinteraktionen zu vermeiden.
+
+Merkmale:
+
+- klare Trennung zwischen Vergangenheit, Gegenwart und Zukunft
+- vergangene Tage: weiß
+- heutiger Tag: hervorgehoben (Ring oder Rahmen)
+- zukünftige Tage: grau und deaktiviert
+- visuelles Feedback für Erledigungsgrad (Punkt oder Progress-Ring)
+
+Farbsemantik:
+
+- Vergangenheit: `bg-primary1`
+- Heute: `ring-2 ring-primary4`
+- Zukunft: `bg-gray-300 text-gray-500`
+
+Empfohlen:
+`grid grid-cols-7 gap-2`
+
+===== Modal (Dialogfenster)
+
+Modals werden für Detailansichten verwendet (z. B. Kalender-Tag, Habit-Details).
+
+Merkmale:
+
+- dunkler Hintergrund mit Blur-Effekt
+- zentrierte Card mit Fokus auf Inhalt
+- Schließen über X oben rechts und Button im Footer
+- klare visuelle Hierarchie (Header / Content / Footer)
+- dezente Umrandung zur Trennung vom Overlay
+
+Overlay:
+`fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50`
+
+Modal-Card:
+`max-w-2xl w-full bg-primary1 rounded-2xl shadow-2xl border border-gray-200 overflow-hidden`
+
+===== Formulare & Inputs
+
+Formulare sollen leicht, klar und gut lesbar sein.
+
+Merkmale:
+
+- Eingabetext immer dunkel (hohe Lesbarkeit)
+- Placeholder neutral grau
+- Fokuszustand in App-Farbwelt (`primary4`) statt Default-Blau
+
+Empfohlen (Input/Textarea):
+`border border-slate-200 bg-slate-50/80 text-slate-900 placeholder:text-slate-400 rounded-xl px-3 py-2.5 focus:border-primary4 focus:ring-2 focus:ring-primary4/20 focus:bg-white transition outline-none`
+
+===== Navbar
+
+Die Navbar bleibt bewusst zurückhaltend, um den Fokus auf Inhalte und tägliche Interaktionen zu legen.
+
+Merkmale:
+
+- ruhiges, helles Farbschema
+- aktive Links farblich hervorgehoben
+- keine Bootstrap-Buttons
+- Logo als Kreis-Icon
+
+Gestaltung:
+
+- Hintergrund: `primary2`
+- Aktiver Link: `primary4`
+- Inaktive Links: Grauton
+
+Empfohlen:
+`bg-primary2 border-b border-gray-200`
+
+===== Typografie & Textelemente
+
+Merkmale:
+
+- klare Hierarchie
+- gute Lesbarkeit auf hellen Hintergründen
+- sparsame Nutzung von Akzentfarben
+
+Empfohlen:
+
+- Überschriften: `text-primary4` oder `text-black` (je nach Kontext)
+- Fließtext: `text-gray-700`
+- Hinweise/Meta: `text-gray-500 text-sm`

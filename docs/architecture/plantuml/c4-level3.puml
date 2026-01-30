@@ -1,0 +1,58 @@
+@startuml
+!include <C4/C4_Component>
+
+LAYOUT_WITH_LEGEND()
+
+title C4 Level 3 - Component Diagram (Gewohnheitstier)
+
+Person(user, "User", "Uses the habit tracker from a browser")
+
+System_Boundary(system, "Gewohnheitstier") {
+  Container_Boundary(frontend, "Frontend (React SPA)") {
+    Component(spa, "SPA Shell", "React", "App.jsx, routing, session handling")
+    Component(pages, "Pages", "React", "HabitsPage, HabitsErstellen")
+    Component(ui, "UI Components", "React", "HabitGrid, Modals, Begleiter, Navbar, Login/Signup")
+    Component(apiClient, "API Client", "Fetch wrapper", "httpClient + authApi + habitsApi + userApi")
+  }
+
+  Container_Boundary(backend, "Backend API (Node/Express)") {
+    Component(index, "index.js", "Express bootstrap", "Registers middleware and routers, starts server")
+    Component(authRouter, "routes/auth.js", "Express Router", "login/register/session/logout")
+    Component(habitsRouter, "routes/habits.js", "Express Router", "GET/POST/PUT/DELETE + toggle")
+    Component(usersRouter, "routes/users.js", "Express Router", "GET/PUT /animal")
+    Component(authMiddleware, "middleware/authenticate.js", "Middleware", "Validates bearer token")
+    Component(supabaseAuth, "supabaseAuth.js", "HTTP client", "loginWithPassword/registerUser/fetchUser/signOut")
+    Component(prismaClient, "prisma.js", "Prisma Client", "DB access")
+    Component(schema, "prisma/schema.prisma", "Prisma schema", "Users, Habits, enums")
+    Component(swagger, "swagger.js", "OpenAPI builder", "Swagger Configs")
+  }
+
+Container_Boundary(External, "Supabase Platform") {
+  ContainerDb(db, "PostgreSQL Database", "Supabase/Postgres", "users, habits_table")
+  System_Ext(supabase, "Supabase Auth API", "External Auth Service")
+}
+}
+
+Rel(user, spa, "Uses", "HTTPS")
+Rel(spa, pages, "Renders")
+Rel(pages, ui, "Composes")
+Rel(spa, apiClient, "Calls")
+Rel(apiClient, index, "HTTP JSON", "REST")
+
+Rel(index, authRouter, "mounts")
+Rel(index, habitsRouter, "mounts")
+Rel(index, usersRouter, "mounts")
+Rel(index, swagger, "serves")
+
+Rel(habitsRouter, authMiddleware, "uses")
+Rel(usersRouter, authMiddleware, "uses")
+Rel(authMiddleware, supabaseAuth, "calls fetchUser()")
+Rel(authRouter, supabaseAuth, "calls auth operations")
+
+Rel(habitsRouter, prismaClient, "CRUD")
+Rel(usersRouter, prismaClient, "CRUD")
+Rel(prismaClient, db, "SQL")
+Rel(supabaseAuth, supabase, "HTTPS")
+Rel(prismaClient, schema, "generated from")
+
+@enduml

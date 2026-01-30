@@ -1,44 +1,36 @@
 = Vision: Gewohnheitstier
-include::../_includes/default-attributes.inc.adoc[]
+// include::../_includes/default-attributes.inc.adoc[]
 
-include::../_includes/teammitglieder.adoc[]
+// include::../_includes/teammitglieder.adoc[]
 
-{localdatetime}
+// {localdatetime}
 // Platzhalter für weitere Dokumenten-Attribute
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-system-name} überblicksartig zu beschreiben. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die Details, wie das System {project-system-name} diese Bedarfe erfüllt, werden durch User Stories im Product Backlog sowie dem UX-Konzept beschrieben.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-system-name} überblicksartig zu beschreiben. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Dieses Dokument beschreibt die wesentlichen Anforderungen an das System aus der Perspektive der zukünftigen Anwenderinnen und Anwender für das {project-system-name}, das von {project-name} entwickelt wird. Das System wird es Jugendlichen und Erwachsenen erlauben, spielerische und soziale Komponenten zu nutzen, um die Motivation während der Umstellung der Gewohnheiten nicht zu verlieren.
 
-=== Zweck
-Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
+== Nutzungskontext
+{project-system-name} ist als webbasiertes Habit-Tracking-System konzipiert und wird typischerweise von einer einzelnen Person genutzt. Die Interaktionen sind bewusst kurz gehalten: Das Anlegen neuer Gewohnheiten sowie der tägliche Check-in sollen jeweils weniger als eine Minute dauern. Die Anwendung ist plattformunabhängig über gängige Webbrowser zugänglich und erfordert keine Installation. Es bestehen keine funktionalen Abhängigkeiten zu anderen Anwendungen oder Systemen.
 
-=== Gültigkeitsbereich (Scope)
-Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von {project-name} entwickelt wird. Das System wird es Jugendlichen und Erwachsenen erlauben, spielerische und soziale Komponenten zu nutzen, um die Motivation während der Umstellung der Gewohnheiten nicht zu verlieren.
-
-=== Definitionen, Akronyme und Abkürzungen
+// === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
-Siehe <<#glossary, Glossar>>.
-//Siehe <<./glossary.adoc#glossary, Glossar>>.
+// Siehe <<#glossary, Glossar>>.
 
-=== Referenzen
-(hier externe Verweise zu anderen Dokumenten, Quellen, Standards etc. einfügen, sofern notwendig)
+//include::../docs/requirements/glossary.adoc[]
 
-
-== Positionierung
-
-=== Fachliche Motivation
+== Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
 
-Viele junge Erwachsene – insbesondere Studierende und Berufstätige – möchten ihre Alltagsroutinen verbessern, etwa durch regelmäßige Bewegung, strukturierte Tagesplanung oder gesündere Ernährung. Während die Zielsetzung meist klar ist, fehlt es an nachhaltiger Motivation, positiver Verstärkung und emotionaler Bindung zur Gewohnheitsbildung.
+Viele Jugendliche und junge Erwachsene, insbesondere Studierende und Berufstätige, möchten ihre täglichen Routinen gezielt verbessern. Dazu zählen zum Beispiel regelmäßige Bewegung, eine strukturierte Tagesplanung oder eine ausgewogenere Ernährung. Obwohl das Ziel oft klar formuliert ist, scheitert die Umsetzung in der Praxis häufig daran, dass langfristige Motivation, spürbare positive Verstärkung und eine emotionale Bindung an den eigenen Fortschritt fehlen.
+Viele vorhandene Habit-Tracker konzentrieren sich vor allem auf Listen, Statistiken und reine Zahlenwerte. Diese Darstellung unterstützt zwar die Dokumentation, schafft jedoch oft keine ausreichende persönliche Verbindung zum Prozess. Dadurch sinkt die emotionale Beteiligung, und Nutzerinnen und Nutzer brechen die Nutzung nicht selten nach kurzer Zeit wieder ab.
 
-Bestehende Habit-Tracker setzen meist auf Listen oder reine Zahlen, wodurch die emotionale Beteiligung gering bleibt und Nutzer:innen schnell das Interesse verlieren.
+{project-system-name} setzt an genau dieser Stelle an und erweitert die klassische Gewohnheitsverfolgung um eine spielerische und emotional ansprechende Komponente. Im Mittelpunkt steht ein digitaler Begleiter in Form eines tierischen Maskottchens, das die Nutzerinnen und Nutzer während ihrer Gewohnheitsbildung begleitet und Fortschritte sichtbar und erlebbar macht.
+Ein weiteres zentrales Ziel ist eine besonders einfache und schnelle Bedienung. Die Bedienwege werden bewusst kurz gehalten, damit Gewohnheiten ohne unnötige Schritte erfasst und abgehakt werden können. So lässt sich die App auch in einem vollen Alltag „nebenbei“ nutzen, ohne dass der Aufwand selbst zur Hürde wird.
+Durch den Begleiter entsteht eine stärkere emotionale Bindung, die das Verantwortungsgefühl fördern und den Veränderungsprozess positiver gestalten kann. In Kombination mit Gamification-Elementen, klar erkennbaren Fortschritten und einer schlanken Bedienlogik wird die langfristige Nutzung unterstützt und die Wahrscheinlichkeit erhöht, dass gesetzte Ziele nachhaltig verfolgt und erreicht werden.
 
-{project-system-name} begegnet diesem Problem mit einer spielerischen, emotional ansprechenden Komponente: einem digitalen Begleiter in Form eines Maskottchens (Tier), das die Nutzer:innen auf ihrer Gewohnheitsreise begleitet.
 
-Der Einsatz eines solchen Begleiters schafft emotionale Bindung, stärkt das Verantwortungsgefühl und macht den Prozess der Verhaltensänderung positiv. Die Kombination aus Fortschritten und Gamification erhöht somit die langfristige Nutzungsdauer und Zielerreichung.
-
-=== Produktvision
+== Produktvision
 //Eine Produktvision beschreibt das Einsatzziel der Anwendung und sorgt für ein gemeinsames Ziel und Verständnis für alle Beteiligten im Projekt. Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
 
 
@@ -68,8 +60,6 @@ Der Einsatz eines solchen Begleiters schafft emotionale Bindung, stärkt das Ver
 
 == Stakeholder Beschreibungen
 
-=== Zusammenfassung der Stakeholder
-
 [%header, cols="1,3,3"]
 |===
 | Name | Beschreibung | Verantwortlichkeiten
@@ -78,7 +68,7 @@ Der Einsatz eines solchen Begleiters schafft emotionale Bindung, stärkt das Ver
 // | [Kurze Beschreibung des Stakeholders und seiner Ziele]
 // | [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
 | Zielnutzer:in
-| Junge Erwachsene (studierend oder berufstätig), die ihre Gewohnheiten mit Hilfe eines motivierenden Systems verbessern möchten
+| Jugendliche und junge Erwachsene, die ihre Gewohnheiten mit Hilfe eines motivierenden Systems verbessern möchten
 | Nutzen die App regelmäßig, geben Feedback zu Usability und Motivation, dienen als Grundlage für Personas und Tests
 | Entwicklungsteam
 | Interdisziplinäres Team aus Studierenden, die das System konzipieren, entwickeln und evaluieren
@@ -91,12 +81,10 @@ Der Einsatz eines solchen Begleiters schafft emotionale Bindung, stärkt das Ver
 | Einhaltung aller Vorschriften und Vorgaben
 |===
 
-Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
+// Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
 
 
-== Produktüberblick
-
-=== Bedarfe und Hauptfunktionen
+== Bedarfe und Hauptfunktionen
 //Vermeiden Sie Angaben zum Entwurf. Nennen wesentliche Features (Produktmerkmale) auf allgemeiner Ebene. Fokussieren Sie sich auf die benötigten Fähigkeiten des Systems und warum (nicht wie!) diese realisiert werden sollen. Geben Sie die von den Stakeholdern vorgegebenen Prioritäten an.
 
 [%header, cols="4,1,4,1"]
@@ -104,30 +92,30 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 | Bedarf | Priorität | Features / Funktionen | Geplantes Release
 
 | Aufbau und Pflege täglicher Gewohnheiten | Hoch
-| Anlegen und Verwalten individueller Gewohnheiten mit Zielvorgaben, Wiederholungsintervallen und Erinnerungen |
+| Anlegen und Verwalten individueller Gewohnheiten | 30.01.2026
 
-| Sichern der persönlichen Daten und Fortschritte | Hoch | Registrierung und Nutzerkonto |
+| Sichern der persönlichen Daten und Fortschritte | Hoch | Registrierung und Nutzerkonto | 30.01.2026
 
 | Motivation durch emotionale Bindung | Hoch
-| Interaktives Maskottchen („Gewohnheitstier“), das sich je nach Fortschritt positiv oder negativ entwickelt |
+| Interaktives Maskottchen („Gewohnheitstier“), das sich je nach Fortschritt positiv oder negativ entwickelt | 30.01.2026
 
 | Übersicht über Fortschritte | Hoch
-| Visuelles Tracking mit Kalender, Fortschrittsanzeige und Erfolgsstatistiken |
+| Visuelles Tracking mit Kalender, Fortschrittsanzeige und Erfolgsstatistiken | 30.01.2026
 
 | Soziale Interaktion und externe Motivation | Mittel
-| Möglichkeit, Fortschritte mit Freund:innen zu teilen, Challenges zu erstellen oder Erfolge öffentlich zu machen |
+| Möglichkeit, Fortschritte mit Freund:innen zu teilen, Challenges zu erstellen oder Erfolge öffentlich zu machen | TBD
 
 | Flexibilität bei Routinen und Tagesplanung | Mittel
-| Anpassbare Wochenplanung inkl. Pausentagen und spontanen Änderungen |
+| Anpassbare Wochenplanung inkl. Pausentagen mit Zielvorgaben, Wiederholungsintervallen und Erinnerungen  | TBD
 
 | Spielerische Langzeitmotivation | Mittel
-| Level-System, Belohnungen, Trophäen oder freischaltbare Inhalte durch regelmäßiges Erreichen von Zielen |
+| Level-System, Belohnungen, Trophäen oder freischaltbare Inhalte durch regelmäßiges Erreichen von Zielen | TBD
 
-| Dokumentation persönlicher Erfahrungen mit dem Gewohnheitsmanagement | Niedrig | Tagebuch für persönliche Doku |
+| Dokumentation persönlicher Erfahrungen mit dem Gewohnheitsmanagement | Niedrig | Tagebuch für persönliche Doku | TBD
 |===
 
 
-=== Zusätzliche Produktanforderungen
+== Zusätzliche Produktanforderungen
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 // Hinweise:
 
@@ -137,54 +125,52 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 //. Definieren Sie alle Dokumentationsanforderugen, inkl. Benutzerhandbücher, Onlinehilfe, Installations-, Kennzeichnungs- und Auslieferungsanforderungen.
 //. Definieren Sie die Priorität für diese zusätzlichen Produktanforderungen. Ergänzen Sie, falls sinnvoll, Angaben zu Stabilität, Nutzen, Aufwand und Risiko für diese Anforderungen.
 
-=== Zusätzliche Produktanforderungen
-
 [%header, cols="2,1,4,1"]
 |===
 | Anforderung | Priorität | Beschreibung | Geplantes Release
 
 | Einfache Bedienbarkeit auf mobilen Endgeräten 
 | Hoch 
-| Das System muss vollständig responsive sein und auf Smartphones (iOS, Android) sowie Tablets intuitiv bedienbar bleiben. Layout und Interaktion sollen sich automatisch an Displaygröße und Eingabemethode (Touch) anpassen.
-| 
+| Das System muss vollständig responsiv sein und auf Smartphones (iOS, Android) sowie Tablets intuitiv bedienbar bleiben. Layout und Interaktion sollen sich automatisch an Displaygröße und Eingabemethode (Touch) anpassen.
+| 30.01.2026
 
 | DSGVO-konforme Datenspeicherung
 | Hoch
 | Alle personenbezogenen Daten (z. B. E-Mail, Fortschritte, Nutzungsverhalten) müssen gemäß der Datenschutz-Grundverordnung verarbeitet und gespeichert werden. Nutzer:innen müssen aktiv in die Datennutzung einwilligen können.
-| 
+| TBD
 
 | Systemfeedback (Usability)
 | Hoch
 | Das System soll durchgehend Rückmeldung über Nutzeraktionen geben – etwa durch visuelle Bestätigung, Ladeindikatoren oder Erfolgsmeldungen. Außerdem wird ein kontinuierlicher Usability-Testprozess etabliert, um die Nutzerfreundlichkeit sicherzustellen.
-| 
+| TBD
 
 | Plattformunabhängigkeit
 | Mittel
 | Das System soll als Progressive Web App (PWA) konzipiert sein, um plattformübergreifend (Browser, Android, iOS) verfügbar zu sein, ohne separate native Apps zu erfordern.
-| 
+| TBD
 
 | Performance und Skalierbarkeit
 | Mittel
 | Ladezeiten sollen unter drei Sekunden bleiben, selbst bei steigender Nutzerzahl. Das Backend (z. B. Supabase) muss so ausgelegt sein, dass zukünftige Skalierung ohne Funktionsverlust möglich ist.
-| 
+| 30.01.2026
 
 | Offline-Funktionalität
 | Mittel
 | Nutzer:innen sollen ihre Gewohnheiten auch ohne Internetverbindung erfassen können; Daten werden bei der nächsten Verbindung automatisch synchronisiert.
-| 
+| TBD
 
 | Barrierefreiheit
 | Mittel
 | Das System soll grundlegende WCAG-Richtlinien erfüllen (z. B. ausreichende Kontraste, Screenreader-Kompatibilität, große Klickflächen).
-| 
+| TBD
 
 | Wartbarkeit und Erweiterbarkeit
 | Niedrig
 | Der Quellcode soll modular aufgebaut und dokumentiert werden, um zukünftige Feature-Erweiterungen (z. B. zusätzliche Maskottchen oder Social-Features) zu erleichtern.
-| 
+| 30.01.2026
 
 | Dokumentation
 | Niedrig
 | Es soll eine kurze Onlinehilfe (Onboarding-Tutorial + FAQ) bereitgestellt werden, die den Einstieg für neue Nutzer:innen erleichtert. Für Entwickler:innen wird eine interne technische Dokumentation gepflegt.
-| 
+| TBD
 |===

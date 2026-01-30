@@ -1,0 +1,21 @@
+@startuml
+title Create habit
+
+actor Nutzer as user
+participant "Web-Frontend" as frontend
+participant "Backend API" as backend
+participant "Prisma ORM" as prisma
+participant "Database(Supabase)" as database
+
+user -> frontend: clicks "Habit anlegen"\n 
+frontend -> frontend: apiFetch(`/api/habits`, { method: 'POST', body: habitData, token })
+frontend -> backend: POST /api/habits\n{habitData, token}
+backend -> backend: Auth & Request-Validation
+note right of backend: 401/422 by missing Token\nor invalid fields
+backend -> prisma: prisma.habit.create({ data: habitData + userId })
+prisma -> database: Insert Habit row
+database --> prisma: Habit saved + id
+prisma --> backend: Habit (with id)
+backend --> frontend: 201 Created + Habit
+frontend --> user: UI shows new Habit
+@enduml

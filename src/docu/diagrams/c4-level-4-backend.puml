@@ -1,0 +1,34 @@
+@startuml
+!include <C4/C4_Component>
+
+LAYOUT_WITH_LEGEND()
+
+title C4 Level 4 - Backend API Code Diagram
+
+Container_Boundary(api, "Backend API Code") {
+  Component(index, "index.js", "Express bootstrap", "Registers middleware and routers, starts server")
+  Component(authRouter, "routes/auth.js", "Express Router", "login/register/session/logout")
+  Component(habitsRouter, "routes/habits.js", "Express Router", "GET/POST/PUT/DELETE + toggle")
+  Component(usersRouter, "routes/users.js", "Express Router", "GET/PUT /animal")
+  Component(authMiddleware, "middleware/authenticate.js", "Middleware", "Validates bearer token")
+  Component(supabaseAuth, "supabaseAuth.js", "HTTP client", "loginWithPassword/registerUser/fetchUser/signOut")
+  Component(prismaClient, "prisma.js", "Prisma Client", "DB access")
+  Component(schema, "prisma/schema.prisma", "Prisma schema", "Users, Habits, enums")
+  Component(swagger, "swagger.js", "OpenAPI builder", "specs")
+}
+
+Rel(index, authRouter, "mounts")
+Rel(index, habitsRouter, "mounts")
+Rel(index, usersRouter, "mounts")
+Rel(index, swagger, "serves")
+
+Rel(habitsRouter, authMiddleware, "uses")
+Rel(usersRouter, authMiddleware, "uses")
+Rel(authMiddleware, supabaseAuth, "calls fetchUser()")
+Rel(authRouter, supabaseAuth, "calls auth operations")
+
+Rel(habitsRouter, prismaClient, "CRUD")
+Rel(usersRouter, prismaClient, "CRUD")
+Rel(prismaClient, schema, "generated from")
+
+@enduml

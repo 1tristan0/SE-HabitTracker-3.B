@@ -1,0 +1,5 @@
+node_modules
+# Umgebungsvariablen nicht in Versionierung einbeziehen (GitHub)
+.env
+.env.local
+.env.production

@@ -1,0 +1,75 @@
+== Testing-Strategie
+
+=== Übersicht
+
+Dieses Dokument beschreibt die Test-Strategie für die Anwendung. Es umfasst automatisierte Tests nach Feature-Updates sowie manuelle Tests vor der finalen Akzeptanz durch den Product Owner.
+
+=== Testobjekte und Teststufen
+
+Die Teststrategie orientiert sich an der Testpyramide: Unit-Tests bilden die Basis (Frontend und Backend), ergänzt durch manuelle Akzeptanztests vor der Abnahme. Zusätzlich werden API-Prüfungen auf Integrationsebene über Swagger durchgeführt.
+
+* Frontend:
+** alle Komponenten werden über Unit-Tests getestet
+
+* Backend:
+** Routen, Geschäftslogik und Authentifizierung über Unit-Tests
+** API-Prüfungen auf Integrationsebene (manuell über Swagger)
+
+=== Testdurchführung - Entwickler
+
+* Nach der Implementierung eines Features führt der verantwortliche Entwickler die Tests lokal aus
+* Alle bestehenden Tests werden ausgeführt
+* Es gilt das Verursacherprinzip: Der Entwickler des Features ist verantwortlich für die Testdurchführung
+* Bei fehlgeschlagenen Tests muss der Entwickler die Ursache analysieren und beheben
+* Es wird kein Pull Request gestellt, bevor alle Tests lokal bestanden sind
+* Ebenfalls werden neue Tests für die hinzugefügten Funktionalitäten implementiert 
+
+=== Testdurchführung - Integration Workflow
+Pull-Requests auf dev und main lösen den Integrations-Workflow aus. Dabei werden alle definierten Tests nocheinmal automatisiert innherhalb eines GitHub Runners ausgeführt und das Ergebnis als Check im Pull-Request aufgeführt. Das Bestehen aller Checks ist Vorraussetzung für den Merge. Checks dienen als zweite Rückfallebene, für den Fall dass ein Entwickler vergisst eine der Testroutinen lokal auszuführen und helfen dabei Testergebnisse an einer zentralen Stelle zu dokumentieren. Workflows werden im Projektverzeichnis unter link:https://github.com/1tristan0/SE-HabitTracker-3.B/tree/dev/.github/workflows[.github/workflows/] abgelegt.
+
+Ein ausführliches Ablaufdiagramm ist der Entwicklerdokumentation unter dem Abschnitt _Integration und Deployment_ zu entnehmen.
+
+=== Umgang mit fehlgeschlagenen Tests
+
+Bei fehlgeschlagenen Tests wird folgendes Vorgehen durchgeführt:
+
+- *Analyse:* Ursache des Testfehlers wird untersucht.
+- *Bewertung:* Entscheidung, ob
+  * die neue Funktionalität korrekt ist und bestehende Tests angepasst werden müssen oder
+  * die neue Funktionalität fehlerhaft ist und überarbeitet werden muss.
+- *Abklärung:* Bei Bedarf Abstimmung mit Team und Product Owner.
+- *Behebung:* Notwendige Anpassungen werden vorgenommen.
+
+=== Manuelle Tests vor finaler Abnahme der User Storys durch den Product Owner
+
+Vor der finalen Abnahme durch den Product Owner müssen manuelle Tests durchgeführt werden. Diese sollen die Akzeptanzkriterien der einzelnen User Storys abdecken.
+Die manuellen Tests entsprechen Akzeptanztests und orientieren sich an den definierten Akzeptanzkriterien der jeweiligen User Story.
+
+=== Testumfang
+
+* Simulation realistischer Benutzerszenarien
+* Überprüfung der Funktionalität aus Nutzerperspektive
+* Die konkreten Akzeptanztests sind in `test_cases.adoc` dokumentiert
+* Validierung des Designs und der Benutzeroberfläche
+* Sicherstellung der Benutzerfreundlichkeit
+
+=== Akzeptanzkriterien
+
+Eine Änderung oder ein neues Feature wird erst akzeptiert, wenn:
+
+* Alle automatisierten Tests erfolgreich durchgeführt wurden
+* Manuelle Tests erfolgreich durchgeführt wurden
+* Design und Funktionalität den Anforderungen entsprechen
+* Product Owner die Änderung freigegeben hat
+
+=== Umgang mit Bugs nach/während der Abnahme
+
+Sollte *während* der Abnahme ein Bug entdeckt werden, erfolgt die Dokumentation innerhalb des Pull-Requests und nicht in einem separaten Issue. Dabei wird gegebenenfalls die Funktion "Request Changes" von Github  genutzt.
+Nach der Abnahme werden Bugs immer als Issue dokumentiert, um den Stand der Softwarequalität nachvollziehbar zu machen.
+
+Sollte ein Bug *nach* der Abnahme durch den Product Owner, ein Teammitglied oder externe Stakeholder entdeckt werden, wird dieser als GitHub Issue mit dem Label `bug` dokumentiert.
+
+Alle erfassten Bugs sind zentral im GitHub-Repository einsehbar:
+link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues?q=label%3Abug[GitHub Issues mit Label „bug“]
+
+Jedes Issue enthält eine Beschreibung des Fehlers sowie – sofern erforderlich – Screenshots oder Schritte zur Reproduktion.
