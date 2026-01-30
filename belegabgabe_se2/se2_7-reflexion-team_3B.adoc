@@ -58,9 +58,9 @@ Ein dritter zentraler Erfolg war die konsequente Nutzung von GitHub für das Ver
 
 image::../docs/project_management/images/Workflow.png[Workflow, width=30%]
 
-Neue Features sowie Fehlerbehebungen wurden auf separaten Branches entwickelt. Um Missverständnisse zu vermeiden, wurde eine einheitliche Namenskonvention für Branches eingeführt, die Informationen über Typ, zugehörige User Story oder Issue sowie den verantwortlichen Entwickler enthält. Dadurch war jederzeit klar ersichtlich, welchem Zweck ein Branch dient.
+Neue Features sowie Fehlerbehebungen und Refactorings wurden auf separaten Branches entwickelt. Um Missverständnisse zu vermeiden, wurde eine einheitliche Namenskonvention für Branches eingeführt, die Informationen über Typ, zugehörige User Story oder Issue sowie den verantwortlichen Entwickler enthält. Dadurch war jederzeit klar ersichtlich, welchem Zweck ein Branch dient und welcher Entwickler für diesen Branch verantwortlich ist.
 
-Die Integration von Features in den dev-Branch erfolgte ausschließlich über Pull Requests. Dabei wurden relevante Teammitglieder als Reviewer eingebunden, sodass Änderungen mindestens von zwei Personen getestet und optional einem Code-Review unterzogen wurden. Dieses Vorgehen erhöhte die Codequalität und reduzierte das Risiko von Fehlern im gemeinsamen Codebestand. Inaktive Branches wurden nach dem Merge konsequent entfernt.
+Die Integration von Features in den dev-Branch erfolgte ausschließlich über Pull Requests. Dabei wurden relevante Teammitglieder als Reviewer eingebunden, sodass Änderungen mindestens von einer Person getestet und optional einem Code-Review unterzogen wurden. Bei größeren Änderungen am Code wurden Branches meist von 2 Entwicklern unabhängig überprüft, damit fehlerhafter Code eher erkannt wurde. Dieses Vorgehen erhöhte die Codequalität und reduzierte das Risiko von Fehlern im gemeinsamen Codebestand. Inaktive Branches wurden nach dem Merge konsequent entfernt.
 
 Dieser strukturierte Umgang mit Versionsverwaltung stellte sich als äußerst hilfreich heraus und trug maßgeblich zu einem stabilen Entwicklungsprozess bei. Gleichzeitig förderte er Transparenz, Verantwortungsbewusstsein und gemeinsame Qualitätsstandards im Team.
 
