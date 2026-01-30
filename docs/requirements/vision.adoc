@@ -115,7 +115,7 @@ Durch den Begleiter entsteht eine stärkere emotionale Bindung, die das Verantwo
 |===
 
 
-=== Zusätzliche Produktanforderungen
+== Zusätzliche Produktanforderungen
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 // Hinweise:
 
@@ -131,7 +131,7 @@ Durch den Begleiter entsteht eine stärkere emotionale Bindung, die das Verantwo
 
 | Einfache Bedienbarkeit auf mobilen Endgeräten 
 | Hoch 
-| Das System muss vollständig responsive sein und auf Smartphones (iOS, Android) sowie Tablets intuitiv bedienbar bleiben. Layout und Interaktion sollen sich automatisch an Displaygröße und Eingabemethode (Touch) anpassen.
+| Das System muss vollständig responsiv sein und auf Smartphones (iOS, Android) sowie Tablets intuitiv bedienbar bleiben. Layout und Interaktion sollen sich automatisch an Displaygröße und Eingabemethode (Touch) anpassen.
 | 30.01.2026
 
 | DSGVO-konforme Datenspeicherung
