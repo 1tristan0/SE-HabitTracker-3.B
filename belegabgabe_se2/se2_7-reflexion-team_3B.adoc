@@ -40,9 +40,9 @@ Die flexible Arbeitsorganisation, bestehend aus gemeinsamer Problemlösung, para
 
 Aus Sicht des Softwareentwicklungsprozesses zeigte sich deutlich, dass enge Zusammenarbeit und gezielte Qualitätssicherungsmaßnahmen wie Pair Programming, Anwendung von Clean-Code-Prinzipien und Code-Reviews wichtige Erfolgsfaktoren im agilen Kontext sind. Sie unterstützen nicht nur die iterative Entwicklung, sondern tragen wesentlich zur langfristigen Wartbarkeit und Verständlichkeit des Systems bei. Insbesondere zeigte sich, dass Code-Reviews durch Personen, die nicht an der Implementierung beteiligt waren, besonders wertvoll sind, da sie eine unvoreingenommene Sichtweise auf den Code mitbringen.
 
-=== Erfolg: Verbesserung des Softwaredesigns durch Domain-Driven Design
+=== Erfolg: Verbesserung des Softwaredesigns Clean Architecture
 
-Ein weiterer bedeutender Erfolg des Projekts war das bewusste Erkennen und Beheben von Defiziten im initialen Softwaredesign. Im Projektverlauf wurde deutlich, dass die aktuelle, teilweise sehr unstrukturierte Codebasis die Wartbarkeit und Erweiterbarkeit der Anwendung zunehmend einschränkte. Als Reaktion darauf orientierte sich das Team stärker an Konzepten des Domain-Driven Design (DDD), um die fachliche Domäne klarer vom technischen Unterbau zu trennen.
+Ein weiterer bedeutender Erfolg des Projekts war das bewusste Erkennen und Beheben von Defiziten im initialen Softwaredesign. Im Projektverlauf wurde deutlich, dass die aktuelle, teilweise sehr unstrukturierte Codebasis die Wartbarkeit und Erweiterbarkeit der Anwendung zunehmend einschränkte. Als Reaktion darauf orientierte sich das Team stärker an Konzepten der Clean Architecture (CA), um die fachliche Domäne klarer vom technischen Unterbau zu trennen und die allgemeine Codebasis klar zu strukturieren.
 
 Als Reaktion auf diese Erkenntnisse entschied sich das Team, zentrale Entwurfsprinzipien gezielt einzusetzen. Durch eine konsequente _Separation of Concerns_ erfolgte eine klare Trennung zwischen fachlicher Logik und technischer Umsetzung. Fachliche Komponenten wurden so gestaltet, dass sie möglichst unabhängig von konkreten Frameworks oder technischen Details bleiben. Ergänzend dazu wurde das Prinzip des _Information Hiding_ umgesetzt, indem einzelne Komponenten ausschließlich über definierte Schnittstellen miteinander kommunizieren und interne Implementierungsdetails gekapselt bleiben. 
 
@@ -50,7 +50,7 @@ Ein weiterer Schwerpunkt lag auf der _Modularisierung_ des Systems, insbesondere
 
 Die Umstellung auf diese Architektur machte ein umfangreiches Refactoring des bestehenden Codes notwendig, das mit einem erheblichen Zeit- und Arbeitsaufwand verbunden war. Rückblickend stellte sich diese Phase als technisch anspruchsvoll und organisatorisch herausfordernd dar. Gleichzeitig führte sie zu einer wichtigen Erkenntnis: Änderungen an der Softwarearchitektur werden mit zunehmendem Projektfortschritt deutlich aufwändiger. Daraus ergab sich für das Team die Lehre, architektonische Entscheidungen möglichst früh bewusst zu treffen und regelmäßig zu überprüfen, um spätere, kostenintensive Refactorings zu vermeiden.
 
-Trotz des hohen Aufwands erwies sich das Refactoring als nachhaltige Investition in die Qualität des Systems. Die resultierende Architektur ist klarer strukturiert, besser wartbar und robuster gegenüber zukünftigen Erweiterungen, wodurch sich der Einsatz etablierter DDD-Prinzipien im Projekt eindeutig bewährt hat. 
+Trotz des hohen Aufwands erwies sich das Refactoring als nachhaltige Investition in die Qualität des Systems. Die resultierende Architektur ist klarer strukturiert, besser wartbar und robuster gegenüber zukünftigen Erweiterungen, wodurch sich der Einsatz etablierter DDD-Prinzipien im Projekt eindeutig bewährt hat. Das Team erkannte, dass eine Architektur-Entscheidung im Optimalfall ab dem ersten Sprint getroffen und dokumentiert werden sollte.
 
 === Erfolg: Etablierung eines strukturierten Versions- und Konfigurationsmanagements
 
