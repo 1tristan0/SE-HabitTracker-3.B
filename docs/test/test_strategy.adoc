@@ -40,7 +40,7 @@ Bei fehlgeschlagenen Tests wird folgendes Vorgehen durchgeführt:
 - *Abklärung:* Bei Bedarf Abstimmung mit Team und Product Owner.
 - *Behebung:* Notwendige Anpassungen werden vorgenommen.
 
-== Manuelle Tests vor finaler Abnahme der User Storys durch den Product Owner
+=== Manuelle Tests vor finaler Abnahme der User Storys durch den Product Owner
 
 Vor der finalen Abnahme durch den Product Owner müssen manuelle Tests durchgeführt werden. Diese sollen die Akzeptanzkriterien der einzelnen User Storys abdecken.
 Die manuellen Tests entsprechen Akzeptanztests und orientieren sich an den definierten Akzeptanzkriterien der jeweiligen User Story.
@@ -62,7 +62,7 @@ Eine Änderung oder ein neues Feature wird erst akzeptiert, wenn:
 * Design und Funktionalität den Anforderungen entsprechen
 * Product Owner die Änderung freigegeben hat
 
-== Umgang mit Bugs nach/während der Abnahme
+=== Umgang mit Bugs nach/während der Abnahme
 
 Sollte *während* der Abnahme ein Bug entdeckt werden, erfolgt die Dokumentation innerhalb des Pull-Requests und nicht in einem separaten Issue. Dabei wird gegebenenfalls die Funktion "Request Changes" von Github  genutzt.
 Nach der Abnahme werden Bugs immer als Issue dokumentiert, um den Stand der Softwarequalität nachvollziehbar zu machen.

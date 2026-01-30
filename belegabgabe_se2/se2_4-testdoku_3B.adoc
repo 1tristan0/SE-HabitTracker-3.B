@@ -1,5 +1,6 @@
 include::../docs/_includes/default-attributes.inc.adoc[]
 // ---
+//:doctype: article
 :doctype: book
 //:toc:
 //:toclevels: 2
