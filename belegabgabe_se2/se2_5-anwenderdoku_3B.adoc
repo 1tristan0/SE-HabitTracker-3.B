@@ -1,6 +1,6 @@
 include::../docs/_includes/default-attributes.inc.adoc[]
 // ---
-:doctype: book
+:doctype: article
 //:toc:
 //:toclevels: 2
 //:toc-title: Inhaltsverzeichnis
@@ -27,7 +27,7 @@ include::../docs/_includes/default-attributes.inc.adoc[]
 :docs-development: {docs}/development
 
 // --- Anwenderdokumentation ---
-== Anwenderdokumentation
+= Anwenderdokumentation
 
 :toc:
 :toclevels: 2
@@ -197,4 +197,4 @@ Graue Tage liegen in der Zukunft. Für diese Tage existieren noch keine Habit-Da
 include::../docs/requirements/glossary.adoc[]
 ---
 
-*Stand der Dokumentation: aktueller Entwicklungsstand*
+*Stand der Dokumentation: 30.01.2026*
