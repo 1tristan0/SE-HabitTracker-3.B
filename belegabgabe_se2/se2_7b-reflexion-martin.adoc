@@ -20,7 +20,7 @@ Ein weiterer wichtiger Beitrag von mir war das systematische Ausprobieren der An
 
 Zusätzlich habe ich die Rohfassung der Anwenderdokumentation erstellt. Beim Schreiben dieser Dokumentation wurde mir nochmals deutlich, wie reduziert und zugleich effizient der aktuelle Funktionsumfang der Anwendung ist. Die Konzentration auf wenige, klar sichtbare Funktionen unterstützt die Bedienbarkeit deutlich. Die Anwenderdokumentation ist im Repository enthalten (link:se2_5-anwenderdoku_3B.adoc[Anwenderdokumentation]).
 
-Darüber hinaus habe ich ein BPMN-2.0-Modell unseres teaminternen Sprint-Workflows erstellt. Ziel war es, unseren Arbeitsprozess transparenter und nachvollziehbarer darzustellen. Das Modell sollte helfen, Verantwortlichkeiten und Abläufe klarer zu sehen und eine besser rückverfolgbare Arbeitsstruktur zu schaffen. Das zugehörige Diagramm ist im Repository hinterlegt (siehe Anhang A1).
+Darüber hinaus habe ich ein BPMN-2.0-Modell unseres teaminternen link:../docs/project_management/images/Workflow.png[Workflows] erstellt. Ziel war es, unseren Arbeitsprozess transparenter und nachvollziehbarer darzustellen. Das Modell sollte helfen, Verantwortlichkeiten und Abläufe klarer zu sehen und eine besser rückverfolgbare Arbeitsstruktur zu schaffen.
 
 Außerdem habe ich z.b. eine Rohfassung der Präsentationsfolien zum Thema Testmethoden vorbereitet, die später von Monika und Patrick überarbeitet und ergänzt wurde.
 
@@ -50,12 +50,4 @@ Ich nehme aus dem Projekt vor allem mit:
 
 Auch wenn mein Beitrag technisch kleiner war als erhofft, war das Projekt für mich eine intensive und wertvolle Lernerfahrung.
 
----
 
-== Anhang
-
-=== A1 – Team-Workflow im Sprint
-
-Workflow-Diagramm des teaminternen Sprint-Prozesses:
-
-link:../docs/project_management/images/Workflow.png[Workflow-Diagramm öffnen]
