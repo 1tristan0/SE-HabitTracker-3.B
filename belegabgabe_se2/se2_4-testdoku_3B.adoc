@@ -1,7 +1,7 @@
 include::../docs/_includes/default-attributes.inc.adoc[]
 // ---
-:doctype: article
-//:doctype: book
+//:doctype: article
+:doctype: book
 //:toc:
 //:toclevels: 2
 //:toc-title: Inhaltsverzeichnis
