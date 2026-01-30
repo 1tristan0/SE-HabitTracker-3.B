@@ -1,10 +1,10 @@
-== Styleguide
+=== Styleguide
 Dieses Dokument dient als Leitfaden für die Gestaltung von Frontend-Komponenten und die Einhaltung von Stilrichtlinien im Projekt Gewohnheitstier.
 Es soll sicherstellen, dass das Design konsistent, benutzerfreundlich und ansprechend ist. Das Projekt nutzt Tailwind CSS für das Design-System (Farben, Spacing, Typografie). 
 Zusätzlich ist Bootstrap global eingebunden (Layout-Utilities/Grundstyles), daher können Bootstrap-Klassen einzelne Komponenten beeinflussen. 
 Empfehlung: Wenn möglich, pro Komponente konsistent bleiben (Tailwind-only oder Bootstrap-only), um Style-Konflikte zu vermeiden.
 
-=== Farbpalette & Semantik
+==== Farbpalette & Semantik
 
 Die Farbpalette von *Gewohnheitstier* basiert auf einer ruhigen, natürlichen Grün-Farbwelt. Ziel ist es, eine positive, motivierende Atmosphäre zu schaffen,
 die Gewohnheitsbildung unterstützt, ohne visuell zu überfordern.
@@ -24,7 +24,7 @@ Die Farben sind bewusst semantisch definiert und werden projektweit konsistent v
 Hinweis:
 Je nach Kontext können Cards sowohl auf `primary1` (hell, ruhig) als auch auf `primary3` (stärkerer Akzent, Fokuszustand) basieren, um visuelle Hierarchien zu unterstützen.
 
-==== Kontrast & Zugänglichkeit
+===== Kontrast & Zugänglichkeit
 
 Zur Sicherstellung ausreichender Lesbarkeit gelten folgende Regeln:
 
@@ -33,7 +33,7 @@ Zur Sicherstellung ausreichender Lesbarkeit gelten folgende Regeln:
 * *primaryRed* ist ausschließlich für kritische Aktionen (z. B. Löschen) oder Fehlermeldungen vorgesehen und darf nicht für reguläre Interaktionen verwendet werden.
 * Zukünftige (nicht klickbare) Zustände werden neutral über Grautöne dargestellt (z. B. `bg-gray-300`), um sich klar von der Farbsemantik der App abzugrenzen.
 
-=== Typografie
+==== Typografie
 
 Die Typografie ist bewusst schlicht gehalten, um den Fokus auf Inhalte und Interaktionen zu legen.
 Es werden ausschließlich Tailwind-Utility-Klassen verwendet.
@@ -49,7 +49,7 @@ Es werden ausschließlich Tailwind-Utility-Klassen verwendet.
 | Sehr kleiner Text (Meta-Informationen) | 12px | `text-xs`
 |===
 
-==== Font-Familie
+===== Font-Familie
 
 Das Projekt nutzt die Standard-Systemschriftart (System-Stack), um eine schnelle Ladezeit und plattformübergreifend konsistente Darstellung sicherzustellen.
 
@@ -58,7 +58,7 @@ Das Projekt nutzt die Standard-Systemschriftart (System-Stack), um eine schnelle
 font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
 ----
 
-==== Abstandsskala
+===== Abstandsskala
 
 Das Projekt folgt einer konsistenten, 4px-basierten Spacing-Skala. Diese wird durchgängig für Padding, Margin und Grid-Abstände verwendet,
 um visuelle Ruhe und einheitliche Layouts zu gewährleisten.
@@ -73,7 +73,7 @@ um visuelle Ruhe und einheitliche Layouts zu gewährleisten.
 | xl | 32px | `p-8`, `m-8`, `gap-8`
 |===
 
-==== Responsive Breakpoints
+===== Responsive Breakpoints
 
 Das Frontend folgt einem *Mobile-First*-Ansatz. Komponenten werden zunächst für kleine Bildschirme gestaltet und anschließend für größere Viewports erweitert.
 
@@ -86,12 +86,12 @@ Das Frontend folgt einem *Mobile-First*-Ansatz. Komponenten werden zunächst fü
 | Large Desktop | xl: 1280px | `xl:`
 |===
 
-=== Komponenten-Katalog
+==== Komponenten-Katalog
 
 Dieses Kapitel beschreibt die zentralen UI-Komponenten des Projekts *Gewohnheitstier*,
 ihre gestalterischen Merkmale sowie empfohlene Tailwind-CSS-Klassen zur konsistenten Umsetzung.
 
-==== Buttons
+===== Buttons
 
 Ziel:
 Buttons sollen klar verständlich, eindeutig unterscheidbar und barrierearm sein.
@@ -143,7 +143,7 @@ Hinweis zur Wiederverwendung:
 Wiederkehrende Buttons (z. B. „Schließen“-Button, Close-Icon in Modals, Bestätigungs-Buttons) sollen als wiederverwendbare UI-Komponenten umgesetzt werden.
 Bestehende Button-Komponenten sind bevorzugt zu verwenden, anstatt neue Varianten pro View zu definieren, um ein konsistentes Erscheinungsbild und wartbaren Code sicherzustellen.
 
-==== Karten (Cards)
+===== Karten (Cards)
 
 Cards sind generische Container-Komponenten und dienen als Grundlage für spezialisierte Varianten wie HabitCards oder Modals.
 
@@ -157,7 +157,7 @@ Merkmale:
 Empfohlen:
 `bg-primary1 rounded-2xl shadow-md p-4 border border-gray-200`
 
-==== HabitCard (Gewohnheits-Kachel)
+===== HabitCard (Gewohnheits-Kachel)
 
 Die HabitCard stellt eine einzelne Gewohnheit dar.
 Sie ist als horizontale Listen-Card gestaltet und stellt eine einzelne Gewohnheit kompakt dar.
@@ -180,7 +180,7 @@ Gestaltung:
 Empfohlen:
 `bg-primary3 rounded-xl shadow-sm px-3 py-2 flex items-center justify-between hover:shadow-md transition`
 
-==== Grid / Layout (HabitGrid)
+===== Grid / Layout (HabitGrid)
 
 Das HabitGrid ordnet mehrere HabitCards übersichtlich an.
 
@@ -195,7 +195,7 @@ Empfohlen:
 - Page-Wrapper: max-w-5xl mx-auto px-4
 - Stack: flex flex-col gap-6 (oder gap-8)
 
-==== Kalender
+===== Kalender
 
 Der Kalender fungiert zugleich als visuelles Feedback-Instrument zur Motivation und langfristigen Gewohnheitsverfolgung.
 Nicht klickbare Tage (Zukunft) sind bewusst visuell und funktional deaktiviert, um Fehlinteraktionen zu vermeiden.
@@ -217,7 +217,7 @@ Farbsemantik:
 Empfohlen:
 `grid grid-cols-7 gap-2`
 
-==== Modal (Dialogfenster)
+===== Modal (Dialogfenster)
 
 Modals werden für Detailansichten verwendet (z. B. Kalender-Tag, Habit-Details).
 
@@ -235,7 +235,7 @@ Overlay:
 Modal-Card:
 `max-w-2xl w-full bg-primary1 rounded-2xl shadow-2xl border border-gray-200 overflow-hidden`
 
-==== Formulare & Inputs
+===== Formulare & Inputs
 
 Formulare sollen leicht, klar und gut lesbar sein.
 
@@ -248,7 +248,7 @@ Merkmale:
 Empfohlen (Input/Textarea):
 `border border-slate-200 bg-slate-50/80 text-slate-900 placeholder:text-slate-400 rounded-xl px-3 py-2.5 focus:border-primary4 focus:ring-2 focus:ring-primary4/20 focus:bg-white transition outline-none`
 
-==== Navbar
+===== Navbar
 
 Die Navbar bleibt bewusst zurückhaltend, um den Fokus auf Inhalte und tägliche Interaktionen zu legen.
 
@@ -268,7 +268,7 @@ Gestaltung:
 Empfohlen:
 `bg-primary2 border-b border-gray-200`
 
-==== Typografie & Textelemente
+===== Typografie & Textelemente
 
 Merkmale:
 

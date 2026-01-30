@@ -1,5 +1,5 @@
-== Integration
-=== GitHub Actions Workflow - ci.yml
+=== Integration
+==== GitHub Actions Workflow - ci.yml
 * siehe `.github/workflows/ci.yml`
 
 [plantuml, integration-workflow, png]
@@ -45,8 +45,8 @@ stop
 @enduml
 ----
 
-== Deployment
-=== GitHub Actions Workflow - docker-deploy.yml
+=== Deployment
+==== GitHub Actions Workflow - docker-deploy.yml
 * siehe `.github/workflows/docker-deploy.yml`
 
 Das Image-Tag ist abhängig vom Target-Branch, d.h. bei einem Merge auf den main-Branch wird das Image mit `stable` getaggt, bei einem Merge auf den dev-Branch mit `latest`. Dies ermöglicht uns mehrere Versionen gleichzeitig verwalten zu können.  

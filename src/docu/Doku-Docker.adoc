@@ -1,5 +1,5 @@
-== Docker Guide
-=== Übersicht Containerstruktur
+=== Docker Guide
+==== Übersicht Containerstruktur
 
 * **gewohnheitstier-backend**
   - Basierend auf `node:20-bullseye`
@@ -51,13 +51,13 @@ ProdFrontend <--> ProdBackend : HTTP / API
 
 Die DEV-Umgebung kommuniziert dabei mit der lokalen Instanz con Supabase, während die PROD-Umgebung mit der Cloud-Instanz kommuniziert.
 
-=== .env - Dateien
+==== .env - Dateien
 Die .env-Dateien setzte den nötigen Umgebungskontext via der entsprechenden Variablen.
-==== env (Frontend)
+===== env (Frontend)
 ```
 REACT_APP_API_BASE_URL=http://localhost:3001
 ```
-==== env.local
+===== env.local
 ```
 NODE_ENV=development
 # Mac 
@@ -73,7 +73,7 @@ SUPABASE_URL=http://172.17.0.1:54321
 SUPABASE_ANON_KEY=****
 PORT=3001
 ```
-==== env.production
+===== env.production
 ```
 NODE_ENV=production
 DATABASE_URL="postgresql://<user>.<project_ref>>:g<password>@aws-0-eu-central-1.pooler.supabase.com:5432/postgres"
@@ -81,9 +81,9 @@ SUPABASE_URL=https://<project_ref>.supabase.co/
 SUPABASE_ANON_KEY=****
 PORT=3001
 ```
-=== Nutzung
+==== Nutzung
 
-==== Projekt starten
+===== Projekt starten
 [source,bash]
 ----
 docker compose up -f docker-compose.yml -f docker-compose.dev.yml up --build
@@ -96,20 +96,20 @@ docker compose up -f docker-compose.yml -f docker-compose.prod.yml up --build
 Dadurch werden beide Container gebaut und gestartet.  
 Der Client ist anschließend unter `http://localhost:3000` und der Server unter `http://localhost:3001` erreichbar.
 
-==== Projekt stoppen
+===== Projekt stoppen
 [source,bash]
 ----
 docker compose down -v
 ----
 `-v` entfernt dabei alle erstellten Volumes. Wichtig wenn Änderungen an den Nodemodules vorgenommen wurde.
 
-==== Logs anzeigen
+===== Logs anzeigen
 [source,bash]
 ----
 docker compose logs -f
 ----
 
-==== Vorteile
+===== Vorteile
 
 * Einheitliche Entwicklungsumgebung für alle Teammitglieder
 * Trennung von Entwicklung und Produktion

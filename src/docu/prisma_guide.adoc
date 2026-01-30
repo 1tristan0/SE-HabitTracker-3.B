@@ -1,18 +1,18 @@
-== Prisma ORM Guide
+=== Prisma ORM Guide
 :toc:
 :toclevels: 2
 
-=== Überblick
+==== Überblick
 Kurzer Leitfaden zur Prisma-Nutzung im aktuellen Projektstand.
 
-=== Projektanbindung
+==== Projektanbindung
 * Schema: link:../../src/backend/prisma/schema.prisma[backend/prisma/schema.prisma]
 * Config: link:../../src/backend/prisma.config.js[backend/prisma.config.js] (Schema-Pfad, Migration-Ordner, Datasource-URL)
 * Client: Standard-Output von `@prisma/client` (kein eigenes `output` gesetzt)
 * Client-Import: link:../../src/backend/src/prisma.js[backend/src/prisma.js] erzeugt `PrismaClient` mit Logging und exportiert Instanz für das Backend (siehe link:../../src/backend/index.js[backend/index.js])
 * DB-URL: `DATABASE_URL` aus link:../../src/backend/.env[backend/.env] (lokal) bzw. `backend/.env.local` im Docker-Dev-Setup
 
-=== Modelle im Schema
+==== Modelle im Schema
 * Enums: `animal_type` (hund/katze/hamster/wurm), `animal_mood` (gluecklich/traurig)
 * `habits_table`
 ** Primärschlüssel `id` (String mit `uuid()` Default)
@@ -22,7 +22,7 @@ Kurzer Leitfaden zur Prisma-Nutzung im aktuellen Projektstand.
 ** Felder für Tier-Status: `animal_type`, `animal_mood`
 ** Relation: 1-n zu `habits_table`
 
-=== Generierung & Migrationskommandos
+==== Generierung & Migrationskommandos
 Befehle innerhalb der Shell des Backend-Containers ausführen, nicht im Hostgerät:
 
 * Client generieren (automatisch über Dockerfile oder in der Container Shell): `npx prisma generate`
@@ -32,18 +32,18 @@ Befehle innerhalb der Shell des Backend-Containers ausführen, nicht im Hostger�
 * Migrations chronologisch auf DB anwenden: `npx prisma deploy`
 * Migrations liegen in link:../../src/backend/prisma/migrations[backend/prisma/migrations]
 
-=== Nutzung im Code
+==== Nutzung im Code
 * Beispiel-Query: link:../../src/backend/src/routes/habits.js[backend/src/routes/habits.js] Route `/api/habits` ruft `prisma.habits_table.findMany()` auf und serialisiert `streak`/Dates für JSON-Ausgabe.
 * BigInt-Hinweis: Node JSON kann BigInt nicht serialisieren – deshalb werden `streak`-Werte in Numbers gewandelt (siehe `serializeHabit`).
 
-=== Umgebungsvariablen
+==== Umgebungsvariablen
 * `DATABASE_URL` muss vor Prisma-Aufrufen gesetzt sein.
 ** Lokal: link:../../src/backend/.env[backend/.env]
 ** Docker-Dev: `backend/.env.local` (siehe `docker-compose.dev.yml`)
 ** Docker-Prod: `backend/.env.production` (falls vorhanden, siehe `docker-compose.prod.yml`)
 * Hinweis: `prisma.config.js` nutzt `env("DATABASE_URL")` aus Prisma Config; die `.env` wird nicht automatisch geladen, wenn die Umgebung nicht gesetzt ist.
 
-=== Troubleshooting
+==== Troubleshooting
 * Schema-Änderungen greifen nicht: neu generieren, ggf. Migration/Push auf DB, eventuell fehlerhafte Migration zuvor erstellt die noch die "Pipeline" blockiert (aktuelle Migration ist gar nicht der Fehler) -> reset auf init_migration 
 * Verbindung schlägt fehl: `DATABASE_URL` prüfen, Netzwerkzugriff zum DB-Host sicherstellen
 * Wir arbeiten mit Prisma 6.x, darauf achten, dass nicht durch `npm install` auf Version 7.x geupdatet wurde
