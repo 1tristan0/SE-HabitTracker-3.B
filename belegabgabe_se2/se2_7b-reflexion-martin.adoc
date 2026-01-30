@@ -1,0 +1,61 @@
+= Einzelreflexion – Projekt Gewohnheitstier
+:toc:
+:toclevels: 2
+
+== Persönlicher Einstieg und Ausgangssituation
+
+Zu Beginn des Projekts bin ich mit großer Motivation in die Arbeit gestartet, hatte jedoch einen klaren fachlichen Nachteil: Ich hatte das Modul zur Entwicklung webbasierter Anwendungen noch nicht belegt. Dadurch fehlten mir wichtige Grundlagen zu Web-Architektur, API-Strukturen und Backend-Logik. Viele Entscheidungen im Projekt konnte ich anfangs nicht vollständig nachvollziehen. Das führte dazu, dass ich deutlich mehr Zeit brauchte, um Zusammenhänge zu verstehen und Änderungen im Repository einzuordnen.
+
+Ich hatte mich zunächst freiwillig gemeldet, im Backend mitzuwirken. In der Praxis stellte sich jedoch heraus, dass ich Schwierigkeiten hatte, mit der Geschwindigkeit der Entwicklung und den vielen parallelen Änderungen Schritt zu halten. Rückblickend hätte ich früher und häufiger nachfragen müssen, statt zu versuchen, alles allein nachzuvollziehen. Meine Rolle im Team verlagerte sich deshalb im Verlauf stärker in Richtung Konzeptarbeit, Testen und Dokumentation.
+
+---
+
+== Eigene Beiträge im Projekt
+
+Trotz der Schwierigkeiten konnte ich an mehreren Stellen sinnvoll zum Projekt beitragen. Ein Schwerpunkt meiner Mitarbeit lag in der konzeptionellen Diskussion der Anwendung. Ich habe mich an Überlegungen zur Gestaltung der Oberfläche beteiligt, unter anderem bei der Farbwahl und bei der Struktur einzelner Screens. Dabei ging es insbesondere darum, die Anwendung minimalistisch zu halten, um eine Reizüberflutung zu vermeiden und den Fokus auf die Kernfunktionen zu legen. An der eigentlichen Umsetzung war ich zugegebener Weise nicht wirklich beteiligt.
+
+Eine konkrete technische Aufgabe, mit der ich mich beschäftigt habe, war die Streak-Logik im Backend. Meine ursprüngliche Idee war, die Streak direkt beim Abhaken eines Habits zu prüfen und zu aktualisieren. Das wäre eine einfache und funktionale Lösung gewesen. Im finalen Stand wurde die Logik jedoch robuster umgesetzt: Die Streak wird serverseitig beim Laden der Habit-Liste überprüft und gegebenenfalls zurückgesetzt. Dadurch bleibt die Anzeige auch dann korrekt, wenn ein Nutzer mehrere Tage nicht aktiv war. Der zugehörige Bugfix ist im Repository dokumentiert (link:https://github.com/1tristan0/SE-HabitTracker-3.B/issues/191[Issue #191 – Streak-Logik]). Auch wenn mein eigener Branch diese Lösung letztlich nicht eingebracht hat, sondern Paul das übernommen hat, habe ich fachlich an dem Thema gearbeitet und konnte aus der finalen Umsetzung viel lernen.
+
+Ein weiterer wichtiger Beitrag von mir war das systematische Ausprobieren der Anwendung aus Nutzersicht. Nachdem ich gemerkt habe, dass meine direkte Entwicklungsleistung geringer ausfiel als geplant, habe ich mich stärker auf Tests und Nutzungsszenarien konzentriert. Ich habe Funktionen durchprobiert, mögliche Fehler gesucht und Abläufe überprüft. Beobachtungen und Auffälligkeiten habe ich in die Weekly Meetings eingebracht. Das entsprach einer explorativen Testrolle und unterstützte die Qualitätssicherung.
+
+Zusätzlich habe ich die Rohfassung der Anwenderdokumentation erstellt. Beim Schreiben dieser Dokumentation wurde mir nochmals deutlich, wie reduziert und zugleich effizient der aktuelle Funktionsumfang der Anwendung ist. Die Konzentration auf wenige, klar sichtbare Funktionen unterstützt die Bedienbarkeit deutlich. Die Anwenderdokumentation ist im Repository enthalten (link:se2_5-anwenderdoku_3B.adoc[Anwenderdokumentation]).
+
+Darüber hinaus habe ich ein BPMN-2.0-Modell unseres teaminternen Sprint-Workflows erstellt. Ziel war es, unseren Arbeitsprozess transparenter und nachvollziehbarer darzustellen. Das Modell sollte helfen, Verantwortlichkeiten und Abläufe klarer zu sehen und eine besser rückverfolgbare Arbeitsstruktur zu schaffen. Das zugehörige Diagramm ist im Repository hinterlegt (siehe Anhang A1).
+
+Außerdem habe ich z.b. eine Rohfassung der Präsentationsfolien zum Thema Testmethoden vorbereitet, die später von Monika und Patrick überarbeitet und ergänzt wurde.
+
+---
+
+== Zusammenarbeit und Prozess
+
+Im Verlauf des Projekts konnte ich eine deutliche Verbesserung unserer Teamarbeit beobachten. Diskussionen wurden strukturierter, Entscheidungen transparenter und die Abstimmung zwischen den Mitgliedern besser. Besonders das Refactoring durch Tristan Paul und Patrick hat zu einem einheitlicheren Verständnis der Architektur geführt. Die scrumähnliche Arbeitsweise mit regelmäßigen Meetings, Aufgabenplanung und Fortschrittskontrolle hat mir gezeigt, wie wichtig Struktur, Dokumentation und kontinuierliche Rückmeldung für den Erfolg eines Teamprojekts sind.
+
+Ich habe gelernt, dass gute Kommunikation und frühzeitiges Nachfragen entscheidend sind — besonders dann, wenn einem fachliche Grundlagen fehlen. Zu spätes Nachfragen führt eher zu Verzögerung als zu Zeitgewinn.
+
+---
+
+== Eigene Bewertung und Lernerkenntnisse
+
+Rückblickend muss ich selbstkritisch feststellen, dass mein direkter Entwicklungsbeitrag geringer war als geplant. Im Backend-Bereich konnte ich meine ursprünglichen Ziele nicht vollständig umsetzen. Dennoch konnte ich das Projekt auf andere Weise unterstützen — durch Konzeptbeiträge, Testen, Dokumentation und Prozessmodellierung.
+
+Fachlich habe ich viel über Webentwicklung gelernt, insbesondere über die Trennung von Frontend und Backend, über Datenbankzugriffe mit Prisma und Supabase, über API-Strukturen sowie über Test- und Build-Prozesse. Besonders hilfreich waren dabei die Erklärungen meiner Teammitglieder zu Architektur und Designentscheidungen.
+
+Ich nehme aus dem Projekt vor allem mit:
+
+* die Bedeutung sauberer Architektur
+* den Wert guter Dokumentation
+* die Rolle von Tests und Bugfix-Prozessen
+* die Wichtigkeit aktiver Kommunikation im Team
+* die Notwendigkeit, Verständnislücken früh zu klären
+
+Auch wenn mein Beitrag technisch kleiner war als erhofft, war das Projekt für mich eine intensive und wertvolle Lernerfahrung.
+
+---
+
+== Anhang
+
+=== A1 – Team-Workflow im Sprint
+
+Workflow-Diagramm des teaminternen Sprint-Prozesses:
+
+link:../docs/project_management/images/Workflow.png[Workflow-Diagramm öffnen]
