@@ -62,7 +62,7 @@ Die Integration von Features in den dev-Branch erfolgte ausschließlich über Pu
 
 Dieser strukturierte Umgang mit Versionsverwaltung stellte sich als äußerst hilfreich heraus und trug maßgeblich zu einem stabilen Entwicklungsprozess bei. Gleichzeitig förderte er Transparenz, Verantwortungsbewusstsein und gemeinsame Qualitätsstandards im Team.
 
-//include:: Diagramm Martin
+image::../docs/project_management/images/Workflow.png[Workflow, width=30%]
 
 === Misserfolg: Unzureichendes und inkonsistentes Tracking organisatorischer Aufgaben
 
@@ -108,9 +108,3 @@ include::se2_7e-reflexion-patrick.adoc[]
 include::se2_7f-reflexion-paul.adoc[]
 include::se2_7g-reflexion-tristan.adoc[]
 
-== Anhang
-
-[[A1]]
-=== A1 – Workflow
-
-image::../docs/project_management/images/Workflow.png[Workflow, width=30%]
