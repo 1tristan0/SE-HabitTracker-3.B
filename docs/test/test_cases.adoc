@@ -25,7 +25,7 @@ Die einzelnen Testfälle werden in den User-Stories im Github dokumentiert und a
 == Tests
 
 === Frontend Unit Tests 
-`/src/frontend/src/__tests__/*.test.js`
+`/src/frontend/__tests__/*.test.js`
 Wir haben Unit Tests für die folgenden Komponenten implementiert:
 * Navbar-Komponente:
 ** rendert korrekt die Navigations-Links
@@ -93,6 +93,10 @@ Wir haben Unit Tests für die folgenden Komponenten implementiert:
 * Calendar-Utilities (calendar.js):
 ** berechnet Erledigungsgrad pro Tag
 ** ermittelt erledigte und nicht erledigte Habits pro Datum
+* Konvertierungs-Utilities (convert.js):
+** überprüft, dass die verschiedenen Datumsformate korrekt konvertiert werden
+* Habit-Utilities (habit.js):
+** berechnet Statistiken für Habits korrekt
 
 * API/HTTP-Utilities:
 ** `httpClient` setzt Header/Body korrekt und behandelt Fehler
