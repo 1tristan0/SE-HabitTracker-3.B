@@ -54,7 +54,8 @@ Trotz des hohen Aufwands erwies sich das Refactoring als nachhaltige Investition
 
 === Erfolg: Etablierung eines strukturierten Versions- und Konfigurationsmanagements
 
-Ein dritter zentraler Erfolg war die konsequente Nutzung von GitHub für das Versions- und Konfigurationsmanagement. Das Team einigte sich frühzeitig auf einen strukturierten Workflow mit Branching und Pull Requests, um Änderungen nachvollziehbar und konfliktarm in das Projekt zu integrieren.
+Ein dritter zentraler Erfolg war die konsequente Nutzung von GitHub für das Versions- und Konfigurationsmanagement. Das Team einigte sich frühzeitig auf einen strukturierten Workflow mit Branching und Pull Requests, um Änderungen nachvollziehbar und konfliktarm in das Projekt zu integrieren. Siehe <<A1>>
+
 
 Neue Features sowie Fehlerbehebungen wurden auf separaten Branches entwickelt. Um Missverständnisse zu vermeiden, wurde eine einheitliche Namenskonvention für Branches eingeführt, die Informationen über Typ, zugehörige User Story oder Issue sowie den verantwortlichen Entwickler enthält. Dadurch war jederzeit klar ersichtlich, welchem Zweck ein Branch dient.
 
@@ -108,3 +109,10 @@ include::se2_7d-reflexion-nicola.adoc[]
 include::se2_7e-reflexion-patrick.adoc[]
 include::se2_7f-reflexion-paul.adoc[]
 include::se2_7g-reflexion-tristan.adoc[]
+
+== Anhang
+
+[[A1]]
+=== A1 – Workflow
+
+image::../docs/project_management/images/Workflow.png[Workflow, width=30%]
